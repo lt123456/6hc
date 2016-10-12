@@ -7,11 +7,11 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- basic styles -->
-    <link href="<?php echo C('__CSS__');?>/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/font-awesome.min.css" />
+    <link href="<?php echo C('__STATIC__');?>/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome.min.css" />
 
     <!--[if IE 7]>
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/font-awesome-ie7.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome-ie7.min.css" />
     <![endif]-->
 
     <!-- page specific plugin styles -->
@@ -22,29 +22,31 @@
 
     <!-- ace styles -->
 
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/ace.min.css" />
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/ace-rtl.min.css" />
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-skins.min.css" />
 
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="<?php echo C('__CSS__');?>/assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-ie.min.css" />
     <![endif]-->
 
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
 
-    <script src="<?php echo C('__JS__');?>/assets/js/ace-extra.min.js"></script>
+    <script src="<?php echo C('__STATIC__');?>/assets/js/ace-extra.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.min.js"></script>
+    <script src="<?php echo C('__STATIC__');?>/assets/js/html5shiv.js"></script>
+    <script src="<?php echo C('__STATIC__');?>/assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
 
 <body>
+
+<!-- head -->
 <div class="navbar navbar-default" id="navbar">
     <script type="text/javascript">
         try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -213,7 +215,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__Img__');?>/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -230,7 +232,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__Img__');?>/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -247,7 +249,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__Img__');?>/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -273,7 +275,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="<?php echo C('__Img__');?>/assets/avatars/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="<?php echo C('__STATIC__');?>/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									Jason
@@ -300,7 +302,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="<?php echo U('Login/logout');?>">
                                 <i class="icon-off"></i>
                                 退出
                             </a>
@@ -312,6 +314,10 @@
     </div><!-- /.container -->
 </div>
 
+<!-- /head -->
+
+
+<!-- left -->
 <div class="main-container" id="main-container">
     <script type="text/javascript">
         try{ace.settings.check('main-container' , 'fixed')}catch(e){}
@@ -379,7 +385,7 @@
                             </a>
                             <a href="elements.html">
                                 <i class="icon-double-angle-right"></i>
-                                 添加用户
+                                添加用户
                             </a>
                         </li>
 
@@ -421,11 +427,11 @@
                         <li>
                             <a href="tables.html">
                                 <i class="icon-double-angle-right"></i>
-                                    图库列表
+                                图库列表
                             </a>
                             <a href="tables.html">
                                 <i class="icon-double-angle-right"></i>
-                                 图库名称管理
+                                图库名称管理
                             </a>
                             <a href="tables.html">
                                 <i class="icon-double-angle-right"></i>
@@ -524,7 +530,7 @@
                                 文章发布
                             </a>
                         </li>
-                        </ul>
+                    </ul>
                 </li>
 
                 <li>
@@ -646,9 +652,13 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="#">首页</a>
+                        <a href="#">Home</a>
                     </li>
-                    <li class="active">控制台</li>
+
+                    <li>
+                        <a href="#">Other Pages</a>
+                    </li>
+                    <li class="active">Blank Page</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -661,7 +671,7 @@
                 </div><!-- #nav-search -->
             </div>
 
-
+        </div><!-- /.main-content -->
 
         <div class="ace-settings-container" id="ace-settings-container">
             <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
@@ -678,34 +688,34 @@
                             <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
                         </select>
                     </div>
-                    <span>&nbsp; 选择皮肤</span>
+                    <span>&nbsp; Choose Skin</span>
                 </div>
 
                 <div>
                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
-                    <label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
+                    <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                 </div>
 
                 <div>
                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-                    <label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
+                    <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                 </div>
 
                 <div>
                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
-                    <label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+                    <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                 </div>
 
                 <div>
                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-                    <label class="lbl" for="ace-settings-rtl">切换到左边</label>
+                    <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                 </div>
 
                 <div>
                     <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
                     <label class="lbl" for="ace-settings-add-container">
-                        切换窄屏
-                        <b></b>
+                        Inside
+                        <b>.container</b>
                     </label>
                 </div>
             </div>
@@ -717,9 +727,51 @@
     </a>
 </div><!-- /.main-container -->
 
+
+
+
+<!-- /left-->
+
  <!--basic scripts -->
 
 <!--[if !IE]> -->
+
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    控制台
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+
+                    <div class="alert alert-block alert-success">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <i class="icon-remove"></i>
+                        </button>
+
+                        <i class="icon-ok green"></i>
+
+                        欢迎使用
+                        <strong class="green">
+                            6hc后台管理系统
+                            <small>(v1.2)</small>
+                        </strong>
+                        ,我们提供全新的6模拟彩票服务,只为您更好的彩票体验
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -739,35 +791,35 @@
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='<?php echo C('__JS__');?>/assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
+    window.jQuery || document.write("<script src='<?php echo C('__STATIC__');?>/assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
 </script>
 <![endif]-->
 
 <script type="text/javascript">
-    if("ontouchend" in document) document.write("<script src=<?php echo C('__JS__');?>/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+    if("ontouchend" in document) document.write("<script src=<?php echo C('__STATIC__');?>/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 </script>
-<script src="<?php echo C('__JS__');?>/assets/js/bootstrap.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/typeahead-bs2.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/bootstrap.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/typeahead-bs2.min.js"></script>
 
 <!-- page specific plugin scripts -->
 
 <!--[if lte IE 8]>
-<script src="<?php echo C('__JS__');?>/assets/js/excanvas.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/excanvas.min.js"></script>
 <![endif]-->
 
-<script src="<?php echo C('__JS__');?>/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/jquery.ui.touch-punch.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/jquery.slimscroll.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/jquery.easy-pie-chart.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/jquery.sparkline.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/flot/jquery.flot.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/flot/jquery.flot.pie.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/flot/jquery.flot.resize.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.slimscroll.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.sparkline.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/flot/jquery.flot.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/flot/jquery.flot.resize.min.js"></script>
 
 <!-- ace scripts -->
 
-<script src="<?php echo C('__JS__');?>/assets/js/ace-elements.min.js"></script>
-<script src="<?php echo C('__JS__');?>/assets/js/ace.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
 
