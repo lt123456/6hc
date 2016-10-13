@@ -28,8 +28,12 @@
 
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-ie.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/jquery-ui-1.10.3.full.min.css" />
     <![endif]-->
 
+
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
     <!-- inline styles related to this page -->
 
     <!-- ace settings handler -->
@@ -364,7 +368,7 @@
             </div><!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li class="active">
+                <li >
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台 </span>
@@ -372,7 +376,7 @@
 
                 </li>
 
-                <li>
+                <li class="active">
                     <a href="typography.html">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 用户管理 </span>
@@ -632,6 +636,26 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="active">
+                    <a href="<?php echo U('Agent/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text"> 后台用户管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="elements.html">
+                                <i class="icon-double-angle-right"></i>
+                                用户列表
+                            </a>
+                            <a href="elements.html">
+                                <i class="icon-double-angle-right"></i>
+                                添加用户
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul><!-- /.nav-list -->
 
             <div class="sidebar-collapse" id="sidebar-collapse">
@@ -773,6 +797,12 @@
     </div>
 
 
+
+<!-- 操作后提示框 -->
+<div id="lg-alert" class="hide" style="margin-bottom:-1.5em;"></div>
+<!--modal表单弹出框-->
+<form id="lg-form" class="modal fade hide form-horizontal" method="post" tabindex="-1" enctype="multipart/form-data" onsubmit="return false;"></form>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- <![endif]-->
@@ -820,8 +850,11 @@
 
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace.min.js"></script>
-
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- inline scripts related to this page -->
+
+<script src="<?php echo C('__STATIC__');?>/lottery/lottery.global.js"></script>
 
 <script type="text/javascript">
     jQuery(function($) {
@@ -1016,6 +1049,8 @@
 
     })
 </script>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+
+
+
 </body>
 </html>

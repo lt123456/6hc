@@ -80,10 +80,11 @@ class LoginController  extends  Controller
                 return $this->error('您暂时没有权限','/Admin/Login/login',3);
             }
             $login['last_login_ip']   =  get_client_ip();
-            $login['last_login_time'] =date('y-m-d h:i:s',time());
+            $login['last_login_time'] = date('Y-m-d h:i:s',time());
+            $login['id'] = $Admin->id;
 
-            $Admin->data($login)->save();
 
+            $Admin->save($login);
             session('admin_id',$result['id']);
 
         } else {

@@ -18,8 +18,9 @@ return array(
     'MODULE_ALLOW_LIST'    =>    array('Home','Admin'),
     'DEFAULT_MODULE'       =>    'Home',
 
-    'ADMIN_NAME'          => '6合彩后台',
+    'ADMIN_NAME'          => '6合彩后台',   // 后台配置
 
-    // 样式
+    'VAR_FILTERS'=>'stripslashes,strip_tags' // 开启过滤
+
 );
 
