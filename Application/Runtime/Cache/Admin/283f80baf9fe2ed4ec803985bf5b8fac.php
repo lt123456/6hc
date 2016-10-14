@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
     <!-- inline styles related to this page -->
-
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/validator/jquery.validator.css">
     <!-- ace settings handler -->
 
     <script src="<?php echo C('__STATIC__');?>/assets/js/ace-extra.min.js"></script>
@@ -374,7 +374,7 @@
                 <li >
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> 控制台 </span>
+                        <span class="menu-text"> 控制台[nav] </span>
                     </a>
 
                 </li>
@@ -641,17 +641,17 @@
                 </li>
 
                 <li class="active">
-                    <a href="<?php echo U('Agent/index');?>">
+                    <a href="">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 后台用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
@@ -779,7 +779,9 @@
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
-                            <button class="btn btn-primary" class="padding-bottom:3px;" onclick="$.lottery.formShow('/Admin/Agent/add');"  type="button"><i class="icon-plus"></i>添加管理人员</button>
+                            <a href="<?php echo U('Agent/add');?>">
+                                <button class="btn btn-primary" class="padding-bottom:3px;"   type="button"><i class="icon-plus"></i>添加管理人员</button>
+                            </a>
                         </div>
 
                         <div class="col-xs-4"></div>
@@ -849,10 +851,9 @@
                                         <td class="">
                                             <?php
  if($admin['last_login_ip']){ echo $admin['last_login_ip']; }else { echo '暂时未登陆'; } ?>
-                                            <?php echo ($admin["last_login_ip"]); ?>
                                         </td>
                                         <td class="hidden-480">
-                                            <?php echo ($admin["create"]); ?>
+                                            <?php echo ($admin["created_at"]); ?>
                                         </td>
 
 
@@ -861,12 +862,11 @@
                                                 <a class="blue" href="#">
                                                     <i class="icon-zoom-in bigger-130"></i>
                                                 </a>
-
-                                                <a class="green" href="#">
+                                                <a class="green" href="<?php echo U('Agent/edit/',array('id'=>$admin['id']));?>">
                                                     <i class="icon-pencil bigger-130"></i>
                                                 </a>
 
-                                                <a class="red" href="#">
+                                                <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="<?php echo ($admin['id']); ?>">
                                                     <i class="icon-trash bigger-130"></i>
                                                 </a>
                                             </div>
@@ -879,7 +879,7 @@
 
                                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                         <li>
-                                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                                                            <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
                                                                                         <span class="blue">
                                                                                             <i class="icon-zoom-in bigger-120"></i>
                                                                                         </span>
@@ -887,7 +887,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                            <a href="<?php echo U('Agent/edit/',array('id'=>$admin['id']));?>" class="tooltip-success" data-rel="tooltip" title="Edit">
                                                                                         <span class="green">
                                                                                             <i class="icon-edit bigger-120"></i>
                                                                                         </span>
@@ -895,7 +895,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                            <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="<?php echo ($admin['id']); ?>">
                                                                                         <span class="red">
                                                                                             <i class="icon-trash bigger-120"></i>
                                                                                         </span>
@@ -964,6 +964,9 @@
 <script src="<?php echo C('__STATIC__');?>/assets/js/flot/jquery.flot.pie.min.js"></script>
 <script src="<?php echo C('__STATIC__');?>/assets/js/flot/jquery.flot.resize.min.js"></script>
 
+<script src="<?php echo C('__STATIC__');?>/layer/layer.js"></script>
+
+
 <!-- ace scripts -->
 
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
@@ -971,202 +974,11 @@
 <script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- inline scripts related to this page -->
-<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
 <script src="<?php echo C('__STATIC__');?>/lottery/lottery.global.js"></script>
 
-<script type="text/javascript">
-    jQuery(function($) {
-        $('.easy-pie-chart.percentage').each(function(){
-            var $box = $(this).closest('.infobox');
-            var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
-            var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-            var size = parseInt($(this).data('size')) || 50;
-            $(this).easyPieChart({
-                barColor: barColor,
-                trackColor: trackColor,
-                scaleColor: false,
-                lineCap: 'butt',
-                lineWidth: parseInt(size/10),
-                animate: /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ? false : 1000,
-                size: size
-            });
-        })
+<script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/jquery.validator.js"></script>
+<script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/local/zh-CN.js"></script>
 
-        $('.sparkline').each(function(){
-            var $box = $(this).closest('.infobox');
-            var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
-            $(this).sparkline('html', {tagValuesAttribute:'data-values', type: 'bar', barColor: barColor , chartRangeMin:$(this).data('min') || 0} );
-        });
-
-
-
-
-        var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
-        var data = [
-            { label: "social networks",  data: 38.7, color: "#68BC31"},
-            { label: "search engines",  data: 24.5, color: "#2091CF"},
-            { label: "ad campaigns",  data: 8.2, color: "#AF4E96"},
-            { label: "direct traffic",  data: 18.6, color: "#DA5430"},
-            { label: "other",  data: 10, color: "#FEE074"}
-        ]
-//        function drawPieChart(placeholder, data, position) {
-//            $.plot(placeholder, data, {
-//                series: {
-//                    pie: {
-//                        show: true,
-//                        tilt:0.8,
-//                        highlight: {
-//                            opacity: 0.25
-//                        },
-//                        stroke: {
-//                            color: '#fff',
-//                            width: 2
-//                        },
-//                        startAngle: 2
-//                    }
-//                },
-//                legend: {
-//                    show: true,
-//                    position: position || "ne",
-//                    labelBoxBorderColor: null,
-//                    margin:[-30,15]
-//                }
-//                ,
-//                grid: {
-//                    hoverable: true,
-//                    clickable: true
-//                }
-//            })
-//        }
-//        drawPieChart(placeholder, data);
-
-        /**
-         we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
-         so that's not needed actually.
-         */
-//        placeholder.data('chart', data);
-//        placeholder.data('draw', drawPieChart);
-
-
-
-//        var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
-//        var previousPoint = null;
-//
-//        placeholder.on('plothover', function (event, pos, item) {
-//            if(item) {
-//                if (previousPoint != item.seriesIndex) {
-//                    previousPoint = item.seriesIndex;
-//                    var tip = item.series['label'] + " : " + item.series['percent']+'%';
-//                    $tooltip.show().children(0).text(tip);
-//                }
-//                $tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
-//            } else {
-//                $tooltip.hide();
-//                previousPoint = null;
-//            }
-//
-//        });
-//
-//
-//
-//
-//
-//
-//        var d1 = [];
-//        for (var i = 0; i < Math.PI * 2; i += 0.5) {
-//            d1.push([i, Math.sin(i)]);
-//        }
-//
-//        var d2 = [];
-//        for (var i = 0; i < Math.PI * 2; i += 0.5) {
-//            d2.push([i, Math.cos(i)]);
-//        }
-//
-//        var d3 = [];
-//        for (var i = 0; i < Math.PI * 2; i += 0.2) {
-//            d3.push([i, Math.tan(i)]);
-//        }
-//
-//
-//        var sales_charts = $('#sales-charts').css({'width':'100%' , 'height':'220px'});
-//        $.plot("#sales-charts", [
-//            { label: "Domains", data: d1 },
-//            { label: "Hosting", data: d2 },
-//            { label: "Services", data: d3 }
-//        ], {
-//            hoverable: true,
-//            shadowSize: 0,
-//            series: {
-//                lines: { show: true },
-//                points: { show: true }
-//            },
-//            xaxis: {
-//                tickLength: 0
-//            },
-//            yaxis: {
-//                ticks: 10,
-//                min: -2,
-//                max: 2,
-//                tickDecimals: 3
-//            },
-//            grid: {
-//                backgroundColor: { colors: [ "#fff", "#fff" ] },
-//                borderWidth: 1,
-//                borderColor:'#555'
-//            }
-//        });
-//
-//
-//        $('#recent-box [data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-//        function tooltip_placement(context, source) {
-//            var $source = $(source);
-//            var $parent = $source.closest('.tab-content')
-//            var off1 = $parent.offset();
-//            var w1 = $parent.width();
-//
-//            var off2 = $source.offset();
-//            var w2 = $source.width();
-//
-//            if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-//            return 'left';
-//        }
-//
-//
-//        $('.dialogs,.comments').slimScroll({
-//            height: '300px'
-//        });
-//
-//
-//        //Android's default browser somehow is confused when tapping on label which will lead to dragging the task
-//        //so disable dragging when clicking on label
-//        var agent = navigator.userAgent.toLowerCase();
-//        if("ontouchstart" in document && /applewebkit/.test(agent) && /android/.test(agent))
-//            $('#tasks').on('touchstart', function(e){
-//                var li = $(e.target).closest('#tasks li');
-//                if(li.length == 0)return;
-//                var label = li.find('label.inline').get(0);
-//                if(label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation() ;
-//            });
-//
-//        $('#tasks').sortable({
-//                    opacity:0.8,
-//                    revert:true,
-//                    forceHelperSize:true,
-//                    placeholder: 'draggable-placeholder',
-//                    forcePlaceholderSize:true,
-//                    tolerance:'pointer',
-//                    stop: function( event, ui ) 
-//                }
-//        );
-//        $('#tasks').disableSelection();
-//        $('#tasks input:checkbox').removeAttr('checked').on('click', function(){
-//            if(this.checked) $(this).closest('li').addClass('selected');
-//            else $(this).closest('li').removeClass('selected');
-//        });
-
-
-    })
-</script>
 
 
 
@@ -1200,7 +1012,44 @@
                     return 'left';
                 }
 
+
+
+
             })
+//                               layer.confirm('您是如何看待前端开发？', {
+//                         btn: ['重要','奇葩'] //按钮
+//                     }, function(){
+//                         layer.msg('的确很重要', {icon: 1});
+//                     }, function(){
+//                         layer.msg('也可以这样', {
+//                             time: 20000, //20s后自动关闭
+//                             btn: ['明白了', '知道了']
+//                         });
+//                     });
+            $('.del-confirm').on('click' , function() {
+                var  id = $(this).attr('data-id');
+                _this = $(this);
+                layer.confirm('您确认删除该管理员么?', {
+                            btn: ['确定', '取消']
+                        }, function () {
+                             $.ajax({
+                                url: '<?php echo U("Agent/delete");?>',
+                                type: 'post',
+                                dataType: '',
+                                data: {'id':id},
+                                success: function(d){
+                                    if(d.status == 'ok') {
+                                        _this.parents('tr').remove();
+                                        layer.msg('删除成功', {icon: 1});
+                                    }else{
+                                        layer.msg('删除失败', {icon: 3});
+                                    }
+                                }
+                    });
+                        }, function () {
+                            layer.msg('已取消', {icon: 2});
+                        });
+            });
          </script>
     
 </body>

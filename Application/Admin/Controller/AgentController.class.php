@@ -6,7 +6,13 @@ namespace Admin\Controller;
 
 class AgentController extends BaseController {
 
+    protected  $adminModel;
 
+    public function  __construct()
+    {
+        parent::__construct();
+        $this->adminModel = M('admin');
+    }
     /**
      * 后台管理列表
      */
@@ -15,7 +21,7 @@ class AgentController extends BaseController {
         // 获取
         $admins = D('admin')->order('id desc')->select();
         $count  = D('admin')->count();
-        $disableCount  = D('admin')->where(['status'=>'active'])->count();
+        $disableCount  = D('admin')->where('status != "active"')->count();
 
         //分配
         $this->assign('admins',$admins);
@@ -34,9 +40,24 @@ class AgentController extends BaseController {
         $this->display();
     }
 
-    public function  doadd()
+    public function  doAdd()
     {
+        if(IS_POST){
 
+            $data =  I();
+
+            $data['created_at'] = date('Y-m-d h:i:s',time());
+            $data['status'] ='active';
+            $data['password'] = md5($data['pwd']);
+            $data['phone'] = '1232'.rand(10000,99999);
+            $res  = D('admin')->add($data);
+
+            if($res) {
+               $this->ajaxReturn(['status'=>'ok']);
+            }else{
+                $this->ajaxReturn(['status'=>'error','message'=>'发生异常稍后再试']);
+            }
+        }
     }
 
     public function  disabled()
@@ -46,16 +67,57 @@ class AgentController extends BaseController {
 
     public function edit()
     {
+          $obj =    $this->adminModel->find(I('get.id'));
 
+          if($obj) {
+              $this->assign('obj',$obj);
+              $this->display();
+          }else{
+              $this->error('该管理员账户不存在','/Admin/Agent',3);
+          }
     }
 
     public function doEdit()
     {
+        if(IS_POST) {
+            $data = I();
+
+            $res = $this->adminModel->save($data);
+
+            if($res){
+                $this->ajaxReturn(['status'=>'ok']);
+            }else{
+                $this->ajaxReturn(['status'=>'error']);
+            }
+        }
 
     }
 
     public function  delete()
     {
+        $data = I();
+        $res = $this->adminModel->where('id='.$data['id'])->delete();
+
+        if($res) {
+            $this->ajaxReturn(['status'=>'ok']);
+        }else{
+            $this->ajaxReturn(['status'=>'error']);
+        }
+
+
+    }
+
+    public function  checkEmail()
+    {
+        $Admin =  D('admin');
+
+        $info  = $Admin->where(I())->find();
+
+        if(empty($info)){
+            $this->ajaxReturn(['ok'=>'验证通过']);
+        }else{
+            $this->ajaxReturn(['error'=>'该邮箱已被使用']);
+        }
 
     }
 }

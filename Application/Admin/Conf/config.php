@@ -16,7 +16,7 @@ return array(
         'pending' => '未激活',
     ),
 
-    'admin_role' => array(
+    'admin_roles' => array(
         0 => '管理员',
         1 => '论坛管理员',
         2 => '编辑人员',
