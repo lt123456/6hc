@@ -1,42 +1,54 @@
 <?php
 /**
- * 幽默猜测 (视频 和 图库两种)
+ * 图库名称管理
  */
 namespace Admin\Controller;
 
-class JokeController extends BaseController {
+class PaperNameController extends BaseController {
+
     public function index()
     {
-        $joke=D('joke')->select();
+        $papers = D('paper_view')->select();
 
-        foreach($joke as $key=>$val){
-            $admin = D('admin')->where('id='.$val['admin_id'])->find();
-            $joke[$key]['admin_name'] = $admin['username'];
+        foreach($papers as $key=>$paper){
+            $list = D('paper_list')->where('id='.$paper['pic_name_id'])->find();
+            $papers[$key]['paper_name']=$list['name'];
+            $papers[$key]['spell']=$list['spell'];
+            $papers[$key]['is_hide']=$list['is_hide'];
+            $admin = D('admin')->where('id='.$paper['admin_id'])->find();
+            $papers[$key]['admin_name'] = $admin['username'];
         }
 
-        $this->assign('joke',$joke);
+        //分配
+        $this->assign('papers',$papers);
 
         $this->display();
     }
 
     public function  add()
     {
+        // 获取
+        $papers = D('paper_list')->where('is_hide=0')->order('id desc')->select();
+
+        //分配
+        $this->assign('papers',$papers);
+
         $this->display();
     }
 
     public function  doadd()
     {
         $data=I();
- 
+
         $data['admin_id'] = session('admin_id');
 
-        if($_FILES['pic']['error']!=4){
-            $data['pic'] = $this->up();
+        if(!empty($_FILES)){
+            $data['origin'] = $this->up();
         }
 
         $data['created_at'] = date('Y-m-d H:i:s',time());
 
-        $res  = D('joke')->add($data);
+        $res  = D('paper_view')->add($data);
 
         if($res){
             $this->success('添加成功','./index',3);
@@ -48,39 +60,24 @@ class JokeController extends BaseController {
     public function  disabled()
     {
 
-        if(IS_POST){
-            $status =  I('status');
-            $id =  I('id');
-
-            $save = array(
-                    'status'=>$status,
-                );
-
-            $res = D('joke')->where('id='.$id)->save($save);
-
-            if($res) {
-               $this->ajaxReturn(['status'=>'ok']);
-            }else{
-                $this->ajaxReturn(['status'=>'error','message'=>'发生异常稍后再试']);
-            }
-        }
-
     }
 
     public function edit()
     {
-        
         $id=I('id');
         
-        $joke=D('joke')->where('id='.$id)->find();
+        $paper=D('paper_view')->where('id='.$id)->find();
+
+        // 获取
+        $papers = D('paper_list')->order('id desc')->select();
 
 
         //分配
-        $this->assign('joke',$joke);
+        $this->assign('papers',$papers);
+        $this->assign('paper',$paper);
         $this->assign('id',$id);
 
         $this->display();
-
     }
 
     public function doEdit()
@@ -92,27 +89,25 @@ class JokeController extends BaseController {
 
         $data['admin_id'] = session('admin_id');
         
-        if($_FILES['pic']['error']!=4){
-            $data['pic'] = $this->up();
+        if($_FILES['origin']['error']!=4){
+            $data['origin'] = $this->up();
         }
 
         $data['updated_at'] = date('Y-m-d H:i:s',time());
-       
-        
-        $res = D('joke')->where('id='.$id)->save($data);
+        // var_dump($data);die;
+        $res = D('paper_view')->where('id='.$id)->save($data);
 
         if($res){
             $this->success('修改成功','./index',3);
         }else{
             $this->error('修改失败','./index',3);
         }
-
     }
 
     public function  delete()
     {
         $id=I('id');
-        $res = D('joke')->where('id='.$id)->delete();
+        $res = D('paper_view')->where('id='.$id)->delete();
 
         if($res) {
             $this->ajaxReturn(['status'=>'ok']);
@@ -141,10 +136,11 @@ class JokeController extends BaseController {
         // $img->open($path);
         // $a=$img->thumb(10,10)->save($path_mini);
 
+
         if(!$info){// 上传错误提示错误信息
             $this->error($upload->getError());
         }else{// 上传成功
-            return $upload->rootPath.$info['pic']['savepath'].$info['pic']['savename'];
+            return $upload->rootPath.$info['origin']['savepath'].$info['origin']['savename'];
         }
     }
 }

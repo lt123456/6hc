@@ -1,0 +1,154 @@
+<extend name="Public/base"/>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    图库名称管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        添加
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" >
+                        <div class="form-group">
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">图库名称 : </label>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <input  class="width-100" type="text" name="name"  placeholder="请输入图库名称">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">对应首字母 : </label>
+
+                            <div class="col-xs-3 col-sm-1">
+                                <span class="block input-icon input-icon-right">
+                                    <input  class="width-100 col-xs-3 col-sm-3" type="text" name="spell"  maxlength="1" onkeyup="this.value=this.value.toUpperCase()">
+                                </span>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline">&nbsp;(输入图库名称首字母) </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right">是否隐藏 : </label>
+
+                            <div class="col-xs-6 col-sm-1">
+                                <label>
+                                    <input type="hidden" name="is_hide" value="0">
+                                    <input name="is_hide" class="ace" type="checkbox" value="1">
+                                    <span class="lbl">&nbsp;隐藏</span>
+                                </label>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline">&nbsp;(此处不点，默认为: 不隐藏)  </div>
+                        </div>
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+        {// main}
+
+</block>
+
+<block name="js">
+    <script type="text/javascript">
+        $('#signup_form').validator({
+            rules: {
+                myRemote: function(element){
+                    return $.ajax({
+                        url: '{:U("PaperList/checkName")}',
+                        type: 'post',
+                        data: element.name +'='+ element.value,
+                        dataType: 'json',
+                        success: function(d){
+                            window.console && console.log(d);
+                        }
+                    });
+                },
+
+                mySpell:function(element){
+                    var pattern=/^[A-Z]$/; 
+                    if(!pattern.exec(element.value)){
+                        return '请输入 A-Z 的字母';
+                    }
+                }
+            },
+            fields: {
+                'name': 'required; name; myRemote;',
+                'spell': 'required; spell; mySpell;',
+
+            },
+            valid: function(form){
+                var me = this;
+
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                
+                $.ajax({
+                    url: '{:U("PaperList/doAdd")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        $(form).find('btn-info').css('color', '#333').text('提交');
+                        if(d.status =='ok'){
+                            location.href = '{:U("PaperList/index")}';
+                        }else{
+                            $('.alert').removeClass('hide').addClass('alert-danger');
+
+                            $('.alert').find('span').html('创建图库失败，稍后再试');
+                        }
+                    }
+                });
+
+            }
+        })
+
+    </script>
+
+</block>

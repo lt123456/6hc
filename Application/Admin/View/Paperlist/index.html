@@ -1,0 +1,208 @@
+<extend name="Public/base"/>
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    后台管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        图库名称查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+            
+            <h1>
+                <a href="{:U('PaperList/add')}">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="icon-plus"></i>
+                        <span class="bigger-110 no-text-shadow">添加图库名称</span>
+                    </button>
+                </a>
+            </h1>
+                    
+            
+          
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        后台图库名称管理
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th class="center">
+                                                <label>
+                                                    <input class="ace" type="checkbox">
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </th> -->
+                                            <th>ID</th>
+                                            <th>图库名称</th>
+                                            <th>首字母</th>
+                                            <th class="hidden-480">是否隐藏</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <volist name="papers" id="paper">
+                                            <tr><!-- 
+                                                <td class="center">
+                                                    <label>
+                                                        <input class="ace" name="{$paper.id}" type="checkbox">
+                                                        <span class="lbl"></span>
+                                                    </label>
+                                                </td> -->
+                                                <td>{$paper.id}</td>
+                                                <td>
+                                                    <a href="#">{$paper.name}</a>
+                                                </td>
+                                                <td>{$paper.spell}</td>
+                                                <td class="hidden-480">
+                                                    <if condition="$paper.is_hide eq 0"> 
+                                                        <button onclick="hide_paper($(this),{$paper.id})" class="btn btn-xs btn-success">否</button>
+                                                    <elseif condition="$paper.is_hide eq 1"/>
+                                                        <button onclick="hide_paper($(this),{$paper.id})"  class="btn btn-xs">是</button>
+                                                    </if>
+                                                </td>
+
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                        <a class="btn btn-xs btn-warning"  href="{:U('PaperList/edit',array('id'=>$paper['id']))}">
+                                                            <i class="icon-edit bigger-120"></i>
+                                                        </a>
+                                                        
+                                                        <a href="javascript:;" class="btn btn-xs btn-danger" onclick="del_paper({$paper.id})">
+                                                            <i class="icon-trash bigger-120"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                        <div class="inline position-relative">
+                                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="icon-cog icon-only bigger-110"></i>
+                                                            </button>
+
+                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                <li>
+                                                                    <a href="{:U('PaperList/edit',array('id'=>$paper['id']))}" class="tooltip-warning" data-rel="tooltip" title="" data-original-title="Edit">
+                                                                        <span class="green">
+                                                                            <i class="icon-edit bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href='#' onclick="del_paper({$paper.id})" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                                        <span class="red">
+                                                                            <i class="icon-trash bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </volist>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.table-responsive -->
+                        </div><!-- /span -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable();
+
+
+            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                return 'left';
+            }
+
+        })
+        //修改状态
+        function hide_paper(res,id){
+            var text = res.text();
+
+            var is_hide = 1;
+            if(text=='是'){
+                is_hide = 0;
+            }
+            var dang = res;
+            $.ajax({
+                url: '{:U("PaperList/disabled")}',
+                type: 'post',
+                data: {is_hide:is_hide,id:id},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        if(text=='是'){
+                            dang.attr('class','btn btn-xs btn-success');
+                            dang.text('否');
+                        }else{
+                            dang.attr('class','btn btn-xs');
+                            dang.text('是');
+                        }
+                    }else{
+                        location.href = '{:U("PaperList/index")}';
+                    }
+                }
+            });
+        }
+
+        //删除
+        function del_paper(id){
+            var con = confirm('确认删除');
+            if(!con){
+                return false;
+            }
+            $.ajax({
+                url: '{:U("PaperList/delete")}',
+                type: 'post',
+                data: {id:id},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        location.href = '{:U("PaperList/index")}';
+                    }else{
+                        $('.alert').removeClass('hide').addClass('alert-danger');
+
+                        $('.alert').find('span').html('删除图库失败，稍后再试');
+                    }
+                }
+            });
+        }
+
+    </script>
+</block>
+
+

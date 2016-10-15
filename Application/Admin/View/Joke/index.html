@@ -1,0 +1,206 @@
+<extend name="Public/base"/>
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    后台管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        幽默猜测查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+            
+            <h1>
+                <a href="{:U('Joke/add')}">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="icon-plus"></i>
+                        <span class="bigger-110 no-text-shadow">添加幽默猜测</span>
+                    </button>
+                </a>
+            </h1>
+                    
+            
+          
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        后台幽默猜测管理
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>幽默猜测标题</th>
+                                            <th>发布ID</th>
+                                            <th>发布人</th>
+                                            <th>期数</th>
+                                            <th>描述</th>
+                                            <th>类型</th>
+                                            <th>阅读数量</th>
+                                            <th>创建时间</th>
+                                            <th class="hidden-480">是否投票</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <volist name="joke" id="item">
+                                            <tr>
+                                                <td>{$item.id}</td>
+                                                <td>{$item.title}</td>
+                                                <td>{$item.admin_id}</td>
+                                                <td>{$item.admin_name}</td>
+                                                <td>{$item.periods_id}</td>
+                                                <td>{$item.description}</td>
+                                                <td>{$item.type}</td>
+                                                <td>{$item.read}</td>
+                                                <td>{$item.created_at}</td>
+                                                <td class="hidden-480">
+                                                    <if condition="$item.status eq 'stop'"> 
+                                                        <button onclick="status_paper($(this),{$item.id})" class="btn btn-xs btn-success">否</button>
+                                                    <elseif condition="$item.status eq 'allow'"/>
+                                                        <button onclick="status_paper($(this),{$item.id})"  class="btn btn-xs">是</button>
+                                                    </if>
+                                                </td>
+
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                        <a class="btn btn-xs btn-warning"  href="{:U('Joke/edit',array('id'=>$item['id']))}">
+                                                            <i class="icon-edit bigger-120"></i>
+                                                        </a>
+                                                        
+                                                        <a href="javascript:;" class="btn btn-xs btn-danger" onclick="del_paper({$item.id})">
+                                                            <i class="icon-trash bigger-120"></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                        <div class="inline position-relative">
+                                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                <i class="icon-cog icon-only bigger-110"></i>
+                                                            </button>
+
+                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                <li>
+                                                                    <a href="{:U('Joke/edit',array('id'=>$item['id']))}" class="tooltip-warning" data-rel="tooltip" title="" data-original-title="Edit">
+                                                                        <span class="green">
+                                                                            <i class="icon-edit bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href='#' onclick="del_paper({$item.id})" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                                        <span class="red">
+                                                                            <i class="icon-trash bigger-120"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </volist>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.table-responsive -->
+                        </div><!-- /span -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable();
+
+
+            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                return 'left';
+            }
+
+        })
+        //修改状态
+        function status_paper(res,id){
+            var text = res.text();
+
+            var status = 'allow';
+            if(text=='是'){
+                status = 'stop';
+            }
+            var dang = res;
+            $.ajax({
+                url: '{:U("Joke/disabled")}',
+                type: 'post',
+                data: {status:status,id:id},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        if(text=='是'){
+                            dang.attr('class','btn btn-xs btn-success');
+                            dang.text('否');
+                        }else{
+                            dang.attr('class','btn btn-xs');
+                            dang.text('是');
+                        }
+                    }else{
+                        // location.href = '{:U("Joke/index")}';
+                    }
+                }
+            });
+        }
+
+        //删除
+        function del_paper(id){
+            var con = confirm('确认删除');
+            if(!con){
+                return false;
+            }
+            $.ajax({
+                url: '{:U("joke/delete")}',
+                type: 'post',
+                data: {id:id},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        location.href = '{:U("joke/index")}';
+                    }else{
+                        $('.alert').removeClass('hide').addClass('alert-danger');
+
+                        $('.alert').find('span').html('删除图库失败，稍后再试');
+                    }
+                }
+            });
+        }
+
+    </script>
+</block>
+
+

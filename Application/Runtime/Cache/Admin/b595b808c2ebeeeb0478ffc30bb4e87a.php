@@ -374,7 +374,7 @@
                 <li >
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> 控制台 </span>
+                        <span class="menu-text"> 控制台[nav] </span>
                     </a>
 
                 </li>
@@ -386,11 +386,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="/admin/agent/index">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="/admin/agent/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
@@ -432,7 +432,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="/admin/PaperList/index">
                                 <i class="icon-double-angle-right"></i>
                                 图库列表
                             </a>
@@ -641,17 +641,17 @@
                 </li>
 
                 <li class="active">
-                    <a href="<?php echo U('Agent/index');?>">
+                    <a href="">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 后台用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>

@@ -386,11 +386,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="/admin/agent/index">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="/admin/agent/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
@@ -432,7 +432,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="/admin/PaperList/index">
                                 <i class="icon-double-angle-right"></i>
                                 图库列表
                             </a>
@@ -816,7 +816,6 @@
                             </thead>
 
                             <tbody>
-
 
                                 <?php if(is_array($admins)): $i = 0; $__LIST__ = $admins;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$admin): $mod = ($i % 2 );++$i;?><tr>
                                         <td class="center">
