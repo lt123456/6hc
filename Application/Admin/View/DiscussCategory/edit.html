@@ -5,10 +5,10 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    帖子管理
+                    论坛版块管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
-                        编辑
+                        修改
                     </small>
                 </h1>
             </div><!-- /.page-header -->
@@ -32,60 +32,24 @@
 
                     <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名</label>
+                        	<input type="hidden"  name="id" value="{$obj['id']}"/>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">版块名称</label>
 
                             <div class="col-sm-9">
-                                <input type="hidden"  name="id" value="{$obj['id']}"/>
-                                <input type="text" id="form-field-1" name="username" placeholder="请输入用户名" class="col-xs-10 col-sm-5" value="{$obj['username']}" />
+                                <input type="text" id="form-field-1" name="name" placeholder="请输入版块名称" class="col-xs-10 col-sm-5"  value='{$obj.name}'/>
                             </div>
                         </div>
 
                         <div class="space-4"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">邮箱</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">补充说明</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="email" placeholder="请输入邮箱" class="col-xs-10 col-sm-5"  value="{$obj['email']}"  disabled/>
+                                <input type="text" id="form-field-2" name="slug" placeholder="请输入补充说明" class="col-xs-10 col-sm-5"  value="{$obj.slug}" />
                             </div>
                         </div>
-                        <div class="space-4"></div>
-
-                        <div class="space-4"></div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">角色</label>
-
-                            <div class="col-sm-9">
-                                <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
-                                    <option value="">&nbsp;</option>
-                                    <?php foreach (C('admin_roles') as $key => $value): ?>
-                                    <option value="{$key}" <?php if ($key == $obj['role']): ?>selected="selected"
-                                    <?php endif ?>>{$value}</option>
-                                    <?php endforeach ?>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">是否禁用</label>
-                            <div class="col-sm-9">
-                                <div class="col-xs-3">
-                                        <label>
-                                            <input class="ace" name="status" type="radio" value="active" <if condition="$obj['status'] eq  active"> checked
-                                        </if>>
-                                            <span class="lbl"> 已启用</span>
-                                        </label>
-                                        <label>
-                                            <input class="ace" name="status" type="radio" value="forbidden" <if condition="$obj['status'] neq  active"> checked
-                                        </if>>
-                                            <span class="lbl"> 被禁用</span>
-                                        </label>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="space-4"></div>
 
                         <div class="clearfix form-actions">
@@ -117,7 +81,7 @@
     </div>
 
 
-    {// main}
+        {// main}
 
 
 
@@ -127,8 +91,9 @@
     <script type="text/javascript">
         $('#signup_form').validator({
             fields: {
-                'username': 'required; username;',
-                'role': 'required;'
+                'name': 'required; name;',
+                'slug': 'required; slug;',
+
             },
             // 表单验证通过后，ajax提交
             valid: function(form){
@@ -138,7 +103,7 @@
 //                me.holdSubmit();
                 $(form).find('btn-info').css('color', '#999').text('正在提交..');
                 $.ajax({
-                    url: '{:U("Agent/doEdit")}',
+                    url: '{:U("DiscussCategory/doEdit")}',
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
@@ -160,6 +125,7 @@
 
                             $('.alert').find('span').html('已修改,请不要重复提交');
                         }
+
                     }
                 });
 

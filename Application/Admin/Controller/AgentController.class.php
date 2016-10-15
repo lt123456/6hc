@@ -53,9 +53,9 @@ class AgentController extends BaseController {
             $res  = D('admin')->add($data);
 
             if($res) {
-               $this->ajaxReturn(['status'=>'ok']);
+               $this->ajaxReturn(array('status'=>'ok'));
             }else{
-                $this->ajaxReturn(['status'=>'error','message'=>'发生异常稍后再试']);
+                $this->ajaxReturn(array('status'=>'error','message'=>'发生异常稍后再试'));
             }
         }
     }
@@ -85,9 +85,9 @@ class AgentController extends BaseController {
             $res = $this->adminModel->save($data);
 
             if($res){
-                $this->ajaxReturn(['status'=>'ok']);
+                $this->ajaxReturn(array('status'=>'ok'));
             }else{
-                $this->ajaxReturn(['status'=>'error']);
+                $this->ajaxReturn(array('status'=>'error'));
             }
         }
 
@@ -99,9 +99,9 @@ class AgentController extends BaseController {
         $res = $this->adminModel->where('id='.$data['id'])->delete();
 
         if($res) {
-            $this->ajaxReturn(['status'=>'ok']);
+            $this->ajaxReturn(array('status'=>'ok'));
         }else{
-            $this->ajaxReturn(['status'=>'error']);
+            $this->ajaxReturn(array('status'=>'error'));
         }
 
 
@@ -114,9 +114,9 @@ class AgentController extends BaseController {
         $info  = $Admin->where(I())->find();
 
         if(empty($info)){
-            $this->ajaxReturn(['ok'=>'验证通过']);
+            $this->ajaxReturn(array('ok'=>'验证通过'));
         }else{
-            $this->ajaxReturn(['error'=>'该邮箱已被使用']);
+            $this->ajaxReturn(array('error'=>'该邮箱已被使用'));
         }
 
     }

@@ -1,0 +1,240 @@
+<extend name="Public/base"/>
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    后台管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="{:U('DiscussCategory/add')}">
+                                <button class="btn btn-primary" class="padding-bottom:3px;"   type="button"><i class="icon-plus"></i>添加版块</button>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-4"></div>
+                        <!-- <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>人被禁用<span class="badge badge-pink">{$disableCount}</span>人</div> -->
+                    </div>
+                    <div class="table-header">
+                        后台版块统计
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-responsive">
+                                <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">
+                                                <label>
+                                                    <input type="checkbox" class="ace">
+                                                    <span class="lbl"></span>
+                                                </label>
+                                            </th>
+                                            <th>分类名称</th>
+                                            <th><i class="icon-time  hidden-480"></i>创建时间</th>
+                                            <th><i class="icon-time hidden-480"></i>最后修改时间</th>
+                                            <th>补充说明</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <volist name="discussCategorys" id="discussCategory">
+                                            <tr>
+                                                <td class="center">
+                                                    <label>
+                                                        <input type="checkbox" class="ace">
+                                                        <span class="lbl"></span>
+                                                    </label>
+                                                </td>
+
+                                                <td>{$discussCategory.name}</td>
+                                                <td>{$discussCategory.created_at}</td>
+                                                <td>{$discussCategory.updated_at}</td>
+                                                <td>{$discussCategory.slug}</td>
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-zoom-in bigger-130"></i>
+                                                    </a>
+                                                    <a class="green" href="{:U('DiscussCategory/edit/',array('id'=>$discussCategory['id']))}">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+
+                                                    <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussCategory['id']}">
+                                                        <i class="icon-trash bigger-130"></i>
+                                                    </a>
+                                                </div>
+
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="inline position-relative">
+                                                        <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-caret-down icon-only bigger-120"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                            <li>
+                                                                <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
+                                                                    <span class="blue">
+                                                                        <i class="icon-zoom-in bigger-120"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{:U('DiscussCategory/edit/',array('id'=>$discussCategory['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <span class="green">
+                                                                        <i class="icon-edit bigger-120"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$discussCategory['id']}">
+                                                                    <span class="red">
+                                                                        <i class="icon-trash bigger-120"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </td>
+                                            </tr>
+                                        </volist>
+                                    </tbody>
+                                </table>
+                                
+                                <!-- <div style="float:right">
+                                    <ul class="pagination">
+                                        <li class="disabled">
+                                            <a href="#">
+                                                <i class="icon-double-angle-left"></i>
+                                            </a>
+                                        </li>
+
+                                        <li class="active">
+                                            <a href="#">1</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">2</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">3</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">4</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">5</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-double-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div><!-- /.table-responsive -->
+                        </div><!-- /span -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+    <block name="js">
+        <script type="text/javascript">
+            jQuery(function($) {
+                var oTable1 = $('#sample-table-2').dataTable();
+
+
+                $('table th input:checkbox').on('click' , function(){
+                    var that = this;
+                    $(this).closest('table').find('tr > td:first-child input:checkbox')
+                            .each(function(){
+                                this.checked = that.checked;
+                                $(this).closest('tr').toggleClass('selected');
+                            });
+
+                });
+
+
+                $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+                function tooltip_placement(context, source) {
+                    var $source = $(source);
+                    var $parent = $source.closest('table')
+                    var off1 = $parent.offset();
+                    var w1 = $parent.width();
+
+                    var off2 = $source.offset();
+                    var w2 = $source.width();
+
+                    if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                    return 'left';
+                }
+
+
+
+
+            })
+//                               layer.confirm('您是如何看待前端开发？', {
+//                         btn: ['重要','奇葩'] //按钮
+//                     }, function(){
+//                         layer.msg('的确很重要', {icon: 1});
+//                     }, function(){
+//                         layer.msg('也可以这样', {
+//                             time: 20000, //20s后自动关闭
+//                             btn: ['明白了', '知道了']
+//                         });
+//                     });
+            $('.del-confirm').on('click' , function() {
+                var  id = $(this).attr('data-id');
+                _this = $(this);
+                layer.confirm('您确认删除该版块么?(只有当前版块下无帖子才可删除本板块)', {
+                            btn: ['确定', '取消']
+                        }, function () {
+                             $.ajax({
+                                url: '{:U("DiscussCategory/delete")}',
+                                type: 'post',
+                                dataType: '',
+                                data: {'id':id},
+                                success: function(d){
+                                    if(d.status == 'error1'){
+                                        layer.msg('删除失败该板块下还有文章', {icon: 3});
+                                    }else if(d.status == 'ok') {
+                                        _this.parents('tr').remove();
+                                        layer.msg('删除成功', {icon: 1});
+                                    }else{
+                                        layer.msg('删除失败', {icon: 3});
+                                    }
+                                }
+                    });
+                        }, function () {
+                            layer.msg('已取消', {icon: 2});
+                        });
+            });
+         </script>
+    </block>
+
+

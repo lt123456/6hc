@@ -374,7 +374,7 @@
                 <li >
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> 控制台 </span>
+                        <span class="menu-text"> 控制台[nav] </span>
                     </a>
 
                 </li>
@@ -506,7 +506,7 @@
 
 
                 <li>
-                    <a href="gallery.html" class="dropdown-toggle">
+                    <a href="<?php echo U('DiscussCategory/index');?>" class="dropdown-toggle">
                         <i class="icon-picture"></i>
                         <span class="menu-text"> 论坛管理 </span>
 
@@ -514,28 +514,28 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('DiscussCategory/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 论坛版块管理
                             </a>
                         </li>
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('Zhutie/index');?>">
                                 <i class="icon-double-angle-right"></i>
-                                文章管理
+                                帖子管理
                             </a>
                         </li>
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('DiscussCategory/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 论坛版块添加
                             </a>
                         </li>
                         <li>
-                            <a href="profile.html">
+                           <!--  <a href="<?php echo U('Zhutie/add');?>">
                                 <i class="icon-double-angle-right"></i>
-                                文章发布
-                            </a>
+                                帖子发布
+                            </a> -->
                         </li>
                     </ul>
                 </li>
@@ -641,17 +641,17 @@
                 </li>
 
                 <li class="active">
-                    <a href="<?php echo U('Agent/index');?>">
+                    <a href="">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 后台用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
