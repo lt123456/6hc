@@ -400,7 +400,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle">
+                    <a href="<?php echo U('LotteryRecord/index');?>" class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text"> 开奖记录管理 </span>
 

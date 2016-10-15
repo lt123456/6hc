@@ -1,0 +1,246 @@
+<extend name="Public/base"/>
+
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+
+</block>
+
+<block name="main">
+    <style type="text/css">
+        .ball{
+            color: #3d3d3d;
+            display: block;
+            float: left;
+            font-family: tahoma;
+            font-size: 14px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 25px;
+            margin-left: 3px;
+            text-align: center;
+            width: 30px;
+
+        }
+        .greenball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -1px -1px;
+        }
+        .redball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -36px -1px;
+        }
+        .blueball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -71px -1px;
+        }
+    </style>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    开奖记录管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        列表
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+
+            <!-- 主要内容 -->
+            <div class="row">
+                <form class="form-search" method="get" action="{:U('Admin/LotteryRecord/index')}">
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">期数 : </label>
+                            <select id="form-field-select-1" name="periods" class="">
+                                <option value="请选择期数" disabled selected>--期数--</option>
+
+                                <foreach name="periods" item="id">
+                                    <foreach name="id" item="vo">
+                                    <option value="{$vo}"><b>{$vo}</b>-期</option>
+                                        </foreach>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-2">
+                        <div class="input-group">
+                            <label class="lbl">年份:</label>
+                            <input type="text" name="year" placeholder="请输入年份" class="input-small" />
+                        </div>
+                    </div>
+                    <div class=" col-sm-2">
+                        <div class="input-group">
+                            <label class="lbl">周数:</label>
+                            <input type="text" name="week" placeholder="请输入周" class="input-small" />
+                        </div>
+                    </div>
+                    <div class=" col-sm-2">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">特码单双 : </label>
+                            <select id="form-field-select-2" name="singleDouble" class="">
+                                <option value="请选择单双号" disabled selected>--单双号--</option>
+                                <option value="0">单</option>
+                                <option value="1">双</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-2">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">日期排序 : </label>
+                            <select id="form-field-select-3" name="data" class="">
+                                <option value="请选择单双号" disabled selected>--日期排序--</option>
+                                <option value="asc" >--正序--</option>
+                                <option value="sort">--倒序--</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach">
+                            <span class="input-group-btn">
+                            <button class="btn btn-purple btn-sm" type="submit">
+                                搜索
+                                <i class="icon-search icon-on-right bigger-110"></i>
+                            </button>
+                                 <button class="btn btn-grey btn-sm" type="reset">
+                                    重置
+                                     <i class="icon-remove icon-on-right bigger-110"></i>
+                                 </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th>开奖人</th>
+                                <th>年份/ 期数</th>
+                                <th>正码</th>
+                                <th>特码</th>
+                                <th>特码单双</th>
+                                <th>特码大小</th>
+                                <th>总和单双</th>
+                                <th class="hidden-480">状态</th>
+
+                                <th>
+                                    <i class="icon-time bigger-110 hidden-480"></i>
+                                    开码时间
+                                </th>
+                                <th class="hidden-480">操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <volist name="periodsRes" id="periods">
+                            <tr>
+                                <td class="center">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </td>
+
+                                <td>
+                                    <a href="#">{$periods.username}</a>
+                                </td>
+                                <td>
+                                    <span>{$periods.created_at} / {$periods.periods}期</span>
+                                </td>
+                                <td><span class=" ball greenball">12</span>
+                                    <span class=" ball redball">13</span>
+                                    <span class=" ball blueball">14</span>
+                                </td>
+                                <td class="hidden-480">3,330</td>
+                                <td>Feb 12</td>
+
+                                <td class="hidden-480">
+                                    <span class="label label-sm label-warning">Expiring</span>
+                                </td>
+
+                                <td>
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                        <button class="btn btn-xs btn-success">
+                                            <i class="icon-ok bigger-120"></i>
+                                        </button>
+
+                                        <button class="btn btn-xs btn-info">
+                                            <i class="icon-edit bigger-120"></i>
+                                        </button>
+
+                                        <button class="btn btn-xs btn-danger">
+                                            <i class="icon-trash bigger-120"></i>
+                                        </button>
+
+                                        <button class="btn btn-xs btn-warning">
+                                            <i class="icon-flag bigger-120"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="inline position-relative">
+                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                <i class="icon-cog icon-only bigger-110"></i>
+                                            </button>
+
+                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                <li>
+                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+																				<span class="blue">
+																					<i class="icon-zoom-in bigger-120"></i>
+																				</span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
+																				<span class="green">
+																					<i class="icon-edit bigger-120"></i>
+																				</span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+																				<span class="red">
+																					<i class="icon-trash bigger-120"></i>
+																				</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </volist>
+
+
+
+                            </tbody>
+                        </table>
+                        <div class="row-fluid">
+                            <div class="page">{$page}</div>
+                        </div>
+                    </div><!-- /.table-responsive -->
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+</block>

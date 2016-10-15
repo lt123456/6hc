@@ -641,7 +641,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="">
+                    <a href="<?php echo U('Agent/index');?>">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 后台用户管理 </span>
                     </a>

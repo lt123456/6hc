@@ -8,6 +8,7 @@ class JokeController extends BaseController {
     public function index()
     {
         $this->display();
+
     }
 
     public function  add()
