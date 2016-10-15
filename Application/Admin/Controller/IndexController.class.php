@@ -2,6 +2,11 @@
 namespace Admin\Controller;
 
 class IndexController extends BaseController {
+
+    public function __construct()
+    {
+
+    }
     public function index(){
 
 

@@ -374,7 +374,7 @@
                 <li >
                     <a href="index.html">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> 控制台 </span>
+                        <span class="menu-text"> 控制台[nav] </span>
                     </a>
 
                 </li>
@@ -400,7 +400,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle">
+                    <a href="<?php echo U('LotteryRecord/index');?>" class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text"> 开奖记录管理 </span>
 
@@ -647,11 +647,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
