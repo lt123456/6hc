@@ -142,7 +142,7 @@
                             </thead>
 
                             <tbody>
-
+                            <volist name="periodsRes" id="periods">
                             <tr>
                                 <td class="center">
                                     <label>
@@ -152,7 +152,10 @@
                                 </td>
 
                                 <td>
-                                    <a href="#">ace.com</a>
+                                    <a href="#">{$periods.username}</a>
+                                </td>
+                                <td>
+                                    <span>{$periods.created_at} / {$periods.periods}期</span>
                                 </td>
                                 <td><span class=" ball greenball">12</span>
                                     <span class=" ball redball">13</span>
@@ -220,6 +223,7 @@
                                 </td>
                             </tr>
 
+                            </volist>
 
 
 

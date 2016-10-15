@@ -27,15 +27,23 @@ class LotteryRecordController extends BaseController {
         // 分页
         $count = $this ->lotteryModel->where($this->serach())->count();
         $Page  = new \Think\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        if($this->serach()){
+
+            foreach($this->serach() as $key=>$val) {
+                $Page->parameter[$key]   =   urlencode($val);
+            }
+        }
         $show  = $Page->show();
         $periodsRes =  $this ->lotteryModel
                                 ->where($this->serach)
                                 ->join('__ADMIN__ ON __LOTTERY_RECORD__.admin_id = __ADMIN__.id')
-                                ->limit($Page->firstRow.','.$Page->listRows);
+                                ->limit($Page->firstRow.','.$Page->listRows)
+                                ->field('6hc_admin.id,6hc_admin.username,6hc_lottery_record.*');
         if(isset($map['data'])){
              $periodsRes->order('lottery_time '.$map['data']);
         }
         $periodsRes = $periodsRes->select();
+//        var_dump($periodsRes);
         $periods = $this->lotteryModel->field('id')->order('id desc')->select();
 
         $this->assign('periodsRes', $periodsRes);// 赋值数据集
