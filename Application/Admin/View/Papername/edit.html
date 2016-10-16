@@ -36,6 +36,35 @@
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
+                                    <select  id="paper_spell" class="col-xs-10 col-sm-5">
+                                        <option value="">选择图库名称字母</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                        <option value="J">J</option>
+                                        <option value="K">K</option>
+                                        <option value="L">L</option>
+                                        <option value="M">M</option>
+                                        <option value="N">N</option>
+                                        <option value="O">O</option>
+                                        <option value="P">P</option>
+                                        <option value="Q">Q</option>
+                                        <option value="R">R</option>
+                                        <option value="S">S</option>
+                                        <option value="T">T</option>
+                                        <option value="U">U</option>
+                                        <option value="V">V</option>
+                                        <option value="W">W</option>
+                                        <option value="X">X</option>
+                                        <option value="Y">Y</option>
+                                        <option value="Z">Z</option>
+                                    </select>
                                     <select  id="form-field-select-1" name="pic_name_id" class="col-xs-10 col-sm-5">
                                         <option value="">选择图库</option>
                                         <foreach name="papers" item="cont">
@@ -55,7 +84,13 @@
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input type="text" class="input-mini" value="{$paper.periods_id}" name="periods_id" id="spinner3" />
+                                    <!-- <input type="text" class="input-mini" value="{$paper.periods_id}" name="periods_id" id="spinner3" /> -->
+                                    <select  id="form-field-select-1" name="periods_id" class="col-xs-10 col-sm-5">
+                                        <option value="">选择期数</option>
+                                        <foreach name="lottery" item="lott"> 
+                                            <option value="{$lott.id}" <?=($lott['id']==$paper['periods_id'])?'selected':''?>>{$lott.periods}</option>
+                                        </foreach>
+                                    </select>
                                 </span>
                             </div>
                             <div class="help-block col-xs-12 col-sm-reset inline"></div>
@@ -70,7 +105,7 @@
                                     <input multiple="" type="file"  name="origin" id="id-input-file-3" />
                                 </span>
                                 <span>
-                                    <img style="width:50px;" src="<?=trim($paper['origin'],'.')?>" alt="">
+                                    <img style="width:50px;" src="<?=trim($paper['cut_pic'],'.')?>" alt="">
                                 </span>
                             </div>
                             <div class="help-block col-xs-12 col-sm-reset inline"></div>
@@ -203,6 +238,28 @@
         $('#spinner5').ace_spinner({min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
 
         $('#spinner2').ace_spinner({min:0,max:10000,step:10, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+
+        $('#paper_spell').change(function(){
+            var spell = $(this).val();
+
+            $.ajax({
+                url: '{:U("PaperName/disabled")}',
+                type: 'post',
+                data: {spell:spell},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        var html = '<option value="">选择图库</option>';
+                        for(var item in d.data){
+                            html += '<option value="'+d.data[item].id+'">'+d.data[item].name+'</option>'
+                        }
+                        $('#pic_name_id').html(html);
+                    }else{
+                        location.href = '{:U("PaperList/index")}';
+                    }
+                }
+            });
+        });
 
     </script>
 

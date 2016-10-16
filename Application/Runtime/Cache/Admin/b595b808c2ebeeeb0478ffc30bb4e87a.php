@@ -432,24 +432,27 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/PaperList/index">
-                                <i class="icon-double-angle-right"></i>
-                                图库列表
-                            </a>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                图库名称管理
-                            </a>
-                            <a href="tables.html">
+                            <a href="/admin/PaperList/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库名称
                             </a>
                         </li>
-
                         <li>
-                            <a href="jqgrid.html">
+                            <a href="/admin/PaperList/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库名称管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库列表
                             </a>
                         </li>
                     </ul>
@@ -465,7 +468,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="form-elements.html">
+                            <a href="/admin/Joke/index">
                                 <i class="icon-double-angle-right"></i>
                                 幽默猜测列表
                             </a>

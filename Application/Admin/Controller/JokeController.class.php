@@ -129,6 +129,47 @@ class JokeController extends BaseController {
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     3145728 ;// 设置附件上传大小
         $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     './Public/Upload/big/'; // 设置附件上传根目录
+        $upload->savePath  =     ''; // 设置附件上传（子）目录
+        $dir = './Public/Upload/big/';
+        $mini_dir = './Public/Upload/mini/';
+
+        //创建上传文件目录
+        if(!is_dir($dir)){
+            mkdir($dir);
+        }
+
+        // 上传文件 
+        $info   =   $upload->upload();
+
+        //创建缩略图文件目录
+        if(!is_dir($mini_dir.$info['pic']['savepath'])){
+            mkdir($mini_dir.$info['pic']['savepath']);
+        }
+
+        //生成缩略图
+        $image  = new \Think\Image();
+        $image->open($dir.$info['pic']['savepath'].$info['pic']['savename']);
+        $image->thumb(100, 100)->save($mini_dir.$info['pic']['savepath'].$info['pic']['savename']);
+
+        if(!$info){// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{// 上传成功
+
+            $json = array();
+            $json['big'] = $dir.$info['pic']['savepath'].$info['pic']['savename'];
+            $json['mini'] = $mini_dir.$info['pic']['savepath'].$info['pic']['savename'];
+
+            return json_encode($json);
+        }
+    }
+    private function up(){
+        //完成与thinkphp相关的，文件上传类的调用  
+        import('@.Org.UploadFile');//将上传类UploadFile.class.php拷到Lib/Org文件夹下
+
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
         $upload->rootPath  =     './Public/Upload/'; // 设置附件上传根目录
         $upload->savePath  =     ''; // 设置附件上传（子）目录
 

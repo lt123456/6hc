@@ -30,8 +30,12 @@ class PaperNameController extends BaseController {
         // 获取
         $papers = D('paper_list')->where('is_hide=0')->order('id desc')->select();
 
+        //获取期数
+        $lottery = D('lottery_record')->select();
+
         //分配
         $this->assign('papers',$papers);
+        $this->assign('lottery',$lottery);
 
         $this->display();
     }
@@ -42,8 +46,12 @@ class PaperNameController extends BaseController {
 
         $data['admin_id'] = session('admin_id');
 
-        if(!empty($_FILES)){
-            $data['origin'] = $this->up();
+        if($_FILES['origin']['error']!=4){
+            $pic_arr = $this->up();
+            $pic = json_decode($pic_arr,true);
+
+            $data['cut_pic']=$pic['mini'];
+            $data['origin']=$pic['big'];
         }
 
         $data['created_at'] = date('Y-m-d H:i:s',time());
@@ -59,7 +67,12 @@ class PaperNameController extends BaseController {
 
     public function  disabled()
     {
-
+        $data = I('spell');
+        
+        // 获取
+        $papers = D('paper_list')->where('spell="'.$data.'"')->select();
+        
+        $this->ajaxReturn(['status'=>'ok','data'=>$papers]);
     }
 
     public function edit()
@@ -69,11 +82,15 @@ class PaperNameController extends BaseController {
         $paper=D('paper_view')->where('id='.$id)->find();
 
         // 获取
-        $papers = D('paper_list')->order('id desc')->select();
+        $papers = D('paper_list')->where('id='.$paper['pic_name_id'])->order('id desc')->select();
+
+        //获取期数
+        $lottery = D('lottery_record')->select();
 
 
         //分配
         $this->assign('papers',$papers);
+        $this->assign('lottery',$lottery);
         $this->assign('paper',$paper);
         $this->assign('id',$id);
 
@@ -124,23 +141,38 @@ class PaperNameController extends BaseController {
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     3145728 ;// 设置附件上传大小
         $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath  =     './Public/Upload/'; // 设置附件上传根目录
+        $upload->rootPath  =     './Public/Upload/big/'; // 设置附件上传根目录
         $upload->savePath  =     ''; // 设置附件上传（子）目录
+        $dir = './Public/Upload/big/';
+        $mini_dir = './Public/Upload/mini/';
+
+        //创建上传文件目录
+        if(!is_dir($dir)){
+            mkdir($dir);
+        }
 
         // 上传文件 
         $info   =   $upload->upload();
 
+        //创建缩略图文件目录
+        if(!is_dir($mini_dir.$info['origin']['savepath'])){
+            mkdir($mini_dir.$info['origin']['savepath']);
+        }
 
         //生成缩略图
-        // $img = new \Think\Image();
-        // $img->open($path);
-        // $a=$img->thumb(10,10)->save($path_mini);
-
+        $image  = new \Think\Image();
+        $image->open($dir.$info['origin']['savepath'].$info['origin']['savename']);
+        $image->thumb(100, 100)->save($mini_dir.$info['origin']['savepath'].$info['origin']['savename']);
 
         if(!$info){// 上传错误提示错误信息
             $this->error($upload->getError());
         }else{// 上传成功
-            return $upload->rootPath.$info['origin']['savepath'].$info['origin']['savename'];
+
+            $json = array();
+            $json['big'] = $dir.$info['origin']['savepath'].$info['origin']['savename'];
+            $json['mini'] = $mini_dir.$info['origin']['savepath'].$info['origin']['savename'];
+
+            return json_encode($json);
         }
     }
 }

@@ -62,13 +62,11 @@
                                         <volist name="papers" id="paper">
                                             <tr>
                                                 <td>{$paper.id}</td>
-                                                <td>
-                                                    <a href="#">{$paper.paper_name}</a>
-                                                </td>
+                                                <td>{$paper.paper_name}</td>
                                                 <td>{$paper.spell}</td>
                                                 <td>{$paper.periods_id}</td>
                                                 <td>{$paper.is_hide}</td>
-                                                <td><img src="<?=trim($paper['origin'],'.')?>" alt=""></td>
+                                                <td><img width="100" src="<?=trim($paper['cut_pic'],'.')?>" alt=""></td>
                                                 <td>{$paper.collects}</td>
                                                 <td>{$paper.likes}</td>
                                                 <td>{$paper.read}</td>
@@ -128,6 +126,8 @@
     </div>
 </block>
 <block name="js">
+    
+    <script src="{:C('__STATIC__')}/assets/js/bootbox.min.js"></script>
     <script type="text/javascript">
         jQuery(function($) {
             var oTable1 = $('#sample-table-2').dataTable();
@@ -151,25 +151,26 @@
 
         //删除
         function del_paper(id){
-            var con = confirm('确认删除');
-            if(!con){
-                return false;
-            }
-            $.ajax({
-                url: '{:U("PaperName/delete")}',
-                type: 'post',
-                data: {id:id},
-                dataType: 'json',
-                success: function(d){
-                    if(d.status =='ok'){
-                        location.href = '{:U("PaperName/index")}';
-                    }else{
-                        $('.alert').removeClass('hide').addClass('alert-danger');
+            bootbox.confirm("确认删除?", function(result) {
+                if(result) {
+                     $.ajax({
+                        url: '{:U("PaperName/delete")}',
+                        type: 'post',
+                        data: {id:id},
+                        dataType: 'json',
+                        success: function(d){
+                            if(d.status =='ok'){
+                                location.href = '{:U("PaperName/index")}';
+                            }else{
+                                $('.alert').removeClass('hide').addClass('alert-danger');
 
-                        $('.alert').find('span').html('删除图库失败，稍后再试');
-                    }
+                                $('.alert').find('span').html('删除图库失败，稍后再试');
+                            }
+                        }
+                    });
                 }
             });
+           
         }
 
     </script>

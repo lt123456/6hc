@@ -50,6 +50,7 @@
                                             <th>ID</th>
                                             <th>图库名称</th>
                                             <th>首字母</th>
+                                            <th>创建时间</th>
                                             <th class="hidden-480">是否隐藏</th>
                                             <th>操作</th>
                                         </tr>
@@ -65,10 +66,9 @@
                                                     </label>
                                                 </td> -->
                                                 <td>{$paper.id}</td>
-                                                <td>
-                                                    <a href="#">{$paper.name}</a>
-                                                </td>
+                                                <td>{$paper.name}</td>
                                                 <td>{$paper.spell}</td>
+                                                <td>{$paper.created_at}</td>
                                                 <td class="hidden-480">
                                                     <if condition="$paper.is_hide eq 0"> 
                                                         <button onclick="hide_paper($(this),{$paper.id})" class="btn btn-xs btn-success">否</button>
@@ -129,6 +129,8 @@
     </div>
 </block>
 <block name="js">
+    
+    <script src="{:C('__STATIC__')}/assets/js/bootbox.min.js"></script>
     <script type="text/javascript">
         jQuery(function($) {
             var oTable1 = $('#sample-table-2').dataTable();
@@ -181,23 +183,23 @@
 
         //删除
         function del_paper(id){
-            var con = confirm('确认删除');
-            if(!con){
-                return false;
-            }
-            $.ajax({
-                url: '{:U("PaperList/delete")}',
-                type: 'post',
-                data: {id:id},
-                dataType: 'json',
-                success: function(d){
-                    if(d.status =='ok'){
-                        location.href = '{:U("PaperList/index")}';
-                    }else{
-                        $('.alert').removeClass('hide').addClass('alert-danger');
+            bootbox.confirm("确认删除?", function(result) {
+                if(result) {
+                     $.ajax({
+                        url: '{:U("PaperList/delete")}',
+                        type: 'post',
+                        data: {id:id},
+                        dataType: 'json',
+                        success: function(d){
+                            if(d.status =='ok'){
+                                location.href = '{:U("PaperList/index")}';
+                            }else{
+                                $('.alert').removeClass('hide').addClass('alert-danger');
 
-                        $('.alert').find('span').html('删除图库失败，稍后再试');
-                    }
+                                $('.alert').find('span').html('删除图库失败，稍后再试');
+                            }
+                        }
+                    });
                 }
             });
         }
