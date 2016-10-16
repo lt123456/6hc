@@ -387,11 +387,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="/admin/agent/index">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="/admin/agent/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
@@ -433,7 +433,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="/admin/PaperName/index">
                                 <i class="icon-double-angle-right"></i>
                                 图库列表
                             </a>

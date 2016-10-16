@@ -44,7 +44,8 @@ class LoginController  extends  Controller
      */
     public function verify()
     {
-        return (new Verify())::verify();
+        $verify=new verify();
+        return $verify::verify();
     }
 
     /**
