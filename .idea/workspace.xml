@@ -41,8 +41,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-52.103447" vertical-offset="4081" max-vertical-offset="6144">
-              <caret line="233" column="29" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
+            <state vertical-scroll-proportion="-52.103447" vertical-offset="4057" max-vertical-offset="6024">
+              <caret line="232" column="29" selection-start-line="232" selection-start-column="29" selection-end-line="232" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotteryRecordController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LotteryRecordController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LotteryRecordController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58467245" vertical-offset="511" max-vertical-offset="4824">
+            <state vertical-scroll-proportion="-8.016949" vertical-offset="511" max-vertical-offset="4824">
               <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
               <folding />
             </state>
@@ -71,7 +71,7 @@
       <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7457628" vertical-offset="3451" max-vertical-offset="4296">
+            <state vertical-scroll-proportion="-3.7457628" vertical-offset="3451" max-vertical-offset="4200">
               <caret line="153" column="44" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="44" />
               <folding />
             </state>
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="38.068966" vertical-offset="1872" max-vertical-offset="3024">
-              <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+            <state vertical-scroll-proportion="-1.0309893" vertical-offset="1969" max-vertical-offset="3096">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -162,13 +162,13 @@
         <option value="$PROJECT_DIR$/Application/Admin/View/Public/siderbar.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/JokeController.class.php" />
         <option value="$PROJECT_DIR$/Application/Common/Common/Nature.class.php" />
-        <option value="$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Agent/edit.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/Public/base.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/LotteryRecord/edit.html" />
         <option value="$PROJECT_DIR$/Application/Admin/View/LotteryRecord/index.html" />
         <option value="$PROJECT_DIR$/Application/Admin/Controller/LotteryRecordController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php" />
       </list>
     </option>
   </component>
@@ -777,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/PaperNameController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.82758623" vertical-offset="24" max-vertical-offset="1128">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/RecommAnimalController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.137931" vertical-offset="0" max-vertical-offset="1128">
@@ -997,8 +990,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-52.103447" vertical-offset="4081" max-vertical-offset="6144">
-          <caret line="233" column="29" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
+        <state vertical-scroll-proportion="-52.103447" vertical-offset="4057" max-vertical-offset="6024">
+          <caret line="232" column="29" selection-start-line="232" selection-start-column="29" selection-end-line="232" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1007,14 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7457628" vertical-offset="3451" max-vertical-offset="4296">
           <caret line="153" column="44" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="38.068966" vertical-offset="1872" max-vertical-offset="3024">
-          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1047,8 +1032,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LotteryRecordController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58467245" vertical-offset="511" max-vertical-offset="4824">
+        <state vertical-scroll-proportion="-8.016949" vertical-offset="511" max-vertical-offset="4824">
           <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0309893" vertical-offset="1969" max-vertical-offset="3096">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
           <folding />
         </state>
       </provider>
