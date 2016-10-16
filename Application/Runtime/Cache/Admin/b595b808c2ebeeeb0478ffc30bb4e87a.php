@@ -409,7 +409,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('LotteryRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 开奖列表
                             </a>

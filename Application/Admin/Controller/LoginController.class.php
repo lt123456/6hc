@@ -33,7 +33,7 @@ class LoginController  extends  Controller
 
         // 是否登陆
         if( $this->is_login()){
-            return $this->success('正在加速登陆','/Admin/Index/',3);
+            return $this->success('正在加速登陆','/Admin/Index/index',3);
         }
         $this->redirect('/Admin/Login/login');
 

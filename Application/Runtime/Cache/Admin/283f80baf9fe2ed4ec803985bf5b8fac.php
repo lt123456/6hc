@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/datepicker.css" />
     <!-- inline styles related to this page -->
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/validator/jquery.validator.css">
     <!-- ace settings handler -->
@@ -966,7 +967,7 @@
 
 <script src="<?php echo C('__STATIC__');?>/layer/layer.js"></script>
 
-
+<script src="<?php echo C('__STATIC__');?>/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <!-- ace scripts -->
 
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
@@ -975,6 +976,7 @@
 <script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- inline scripts related to this page -->
 <script src="<?php echo C('__STATIC__');?>/lottery/lottery.global.js"></script>
+<script src="<?php echo C('__STATIC__');?>/laydate/laydate.js"></script>
 
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/jquery.validator.js"></script>
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/local/zh-CN.js"></script>
