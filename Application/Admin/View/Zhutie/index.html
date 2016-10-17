@@ -10,7 +10,7 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    后台管理
+                    帖子管理
                     <small>
                         <i class="icon-double-angle-right"></i>
                         查看
@@ -19,6 +19,98 @@
             </div><!-- /.page-header -->
 
             <div class="row">
+                <form class="form-search" method="get" action="{:U('Admin/Zhutie/index')}">
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                        <select id="form-field-select-2" name="type" class="col-sm-5">
+                                <option value="" disabled selected>类型</option>
+                                <option value="title">标题</option>
+                                <option value="user_id">发布人</option>
+                            </select>
+                            <input type="text" name="scontent" placeholder="请输入内容" class="input-small" />
+                        </div>
+                    </div>
+                   
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">所属分类 : </label>
+                            <select id="form-field-select-1" name="category_id" class="">
+                                <option value="分类名称" disabled selected>--分类名称--</option>
+
+                                <volist  name="discussCategorys" id="vo">
+                                    <option value="{$vo.id}"><b>{$vo.name}</b></option>
+                                </volist >
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 是否加精: </label>
+                            <select id="form-field-select-2" name="is_add" class="">
+                                <option value="是否加精" disabled selected>--是否加精--</option>
+                                <option value="1">加精</option>
+                                <option value="0">不加精</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 是否专家: </label>
+                            <select id="form-field-select-2" name="is_expert" class="">
+                                <option value="是否专家" disabled selected>--是否专家--</option>
+                                <option value="1">是专家</option>
+                                <option value="0">不是专家</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 允许评论: </label>
+                            <select id="form-field-select-2" name="is_comment" class="">
+                                <option value="允许评论" disabled selected>--允许评论--</option>
+                                <option value="1">允许</option>
+                                <option value="0">不允许</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 是否置顶: </label>
+                            <select id="form-field-select-2" name="is_top" class="">
+                                <option value="是否置顶" disabled selected>--是否置顶--</option>
+                                <option value="1">置顶</option>
+                                <option value="0">不置顶</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 前台显示: </label>
+                            <select id="form-field-select-2" name="is_display" class="">
+                                <option value="前台显示" disabled selected>--前台显示--</option>
+                                <option value="1">显示</option>
+                                <option value="0">不显示</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3" >
+                        <div class="input-group">
+                            <!-- <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach"> -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-purple btn-sm" type="submit">
+                                    搜索
+                                    <i class="icon-search icon-on-right bigger-110"></i>
+                                </button>
+                                 <button class="btn btn-grey btn-sm" type="reset">
+                                    重置
+                                     <i class="icon-remove icon-on-right bigger-110"></i>
+                                 </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
@@ -56,7 +148,6 @@
                                             <th>前台显示</th>
                                             <th>回复总数</th>
                                             <th><i class="icon-time hidden-480"></i>发表时间</th>
-                                            <th><i class="icon-time hidden-480"></i>最后修改时间</th>
                                             <th>帖子内容</th>
                                             <th></th>
                                         </tr>
@@ -73,8 +164,8 @@
                                                 </td>
 
                                                 <td>{$discussZhutie.title}</td>
-                                                <td>{$discussZhutie.user_id}</td>
-                                                <td>{$discussZhutie.category_id}</td>
+                                                <td>{$discussZhutie.username}</td>
+                                                <td>{$discussZhutie.name}</td>
                                                 <td>
                                                     <switch name="discussZhutie.is_add">
                                                         <case value="pending"></case>
@@ -110,15 +201,14 @@
                                                 <td>
                                                     <switch name="discussZhutie.is_display">
                                                         <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不展示</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">展示</span></case>
+                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不显示</span></case>
+                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">显示</span></case>
                                                         <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
                                                     </switch>
                                                 </td>
                                                 <td>{$discussZhutie.replay_nums}个回复</td>
                                                 <td>{$discussZhutie.created_at}</td>
-                                                <td>{$discussZhutie.updated_at}</td>
-                                                <td></td>
+                                                <td class="center discuss_content"><i class="icon-folder-open"></i> <span class="dis_content" style="display:none;">{$discussZhutie.description}</span></td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="blue" href="#">
@@ -168,42 +258,9 @@
                                         </volist>
                                     </tbody>
                                 </table>
-                                
-                                <!-- <div style="float:right">
-                                    <ul class="pagination">
-                                        <li class="disabled">
-                                            <a href="#">
-                                                <i class="icon-double-angle-left"></i>
-                                            </a>
-                                        </li>
-
-                                        <li class="active">
-                                            <a href="#">1</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">2</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">3</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">4</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">5</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">
-                                                <i class="icon-double-angle-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div> -->
+                                <div class="row-fluid">
+                                    <div class="page">{$page}</div>
+                                 </div>
                             </div><!-- /.table-responsive -->
                         </div><!-- /span -->
                     </div>
@@ -283,6 +340,18 @@
                             layer.msg('已取消', {icon: 2});
                         });
             });
+            $('.discuss_content').click(function(){
+                _this = $(this);
+                var content= _this.find('.dis_content').html();
+               layer.open({
+                  type: 1,
+                  title: '内容',
+                  skin: 'layui-layer-rim', //加上边框
+                  area: ['600px', '350px'], //宽高
+                  content: content
+                }); 
+            })
+            
          </script>
     </block>
 

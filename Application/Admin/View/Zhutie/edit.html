@@ -36,14 +36,19 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">帖子标题</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="title" placeholder="请输入版块名称" class="col-xs-10 col-sm-5"  value='{$obj.title}'/>
+                                <input type="text" id="form-field-1" name="title" placeholder="请输入帖子标题" class="col-xs-10 col-sm-5"  value='{$obj.title}'/>
                             </div>
                         </div>
 
                         <div class="space-4"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">所属分类</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">所属分类 &nbsp;&nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;
+                             <select id="form-field-select-1" name="category_id" class="col-sm-2">
+                                <foreach  name="discussCategorys" item="vo">
+                                    <option value="{$vo.id}"  <if condition="$vo.id eq $obj['category_id'] ">selected</if>><b>{$vo.name}</b></option>
+                                </foreach >
+                            </select>
                         </div>
 
                         <div class="space-4"></div>
@@ -168,13 +173,7 @@
 
                         <div class="space-4"></div>
                         
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">最后修改时间</label>
-
-                            <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="updated_at" class="col-xs-10 col-sm-5"  value='{$obj.updated_at}'/>
-                            </div>
-                        </div>
+                        
 
                         <div class="space-4"></div>
                         
@@ -227,7 +226,10 @@
     <script type="text/javascript">
         $('#signup_form').validator({
             fields: {
-              
+              'description': 'required; description;',
+              'created_at': 'required; created_at;',
+              'title': 'required; title;',
+              'description': 'required; description;',
 
             },
             // 表单验证通过后，ajax提交

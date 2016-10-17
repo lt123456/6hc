@@ -10,7 +10,7 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    后台管理
+                    回复管理
                     <small>
                         <i class="icon-double-angle-right"></i>
                         查看
@@ -19,19 +19,58 @@
             </div><!-- /.page-header -->
 
             <div class="row">
+                <form class="form-search" method="get" action="{:U('Admin/ReplayTie/index')}">
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                        <select id="form-field-select-2" name="type" class="col-sm-5">
+                                <option value="" disabled selected>类型</option>
+                                <option value="user_id">回帖人</option>
+                                <option value="zhutie_id">所属帖子</option>
+                                <option value="content">回复内容</option>
+                            </select>
+                            <input type="text" name="scontent" placeholder="请输入内容" class="input-small" />
+                        </div>
+                    </div>
+                   
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1"> 前台显示: </label>
+                            <select id="form-field-select-2" name="is_display" class="">
+                                <option value="前台显示" disabled selected>--前台显示--</option>
+                                <option value="1">显示</option>
+                                <option value="0">不显示</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3" >
+                        <div class="input-group">
+                            <!-- <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach"> -->
+                            <span class="input-group-btn">
+                                <button class="btn btn-purple btn-sm" type="submit">
+                                    搜索
+                                    <i class="icon-search icon-on-right bigger-110"></i>
+                                </button>
+                                 <button class="btn btn-grey btn-sm" type="reset">
+                                    重置
+                                     <i class="icon-remove icon-on-right bigger-110"></i>
+                                 </button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="{:U('DiscussCategory/add')}">
-                                <button class="btn btn-primary" class="padding-bottom:3px;"   type="button"><i class="icon-plus"></i>添加版块</button>
-                            </a>
+                            
                         </div>
 
                         <div class="col-xs-4"></div>
                         <!-- <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>人被禁用<span class="badge badge-pink">{$disableCount}</span>人</div> -->
                     </div>
                     <div class="table-header">
-                        后台版块统计
+                        回复统计
                     </div>
 
                     <div class="row">
@@ -46,16 +85,22 @@
                                                     <span class="lbl"></span>
                                                 </label>
                                             </th>
-                                            <th>分类名称</th>
-                                            <th><i class="icon-time  hidden-480"></i>创建时间</th>
-                                            <th><i class="icon-time hidden-480"></i>最后修改时间</th>
-                                            <th>补充说明</th>
+                                            <!-- <th>回帖标题</th> -->
+                                            <th>id</th>
+                                            <th>回帖人</th>
+                                            <th>所属帖子</th>
+                                            <th>前台显示</th>
+                                            <th>回复总数</th>
+                                            <th>回复对象</th>
+                                            <th>回复路径</th>
+                                            <th><i class="icon-time hidden-480"></i>回复时间</th>
+                                            <th>回复内容</th>
                                             <th></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <volist name="discussCategorys" id="discussCategory">
+                                        <volist name="discussReplayTies" id="discussReplayTie">
                                             <tr>
                                                 <td class="center">
                                                     <label>
@@ -64,20 +109,32 @@
                                                     </label>
                                                 </td>
 
-                                                <td>{$discussCategory.name}</td>
-                                                <td>{$discussCategory.created_at}</td>
-                                                <td>{$discussCategory.updated_at}</td>
-                                                <td>{$discussCategory.slug}</td>
+                                                <!-- <td>{$discussReplayTie.title}</td> -->
+                                                <td>{$discussReplayTie.id}</td>
+                                                <td>{$discussReplayTie.username}</td>
+                                                <td>{$discussReplayTie.ztitle}</td>
+                                                <td>
+                                                    <switch name="discussReplayTie.is_display">
+                                                        <case value="pending"></case>
+                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">显示</span></case>
+                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不显示</span></case>
+                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                    </switch>
+                                                </td>
+                                               
+                                                <td>{$discussReplayTie.replay_nums}个回复</td>
+                                                <td>{$discussReplayTie.content|mb_substr=0,8,'utf-8'}</td>
+                                                <td>{$discussReplayTie.path}</td>
+                                                <td>{$discussReplayTie.created_at}</td>
+                                                <td class="center discuss_content"><i class="icon-folder-open"></i> <span class="dis_content" style="display:none;">{$discussReplayTie.content}</span></td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="blue" href="#">
                                                         <i class="icon-zoom-in bigger-130"></i>
                                                     </a>
-                                                    <a class="green" href="{:U('DiscussCategory/edit/',array('id'=>$discussCategory['id']))}">
-                                                        <i class="icon-pencil bigger-130"></i>
-                                                    </a>
+                                                    
 
-                                                    <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussCategory['id']}">
+                                                    <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussReplayTie['id']}">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
@@ -96,14 +153,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{:U('DiscussCategory/edit/',array('id'=>$discussCategory['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                                    <span class="green">
-                                                                        <i class="icon-edit bigger-120"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$discussCategory['id']}">
+                                                                <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$discussReplayTie['id']}">
                                                                     <span class="red">
                                                                         <i class="icon-trash bigger-120"></i>
                                                                     </span>
@@ -117,8 +167,9 @@
                                         </volist>
                                     </tbody>
                                 </table>
-                                
-                               
+                                <div class="row-fluid">
+                                    <div class="page">{$page}</div>
+                                 </div>
                             </div><!-- /.table-responsive -->
                         </div><!-- /span -->
                     </div>
@@ -177,18 +228,16 @@
             $('.del-confirm').on('click' , function() {
                 var  id = $(this).attr('data-id');
                 _this = $(this);
-                layer.confirm('您确认删除该版块么?(只有当前版块下无帖子才可删除本板块)', {
+                layer.confirm('您确认删除该帖子么?', {
                             btn: ['确定', '取消']
                         }, function () {
                              $.ajax({
-                                url: '{:U("DiscussCategory/delete")}',
+                                url: '{:U("ReplayTie/delete")}',
                                 type: 'post',
                                 dataType: '',
                                 data: {'id':id},
                                 success: function(d){
-                                    if(d.status == 'error1'){
-                                        layer.msg('删除失败该板块下还有文章', {icon: 3});
-                                    }else if(d.status == 'ok') {
+                                    if(d.status == 'ok') {
                                         _this.parents('tr').remove();
                                         layer.msg('删除成功', {icon: 1});
                                     }else{
@@ -200,6 +249,18 @@
                             layer.msg('已取消', {icon: 2});
                         });
             });
+            $('.discuss_content').click(function(){
+                _this = $(this);
+                var content= _this.find('.dis_content').html();
+               layer.open({
+                  type: 1,
+                  title: '内容',
+                  skin: 'layui-layer-rim', //加上边框
+                  area: ['600px', '350px'], //宽高
+                  content: content
+                }); 
+            })
+            
          </script>
     </block>
 

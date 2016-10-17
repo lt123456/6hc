@@ -22,7 +22,7 @@ return array(
 
     'VAR_FILTERS'=>'stripslashes,strip_tags', // 开启过滤
 
-        'DEFAULT_TIMEZONE'=>'PRC' // 设置默认时区为新加坡
+     'DEFAULT_TIMEZONE'=>'PRC' // 设置默认时区为新加坡
 
 );
 

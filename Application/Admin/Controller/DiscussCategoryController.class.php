@@ -17,8 +17,6 @@ class DiscussCategoryController extends BaseController {
     public function index()
     {
         $count  = D('discuss_category')->count();
-        //分页
-        $page = isset($_GET['page']) ? $_GET['page']: '1';
         
         // 获取
         $discussCategorys = D('discuss_category')->order('id desc')->limit()->select();

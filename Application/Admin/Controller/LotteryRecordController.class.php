@@ -22,7 +22,7 @@ class LotteryRecordController extends BaseController {
 
     public function index()
     {
-         $map =array_filter(I());
+        $map =array_filter(I());
         // 分页
         $count = $this ->lotteryModel->where($this->serach($map))->count();
         $Page  = new \Think\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
@@ -32,7 +32,8 @@ class LotteryRecordController extends BaseController {
                 $Page->parameter[$key]   =   urlencode($val);
             }
         }
-        var_dump($this->serach($map));
+        // var_dump($this->serach($map));
+        // var_dump($map);die;
         $show  = $Page->show();
         $periodsRes =  $this ->lotteryModel
                                 ->where($this->serach($map))
