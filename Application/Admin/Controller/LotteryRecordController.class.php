@@ -22,10 +22,12 @@ class LotteryRecordController extends BaseController {
 
     public function index()
     {
+
         $map =I();
 
         // 期数
         $periods = $this->lotteryModel->field('id,periods')->order('id desc')->select();
+
         // 分页
         $count = $this ->lotteryModel->where($this->serach($map))->count();
         $whereList = $this->serach($map);

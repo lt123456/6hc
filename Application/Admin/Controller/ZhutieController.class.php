@@ -16,12 +16,38 @@ class ZhutieController extends BaseController {
 
     public function index()
     {
+
+        //获取用户查询信息
+        $map =I();
+       
+
+        //获取分类名称
+        $discussCategorys = D('discuss_category')->field('name,id')->order('id desc')->limit()->select();
+
         // 获取
-        $discussZhuties = D('discuss_zhutie')->order('id desc')->select();
-        $count  = D('discuss_zhutie')->count();
-        // var_dump($count);die;
+        $count  = D('discuss_zhutie')->where($this->serach($map))->count();
+        $page = new  \Think\Page($count, 1);
+        if($this->serach($map)){
+            foreach($this->serach($map) as $key=>$val) {
+                $Page->parameter[$key]   =   urlencode($val);
+            }
+        }
+        $discussZhuties = D('discuss_zhutie')->join('__USERS__ ON __DISCUSS_ZHUTIE__.user_id = __USERS__.id')
+                                        ->join('__DISCUSS_CATEGORY__ ON __DISCUSS_ZHUTIE__.category_id = __DISCUSS_CATEGORY__.id')
+                                        ->order('6hc_discuss_zhutie.id desc')
+                                        ->field('6hc_discuss_category.name,6hc_users.username,6hc_discuss_zhutie.*')
+                                        ->where($this->serach($map))
+                                        ->limit($page->firstRow.','.$page->listRows);
+        // if(isset($map['data'])){
+        //      $discussZhuties->order('created_at '.$map['data']);
+        // }
+        $discussZhuties = $discussZhuties->select();
+        $show = $page->show();
+        // var_dump($discussCategorys);die;
         //分配
+        $this->assign('page',$show);
         $this->assign('discussZhuties',$discussZhuties);
+        $this->assign('discussCategorys',$discussCategorys);
         $this->assign('count',$count);
 
         // 视图
@@ -47,10 +73,14 @@ class ZhutieController extends BaseController {
 
     public function edit()
     {
+         //获取分类名称
+        $discussCategorys = D('discuss_category')->field('name,id')->order('id desc')->limit()->select();
+
         $obj =    $this->discussZhutieModel->find(I('get.id'));
 
           if($obj) {
               $this->assign('obj',$obj);
+              $this->assign('discussCategorys',$discussCategorys);
               $this->display();
           }else{
               $this->error('该帖子不存在','/Admin/Zhutie',3);
@@ -82,5 +112,38 @@ class ZhutieController extends BaseController {
         }else{
             $this->ajaxReturn(array('status'=>'error'));
         }
+    }
+
+    //查询条件
+    public function  serach($map)
+    {
+
+        if(isset($map['category_id'])){
+           $where['category_id'] = array('eq',$map['category_id']);
+        }
+        if(isset($map['is_add'])){
+            $where['is_add'] = array('eq',$map['is_add']);
+        }
+        if(isset($map['is_expert'])){
+            $where['is_expert'] = array('eq',$map['is_expert']);
+        }
+        if(isset($map['is_comment'])){
+            $where['is_comment'] = array('eq',$map['is_comment']);
+        }
+        if(isset($map['is_top'])){
+            $where['is_top'] = array('eq',$map['is_top']);
+        }
+        if(isset($map['is_display'])){
+            $where['is_display'] = array('eq',$map['is_display']);
+        }
+        if(isset($map['type'])){
+            if($map['type'] == 'title' && isset($map['scontent'])){
+                 $where['title'] = array('like','%'.$map['scontent'].'%');
+            }
+            if($map['type'] == 'user_id' && isset($map['scontent'])){
+                $where['username'] = array('like','%'.$map['scontent'].'%');
+            }
+        }
+        return $where;
     }
 }

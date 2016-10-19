@@ -530,6 +530,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="<?php echo U('ReplayTie/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                回复管理
+                            </a>
+                        </li>
+                        <li>
                             <a href="<?php echo U('DiscussCategory/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 论坛版块添加
