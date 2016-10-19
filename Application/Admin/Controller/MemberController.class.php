@@ -5,8 +5,14 @@
 namespace Admin\Controller;
 
 class MemberController extends BaseController {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function index()
     {
+
         $this->display();
     }
 

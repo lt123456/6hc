@@ -5,10 +5,10 @@
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    后台用户管理
+                    号码推荐管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
-                        添加
+                        编辑
                     </small>
                 </h1>
             </div><!-- /.page-header -->
@@ -26,60 +26,49 @@
 
                 <br>
             </div>
-
             <div class="row">
                 <div class="col-xs-12">
-
                     <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">id</label>
+
+                            <div class="col-sm-9">
+                                <input type="hidden"  name="id" value="{$obj['id']}"/>
+                                <input type="text" id="form-field-1" name="username" placeholder="请输入用户名" class="col-xs-10 col-sm-5" value="{$obj['id']}" disabled/>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="username" placeholder="请输入用户名" class="col-xs-10 col-sm-5"  />
+                                <input type="text" id="form-field-3" name="username" placeholder="请输入用户名" class="col-xs-10 col-sm-5" value="{$obj['username']}" disabled/>
                             </div>
                         </div>
 
                         <div class="space-4"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">邮箱</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">期数</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="email" placeholder="请输入邮箱" class="col-xs-10 col-sm-5"  />
+                                <input type="text" id="form-field-2" name="email" placeholder="请输入邮箱" class="col-xs-10 col-sm-5"  value="{$obj['periods']}"  disabled/>
                             </div>
                         </div>
                         <div class="space-4"></div>
-
                         <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">密码 默认(123456)</label>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">生肖推荐</label>
 
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-3" name="pwd" placeholder="请输入密码" class="col-xs-10 col-sm-5" value="123456" />
-
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">再次输入密码</label>
-
-                            <div class="col-sm-9">
-                                <input type="password" id="form-field-4" name="confirm_pwd" placeholder="请再次输入密码" class="col-xs-10 col-sm-5" value="123456" />
-                            </div>
-                        </div>
-                        <div class="space-4"></div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">角色</label>
-
-                            <div class="col-sm-9">
-                                <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
-                                    <option value="">&nbsp;</option>
-                                    <foreach name="roles" item="role">
-                                        <option value="{$role.id}">{$role.title}</option>
-                                    </foreach>
-                                </select>
-
+                            <div class="col-sm-4">
+                                <div  class="rule">
+                                    <?php $checkArray =  array_filter(explode(',',$obj['recomm_special']));
+                                    ?>
+                                    <for start="1" end="49"  step="1" name="number" >
+                                        <label>
+                                            <input class="ace" name="specials[]" type="checkbox" value="{$number}" <?php echo  in_array($number,$checkArray) ? 'checked' : '';?>>
+                                            <span class="lbl" style="margin:5px;">{$number}</span>
+                                        </label>
+                                    </for>
+                                </div>
                             </div>
                         </div>
                         <div class="space-4"></div>
@@ -113,7 +102,7 @@
     </div>
 
 
-        {// main}
+    {// main}
 
 
 
@@ -122,27 +111,8 @@
 <block name="js">
     <script type="text/javascript">
         $('#signup_form').validator({
-            rules: {
-                //自定义一个规则，用来代替remote（注意：要把$.ajax()返回出来）
-                myRemote: function(element){
-                    return $.ajax({
-                        url: '{:U("Agent/checkEmail")}',
-                        type: 'post',
-                        data: element.name +'='+ element.value,
-                        dataType: 'json',
-                        success: function(d){
-                            window.console && console.log(d);
-                        }
-                    });
-                }
-            },
             fields: {
-                'username': 'required; username;',
-                'email': 'required; email; myRemote;',
-                'pwd': '密码:required; password;',
-                'confirm_pwd': 'required; match(pwd);',
-                'role': 'required;'
-
+                'specials[]': 'checked[1~6]'
             },
             // 表单验证通过后，ajax提交
             valid: function(form){
@@ -152,7 +122,7 @@
 //                me.holdSubmit();
                 $(form).find('btn-info').css('color', '#999').text('正在提交..');
                 $.ajax({
-                    url: '{:U("Agent/doAdd")}',
+                    url: '{:U("SpecialRecord/doEdit")}',
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
@@ -166,15 +136,17 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
-                            layer.msg('添加成功', {icon: 1});
+                            $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
+
+                            $('.alert').find('span').html('修改成功');
+                            layer.msg('更新成功', {icon: 1});
                             setTimeout(function(){
-                                location.href = '{:U("Agent/index")}';
+                                location.href="/Admin/SpecialRecord/index";
                             },2000);
-
                         }else{
-                            $('.alert').removeClass('hide').addClass('alert-danger');
+                            $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
 
-                            $('.alert').find('span').html('创建用户失败,请稍后再试');
+                            $('.alert').find('span').html('已修改,请不要重复提交');
                         }
                     }
                 });

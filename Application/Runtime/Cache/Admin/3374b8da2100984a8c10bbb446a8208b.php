@@ -406,6 +406,7 @@
                         <span class="menu-text"> 开奖记录管理 </span>
 
                         <b class="arrow icon-angle-down"></b>
+
                     </a>
 
                     <ul class="submenu">
@@ -414,7 +415,7 @@
                                 <i class="icon-double-angle-right"></i>
                                 开奖列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('LotteryRecord/setRecord');?>">
                                 <i class="icon-double-angle-right"></i>
                                 设置开奖码
                             </a>
@@ -433,24 +434,27 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/PaperName/index">
-                                <i class="icon-double-angle-right"></i>
-                                图库列表
-                            </a>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                图库名称管理
-                            </a>
-                            <a href="tables.html">
+                            <a href="/admin/PaperList/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库名称
                             </a>
                         </li>
-
                         <li>
-                            <a href="jqgrid.html">
+                            <a href="/admin/PaperList/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库名称管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库列表
                             </a>
                         </li>
                     </ul>
@@ -466,7 +470,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="form-elements.html">
+                            <a href="/admin/Joke/index">
                                 <i class="icon-double-angle-right"></i>
                                 幽默猜测列表
                             </a>
@@ -497,9 +501,14 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('Admin/AnimalRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
-                                用户信息
+                                 生肖推荐管理
+                            </a>
+
+                            <a href="<?php echo U('Admin/SpecialRecord/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                号码推荐管理
                             </a>
                         </li>
                     </ul>
@@ -655,6 +664,25 @@
                             <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="<?php echo U('Powe/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text"> 权限管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Power/rule');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限规则
+                            </a>
+                            <a href="<?php echo U('Power/group');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限组
                             </a>
                         </li>
 
@@ -838,8 +866,7 @@
                             <div class="col-sm-9">
                                 <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
                                     <option value="">&nbsp;</option>
-                                    <?php
- $roles = C('admin_roles'); foreach($roles as $k => $role) { echo '<option value="'.$k.'">'.$role.'</option>'; }; ?>
+                                    <?php if(is_array($roles)): foreach($roles as $key=>$role): ?><option value="<?php echo ($role["id"]); ?>"><?php echo ($role["title"]); ?></option><?php endforeach; endif; ?>
                                 </select>
 
                             </div>
@@ -993,8 +1020,11 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
+                            layer.msg('添加成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '<?php echo U("Agent/index");?>';
+                            },2000);
 
-                            location.href = '<?php echo U("Agent/index");?>';
                         }else{
                             $('.alert').removeClass('hide').addClass('alert-danger');
 

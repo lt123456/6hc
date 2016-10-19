@@ -1,0 +1,209 @@
+<extend name="Public/base"/>
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    权限规则管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="{:U('Power/ruleAdd')}">
+                                <button class="btn btn-primary" class="padding-bottom:3px;"   type="button"><i class="icon-plus"></i>添加规则</button>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>条</div>
+                    </div>
+                    <div class="table-header">
+                       规则统计
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input type="checkbox" class="ace" />
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th class="bigger-110">id</th>
+                                <th class="bigger-110">权限名称</th>
+                                <th class="bigger-110">字段名</th>
+                                <th><i class="icon-time  hidden-480"></i>设置时间</th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <volist name="rules" id="rule">
+                                <tr>
+                                    <td class="center">
+                                        <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+
+                                    <td class="bigger-110">
+                                        <a href="#">{$rule.id}</a>
+                                    </td>
+                                    <td class="bigger-110">{$rule.titles}</td>
+                                    <td class="bigger-110">{$rule.name}</td>
+
+                                    <td>
+                                        {$rule.created_at}
+                                    </td>
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                            <a class="blue" href="#">
+                                                <i class="icon-zoom-in bigger-130"></i>
+                                            </a>
+                                            <a class="green" href="{:U('Power/ruleEdit/',array('id'=>$rule['id']))}">
+                                                <i class="icon-pencil bigger-130"></i>
+                                            </a>
+
+                                            <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$rule['id']}">
+                                                <i class="icon-trash bigger-130"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="inline position-relative">
+                                                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                    <li>
+                                                        <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{:U('Power/ruleEdit',array('id'=>$rule['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$rule['id']}">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable();
+
+
+            $('table th input:checkbox').on('click' , function(){
+                var that = this;
+                $(this).closest('table').find('tr > td:first-child input:checkbox')
+                        .each(function(){
+                            this.checked = that.checked;
+                            $(this).closest('tr').toggleClass('selected');
+                        });
+
+            });
+
+
+            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                return 'left';
+            }
+
+
+
+
+        })
+        //                               layer.confirm('您是如何看待前端开发？', {
+        //                         btn: ['重要','奇葩'] //按钮
+        //                     }, function(){
+        //                         layer.msg('的确很重要', {icon: 1});
+        //                     }, function(){
+        //                         layer.msg('也可以这样', {
+        //                             time: 20000, //20s后自动关闭
+        //                             btn: ['明白了', '知道了']
+        //                         });
+        //                     });
+        $('.del-confirm').on('click' , function() {
+            var  id = $(this).attr('data-id');
+            _this = $(this);
+            layer.confirm('您确认删除该管理规则么?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    url: '{:U("Power/deleteRule")}',
+                    type: 'post',
+                    dataType: '',
+                    data: {'id':id},
+                    success: function(d){
+                        if(d.status == 'ok') {
+                            _this.parents('tr').remove();
+                            layer.msg('删除成功', {icon: 1});
+                        }else{
+                            layer.msg('删除失败', {icon: 3});
+                        }
+                    }
+                });
+            }, function () {
+                layer.msg('已取消', {icon: 2});
+            });
+        });
+    </script>
+</block>
+
+

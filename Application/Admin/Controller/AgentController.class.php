@@ -7,11 +7,14 @@ namespace Admin\Controller;
 class AgentController extends BaseController {
 
     protected  $adminModel;
-
+    protected  $groupModel;
+    protected  $accessModel;
     public function  __construct()
     {
         parent::__construct();
         $this->adminModel = M('admin');
+        $this->groupModel = M('think_auth_group');
+        $this->accessModel = M('think_auth_group_access');
     }
     /**
      * 后台管理列表
@@ -19,7 +22,10 @@ class AgentController extends BaseController {
     public function index()
     {
         // 获取
-        $admins = D('admin')->order('id desc')->select();
+        $admins = D('admin')->order('id desc')
+                            ->join('__THINK_AUTH_GROUP__ ON __ADMIN__.role = __THINK_AUTH_GROUP__.id')
+                            ->field('6hc_think_auth_group.title,6hc_admin.*')
+                            ->select();
         $count  = D('admin')->count();
         $disableCount  = D('admin')->where('status != "active"')->count();
 
@@ -37,6 +43,8 @@ class AgentController extends BaseController {
      */
     public function  add()
     {
+        $roles = $this->groupModel->field('id,title')->select();
+        $this->assign('roles',$roles);
         $this->display();
     }
 
@@ -45,7 +53,6 @@ class AgentController extends BaseController {
         if(IS_POST){
 
             $data =  I();
-
             $data['created_at'] = date('Y-m-d h:i:s',time());
             $data['status'] ='active';
             $data['password'] = md5($data['pwd']);
@@ -53,8 +60,9 @@ class AgentController extends BaseController {
             $res  = D('admin')->add($data);
 
             if($res) {
+                $this->accessModel->add(array('uid'=>$res,'group_id'=>$data['role']));
                $this->ajaxReturn(array('status'=>'ok'));
-            }else{
+            }else {
                 $this->ajaxReturn(array('status'=>'error','message'=>'发生异常稍后再试'));
             }
         }
@@ -70,6 +78,8 @@ class AgentController extends BaseController {
           $obj =    $this->adminModel->find(I('get.id'));
 
           if($obj) {
+              $roles = $this->groupModel->field('id,title')->select();
+              $this->assign('roles',$roles);
               $this->assign('obj',$obj);
               $this->display();
           }else{
@@ -83,8 +93,9 @@ class AgentController extends BaseController {
             $data = I();
 
             $res = $this->adminModel->save($data);
+            $access =  $this->accessModel->where("uid = ".$data['id'])->save(array('group_id'=>$data['role']));
 
-            if($res){
+            if($res || $access){
                 $this->ajaxReturn(array('status'=>'ok'));
             }else{
                 $this->ajaxReturn(array('status'=>'error'));
@@ -97,8 +108,8 @@ class AgentController extends BaseController {
     {
         $data = I();
         $res = $this->adminModel->where('id='.$data['id'])->delete();
-
-        if($res) {
+        $access=  $this->accessModel->where("uid = ".$data['id'])->delete();
+        if($res && $access) {
             $this->ajaxReturn(array('status'=>'ok'));
         }else{
             $this->ajaxReturn(array('status'=>'error'));

@@ -76,13 +76,7 @@
                                         <td class="bigger-110">{$admin.email}</td>
                                         <td class="bigger-110">{$admin.phone}</td>
                                         <td>
-                                            <switch name="admin.role">
-                                                <case value="pending"></case>
-                                                <case value="1"><span class="label label-lg label-pink arrowed-right">管理员</span></case>
-                                                <case value="2"><span class="label label-lg label-pink arrowed-right">运营人员</span></case>
-                                                <case value="3"><span class="label label-lg label-yellow arrowed-right">帖子管理员</span></case>
-                                                <default /><span class="label label-lg label-red arrowed-right">未知</span>
-                                            </switch>
+                                            <span class="label label-lg label-pink arrowed-right">{$admin.title}</span>
                                         </td>
                                         <td>
                                             <switch name="admin.status">

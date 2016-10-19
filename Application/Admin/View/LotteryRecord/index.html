@@ -58,10 +58,8 @@
                             <select id="form-field-select-1" name="periods" class="">
                                 <option value="请选择期数" disabled selected>--期数--</option>
 
-                                <foreach name="periods" item="id">
-                                    <foreach name="id" item="vo">
-                                    <option value="{$vo}"><b>{$vo}</b>-期</option>
-                                        </foreach>
+                                <foreach name="periods" item="vo">
+                                    <option value="{$vo.id}"><b>{$vo.periods}</b>-期</option>
                                 </foreach>
                             </select>
                         </div>
@@ -170,7 +168,7 @@
                                 <td>
 
                                     <?php
-                                        if(!empty($periods['$special'])){
+                                        if(!empty($periods['just_string'])){
                                         $one =  $periods['just_one']%3;?>
                                     <switch name="one">
                                         <case value="0"> <span class=" ball greenball"></case>
@@ -235,7 +233,7 @@
                                 </td>
                                 <td class="hidden-480">
                                     <?php
-                                         if(!empty($periods['$special'])){
+                                         if(!empty($periods['special_number'])){
                                             $special =  $periods['special_number']%3;?>
                                     <switch name="special">
                                         <case value="0"> <span class=" ball greenball"></case>
@@ -407,6 +405,9 @@
                         if(d.status == 'ok') {
                             _this.parents('tr').remove();
                             layer.msg('公布成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="/Admin/LotteryRecord/index";
+                            },2000);
                         }else{
                             layer.msg('公布失败', {icon: 3});
                         }

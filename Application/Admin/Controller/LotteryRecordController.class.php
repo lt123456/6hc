@@ -22,10 +22,17 @@ class LotteryRecordController extends BaseController {
 
     public function index()
     {
-         $map =I();
+        $map =I();
+
+        // 期数
+        $periods = $this->lotteryModel->field('id,periods')->order('id desc')->select();
         // 分页
         $count = $this ->lotteryModel->where($this->serach($map))->count();
-        $Page  = new \Think\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $whereList = $this->serach($map);
+        if(!empty($map['lottery_serach'])){
+            $whereList['6hc_admin.username'] = array('like','%'.$map['lottery_serach'].'%');
+        }
+        $Page  = new \Think\Page($count,C('PAGE'));// 实例化分页类 传入总记录数和每页显示的记录数(25)
         if($this->serach($map)){
 
             foreach($this->serach($map) as $key=>$val) {
@@ -33,8 +40,7 @@ class LotteryRecordController extends BaseController {
             }
         }
         $show  = $Page->show();
-        $periodsRes =  $this ->lotteryModel
-                                ->where($this->serach($map))
+        $periodsRes =  $this ->lotteryModel->where($whereList)
                                 ->join('__ADMIN__ ON __LOTTERY_RECORD__.admin_id = __ADMIN__.id')
                                 ->limit($Page->firstRow.','.$Page->listRows)
                                 ->field('6hc_admin.id,6hc_admin.username,6hc_lottery_record.*');
@@ -45,8 +51,6 @@ class LotteryRecordController extends BaseController {
         }
         $periodsRes = $periodsRes->select();
 
-        $periods = $this->lotteryModel->field('id')->order('id desc')->select();
-
         $this->assign('periodsRes', $periodsRes);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
         $this->assign('map',$map);
@@ -56,19 +60,16 @@ class LotteryRecordController extends BaseController {
     public function  serach($map)
     {
 
-        if(isset($map['periods'])){
-           $where['periods'] = array('eq',$map['periods']);
+        if(!empty($map['periods'])){
+           $where['6hc_lottery_record.id'] = array('eq',$map['periods']);
         }
-        if(isset($map['year'])){
+        if(!empty($map['year'])){
             $where['lottery_time'] = array('like','%'.$map['year'].'%');
         }
-        if(isset($map['week'])){
+        if(!empty($map['week'])){
             $where['week'] = array('eq',$map['week']);
         }
-        if(isset($map['periods'])){
-            $where['periods'] = array('eq',$map['periods']);
-        }
-        if(isset($map['singleDouble'])){
+        if(!empty($map['singleDouble'])){
             $where['special_one_two'] = array('eq',$map['singleDouble']);
         }
         return $where;
@@ -79,9 +80,13 @@ class LotteryRecordController extends BaseController {
 
     }
 
-    public function  doadd()
+    public function  setRecord()
     {
+        $res = $this->lotteryModel->where(array('status'=>'wait'))->order("id desc")->find();
 
+        if($id=$res['id']){
+            return redirect("/Admin/LotteryRecord/edit/id/$id");
+        }
     }
 
     public function  disabled()
@@ -172,12 +177,14 @@ class LotteryRecordController extends BaseController {
     {
         $data = I();
         $res = $this->lotteryModel->where('id='.$data['id'])->find();
-        if($res){
+        $this->lotteryModel->startTrans();
+        if($res['just_three'] && $res['special_number']){
             $data['status'] = 'active';
             $data['id'] = $res['id'];
+
              $updateRes = $this->lotteryModel->save($data);
 
-            $fillable['perious'] = $res['periods']+1;
+            $fillable['periods'] = $res['periods']+1;
             $fillable['admin_id'] = session('admin_id');
             $fillable['status'] = 'wait';
             $fillable['created_at'] = date('Y-m-d H:i:s',time());
@@ -185,8 +192,10 @@ class LotteryRecordController extends BaseController {
             $addRes =  $this->lotteryModel->add($fillable);
 
             if($updateRes && $addRes){
+                $this->lotteryModel->commit();
                 $this->ajaxReturn(array('status'=>'ok'));
             }else{
+                $this->lotteryModel->rollback();
                 $this->ajaxReturn(array('status'=>'error'));
             }
 

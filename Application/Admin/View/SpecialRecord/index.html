@@ -1,0 +1,238 @@
+<extend name="Public/base"/>
+
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    号码推荐管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        列表
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+
+            <!-- 主要内容 -->
+            <div class="row">
+                <form class="form-search" method="get" action="{:U('Admin/SpeciaRecord/index')}">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">期数 : </label>
+                            <select id="form-field-select-1" name="periods" class="">
+                                <option value="请选择期数" disabled selected>--期数--</option>
+
+                                <foreach name="periods" item="vo">
+                                        <option value="{$vo.id}"><b>{$vo.periods}</b>-期</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">状态 : </label>
+                            <select id="form-field-select-2" name="status" class="">
+                                <option value="全部状态" disabled selected>全部状态</option>
+                                <option value="wait">未开奖</option>
+                                <option value="no-prize">未中奖</option>
+                                <option value="prize">已中奖</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username">
+                            <span class="input-group-btn">
+                            <button class="btn btn-purple btn-sm" type="submit">
+                                搜索
+                                <i class="icon-search icon-on-right bigger-110"></i>
+                            </button>
+                                 <a class="btn btn-grey btn-sm"  href="{:U('Admin/Record/index')}">
+                                     重置
+                                     <i class="icon-remove icon-on-right bigger-110"></i>
+                                 </a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th>参与人</th>
+                                <th> <i class="icon-time bigger-110 hidden-480"></i>时间</th>
+                                <th>期数</th>
+                                <th>推荐号码</th>
+                                <th>状态</th>
+                                <th>推荐号码数</th>
+                                <th>中奖期数</th>
+                                <th>参与期数</th>
+                                <th>胜率</th>
+                                <th class="hidden-480">操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <volist name="specialRes" id="animal">
+                                <tr>
+                                    <td class="center">
+                                        <label>
+                                            <input class="ace" type="checkbox">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <a href="#">{$animal.username}</a>
+                                    </td>
+                                    <td>
+                                        <span>{$animal.created_at}</span>
+                                    </td>
+                                    <td>
+                                        <span class="label label-info arrowed-in-right arrowed">{$animal.periods}</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball">
+                                              <span class="">{$animal.recomm_special}</span>
+                                        </span>
+                                    </td>
+
+                                    <td class="hidden-480 " >
+
+                                            <?php $status = $animal['status'];?>
+                                             <switch name="animal.status">
+                                                 <case value="wait"><span class="label label-sm label-danger">待开奖</case>
+                                                 <case value="no-prize"><span class="label label-sm label-grey">未中奖</case>
+                                                 <case value="prize"><span class="label label-sm label-success">中奖</case>
+                                                 <default />
+                                                <span>
+                                             </switch>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        {$animal.recomm_sum}
+                                    </td>
+                                    <td>
+                                         {$animal.reword_periods}
+                                    </td>
+                                    <td>
+                                        {$animal.part_periods}
+                                    </td>
+                                    <td>
+                                          <?php  echo  round(($animal['reword_periods']/$animal['part_periods'])*100).'%';?>
+                                    </td>
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                            <a class="btn btn-xs btn-success" href="{:U('Admin/SpecialRecord/edit',array('id'=>$animal['id']))}" title="查看">
+                                                <i class="icon-ok bigger-120"></i>
+                                            </a>
+                                            <a class="btn btn-xs btn-info" href="{:U('Admin/SpecialRecord/edit',array('id'=>$animal['id']))}" title="编辑">
+                                                <i class="icon-edit bigger-120"></i>
+                                            </a>
+
+
+                                            <button class="btn btn-xs btn-danger del-confirm" data-id= "{$animal['id']}">
+                                                <i class="icon-trash bigger-120"></i>
+                                            </button>
+
+                                        </div>
+
+                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="inline position-relative">
+                                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-cog icon-only bigger-110"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                    <li>
+                                                        <a href="{:U('Admin/SpecialRecord/edit',array('id'=>$animal['id']))}" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+																				<span class="blue">
+																					<i class="icon-zoom-in bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{:U('Admin/SpecialRecord/edit',array('id'=>$animal['id']))}" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
+																				<span class="green">
+																					<i class="icon-edit bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" class="tooltip-error del-confirm"  data-id="{$animl['id']}"data-rel="tooltip" title="" data-original-title="Delete">
+																				<span class="red">
+																					<i class="icon-trash bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </volist>
+
+
+
+                            </tbody>
+                        </table>
+                        <div class="row-fluid">
+                            <div class="page">{$page}</div>
+                        </div>
+                    </div><!-- /.table-responsive -->
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.del-confirm').on('click' , function() {
+            var  id = $(this).attr('data-id');
+            console.log(id);
+            _this = $(this);
+            layer.confirm('您确认删除该用户的本期号码推荐么?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    url: '{:U("SpecialRecord/delete")}',
+                    type: 'post',
+                    dataType: '',
+                    data: {'id':id},
+                    success: function(d){
+                        if(d.status == 'ok') {
+                            _this.parents('tr').remove();
+                            layer.msg('删除成功', {icon: 1});
+                        }else{
+                            layer.msg('删除失败', {icon: 3});
+                        }
+                    }
+                });
+            }, function () {
+                layer.msg('已取消', {icon: 2});
+            });
+        });
+    </script>
+</block>

@@ -259,8 +259,10 @@
             istime: true,
             istoday: false,
             choose: function(datas){
+                alert('得到的日期是:'+datas);
                 end.min = datas; //开始日选好后，重置结束日的最小日期
-                end.start = datas //将结束日的初始值设定为开始日
+                end.start = datas ;//将结束日的初始值设定为开始日
+
             }
         });
 
@@ -286,6 +288,9 @@
                         $(form).find('btn-info').css('color', '#333').text('提交');
                         if(d.status =='ok'){
                             layer.msg('更新成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="/Admin/LotteryRecord/index";
+                            },2000);
                         }else if(d.status=='error'){
                             layer.msg('请您修改数据后提交', {icon: 3});
 

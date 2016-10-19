@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/datepicker.css" />
     <!-- inline styles related to this page -->
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/validator/jquery.validator.css">
     <!-- ace settings handler -->
@@ -644,7 +645,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="">
+                    <a href="<?php echo U('Agent/index');?>">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 后台用户管理 </span>
                     </a>
@@ -657,6 +658,25 @@
                             <a href="<?php echo U('Agent/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="<?php echo U('Powe/index');?>">
+                        <i class="icon-text-width"></i>r
+                        <span class="menu-text"> 权限管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Power/rule');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限规则
+                            </a>
+                            <a href="<?php echo U('Power/group');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限组
                             </a>
                         </li>
 
@@ -852,7 +872,7 @@
 
 <script src="<?php echo C('__STATIC__');?>/layer/layer.js"></script>
 
-
+<script src="<?php echo C('__STATIC__');?>/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <!-- ace scripts -->
 
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
@@ -861,6 +881,7 @@
 <script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- inline scripts related to this page -->
 <script src="<?php echo C('__STATIC__');?>/lottery/lottery.global.js"></script>
+<script src="<?php echo C('__STATIC__');?>/laydate/laydate.js"></script>
 
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/jquery.validator.js"></script>
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/local/zh-CN.js"></script>
