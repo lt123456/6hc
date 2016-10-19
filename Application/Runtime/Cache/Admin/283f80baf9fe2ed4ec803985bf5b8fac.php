@@ -381,20 +381,36 @@
                 </li>
 
                 <li class="active">
-                    <a href="typography.html">
+                    <a href="<?php echo U('Member/index');?>">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/agent/index">
+                            <a href="<?php echo U('Member/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="/admin/agent/add">
+                            <a href="<?php echo U('Member/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?php echo U('Score/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text">绩效管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Score/index');?>"  class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i>
+                                用户排名
+                            </a>
+
                         </li>
 
                     </ul>
@@ -533,6 +549,12 @@
                             <a href="<?php echo U('Zhutie/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 帖子管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo U('ReplayTie/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                回复管理
                             </a>
                         </li>
                         <li>

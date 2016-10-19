@@ -180,7 +180,7 @@ class LotteryRecordController extends BaseController {
         $data = I();
         $res = $this->lotteryModel->where('id='.$data['id'])->find();
         $this->lotteryModel->startTrans();
-        if($res['just_three'] && $res['special_number']){
+        if($res['just_three'] && $res['special_number'] && $res['status']=='wait'){
             $data['status'] = 'active';
             $data['id'] = $res['id'];
 

@@ -381,20 +381,36 @@
                 </li>
 
                 <li class="active">
-                    <a href="typography.html">
+                    <a href="<?php echo U('Member/index');?>">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="/admin/agent/index">
+                            <a href="<?php echo U('Member/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="/admin/agent/add">
+                            <a href="<?php echo U('Member/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?php echo U('Score/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text">绩效管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Score/index');?>"  class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i>
+                                用户排名
+                            </a>
+
                         </li>
 
                     </ul>
@@ -406,6 +422,7 @@
                         <span class="menu-text"> 开奖记录管理 </span>
 
                         <b class="arrow icon-angle-down"></b>
+
                     </a>
 
                     <ul class="submenu">
@@ -414,7 +431,7 @@
                                 <i class="icon-double-angle-right"></i>
                                 开奖列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('LotteryRecord/setRecord');?>">
                                 <i class="icon-double-angle-right"></i>
                                 设置开奖码
                             </a>
@@ -500,9 +517,14 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('Admin/AnimalRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
-                                用户信息
+                                 生肖推荐管理
+                            </a>
+
+                            <a href="<?php echo U('Admin/SpecialRecord/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                号码推荐管理
                             </a>
                         </li>
                     </ul>
@@ -671,7 +693,7 @@
                 </li>
                 <li class="active">
                     <a href="<?php echo U('Powe/index');?>">
-                        <i class="icon-text-width"></i>r
+                        <i class="icon-text-width"></i>
                         <span class="menu-text"> 权限管理 </span>
                     </a>
                     <ul class="submenu">
