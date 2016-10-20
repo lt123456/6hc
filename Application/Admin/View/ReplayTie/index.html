@@ -124,16 +124,22 @@
                                                
                                                 <td>{$discussReplayTie.replay_nums}个回复</td>
                                                 <td>{$discussReplayTie.content|mb_substr=0,8,'utf-8'}</td>
-                                                <td>{$discussReplayTie.path}</td>
-                                                <td>{$discussReplayTie.created_at}</td>
+                                                <td>
+                                               
+                                                    <foreach name="discussReplayTie.reply_text" item="text">
+                                                        {$text}
+                                                    </foreach>
+                                            
+                                                <td></td>
                                                 <td class="center discuss_content"><i class="icon-folder-open"></i> <span class="dis_content" style="display:none;">{$discussReplayTie.content}</span></td>
                                                 <td>
                                                     <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="blue" href="#">
                                                         <i class="icon-zoom-in bigger-130"></i>
                                                     </a>
-                                                    
-
+                                                    <a class="green" href="{:U('ReplayTie/edit/',array('id'=>$discussReplayTie['id']))}">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
                                                     <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussReplayTie['id']}">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
@@ -149,6 +155,13 @@
                                                                 <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
                                                                     <span class="blue">
                                                                         <i class="icon-zoom-in bigger-120"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{:U('ReplayTie/edit/',array('id'=>$discussReplayTie['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <span class="green">
+                                                                        <i class="icon-edit bigger-120"></i>
                                                                     </span>
                                                                 </a>
                                                             </li>

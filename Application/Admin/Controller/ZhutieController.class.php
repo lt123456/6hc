@@ -25,7 +25,7 @@ class ZhutieController extends BaseController {
         $discussCategorys = D('discuss_category')->field('name,id')->order('id desc')->limit()->select();
 
         // 获取
-        $count  = D('discuss_zhutie')->where($this->serach($map))->count();
+        $count  = D('discuss_zhutie')->join('__USERS__ ON __DISCUSS_ZHUTIE__.user_id = __USERS__.id')->where($this->serach($map))->count();
         $page = new  \Think\Page($count, 1);
         if($this->serach($map)){
             foreach($this->serach($map) as $key=>$val) {
@@ -141,7 +141,7 @@ class ZhutieController extends BaseController {
                  $where['title'] = array('like','%'.$map['scontent'].'%');
             }
             if($map['type'] == 'user_id' && isset($map['scontent'])){
-                $where['username'] = array('like','%'.$map['scontent'].'%');
+                $where['6hc_users.username'] = array('like','%'.$map['scontent'].'%');
             }
         }
         return $where;
