@@ -4,6 +4,18 @@
 <block name="sidebar">
     <include file="Public/sidebar" nav="agent"/>
 </block>
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Paperlist/index')}">图库名称管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 
 <block name="main">
     <div class="main-content">
@@ -20,7 +32,7 @@
             
             <h1>
                 <a href="{:U('PaperList/add')}">
-                    <button class="btn btn-sm btn-primary">
+                    <button class="btn btn-sm btn-info">
                         <i class="icon-plus"></i>
                         <span class="bigger-110 no-text-shadow">添加图库名称</span>
                     </button>

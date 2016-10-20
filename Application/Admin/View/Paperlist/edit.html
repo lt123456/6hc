@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Paperlist/index')}">图库名称管理</a>
+        </li>
+        <li class="active">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -129,7 +142,11 @@
                     success: function(d){
                         $(form).find('btn-info').css('color', '#333').text('提交');
                         if(d.status =='ok'){
-                            location.href = '{:U("PaperList/index")}';
+                            layer.msg('更新成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '{:U("PaperList/index")}';
+                            },2000);
+
                         }else{
                             $('.alert').removeClass('hide').addClass('alert-danger');
 

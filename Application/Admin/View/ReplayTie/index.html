@@ -5,12 +5,24 @@
     <include file="Public/sidebar" nav="agent"/>
 </block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/ReplayTie/index')}">回帖管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    回复管理
+                    回帖管理
                     <small>
                         <i class="icon-double-angle-right"></i>
                         查看
@@ -20,7 +32,7 @@
 
             <div class="row">
                 <form class="form-search" method="get" action="{:U('Admin/ReplayTie/index')}">
-                    <div class=" col-sm-3">
+                    <div class=" col-sm-4">
                         <div class="input-group">
                         <select id="form-field-select-2" name="type" class="col-sm-5">
                                 <option value="" disabled selected>类型</option>
@@ -28,14 +40,14 @@
                                 <option value="zhutie_id">所属帖子</option>
                                 <option value="content">回复内容</option>
                             </select>
-                            <input type="text" name="scontent" placeholder="请输入内容" class="input-small" />
+                            <input type="text" name="scontent" placeholder="请输入内容" class="input-group col-sm-6 " value="<?php echo $_GET['scontent'];?>" />
                         </div>
                     </div>
                    
-                    <div class=" col-sm-3">
+                    <div class=" col-sm-4">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 前台显示: </label>
-                            <select id="form-field-select-2" name="is_display" class="">
+                            <select id="form-field-select-3" name="is_display" class="">
                                 <option value="前台显示" disabled selected>--前台显示--</option>
                                 <option value="1">显示</option>
                                 <option value="0">不显示</option>
@@ -43,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3" >
+                    <div class="col-sm-4" >
                         <div class="input-group">
                             <!-- <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach"> -->
                             <span class="input-group-btn">
@@ -51,10 +63,10 @@
                                     搜索
                                     <i class="icon-search icon-on-right bigger-110"></i>
                                 </button>
-                                 <button class="btn btn-grey btn-sm" type="reset">
+                                 <a class="btn btn-grey btn-sm" type="reset" href="{:U('Admin/ReplayTie/index')}">
                                     重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>
-                                 </button>
+                                 </a>
                             </span>
                         </div>
                     </div>

@@ -4,9 +4,20 @@
 {// 左侧菜单}
 <block name="sidebar">
     <include file="Public/sidebar" nav="agent"/>
-
 </block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/LotteryRecord/index')}">开奖记录管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <style type="text/css">
         .ball{
@@ -59,7 +70,7 @@
                                 <option value="请选择期数" disabled selected>--期数--</option>
 
                                 <foreach name="periods" item="vo">
-                                    <option value="{$vo.id}"><b>{$vo.periods}</b>-期</option>
+                                    <option value="{$vo.id}" <?php if($vo['id']== $map['periods']) echo 'selected'; ?>><b>{$vo.periods}</b>-期</option>
                                 </foreach>
                             </select>
                         </div>
@@ -67,13 +78,13 @@
                     <div class=" col-sm-2">
                         <div class="input-group">
                             <label class="lbl">年份:</label>
-                            <input type="text" name="year" placeholder="请输入年份" class="input-small" />
+                            <input type="text" name="year" placeholder="请输入年份" class="input-small" value="{$map['year']}"/>
                         </div>
                     </div>
                     <div class=" col-sm-2">
                         <div class="input-group">
                             <label class="lbl">周数:</label>
-                            <input type="text" name="week" placeholder="请输入周" class="input-small" />
+                            <input type="text" name="week" placeholder="请输入周" class="input-small" value="{$map['week']}" />
                         </div>
                     </div>
                     <div class=" col-sm-2">
@@ -81,8 +92,8 @@
                             <label class="control-label no-padding-right" for="form-field-1">特码单双 : </label>
                             <select id="form-field-select-2" name="singleDouble" class="">
                                 <option value="请选择单双号" disabled selected>--单双号--</option>
-                                <option value="1">单</option>
-                                <option value="0">双</option>
+                                <option value="1" <if condition="$map.singleDouble eq 1 ">selected</if>>单</option>
+                                <option value="0" <?php if( 0=== $map['singleDouble']) echo 'selected'; ?>>双</option>
                             </select>
                         </div>
                     </div>
@@ -91,20 +102,21 @@
                             <label class="control-label no-padding-right" for="form-field-1">日期排序 : </label>
                             <select id="form-field-select-3" name="data" class="">
                                 <option value="请选择单双号" disabled selected>--日期排序--</option>
-                                <option value="asc" >--正序--</option>
-                                <option value="sort">--倒序--</option>
+                                <option value="asc" <if condition="$map.data eq asc ">selected</if>>--正序--</option>
+                                <option value="sort"  <if condition="$map.data eq sort ">selected</if>>--倒序--</option>
 
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="input-group">
-                            <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach">
+                            <!--<input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach">-->
                             <span class="input-group-btn">
                             <button class="btn btn-purple btn-sm" type="submit">
                                 搜索
                                 <i class="icon-search icon-on-right bigger-110"></i>
                             </button>
+                                <span style="margin-left:10px;"></span>
                                  <a class="btn btn-grey btn-sm"  href="{:U('Admin/LotteryRecord/index')}">
                                     重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>

@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Joke/index')}">幽默猜测</a>
+        </li>
+        <li class="active">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -30,7 +43,7 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" action='{:U("Joke/doAdd")}' method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" role="form" method="post" action="{:U('Joke/doAdd')}" autocomplete="off" data-validator-option="{theme:'simple_right'}" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">幽默猜测标题 : </label>
 
@@ -45,9 +58,12 @@
                             <label  class="col-xs-12 col-sm-3 control-label no-padding-right">期数 : </label>
 
                             <div class="col-xs-12 col-sm-5">
-                                <span class="block input-icon input-icon-right">
-                                    <input type="text" class="input-mini" name="periods_id" id="spinner3" />
-                                </span>
+                                <select id="form-field-select-1" name="periods_id" class="">
+                                    <option value="请选择期数" disabled selected>--期数--</option>
+                                    <foreach name="periods" item="vo">
+                                        <option value="{$vo.id}" <?php if($vo['id']== $map['periods']) echo 'selected'; ?>><b>{$vo.periods}</b>-期</option>
+                                    </foreach>
+                                </select>
                             </div>
                             <div class="help-block col-xs-12 col-sm-reset inline"></div>
                         </div>
@@ -63,11 +79,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">类型 : </label>
+                            <label for="form-field-2" class="col-xs-12 col-sm-3 control-label no-padding-right">类型 : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
                                     <select name="type" id="is_type">
+                                        <option value=""  selected disabled>--类型--</option>
                                         <option value="pic">图片</option>
                                         <option value="movie">视频</option>
                                     </select>
@@ -76,7 +93,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">图片 : </label>
+                            <label for="form-field-3" class="col-xs-12 col-sm-3 control-label no-padding-right">图片 : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
@@ -86,7 +103,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">视频 : </label>
+                            <label for="form-field-4" class="col-xs-12 col-sm-3 control-label no-padding-right">视频 : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
@@ -96,11 +113,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">来源 : </label>
+                            <label for="form-field-5" class="col-xs-12 col-sm-3 control-label no-padding-right">来源 : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input  class="width-100" type="text" name="origin"  placeholder="请输入来源">
+                                    <input  class="width-100" type="text" name="origin"  placeholder="请输入来源" value="官方">
                                 </span>
                             </div>
                         </div>
@@ -111,7 +128,7 @@
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input type="text" class="input-mini" name="periods_id" id="spinner4" />
+                                    <input type="text" class="input-mini" name="read" id="spinner4" />
                                 </span>
                             </div>
                         </div>
@@ -238,6 +255,15 @@
 
         $('#spinner2').ace_spinner({value:0,min:0,max:10000,step:10, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
 
+        $('#signup_form').validator({
+            fields: {
+                'title': 'required;',
+                'description': 'required;',
+                'periods_id':'required;',
+                'type':'required'
+            }
+            // 表单验证通过后，ajax提交
+        });
     </script>
 
 </block>

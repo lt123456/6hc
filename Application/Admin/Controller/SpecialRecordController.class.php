@@ -45,7 +45,6 @@ class  SpecialRecordController extends BaseController {
             ->limit($Page->firstRow.','.$Page->listRows)
             ->field('6hc_users.id,6hc_users.username,6hc_score.part_periods,6hc_score.reword_periods,6hc_lottery_record.periods,6hc_special_record.*')
             ->order('created_at desc');
-
         $specialRes = $specialRes->select();
         $this->assign('specialRes', $specialRes);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出

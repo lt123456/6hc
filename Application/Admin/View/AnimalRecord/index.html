@@ -4,7 +4,19 @@
 {// 左侧菜单}
 <block name="sidebar">
     <include file="Public/sidebar" nav="agent"/>
+</block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/AnimalRecord/index')}">生肖推荐管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
 </block>
 
 <block name="main">
@@ -31,7 +43,7 @@
                                 <option value="请选择期数" disabled selected>--期数--</option>
 
                                 <foreach name="periods" item="vo">
-                                        <option value="{$vo.id}"><b>{$vo.periods}</b>-期</option>
+                                        <option value="{$vo.id}" <?php if($vo['id']== $map['periods']) echo 'selected'; ?>><b>{$vo.periods}</b>-期</option>
                                 </foreach>
                             </select>
                         </div>
@@ -41,20 +53,21 @@
                             <label class="control-label no-padding-right" for="form-field-1">状态 : </label>
                             <select id="form-field-select-2" name="status" class="">
                                 <option value="全部状态" disabled selected>全部状态</option>
-                                <option value="wait">未开奖</option>
-                                <option value="no-prize">未中奖</option>
-                                <option value="prize">已中奖</option>
+                                <option value="wait"  <if condition="$map.status eq wait ">selected</if>>未开奖</option>
+                                <option value="no-prize" <if condition="$map.status eq no-prize ">selected</if>>未中奖</option>
+                                <option value="prize" <if condition="$map.status eq prize ">selected</if>>已中奖</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username">
+                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username" value="{$map.username}">
                             <span class="input-group-btn">
                             <button class="btn btn-purple btn-sm" type="submit">
                                 搜索
                                 <i class="icon-search icon-on-right bigger-110"></i>
                             </button>
+                                 <span style="margin-left:10px;"></span>
                                  <a class="btn btn-grey btn-sm"  href="{:U('Admin/AnimalRecord/index')}">
                                      重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>

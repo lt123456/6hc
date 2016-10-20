@@ -4,7 +4,18 @@
 <block name="sidebar">
     <include file="Public/sidebar" nav="agent"/>
 </block>
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
 
+        <li>
+            <a href="{:U('Admin/Joke/index')}">幽默猜测</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -20,7 +31,7 @@
             
             <h1>
                 <a href="{:U('Joke/add')}">
-                    <button class="btn btn-sm btn-primary">
+                    <button class="btn btn-sm btn-info">
                         <i class="icon-plus"></i>
                         <span class="bigger-110 no-text-shadow">添加幽默猜测</span>
                     </button>
@@ -43,11 +54,11 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>幽默猜测标题</th>
-                                            <th>发布ID</th>
                                             <th>发布人</th>
                                             <th>期数</th>
                                             <th>描述</th>
                                             <th>类型</th>
+                                            <th>内容展示</th>
                                             <th>阅读数量</th>
                                             <th>创建时间</th>
                                             <th class="hidden-480">是否投票</th>
@@ -60,11 +71,22 @@
                                             <tr>
                                                 <td>{$item.id}</td>
                                                 <td>{$item.title}</td>
-                                                <td>{$item.admin_id}</td>
-                                                <td>{$item.admin_name}</td>
-                                                <td>{$item.periods_id}</td>
+                                                <td>{$item.username}</td>
+                                                <td>{$item.periods}</td>
                                                 <td>{$item.description}</td>
-                                                <td>{$item.type}</td>
+                                                <td>
+                                                    <if condition="$item.type eq pic">
+
+                                                        <span class="cm-bracket">图片</span>
+                                                    <else />
+                                                        视频
+                                                    </if>
+                                                </td>
+                                                <if condition="$item.type eq pic">
+                                                    <td class="showPic" data-id="{$item.pic}"><img src="<?php echo json_decode($item['pic'])->mini;?>" alt=""/></td>
+                                                <else />
+                                                    <td class="showMovie" data-id="{$item.movie}"><a href="{$item.movie}" title="点击查看视频" target="_blank"><i class="icon-facetime-video"></i></a></td>
+                                                </if>
                                                 <td>{$item.read}</td>
                                                 <td>{$item.created_at}</td>
                                                 <td class="hidden-480">
@@ -184,13 +206,13 @@
             bootbox.confirm("确认删除?", function(result) {
                 if(result) {
                      $.ajax({
-                        url: '{:U("joke/delete")}',
+                        url: '{:U("Joke/delete")}',
                         type: 'post',
                         data: {id:id},
                         dataType: 'json',
                         success: function(d){
                             if(d.status =='ok'){
-                                location.href = '{:U("joke/index")}';
+                                location.href = '{:U("Joke/index")}';
                             }else{
                                 $('.alert').removeClass('hide').addClass('alert-danger');
 

@@ -1,11 +1,23 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Mwmber/index')}">用户管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    后台用户管理
+                    前台用户管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
                         编辑

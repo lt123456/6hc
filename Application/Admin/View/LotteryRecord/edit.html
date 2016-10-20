@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/LotteryRecord/index')}">开奖记录管理</a>
+        </li>
+        <li class="active">更新</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <style type="text/css">
         .ball{
@@ -259,7 +272,6 @@
             istime: true,
             istoday: false,
             choose: function(datas){
-                alert('得到的日期是:'+datas);
                 end.min = datas; //开始日选好后，重置结束日的最小日期
                 end.start = datas ;//将结束日的初始值设定为开始日
 

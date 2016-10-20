@@ -26,7 +26,7 @@ class AgentController extends BaseController {
                             ->join('__THINK_AUTH_GROUP__ ON __ADMIN__.role = __THINK_AUTH_GROUP__.id')
                             ->field('6hc_think_auth_group.title,6hc_admin.*')
                             ->select();
-        $count  = D('admin')->count();
+        $count  = D('admin')->join('__THINK_AUTH_GROUP__ ON __ADMIN__.role = __THINK_AUTH_GROUP__.id')->count();
         $disableCount  = D('admin')->where('status != "active"')->count();
 
         //分配

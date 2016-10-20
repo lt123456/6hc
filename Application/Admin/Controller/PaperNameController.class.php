@@ -31,7 +31,7 @@ class PaperNameController extends BaseController {
         $papers = D('paper_list')->where('is_hide=0')->order('id desc')->select();
 
         //获取期数
-        $lottery = D('lottery_record')->select();
+        $lottery = D('lottery_record')->field('id,periods')->select();
 
         //分配
         $this->assign('papers',$papers);
@@ -107,7 +107,10 @@ class PaperNameController extends BaseController {
         $data['admin_id'] = session('admin_id');
         
         if($_FILES['origin']['error']!=4){
-            $data['origin'] = $this->up();
+            $pic_arr = $this->up();
+            $pic = json_decode($pic_arr,true);
+            $data['cut_pic']=$pic['mini'];
+            $data['origin']=$pic['big'];
         }
 
         $data['updated_at'] = date('Y-m-d H:i:s',time());
@@ -141,14 +144,14 @@ class PaperNameController extends BaseController {
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     3145728 ;// 设置附件上传大小
         $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath  =     './Public/Upload/big/'; // 设置附件上传根目录
+        $upload->rootPath  =     './Public/Upload/paper/big/'; // 设置附件上传根目录
         $upload->savePath  =     ''; // 设置附件上传（子）目录
-        $dir = './Public/Upload/big/';
-        $mini_dir = './Public/Upload/mini/';
+        $dir = './Public/Upload/paper/big/';
+        $mini_dir = './Public/Upload/paper/mini/';
 
         //创建上传文件目录
         if(!is_dir($dir)){
-            mkdir($dir);
+            mkdir($dir,0777,true);
         }
 
         // 上传文件 
@@ -156,7 +159,7 @@ class PaperNameController extends BaseController {
 
         //创建缩略图文件目录
         if(!is_dir($mini_dir.$info['origin']['savepath'])){
-            mkdir($mini_dir.$info['origin']['savepath']);
+            mkdir($mini_dir.$info['origin']['savepath'],0777,true);
         }
 
         //生成缩略图
@@ -169,8 +172,8 @@ class PaperNameController extends BaseController {
         }else{// 上传成功
 
             $json = array();
-            $json['big'] = $dir.$info['origin']['savepath'].$info['origin']['savename'];
-            $json['mini'] = $mini_dir.$info['origin']['savepath'].$info['origin']['savename'];
+            $json['big'] = trim($dir.$info['origin']['savepath'].$info['origin']['savename'],'.');
+            $json['mini'] =trim($mini_dir.$info['origin']['savepath'].$info['origin']['savename'],'.');
 
             return json_encode($json);
         }

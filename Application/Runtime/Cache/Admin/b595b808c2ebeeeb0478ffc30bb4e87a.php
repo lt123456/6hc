@@ -373,7 +373,7 @@
 
             <ul class="nav nav-list">
                 <li >
-                    <a href="index.html">
+                    <a href="<?php echo U('Index/index');?>">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台[nav] </span>
                     </a>
@@ -598,28 +598,12 @@
                 </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle">
+                    <a href="<?php echo U('Ip/index');?>" class="dropdown-toggle" class="active">
                         <i class="icon-tag"></i>
                         <span class="menu-text"> ip屏蔽 </span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="profile.html">
-                                <i class="icon-double-angle-right"></i>
-                                屏蔽列表
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="inbox.html">
-                                <i class="icon-double-angle-right"></i>
-                                填加屏蔽ip
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li>
@@ -727,17 +711,14 @@
                     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                 </script>
 
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="icon-home home-icon"></i>
-                        <a href="#">Home</a>
-                    </li>
+                
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="<?php echo U('Admin/Index/index');?>">控制台</a>
+        </li>
+    </ul><!-- .breadcrumb -->
 
-                    <li>
-                        <a href="#">Other Pages</a>
-                    </li>
-                    <li class="active">Blank Page</li>
-                </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">

@@ -1,5 +1,19 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Power/rule')}">权限规则管理</a>
+        </li>
+
+        <li class="active">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -8,7 +22,7 @@
                     权限规则管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
-                        添加
+                        编辑
                     </small>
                 </h1>
             </div><!-- /.page-header -->

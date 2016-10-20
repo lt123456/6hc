@@ -4,9 +4,20 @@
 {// 左侧菜单}
 <block name="sidebar">
     <include file="Public/sidebar" nav="agent"/>
-
 </block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/ReplayTie/index')}">排名管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -32,10 +43,10 @@
                                     $stand = C('USER_STANDING');
                              ?>
                             <select id="form-field-select-1" name="stand" class="">
-                                 <option value="请选择期数" disabled selected>--段位--</option>
+                                 <option value="请选择期数"  disabled selected>段位</option>
 
                                 <foreach name="stand" item="vo">
-                                    <option value="{$key}"><b>{$vo}</b></option>
+                                    <option value="{$key}" <if condition="$_GET['stand'] eq $key ">selected</if>><b>{$vo}</b></option>
                                 </foreach>
                             </select>
                         </div>
@@ -44,21 +55,22 @@
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1">最多 : </label>
                             <select id="form-field-select-2" name="most" class="">
-                                <option value="全部状态" disabled selected>全部状态</option>
-                                <option value="0">参与期数最多</option>
-                                <option value="1">中奖次数最多</option>
-                                <option value="2">排名最高</option>
+                                <option value="3" selected>全部状态</option>
+                                <option value="0" <if condition="$_GET['most'] eq 0 ">selected</if>>参与期数最多</option>
+                                <option value="1" <if condition="$_GET['most'] eq 1 ">selected</if>>中奖次数最多</option>
+                                <option value="2" <if condition="$_GET['most'] eq 2 ">selected</if>>排名最高</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username">
+                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username" value="{$_GET['username']}">
                             <span class="input-group-btn">
                             <button class="btn btn-purple btn-sm" type="submit">
                                 搜索
                                 <i class="icon-search icon-on-right bigger-110"></i>
                             </button>
+                                <span style="margin-left:10px; "></span>
                                  <a class="btn btn-grey btn-sm"  href="{:U('Admin/Score/index')}">
                                      重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>

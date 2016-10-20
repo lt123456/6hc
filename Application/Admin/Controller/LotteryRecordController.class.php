@@ -52,7 +52,6 @@ class LotteryRecordController extends BaseController {
             $periodsRes->order('created_at  desc');
         }
         $periodsRes = $periodsRes->select();
-
         $this->assign('periodsRes', $periodsRes);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
         $this->assign('map',$map);
@@ -71,7 +70,8 @@ class LotteryRecordController extends BaseController {
         if(!empty($map['week'])){
             $where['week'] = array('eq',$map['week']);
         }
-        if(!empty($map['singleDouble'])){
+        if($map['singleDouble'] === 0 || $map['singleDouble'] ==1){
+
             $where['special_one_two'] = array('eq',$map['singleDouble']);
         }
         return $where;

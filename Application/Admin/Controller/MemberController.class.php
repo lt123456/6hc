@@ -14,7 +14,6 @@ class MemberController extends BaseController {
     }
     public function index()
     {
-
         $map =I();
 
         $count = $this ->memberModel

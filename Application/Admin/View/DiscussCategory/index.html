@@ -5,12 +5,24 @@
     <include file="Public/sidebar" nav="agent"/>
 </block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/DiscussCategory/index')}">论坛版块管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    后台管理
+                    论坛版块管理
                     <small>
                         <i class="icon-double-angle-right"></i>
                         查看
@@ -23,12 +35,12 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="{:U('DiscussCategory/add')}">
-                                <button class="btn btn-primary" class="padding-bottom:3px;"   type="button"><i class="icon-plus"></i>添加版块</button>
+                                <button class="btn btn-info" style="margin-bottom:3px;"   type="button"><i class="icon-plus"></i>添加版块</button>
                             </a>
                         </div>
 
                         <div class="col-xs-4"></div>
-                        <!-- <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>人被禁用<span class="badge badge-pink">{$disableCount}</span>人</div> -->
+                        <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>条</div>
                     </div>
                     <div class="table-header">
                         后台版块统计

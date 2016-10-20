@@ -5,6 +5,18 @@
     <include file="Public/sidebar" nav="agent"/>
 </block>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Zhutie/index')}">主贴管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -20,76 +32,78 @@
 
             <div class="row">
                 <form class="form-search" method="get" action="{:U('Admin/Zhutie/index')}">
-                    <div class=" col-sm-3">
+                    <div class="col-sm-3">
                         <div class="input-group">
-                        <select id="form-field-select-2" name="type" class="col-sm-5">
-                                <option value="" disabled selected>类型</option>
-                                <option value="title">标题</option>
-                                <option value="user_id">发布人</option>
-                            </select>
-                            <input type="text" name="scontent" placeholder="请输入内容" class="input-small" />
+                        <select id="form-field-select-3" name="type" class="col-sm-5">
+                            <option value="" disabled selected>类型</option>
+                            <option value="title">标题</option>
+                            <option value="user_id">发布人</option>
+                        </select>
+                         <input type="text" name="scontent" placeholder="请输入内容" class="input-small" value="{$map.scontent}" />
                         </div>
                     </div>
-                   
+
                     <div class="col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1">所属分类 : </label>
                             <select id="form-field-select-1" name="category_id" class="">
-                                <option value="分类名称" disabled selected>--分类名称--</option>
+                                <option value=""  selected>--分类名称--</option>
 
                                 <volist  name="discussCategorys" id="vo">
-                                    <option value="{$vo.id}"><b>{$vo.name}</b></option>
+                                    <option value="{$vo.id}" <?php if($vo['id'] == $map['category_id']) echo 'selected';?>><b>{$vo.name}</b></option>
                                 </volist >
                             </select>
                         </div>
                     </div>
                     <div class=" col-sm-3">
                         <div class="input-group">
-                            <label class="control-label no-padding-right" for="form-field-1"> 是否加精: </label>
+                            <label class="control-label no-padding-right" for="form-field-1"> 是否加精:</label>
                             <select id="form-field-select-2" name="is_add" class="">
-                                <option value="是否加精" disabled selected>--是否加精--</option>
-                                <option value="1">加精</option>
-                                <option value="0">不加精</option>
+                                <option value=""  disabled selected>--是否加精--</option>
+                                <option value="1" <if condition="$map.is_add eq 1 ">selected</if>>加精</option>
+                                <option value="0" <?php if($map['is_add'] === 0) {echo 'selected';}?>>不加精</option>
                             </select>
                         </div>
                     </div>
                     <div class=" col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 是否专家: </label>
-                            <select id="form-field-select-2" name="is_expert" class="">
-                                <option value="是否专家" disabled selected>--是否专家--</option>
-                                <option value="1">是专家</option>
-                                <option value="0">不是专家</option>
+                            <select id="form-field-select-3" name="is_expert" class="">
+                                <option value="" disabled selected>--是否专家--</option>
+                                <option value="1" <if condition="$map.is_expert eq 1 ">selected</if>>是专家</option>
+                                <option value="0" <?php if($map['is_expert'] ===0) echo 'selected';?>>不是专家</option>
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-12" style="margin-bottom:2px;"></div>
                     <div class=" col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 允许评论: </label>
-                            <select id="form-field-select-2" name="is_comment" class="">
-                                <option value="允许评论" disabled selected>--允许评论--</option>
-                                <option value="1">允许</option>
-                                <option value="0">不允许</option>
+                            <select id="form-field-select-4" name="is_comment" class="">
+                                <option value="" disabled selected>--允许评论--</option>
+                                <option value="1" <if condition="$map.is_comment eq 1 ">selected</if>>允许</option>
+                                <option value="0" <?php if($map['is_comment'] ===0) echo 'selected';?>>不允许</option>
                             </select>
                         </div>
                     </div>
+                    <span></span>
                     <div class=" col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 是否置顶: </label>
-                            <select id="form-field-select-2" name="is_top" class="">
-                                <option value="是否置顶" disabled selected>--是否置顶--</option>
-                                <option value="1">置顶</option>
-                                <option value="0">不置顶</option>
+                            <select id="form-field-select-5" name="is_top" class="">
+                                <option value="" disabled selected>--是否置顶--</option>
+                                <option value="1" <if condition="$map.is_top eq 1 ">selected</if>>置顶</option>
+                                <option value="0" <?php if($map['is_top'] ===0) echo 'selected';?>>不置顶</option>
                             </select>
                         </div>
                     </div>
                     <div class=" col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 前台显示: </label>
-                            <select id="form-field-select-2" name="is_display" class="">
+                            <select id="form-field-select-6" name="is_display" class="">
                                 <option value="前台显示" disabled selected>--前台显示--</option>
-                                <option value="1">显示</option>
-                                <option value="0">不显示</option>
+                                <option value="1" <if condition="$map.is_display eq 1 ">selected</if>>显示</option>
+                                <option value="0" <?php if($map['is_display'] ===0) echo 'selected';?>>不显示</option>
                             </select>
                         </div>
                     </div>
@@ -102,10 +116,11 @@
                                     搜索
                                     <i class="icon-search icon-on-right bigger-110"></i>
                                 </button>
-                                 <button class="btn btn-grey btn-sm" type="reset">
+                                 <span style="margin-right:10px;"></span>
+                                 <a class="btn btn-grey btn-sm" type="reset" href="{:U('Admin/Zhutie/index')}">
                                     重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>
-                                 </button>
+                                 </a>
                             </span>
                         </div>
                     </div>

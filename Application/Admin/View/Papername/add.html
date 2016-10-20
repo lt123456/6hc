@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/PaperName/index')}">图库管理</a>
+        </li>
+        <li class="active">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -82,7 +95,7 @@
                                     <select  id="periods_id" name="periods_id" class="col-xs-10 col-sm-5">
                                         <option value="">选择期数</option>
                                         <foreach name="lottery" item="lott">
-                                            <option value="{$lott.id}">{$lott.periods}</option>
+                                            <option value="{$lott.id}">{$lott.periods} 期</option>
                                         </foreach>
                                     </select>
                                 </span>
