@@ -23,6 +23,7 @@ class LoginController  extends  Controller
      */
     public function dologin()
     {
+    
        $data = I();
 
         // 验证码匹配

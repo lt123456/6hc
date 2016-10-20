@@ -601,6 +601,15 @@
                 </li>
 
                 <li>
+                    <a href="<?php echo U('Friend/index');?>" class="dropdown-toggle" class="active">
+                        <i class="icon-tag"></i>
+                        <span class="menu-text"> 友情链接 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-file-alt"></i>
 

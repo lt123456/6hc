@@ -493,15 +493,9 @@
                         </li>
 
                         <li>
-                            <a href="form-wizard.html">
+                            <a href="<?php echo U('Admin/Joke/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 上传幽默猜测图片
-                            </a>
-                        </li>
-                        <li>
-                            <a href="dropzone.html">
-                                <i class="icon-double-angle-right"></i>
-                                文件上传
                             </a>
                         </li>
                     </ul>
@@ -601,6 +595,15 @@
                     <a href="<?php echo U('Ip/index');?>" class="dropdown-toggle" class="active">
                         <i class="icon-tag"></i>
                         <span class="menu-text"> ip屏蔽 </span>
+
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?php echo U('Friend/index');?>" class="dropdown-toggle" class="active">
+                        <i class="icon-tag"></i>
+                        <span class="menu-text"> 友情链接 </span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>

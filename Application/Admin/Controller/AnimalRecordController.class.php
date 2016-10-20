@@ -99,7 +99,7 @@ class AnimalRecordController extends BaseController {
             $this->assign('obj',$obj);
             $this->display();
         }else{
-            $this->error('该用户生肖推荐不存在','/Admin/Power/group',3);
+            $this->error('该用户生肖推荐不存在','/Admin/AnimalRecord/index',3);
         }
 
     }
