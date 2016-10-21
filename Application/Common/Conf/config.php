@@ -15,8 +15,8 @@ return array(
     'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8
     'SHOW_PAGE_TRACE' 		=>	false,				//开启页面trace
     'DEFAULT_FILTER'        =>  'htmlspecialchars,trim', // 默认参数过滤方法 用于I函数...
-    'MODULE_ALLOW_LIST'    =>    array('Home','Admin'),
-    'DEFAULT_MODULE'       =>    'Home',
+    'MODULE_ALLOW_LIST'    =>    array('Home','Admin','Mobile'),
+//    'DEFAULT_MODULE'       =>    'Admin',
 
     'ADMIN_NAME'          => '6合彩后台',   // 后台配置
 
@@ -30,11 +30,11 @@ return array(
 
     'USER_STATUS'  =>array('pending'=>'待激活','active'=>'激活','suspended'=>'禁用'),
 
-    'TMPL_EXCEPTION_FILE' => '/Public/Html/404.html', // 错误页面
+//    'TMPL_EXCEPTION_FILE' => '/Public/Html/404.html', // 错误页面
     // 'TMPL_ACTION_ERROR'   => '/Public/Html/404.html',
-	'ERROR_PAGE'   =>  '/Public/Html/404.html',
+//	'ERROR_PAGE'   =>  '/Public/Html/404.html',
 
-    'DEFAULT_THEME'    =>    'pc',
+//    'DEFAULT_THEME'    =>    'pc',
 
 
 
