@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+    <li>
+    <i class="icon-home home-icon"></i>
+    <a href="{:U('Admin/Index/index')}">控制台</a>
+    </li>
+
+    <li>
+    <a href="{:U('Admin/Agent/index')}">后台用户管理</a>
+    </li>
+    <li class="{:U('Admin/Agent/add')}">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -75,13 +88,9 @@
                             <div class="col-sm-9">
                                 <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
                                     <option value="">&nbsp;</option>
-                                    <?php
-                                       $roles = C('admin_roles');
-                                       foreach($roles as $k => $role)
-                                        {
-                                            echo  '<option value="'.$k.'">'.$role.'</option>';
-                                        };
-                                    ?>
+                                    <foreach name="roles" item="role">
+                                        <option value="{$role.id}">{$role.title}</option>
+                                    </foreach>
                                 </select>
 
                             </div>
@@ -170,8 +179,11 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
+                            layer.msg('添加成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '{:U("Agent/index")}';
+                            },2000);
 
-                            location.href = '{:U("Agent/index")}';
                         }else{
                             $('.alert').removeClass('hide').addClass('alert-danger');
 

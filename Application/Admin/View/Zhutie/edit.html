@@ -1,14 +1,27 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Zhutie/index')}">主贴管理</a>
+        </li>
+        <li class="active">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    帖子管理
+                   主贴管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
-                        修改
+                       编辑
                     </small>
                 </h1>
             </div><!-- /.page-header -->
@@ -229,8 +242,6 @@
               'description': 'required; description;',
               'created_at': 'required; created_at;',
               'title': 'required; title;',
-              'description': 'required; description;',
-
             },
             // 表单验证通过后，ajax提交
             valid: function(form){
@@ -246,17 +257,16 @@
                     dataType: 'json',
                     success: function(d){
                         $(form).find('btn-info').css('color', '#333').text('提交');
-//                        $('#result')
-//                                .fadeIn(300).delay(2000)
-//                                .fadeOut(500, function(){
-//                                    // 直到动画结束，才可以再次提交
-//                                    me.holdSubmit(false);
-//                                    alert(11);
-//                                });
                         if(d.status =='ok'){
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
 
                             $('.alert').find('span').html('修改成功');
+
+                            layer.msg('编辑成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="/Admin/Zhutie/index";
+                            },2000);
+
                         }else{
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
 

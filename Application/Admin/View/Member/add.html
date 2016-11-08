@@ -1,0 +1,199 @@
+<extend name="Public/base"/>
+
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Member/index')}">用户管理</a>
+        </li>
+        <li class="active">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    前台用户管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        添加
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">用户名</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" name="username" placeholder="请输入用户名" class="col-xs-10 col-sm-5"  />
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">邮箱</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-2" name="email" placeholder="请输入邮箱" class="col-xs-10 col-sm-5"  />
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">密码 默认(123456)</label>
+
+                            <div class="col-sm-9">
+                                <input type="password" id="form-field-3" name="pwd" placeholder="请输入密码" class="col-xs-10 col-sm-5" value="123456" />
+
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">再次输入密码</label>
+
+                            <div class="col-sm-9">
+                                <input type="password" id="form-field-4" name="confirm_pwd" placeholder="请再次输入密码" class="col-xs-10 col-sm-5" value="123456" />
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">角色</label>
+                            <?php $roles = C('USER_ROLES');?>
+                            <div class="col-sm-9">
+                                <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
+                                    <option value="">&nbsp;</option>
+                                    <foreach name="roles" item="role">
+                                        <option value="{$key}">{$role}</option>
+                                    </foreach>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+        {// main}
+
+
+
+</block>
+
+<block name="js">
+    <script type="text/javascript">
+        $('#signup_form').validator({
+            rules: {
+                //自定义一个规则，用来代替remote（注意：要把$.ajax()返回出来）
+                myRemote: function(element){
+                    return $.ajax({
+                        url: '{:U("Member/checkEmail")}',
+                        type: 'post',
+                        data: element.name +'='+ element.value,
+                        dataType: 'json',
+                        success: function(d){
+                            window.console && console.log(d);
+                        }
+                    });
+                }
+            },
+            fields: {
+                'username': 'required; username;',
+                'email': 'required; email; myRemote;',
+                'pwd': '密码:required; password;',
+                'confirm_pwd': 'required; match(pwd);',
+                'role': 'required;'
+
+            },
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+
+                var me = this;
+                // ajax提交表单之前，先禁用submit
+//                me.holdSubmit();
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                $.ajax({
+                    url: '{:U("Member/doAdd")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        $(form).find('btn-info').css('color', '#333').text('提交');
+//                        $('#result')
+//                                .fadeIn(300).delay(2000)
+//                                .fadeOut(500, function(){
+//                                    // 直到动画结束，才可以再次提交
+//                                    me.holdSubmit(false);
+//                                    alert(11);
+//                                });
+                        if(d.status =='ok'){
+                            layer.msg('添加成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '{:U("Member/index")}';
+                            },2000);
+
+                        }else{
+                            $('.alert').removeClass('hide').addClass('alert-danger');
+
+                            $('.alert').find('span').html('创建用户失败,请稍后再试');
+                        }
+                    }
+                });
+
+            }
+        });
+    </script>
+
+</block>

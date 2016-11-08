@@ -7,7 +7,7 @@ return array(
     'DB_HOST'               =>  'localhost', // 服务器地址
     'DB_NAME'               =>  'wait',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名
-    'DB_PWD'                =>  'root',          // 密码
+    'DB_PWD'                =>  'root',      // 密码
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  '6hc_',    // 数据库表前缀
     'DB_FIELDTYPE_CHECK'    =>  false,       // 是否进行字段类型检查
@@ -22,7 +22,21 @@ return array(
 
     'VAR_FILTERS'=>'stripslashes,strip_tags', // 开启过滤
 
-     'DEFAULT_TIMEZONE'=>'PRC' // 设置默认时区为新加坡
+    'DEFAULT_TIMEZONE'=>'PRC', // 设置默认时区为新加坡
+
+    'USER_STANDING' => array('才子','秀才','举人','进士','院士'),
+
+    'USER_ROLES'   =>array('god'=>'用户','expert'=>'专家','post_admin'=>'官方用户'),
+
+    'USER_STATUS'  =>array('pending'=>'待激活','active'=>'激活','suspended'=>'禁用'),
+
+    'TMPL_EXCEPTION_FILE' => '/Public/Html/404.html', // 错误页面
+    // 'TMPL_ACTION_ERROR'   => '/Public/Html/404.html',
+	'ERROR_PAGE'   =>  '/Public/Html/404.html',
+
+    'DEFAULT_THEME'    =>    'pc',
+
+
 
 );
 

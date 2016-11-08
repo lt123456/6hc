@@ -1,0 +1,279 @@
+<extend name="Public/base"/>
+
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/PaperName/index')}">图库管理</a>
+        </li>
+        <li class="active">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    图库名称管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        添加
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" action='{:U("PaperName/doEdit")}' method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">图库名称 : </label>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <select  id="paper_spell" class="col-xs-10 col-sm-5">
+                                        <option value="">选择图库名称字母</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                        <option value="J">J</option>
+                                        <option value="K">K</option>
+                                        <option value="L">L</option>
+                                        <option value="M">M</option>
+                                        <option value="N">N</option>
+                                        <option value="O">O</option>
+                                        <option value="P">P</option>
+                                        <option value="Q">Q</option>
+                                        <option value="R">R</option>
+                                        <option value="S">S</option>
+                                        <option value="T">T</option>
+                                        <option value="U">U</option>
+                                        <option value="V">V</option>
+                                        <option value="W">W</option>
+                                        <option value="X">X</option>
+                                        <option value="Y">Y</option>
+                                        <option value="Z">Z</option>
+                                    </select>
+                                    <select  id="form-field-select-1" name="pic_name_id" class="col-xs-10 col-sm-5">
+                                        <option value="">选择图库</option>
+                                        <foreach name="papers" item="cont">
+                                            <?php if($paper['pic_name_id']==$cont['id']){?>
+                                                <option selected value="<?=$cont['id']?>"><?=$cont['name']?></option>
+                                            <?php }else{?>
+                                                <option value="<?=$cont['id']?>"><?=$cont['name']?></option>
+                                            <?php }?>
+                                        </foreach>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="{$id}">
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">期数 : </label>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <!-- <input type="text" class="input-mini" value="{$paper.periods_id}" name="periods_id" id="spinner3" /> -->
+                                    <select  id="form-field-select-1" name="periods_id" class="col-xs-10 col-sm-5">
+                                        <option value="">选择期数</option>
+                                        <foreach name="lottery" item="lott"> 
+                                            <option value="{$lott.id}" <?=($lott['id']==$paper['periods_id'])?'selected':''?>>{$lott.periods}</option>
+                                        </foreach>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline"></div>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">上传图片 : </label>
+                            
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <input multiple="" type="file"  name="origin" id="id-input-file-3" />
+                                </span>
+                                <span>
+                                    <img style="width:50px;" src="<?=trim($paper['cut_pic'],'.')?>" alt="">
+                                </span>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline"></div>
+                        </div>
+                        
+                                                    
+
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">收集数量 : </label>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <input type="text" class="input-mini" value="{$paper.collects}"  name="collects" id="spinner4" />
+                                
+                                </span>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">喜欢数量 : </label>
+
+                            <div class="col-xs-12 col-sm-5">
+                                <span class="block input-icon input-icon-right">
+                                    <input type="text" name="likes" value="{$paper.likes}"  class="input-mini" id="spinner5" />
+                                
+                                </span>
+                            </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">浏览数量 : </label>
+
+                            <div class="col-xs-3 col-sm-1">
+                                <span class="block input-icon input-icon-right">
+                                    <input type="text" value="{$paper.read}"  name="read" class="input-mini" id="spinner2" />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+        {// main}
+
+</block>
+
+<block name="js">
+    
+    <script src="{:C('__STATIC__')}/assets/js/fuelux/fuelux.spinner.min.js"></script>
+
+    <script src="{:C('__STATIC__')}/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+    <script src="{:C('__STATIC__')}/assets/js/jquery.maskedinput.min.js"></script>
+
+    <script type="text/javascript">
+        $('#id-input-file-1 , #id-input-file-2').ace_file_input({
+            no_file:'No File ...',
+            btn_choose:'Choose',
+            btn_change:'Change',
+            droppable:false,
+            onchange:null,
+            thumbnail:false //| true | large
+            //whitelist:'gif|png|jpg|jpeg'
+            //blacklist:'exe|php'
+            //onchange:''
+            //
+        });
+        $('#id-input-file-3').ace_file_input({
+            style:'well',
+            btn_choose:'Drop files here or click to choose',
+            btn_change:null,
+            no_icon:'icon-cloud-upload',
+            droppable:true,
+            thumbnail:'small'//large | fit
+            ,icon_remove:null//set null, to hide remove/reset button
+            /**,before_change:function(files, dropped) {
+                //Check an example below
+                //or examples/file-upload.html
+                return true;
+            }*/
+            /**,before_remove : function() {
+                return true;
+            }*/
+            ,
+            preview_error : function(filename, error_code) {
+                //name of the file that failed
+                //error_code values
+                //1 = 'FILE_LOAD_FAILED',
+                //2 = 'IMAGE_LOAD_FAILED',
+                //3 = 'THUMBNAIL_FAILED'
+                //alert(error_code);
+            }
+    
+        }).on('change', function(){
+            //console.log($(this).data('ace_input_files'));
+            //console.log($(this).data('ace_input_method'));
+        });
+                
+
+
+
+        $('#spinner3').ace_spinner({min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+        $('#spinner4').ace_spinner({min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+        $('#spinner5').ace_spinner({min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
+
+        $('#spinner2').ace_spinner({min:0,max:10000,step:10, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+
+        $('#paper_spell').change(function(){
+            var spell = $(this).val();
+
+            $.ajax({
+                url: '{:U("PaperName/disabled")}',
+                type: 'post',
+                data: {spell:spell},
+                dataType: 'json',
+                success: function(d){
+                    if(d.status =='ok'){
+                        var html = '<option value="">选择图库</option>';
+                        for(var item in d.data){
+                            html += '<option value="'+d.data[item].id+'">'+d.data[item].name+'</option>'
+                        }
+                        $('#pic_name_id').html(html);
+                    }else{
+                        location.href = '{:U("PaperList/index")}';
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</block>

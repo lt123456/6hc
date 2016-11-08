@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/DiscussCategory/index')}">论坛版块管理</a>
+        </li>
+        <li class="active">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -118,8 +131,11 @@
 //                                });
                         if(d.status =='ok'){
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
-
                             $('.alert').find('span').html('修改成功');
+                            layer.msg('修改成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '{:U("DiscussCategory/index")}';
+                            },2000);
                         }else{
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
 

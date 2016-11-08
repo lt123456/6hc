@@ -1,0 +1,235 @@
+<extend name="Public/base"/>
+
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/ReplayTie/index')}">排名管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    用户总排名管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        列表
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+
+            <!-- 主要内容 -->
+            <div class="row">
+                <form class="form-search" method="get" action="{:U('Admin/Score/index')}">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+
+                            <label class="control-label no-padding-right" for="form-field-1">段位 : </label>
+                            <?php
+                                    $stand = C('USER_STANDING');
+                             ?>
+                            <select id="form-field-select-1" name="stand" class="">
+                                 <option value="请选择期数"  disabled selected>段位</option>
+
+                                <foreach name="stand" item="vo">
+                                    <option value="{$key}" <if condition="$_GET['stand'] eq $key ">selected</if>><b>{$vo}</b></option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" col-sm-3">
+                        <div class="input-group">
+                            <label class="control-label no-padding-right" for="form-field-1">最多 : </label>
+                            <select id="form-field-select-2" name="most" class="">
+                                <option value="3" selected>全部状态</option>
+                                <option value="0" <if condition="$_GET['most'] eq 0 ">selected</if>>参与期数最多</option>
+                                <option value="1" <if condition="$_GET['most'] eq 1 ">selected</if>>中奖次数最多</option>
+                                <option value="2" <if condition="$_GET['most'] eq 2 ">selected</if>>排名最高</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username" value="{$_GET['username']}">
+                            <span class="input-group-btn">
+                            <button class="btn btn-purple btn-sm" type="submit">
+                                搜索
+                                <i class="icon-search icon-on-right bigger-110"></i>
+                            </button>
+                                <span style="margin-left:10px; "></span>
+                                 <a class="btn btn-grey btn-sm"  href="{:U('Admin/Score/index')}">
+                                     重置
+                                     <i class="icon-remove icon-on-right bigger-110"></i>
+                                 </a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input class="ace" type="checkbox">
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th>用户名</th>
+                                <th>参与期数</th>
+                                <th>中奖期数</th>
+                                <th>胜率</th>
+                                <th>生肖胜率</th>
+                                <th>排名</th>
+                                <th class="hidden-480">操作</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <volist name="scoreRes" id="score">
+                                <tr>
+                                    <td class="center">
+                                        <label>
+                                            <input class="ace" type="checkbox">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <a href="#">{$score.username}</a>
+                                    </td>
+                                    <td>
+                                        <span>{$score.part_periods}</span>
+                                    </td>
+                                    <td>
+                                        <span class="label label-info arrowed-in-right arrowed">{$score.reword_periods}</span>
+                                    </td>
+                                    <td>
+                                    <span class="ball">
+                                        <!--{$score.win}-->
+                                          <span class="">{:round($score['win']*100).'%'}</span>
+                                    </span>
+                                    </td>
+
+                                    <td>
+                                        {$score.recomm_sum}
+                                    </td>
+
+                                    <td>
+                                        你好
+                                    </td>
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                            <a class="btn btn-xs btn-success" href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" title="查看">
+                                                <i class="icon-ok bigger-120"></i>
+                                            </a>
+                                            <a class="btn btn-xs btn-info" href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" title="编辑">
+                                                <i class="icon-edit bigger-120"></i>
+                                            </a>
+
+
+                                            <button class="btn btn-xs btn-danger del-confirm" data-id= "{$animal['id']}">
+                                                <i class="icon-trash bigger-120"></i>
+                                            </button>
+
+                                        </div>
+
+                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="inline position-relative">
+                                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-cog icon-only bigger-110"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                    <li>
+                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+																				<span class="blue">
+																					<i class="icon-zoom-in bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
+																				<span class="green">
+																					<i class="icon-edit bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#" class="tooltip-error del-confirm"  data-id="{$animl['id']}"data-rel="tooltip" title="" data-original-title="Delete">
+																				<span class="red">
+																					<i class="icon-trash bigger-120"></i>
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </volist>
+
+
+
+                            </tbody>
+                        </table>
+                        <div class="row-fluid">
+                            <div class="page">{$page}</div>
+                        </div>
+                    </div><!-- /.table-responsive -->
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.del-confirm').on('click' , function() {
+            var  id = $(this).attr('data-id');
+            console.log(id);
+            _this = $(this);
+            layer.confirm('您确认删除该用户的本期生肖推荐么?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    url: '{:U("AnimalRecord/delete")}',
+                    type: 'post',
+                    dataType: '',
+                    data: {'id':id},
+                    success: function(d){
+                        if(d.status == 'ok') {
+                            _this.parents('tr').remove();
+                            layer.msg('删除成功', {icon: 1});
+                        }else{
+                            layer.msg('删除失败', {icon: 3});
+                        }
+                    }
+                });
+            }, function () {
+                layer.msg('已取消', {icon: 2});
+            });
+        });
+    </script>
+</block>

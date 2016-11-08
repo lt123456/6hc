@@ -1,0 +1,233 @@
+<extend name="Public/base"/>
+
+{// 左侧菜单}
+<block name="sidebar">
+    <include file="Public/sidebar" nav="agent"/>
+</block>
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Power/group')}">权限组管理</a>
+        </li>
+    </ul><!-- .breadcrumb -->
+</block>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    权限组管理
+                    <small>
+                        <i class="icon-double-angle-right"></i>
+                        查看
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="{:U('Power/groupAdd')}">
+                                <button class="btn btn-info" style="margin-bottom:3px;"   type="button"><i class="icon-plus"></i>添加规则</button>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-2">共<span class="badge badge-success">{$count}</span>条</div>
+                    </div>
+                    <div class="table-header">
+                        规则统计
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th class="center">
+                                    <label>
+                                        <input type="checkbox" class="ace" />
+                                        <span class="lbl"></span>
+                                    </label>
+                                </th>
+                                <th class="bigger-110">id</th>
+                                <th class="bigger-110">权限组</th>
+                                <th class="bigger-110">权利</th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <volist name="groups" id="group">
+                                <tr>
+                                    <td class="center">
+                                        <label>
+                                            <input type="checkbox" class="ace" />
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+
+                                    <td class="bigger-110">
+                                        <a href="#">{$group.id}</a>
+                                    </td>
+                                    <td class="bigger-110">{$group.title}</td>
+                                    <td class="bigger-100">
+
+                                        <?php
+
+                                           $rules=  explode(',',$group['rules']);
+                                           if(is_array($rules)){
+                                                foreach($rules as $key=>$val){
+
+                                           $title= M('think_auth_rule')->field('titles')->find($val);
+
+                                            $title = is_array($title) ? $title['titles'] : '';
+                                        ?>
+                                         <span class="label label-lg  arrowed-in" style="margin:5px;">{$title}</span>
+                                        <?php
+                                                }
+                                            }else {
+                                                echo '';
+                                            }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                            <a class="blue" href="#">
+                                                <i class="icon-zoom-in bigger-130"></i>
+                                            </a>
+                                            <a class="green" href="{:U('Power/groupEdit/',array('id'=>$group['id']))}">
+                                                <i class="icon-pencil bigger-130"></i>
+                                            </a>
+
+                                            <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$group['id']}">
+                                                <i class="icon-trash bigger-130"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="inline position-relative">
+                                                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="icon-caret-down icon-only bigger-120"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                    <li>
+                                                        <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{:U('Power/groupEdit',array('id'=>$group['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$group['id']}">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable();
+
+
+            $('table th input:checkbox').on('click' , function(){
+                var that = this;
+                $(this).closest('table').find('tr > td:first-child input:checkbox')
+                        .each(function(){
+                            this.checked = that.checked;
+                            $(this).closest('tr').toggleClass('selected');
+                        });
+
+            });
+
+
+            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                return 'left';
+            }
+
+
+
+
+        })
+        //                               layer.confirm('您是如何看待前端开发？', {
+        //                         btn: ['重要','奇葩'] //按钮
+        //                     }, function(){
+        //                         layer.msg('的确很重要', {icon: 1});
+        //                     }, function(){
+        //                         layer.msg('也可以这样', {
+        //                             time: 20000, //20s后自动关闭
+        //                             btn: ['明白了', '知道了']
+        //                         });
+        //                     });
+        $('.del-confirm').on('click' , function() {
+            var  id = $(this).attr('data-id');
+            _this = $(this);
+            layer.confirm('您确认删除该管理规则么?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    url: '{:U("Power/deleteGroup")}',
+                    type: 'post',
+                    dataType: '',
+                    data: {'id':id},
+                    success: function(d){
+                        if(d.status == 'ok') {
+                            _this.parents('tr').remove();
+                            layer.msg('删除成功', {icon: 1});
+                        }else{
+                            layer.msg(d.message, {icon: 3});
+                        }
+                    }
+                });
+            }, function () {
+                layer.msg('已取消', {icon: 2});
+            });
+        });
+    </script>
+</block>

@@ -1,0 +1,321 @@
+<extend name="Public/base"/>
+
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/LotteryRecord/index')}">开奖记录管理</a>
+        </li>
+        <li class="active">更新</li>
+    </ul><!-- .breadcrumb -->
+</block>
+<block name="main">
+    <style type="text/css">
+        .ball{
+            color: #3d3d3d;
+            display: block;
+            float: left;
+            font-family: tahoma;
+            font-size: 14px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 25px;
+            text-align: center;
+            width: 30px;
+
+        }
+        .td{
+            text-align: center;
+            margin-left:20px;
+        }
+        .greenball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -1px -1px;
+        }
+        .redball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -36px -1px;
+        }
+        .blueball{
+            background: rgba(0, 0, 0, 0) url("{:C('__STATIC__')}/assets/images/ball.png") no-repeat scroll -71px -1px;
+        }
+        .ball-li{
+            float:left;margin:4px;border:1px solid #e7e7e7;
+            list-style-type: none;
+        }
+        .ball-li:active,.ball-li:hover, #animal .active{
+            border:1px solid orangered;
+        }
+
+    </style>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    开奖管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        编辑
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">年份/期数</label>
+
+                            <div class="col-sm-9">
+                                <input type="hidden"  name="id" value="{$obj['id']}"/>
+                                <input type="text" id="form-field-1" name="periods" placeholder="请输入期数" class="col-xs-10 col-sm-5" value="{$obj['periods']}" />
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">周数</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-2" name="week" placeholder="请输入" class="col-xs-10 col-sm-5" value="{$obj['week']}" />
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">推荐正码</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" id="form-field-3" name="lottery_animals" placeholder="请输入6位正码推荐,每个数字用 , 号分割" class="col-xs-10 col-sm-5"  value="{$obj['just_string']}"  />
+                                <div class="col-sm-2">
+                                    <span class="label label-danger arrowed-in rand-animal icon-animated-hand-pointer">随机生成</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">推荐特码</label>
+
+                            <div class="col-sm-9">
+                                <select id="form-field-select-1" name="special_number" class="col-xs-10 col-sm-5">
+                                    <option value="">&nbsp;</option>
+                                    <?php
+                                            $nature =  new  Common\Common\Nature();
+                                            $year  = 2016;
+                                            for($i=1; $i<=49;$i++){
+                                            ?>
+                                    <option value="<?php echo $i;?>" <?php if ($i == $obj['special_number']): ?>selected="selected" <?php endif?>><?php echo $i?><span>
+                                                    <?php echo $nature->codeToAnimal($year,$i);?>
+                                             </span></option>
+                                    <?php } ?>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">状态</label>
+                            <div class="col-sm-9">
+                                <div class="col-xs-3">
+                                    <label>
+                                        <input class="ace" name="status" type="radio" value="active" <if condition="$obj['status'] eq  active"> checked
+                                    </if>>
+                                        <span class="lbl"> 已开奖</span>
+                                    </label>
+                                    <label>
+                                        <input class="ace" name="status" type="radio" value="wait" <if condition="$obj['status'] eq  wait"> checked
+                                    </if>>
+                                        <span class="lbl">未开奖</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">开奖时间</label>
+                            <div class="col-sm-9">
+                                <div class="input-group col-sm-5">
+                                    <input id="laydate" class="form-control laydate-icon" name="lottery_time" value="{$obj['lottery_time']}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">开奖码参照表</label>
+                            <div class="col-sm-9">
+                                <div class="input-group col-sm-5">
+                                    <ul>
+                                    <?php
+                                        for($i=1;$i<50;$i++){
+                                        $rember = $i%6+1;
+                                        if($rember<2){
+                                            $color="redball";
+                                        }elseif($rember>2 && $rember<=4){
+                                            $color="blueball";
+                                        }else{
+                                           $color = "greenball";
+                                        }
+                                    ?>
+                                     <li class="ball-li">
+                                         <span class="ball <?php echo $color;?>"><?php echo $i;?></span>
+                                         <span class="ball"><?php  echo $nature->codeToAnimal($year,$i);?></span>
+
+                                     </li>
+                                    </ul>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+                        <if condition="$obj['status'] eq  wait">
+                            <div class="clearfix form-actions">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button class="btn btn-info" type="submit">
+                                        <i class="icon-ok bigger-110"></i>
+                                        提交
+                                    </button>
+
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button class="btn" type="reset">
+                                        <i class="icon-undo bigger-110"></i>
+                                        重置
+                                    </button>
+                                </div>
+                            </div>
+                        </if>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    {// main}
+
+
+
+</block>
+
+<block name="js">
+    <script type="text/javascript">
+
+        // 定义存放生成随机数的数组
+
+
+
+        // 循环N次生成随机数
+        $('.rand-animal').click(function(){
+            var array=new Array();
+            for(var i = 0 ; ; i++){
+                // 只生成10个随机数
+                if(array.length<6){
+                    generateRandom(50);
+                }else{
+                    break;
+                }
+            }
+            // 生成随机数的方法
+            function generateRandom(count){
+                var rand = parseInt(Math.random()*count);
+                for(var i = 0 ; i < array.length; i++){
+                    if(array[i] == rand){
+                        return false;
+                    }
+                }
+                array.push(rand);
+            }
+            // 循环遍历随机数数组
+            $val='';
+            for(var i = 0 ; i < array.length; i++){
+                $val += array[i]+',';
+            }
+            $('input[name="lottery_animals"]').val('').val($val);
+        })
+        laydate.skin('dahong');
+        laydate({
+            elem: '#laydate',
+            format: 'YYYY/MM/DD hh:mm:ss',
+            min: laydate.now(), //设定最小日期为当前日期
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas ;//将结束日的初始值设定为开始日
+
+            }
+        });
+
+        $('#signup_form').validator({
+            fields: {
+                'periods': 'required;',
+                'week':'required',
+                'lottery_animals':'required',
+                'special_number':'required',
+                'status':'required',
+                'lottery_time':'required'
+            },
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                $.ajax({
+                    url: '{:U("LotteryRecord/doEdit")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        $(form).find('btn-info').css('color', '#333').text('提交');
+                        if(d.status =='ok'){
+                            layer.msg('更新成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="/Admin/LotteryRecord/index";
+                            },2000);
+                        }else if(d.status=='error'){
+                            layer.msg('请您修改数据后提交', {icon: 3});
+
+                        }else if(d.status =='warning'){
+                            layer.msg(d.message, {icon: 3});
+                        }else{
+                            layer.msg('未知错误', {icon: 3});
+                        }
+                    }
+                });
+
+            }
+        });
+    </script>
+
+</block>

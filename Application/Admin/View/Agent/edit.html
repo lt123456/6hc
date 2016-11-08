@@ -1,11 +1,24 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Agent/index')}">后台用户管理</a>
+        </li>
+        <li class="{:U('Admin/Agent/edit')}">编辑</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
             <div class="page-header">
                 <h1>
-                    帖子管理
+                    后台用户管理
                     <small class="active">
                         <i class="icon-double-angle-right"></i>
                         编辑
@@ -59,10 +72,10 @@
                             <div class="col-sm-9">
                                 <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
                                     <option value="">&nbsp;</option>
-                                    <?php foreach (C('admin_roles') as $key => $value): ?>
-                                    <option value="{$key}" <?php if ($key == $obj['role']): ?>selected="selected"
-                                    <?php endif ?>>{$value}</option>
-                                    <?php endforeach ?>
+                                    <foreach name="roles" item="role">
+                                        <option value="{$role.id}" <?php if ($role['id'] == $obj['role']): ?>selected="selected"
+                                        <?php endif ?>>{$role.title}</option>
+                                    </foreach>
                                 </select>
 
                             </div>
@@ -152,9 +165,14 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
+
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
 
                             $('.alert').find('span').html('修改成功');
+                            layer.msg('更新成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="/Admin/Agent/index";
+                            },2000);
                         }else{
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
 

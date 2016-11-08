@@ -18,6 +18,7 @@ class Verify extends Controller
             'fontSize'    =>    25,    // 验证码字体大小
             'length'      =>    2,     // 验证码位数
             'useNoise'    =>    false, // 关闭验证码杂点
+            'codeSet'     =>'1234567890',
         );
 
         $Verify  = new \Think\Verify($config);

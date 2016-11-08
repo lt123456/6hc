@@ -34,6 +34,7 @@
 
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/datepicker.css" />
     <!-- inline styles related to this page -->
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/validator/jquery.validator.css">
     <!-- ace settings handler -->
@@ -372,7 +373,7 @@
 
             <ul class="nav nav-list">
                 <li >
-                    <a href="index.html">
+                    <a href="<?php echo U('Index/index');?>">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台[nav] </span>
                     </a>
@@ -380,17 +381,17 @@
                 </li>
 
                 <li class="active">
-                    <a href="typography.html">
+                    <a href="<?php echo U('Member/index');?>">
                         <i class="icon-text-width"></i>
                         <span class="menu-text"> 用户管理 </span>
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Member/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 用户列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('Member/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 添加用户
                             </a>
@@ -398,22 +399,39 @@
 
                     </ul>
                 </li>
+                <li>
+                    <a href="<?php echo U('Score/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text">绩效管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Score/index');?>"  class="dropdown-toggle">
+                                <i class="icon-double-angle-right"></i>
+                                用户排名
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle">
+                    <a href="<?php echo U('LotteryRecord/index');?>" class="dropdown-toggle">
                         <i class="icon-desktop"></i>
                         <span class="menu-text"> 开奖记录管理 </span>
 
                         <b class="arrow icon-angle-down"></b>
+
                     </a>
 
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
+                            <a href="<?php echo U('LotteryRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 开奖列表
                             </a>
-                            <a href="elements.html">
+                            <a href="<?php echo U('LotteryRecord/setRecord');?>">
                                 <i class="icon-double-angle-right"></i>
                                 设置开奖码
                             </a>
@@ -432,24 +450,27 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                图库列表
-                            </a>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                图库名称管理
-                            </a>
-                            <a href="tables.html">
+                            <a href="/admin/PaperList/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库名称
                             </a>
                         </li>
-
                         <li>
-                            <a href="jqgrid.html">
+                            <a href="/admin/PaperList/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库名称管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/add">
                                 <i class="icon-double-angle-right"></i>
                                 添加图库
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/PaperName/index">
+                                <i class="icon-double-angle-right"></i>
+                                图库列表
                             </a>
                         </li>
                     </ul>
@@ -465,22 +486,16 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="form-elements.html">
+                            <a href="/admin/Joke/index">
                                 <i class="icon-double-angle-right"></i>
                                 幽默猜测列表
                             </a>
                         </li>
 
                         <li>
-                            <a href="form-wizard.html">
+                            <a href="<?php echo U('Admin/Joke/add');?>">
                                 <i class="icon-double-angle-right"></i>
                                 上传幽默猜测图片
-                            </a>
-                        </li>
-                        <li>
-                            <a href="dropzone.html">
-                                <i class="icon-double-angle-right"></i>
-                                文件上传
                             </a>
                         </li>
                     </ul>
@@ -496,9 +511,14 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="profile.html">
+                            <a href="<?php echo U('Admin/AnimalRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
-                                用户信息
+                                 生肖推荐管理
+                            </a>
+
+                            <a href="<?php echo U('Admin/SpecialRecord/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                号码推荐管理
                             </a>
                         </li>
                     </ul>
@@ -523,6 +543,12 @@
                             <a href="<?php echo U('Zhutie/index');?>">
                                 <i class="icon-double-angle-right"></i>
                                 帖子管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo U('ReplayTie/index');?>">
+                                <i class="icon-double-angle-right"></i>
+                                回复管理
                             </a>
                         </li>
                         <li>
@@ -566,28 +592,12 @@
                 </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle">
+                    <a href="<?php echo U('Ip/index');?>" class="dropdown-toggle" class="active">
                         <i class="icon-tag"></i>
                         <span class="menu-text"> ip屏蔽 </span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="profile.html">
-                                <i class="icon-double-angle-right"></i>
-                                屏蔽列表
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="inbox.html">
-                                <i class="icon-double-angle-right"></i>
-                                填加屏蔽ip
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li>
@@ -659,6 +669,25 @@
 
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="<?php echo U('Powe/index');?>">
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text"> 权限管理 </span>
+                    </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="<?php echo U('Power/rule');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限规则
+                            </a>
+                            <a href="<?php echo U('Power/group');?>">
+                                <i class="icon-double-angle-right"></i>
+                                 权限组
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
             </ul><!-- /.nav-list -->
 
             <div class="sidebar-collapse" id="sidebar-collapse">
@@ -676,17 +705,19 @@
                     try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
                 </script>
 
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="icon-home home-icon"></i>
-                        <a href="#">Home</a>
-                    </li>
+                
+    <ul class="breadcrumb">
+    <li>
+    <i class="icon-home home-icon"></i>
+    <a href="<?php echo U('Admin/Index/index');?>">控制台</a>
+    </li>
 
-                    <li>
-                        <a href="#">Other Pages</a>
-                    </li>
-                    <li class="active">Blank Page</li>
-                </ul><!-- .breadcrumb -->
+    <li>
+    <a href="<?php echo U('Admin/Agent/index');?>">后台用户管理</a>
+    </li>
+    <li class="<?php echo U('Admin/Agent/add');?>">添加</li>
+    </ul><!-- .breadcrumb -->
+
 
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
@@ -837,8 +868,7 @@
                             <div class="col-sm-9">
                                 <select id="form-field-select-1" name="role" class="col-xs-10 col-sm-5">
                                     <option value="">&nbsp;</option>
-                                    <?php
- $roles = C('admin_roles'); foreach($roles as $k => $role) { echo '<option value="'.$k.'">'.$role.'</option>'; }; ?>
+                                    <?php if(is_array($roles)): foreach($roles as $key=>$role): ?><option value="<?php echo ($role["id"]); ?>"><?php echo ($role["title"]); ?></option><?php endforeach; endif; ?>
                                 </select>
 
                             </div>
@@ -929,7 +959,7 @@
 
 <script src="<?php echo C('__STATIC__');?>/layer/layer.js"></script>
 
-
+<script src="<?php echo C('__STATIC__');?>/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 <!-- ace scripts -->
 
 <script src="<?php echo C('__STATIC__');?>/assets/js/ace-elements.min.js"></script>
@@ -938,6 +968,7 @@
 <script src="<?php echo C('__STATIC__');?>/assets/js/jquery.dataTables.bootstrap.js"></script>
 <!-- inline scripts related to this page -->
 <script src="<?php echo C('__STATIC__');?>/lottery/lottery.global.js"></script>
+<script src="<?php echo C('__STATIC__');?>/laydate/laydate.js"></script>
 
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/jquery.validator.js"></script>
 <script type="text/javascript" src="<?php echo C('__STATIC__');?>/validator/local/zh-CN.js"></script>
@@ -991,8 +1022,11 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
+                            layer.msg('添加成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '<?php echo U("Agent/index");?>';
+                            },2000);
 
-                            location.href = '<?php echo U("Agent/index");?>';
                         }else{
                             $('.alert').removeClass('hide').addClass('alert-danger');
 

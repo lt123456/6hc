@@ -25,8 +25,13 @@ class ZhutieController extends BaseController {
         $discussCategorys = D('discuss_category')->field('name,id')->order('id desc')->limit()->select();
 
         // 获取
+<<<<<<< HEAD
         $count  = D('discuss_zhutie')->join('__USERS__ ON __DISCUSS_ZHUTIE__.user_id = __USERS__.id')->where($this->serach($map))->count();
         $page = new  \Think\Page($count, 1);
+=======
+        $count  = D('discuss_zhutie')->where($this->serach($map))->count();
+        $page = new  \Think\Page($count, C('PAGE'));
+>>>>>>> ad28acc7ce1df33526401c58001e761d4987175e
         if($this->serach($map)){
             foreach($this->serach($map) as $key=>$val) {
                 $Page->parameter[$key]   =   urlencode($val);
@@ -38,14 +43,12 @@ class ZhutieController extends BaseController {
                                         ->field('6hc_discuss_category.name,6hc_users.username,6hc_discuss_zhutie.*')
                                         ->where($this->serach($map))
                                         ->limit($page->firstRow.','.$page->listRows);
-        // if(isset($map['data'])){
-        //      $discussZhuties->order('created_at '.$map['data']);
-        // }
         $discussZhuties = $discussZhuties->select();
         $show = $page->show();
         // var_dump($discussCategorys);die;
         //分配
         $this->assign('page',$show);
+        $this->assign('map',$map);
         $this->assign('discussZhuties',$discussZhuties);
         $this->assign('discussCategorys',$discussCategorys);
         $this->assign('count',$count);
@@ -118,30 +121,35 @@ class ZhutieController extends BaseController {
     public function  serach($map)
     {
 
-        if(isset($map['category_id'])){
+        if(!empty($map['category_id'])){
            $where['category_id'] = array('eq',$map['category_id']);
         }
-        if(isset($map['is_add'])){
+        if(!empty($map['is_add'])){
             $where['is_add'] = array('eq',$map['is_add']);
         }
-        if(isset($map['is_expert'])){
+        if(!empty($map['is_expert'])){
             $where['is_expert'] = array('eq',$map['is_expert']);
         }
-        if(isset($map['is_comment'])){
+        if(!empty($map['is_comment'])){
             $where['is_comment'] = array('eq',$map['is_comment']);
         }
-        if(isset($map['is_top'])){
+        if(!empty($map['is_top'])){
             $where['is_top'] = array('eq',$map['is_top']);
         }
-        if(isset($map['is_display'])){
+        if(!empty($map['is_display'])){
             $where['is_display'] = array('eq',$map['is_display']);
         }
-        if(isset($map['type'])){
-            if($map['type'] == 'title' && isset($map['scontent'])){
+        if(!empty($map['type'])){
+            if($map['type'] == 'title' && !empty($map['scontent'])){
                  $where['title'] = array('like','%'.$map['scontent'].'%');
             }
+<<<<<<< HEAD
             if($map['type'] == 'user_id' && isset($map['scontent'])){
                 $where['6hc_users.username'] = array('like','%'.$map['scontent'].'%');
+=======
+            if($map['type'] == 'user_id' && !empty($map['scontent'])){
+                $where['username'] = array('like','%'.$map['scontent'].'%');
+>>>>>>> ad28acc7ce1df33526401c58001e761d4987175e
             }
         }
         return $where;

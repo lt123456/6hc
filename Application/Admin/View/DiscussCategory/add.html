@@ -1,5 +1,18 @@
 <extend name="Public/base"/>
 
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/DiscussCategory/index')}">论坛版块管理</a>
+        </li>
+        <li class="active">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
 <block name="main">
     <div class="main-content">
         <div class="page-content">
@@ -116,12 +129,15 @@
 //                                    alert(11);
 //                                });
                         if(d.status =='ok'){
+                            layer.msg('创建新版块', {icon: 1});
+                            setTimeout(function(){
+                                location.href = '{:U("DiscussCategory/index")}';
+                            },2000);
 
-                            location.href = '{:U("DiscussCategory/index")}';
                         }else{
                             $('.alert').removeClass('hide').addClass('alert-danger');
 
-                            $('.alert').find('span').html('创建新栏目,请稍后再试');
+                            $('.alert').find('span').html('创建失败,请稍后再试');
                         }
                     }
                 });

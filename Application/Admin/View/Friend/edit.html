@@ -1,0 +1,162 @@
+<extend name="Public/base"/>
+
+<block name="right-nav">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="{:U('Admin/Index/index')}">控制台</a>
+        </li>
+
+        <li>
+            <a href="{:U('Admin/Friend/index')}">友情链接管理</a>
+        </li>
+        <li class="active">添加</li>
+    </ul><!-- .breadcrumb -->
+</block>
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    友情链接管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        添加
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">id</label>
+                            <input type="hidden" name="id" value="{$obj.id}"/>
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-3" name="id" placeholder="请输入网站标题" class="col-xs-10 col-sm-5"  value="{$obj.id}" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">网站标题</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" name="title" placeholder="请输入网站标题" class="col-xs-10 col-sm-5"  value="{$obj.title}" />
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">网站地址</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-2" name="url" placeholder="格式 http://" class="col-xs-10 col-sm-5" value="{$obj.url}" />
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">是否展示前台:</label>
+                            <div class="col-sm-9">
+                                <div class="col-xs-3">
+                                    <label>
+                                        <input class="ace" name="is_display" type="radio" value="1" <if condition="$obj['is_display'] eq  1"> checked
+                                    </if>>
+                                        <span class="lbl"> 展示</span>
+                                    </label>
+                                    <label>
+                                        <input class="ace" name="is_display" type="radio" value="0" <if condition="$obj['is_display'] eq  0"> checked
+                                    </if>>
+                                        <span class="lbl"> 不展示</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    {// main}
+
+
+
+</block>
+
+<block name="js">
+    <script type="text/javascript">
+        $('#signup_form').validator({
+            fields: {
+                'title': 'required;',
+                'url': 'required;'
+            },
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+                // ajax提交表单之前，先禁用submit
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                $.ajax({
+                    url: '{:U("Friend/doEdit")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        $(form).find('btn-info').css('color', '#333').text('提交');
+                        if(d.status =='ok'){
+                            layer.msg('更新成功', {icon: 1});
+                            setTimeout(function(){
+                                location.href="{:U('Friend/index')}";
+                            },2000);
+
+                        }else{
+                            layer.msg(d.message, {icon: 1});
+                        }
+                    }
+                });
+
+            }
+        });
+    </script>
+
+</block>
