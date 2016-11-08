@@ -1,0 +1,1 @@
+AdList([{"code":"lhck_discuss_right","data":[]},{"code":"lhck_joke_menu_ad_lf","data":[]},{"code":"lhck_joke_top","data":[]},{"code":"lhc_bottom_columns_ad","data":[]},{"code":"lhc_bottom_columns_ad_lf","data":[]},{"code":"lhc_joke_info_ad","data":[]}]);

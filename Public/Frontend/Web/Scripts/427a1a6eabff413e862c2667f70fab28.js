@@ -1,0 +1,1 @@
+AdList([{"code":"lhc_bottom_columns_ad","data":[]},{"code":"lhc_bottom_columns_ad_lf","data":[]},{"code":"lhc_paper_foot","data":[]},{"code":"lhc_paper_index_foot_lf","data":[]},{"code":"lhc_paper_leftright","data":[]},{"code":"lhc_paper_top","data":[]}]);
