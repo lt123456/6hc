@@ -1,0 +1,123 @@
+﻿.shck_mobileGames .clear {
+    visibility:initial;
+  overflow: initial;
+}
+.shck_mobileGames {
+    border: solid 1px #cdcdcd;
+    background-color: #FFF;
+    margin-top: 10px;
+    padding: 5px 15px;
+}
+
+
+    .shck_mobileGames .shck_mg_title {
+        position: relative;
+        line-height: 32px;
+        border-bottom: 1px dashed #cdcdcd;
+    }
+
+        .shck_mobileGames .shck_mg_title span {
+            float: left;
+            font-family: ����;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            display:block;
+        }
+
+        .shck_mobileGames .shck_mg_title .shck_mg_more {
+            float: right;
+            font-family: ����;
+            font-size: 12px;
+            color: #333;
+            display:block;
+        }
+
+        .shck_mobileGames .shck_mg_title .shck_mg_android {
+            position: absolute;
+            top: 10px;
+            left: 83px;
+            padding-bottom: 6px;
+            display: block;
+        }
+
+            .shck_mobileGames .shck_mg_title .shck_mg_android font {
+                display: block;
+                width: 71px;
+                height: 23px;
+                text-align: center;
+                line-height: 23px;
+                background: #00a652;
+                font-family: ����;
+                font-size: 12px;
+                color: #FFF;
+            }
+
+            .shck_mobileGames .shck_mg_title .shck_mg_android:hover, .shck_mobileGames .shck_mg_title .shck_mg_android.shck_mg_hover {
+                background: url("../Images/shck_mg_android_bg.jpg") no-repeat bottom center;
+            }
+
+        .shck_mobileGames .shck_mg_title .shck_mg_ios {
+            position: absolute;
+            top: 10px;
+            left: 170px;
+            padding-bottom: 6px;
+            display: block;
+        }
+
+            .shck_mobileGames .shck_mg_title .shck_mg_ios font {
+                display: block;
+                width: 71px;
+                height: 23px;
+                text-align: center;
+                line-height: 23px;
+                background: #00a7eb;
+                font-family: ����;
+                font-size: 12px;
+                color: #FFF;
+            }
+
+            .shck_mobileGames .shck_mg_title .shck_mg_ios:hover, .shck_mobileGames .shck_mg_title .shck_mg_ios.shck_mg_hover {
+                background: url("../Images/shck_mg_ios_bg.jpg") no-repeat bottom center;
+            }
+
+    .shck_mobileGames .shck_mg_ul {
+        padding-top:23px;
+    }
+
+        .shck_mobileGames .shck_mg_ul li {
+            float: left;
+            text-align: center;
+            padding-right: 54px;
+        }
+#guess .guess_view .articles .shck_mobileGames .shck_mg_ul li {
+    padding-right: 22px;
+}
+            .shck_mobileGames .shck_mg_ul li.shck_mg_lastLi {
+                padding-right: 0px;
+            }
+#guess .guess_view .articles .shck_mobileGames .shck_mg_ul li.shck_mg_lastLi {
+                padding-right: 0px;
+}
+
+            .shck_mobileGames .shck_mg_ul li img {
+                width: 72px;
+                height: 72px;
+                margin: 0px auto;
+            }
+
+            .shck_mobileGames .shck_mg_ul li .shck_mg_ul_name {
+                display: block;
+                line-height: 38px;
+                text-align: center;
+                font-family: ����;
+                font-size: 12px;
+                color: #333;
+                overflow: hidden;
+            }
+.shck_mobileGames .shck_mg_ul li .shck_mg_ul_name:hover {
+    color:#ea5c38;
+}
+                .shck_mobileGames .shck_mg_ul li .shck_mg_ul_name.hover {
+    color:#ea5c38;
+                }
