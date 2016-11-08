@@ -1,0 +1,320 @@
+﻿/*公共*/
+.lhck160_trend{
+    width: 1000px;
+    margin:0 auto;
+}
+.lhck160_trend .lhck160_trend_title{
+    height: 20px;
+    line-height: 20px;
+    color:#3e5773;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    font-weight: bold;
+}
+.lhck160_trend .lhck160_over{
+    height: 43px;
+    line-height: 43px;
+    text-align: right;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    font-family: "微软雅黑";
+}
+.lhck160_trend .lhck160_over a{
+    margin-left: 12px;
+    font-size: 12px;
+    color:#333;
+}
+.lhck160_trend .lhck160_over a:hover , .lhck160_trend .lhck160_over a.hover{
+    color:#ff6a4f;
+}
+
+.lhck160_trend .lhck160_trend_graph{
+    padding-bottom: 25px;
+}
+.lhck160_trend_graph .lhck160_trend_graph_l{
+    float: left;
+    width: 30px;
+}
+.lhck160_trend_graph_l p span{
+    display: block;
+    line-height: 19px;
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-weight: bold;
+    color:#fff;
+}
+.lhck160_trend_graph .lhck160_trend_graph_r{
+    float:right;
+    width: 965px;
+}
+.lhck160_trend .lhck160_property{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color:#333333;
+    line-height: 74px;
+}
+.lhck160_trend .lhck160_propertyTable{
+    padding-bottom: 75px;
+}
+.lhck160_propertyTable table{
+    width: 100%;
+}
+.lhck160_propertyTable table th{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color:#fff;
+    height: 30px;
+    line-height: 30px;
+}
+.lhck160_propertyTable table th b{
+    display: block;
+    height: 30px;
+    font-weight: 100;
+    text-align: center;
+}
+.lhck160_propertyTable table td {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #333333;
+    height: 28px;
+    line-height: 28px;
+    border:1px solid #e4e4e4;
+}
+
+/*蓝色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_0099ff{
+    color:#0099ff;
+}
+/*橙色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_ff7200{
+    color: #ff7200;
+}
+/*黄绿色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_abc808{
+    color: #abc808;
+}
+/*红色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_eb2222{
+    color: #eb2222;
+}
+/*黄色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_f2bc16{
+    color: #f2bc16;
+}
+/*火红色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_ff0000{
+    color: #ff0000;
+}
+/*绿色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_009900{
+    color: #009900;
+}
+/*橙色*/
+.lhck160_propertyTable table td.lhck160_pt_fontColor_ff7200{
+    color: #ff7200;
+}
+/*蓝色*/
+.lhck160_pt_bgColor_0099ff{
+    background-color: #0099ff;
+}
+/*橙色*/
+.lhck160_pt_bgColor_ff7200{
+    background-color: #ff7200;
+}
+/*黄绿色*/
+.lhck160_pt_bgColor_abc808{
+    background-color: #abc808;
+}
+/*红色*/
+.lhck160_pt_bgColor_eb2222{
+    background-color: #eb2222;
+}
+/*黄色*/
+.lhck160_pt_bgColor_f2bc16{
+    background-color: #f2bc16;
+}
+/*火红色*/
+.lhck160_pt_bgColor_ff0000{
+    background-color: #ff0000;
+}
+/*绿色*/
+.lhck160_pt_bgColor_009900{
+    background-color: #009900;
+}
+/*橙色*/
+.lhck160_pt_bgColor_ff7200{
+    background-color: #ff7200;
+}
+
+
+/*------------------------家禽野兽走势---------------------------------------------------------------*/
+.lhck160_pt_jqys .lhck160_trend_graph_l p{
+    height: 200px;
+}
+.lhck160_pt_jqys .lhck160_trend_graph_l .lhck160_tg_jq{
+    padding-top: 71px;
+    background: url(../Images/feiqin-bg.png) no-repeat center 22px ;
+}
+.lhck160_pt_jqys .lhck160_trend_graph_l .lhck160_tg_ys{
+    padding-top: 74px;
+    background: url(../Images/zoushou-bg.png) no-repeat  center 18px ;
+}
+
+/*表格样式*/
+.lhck160_pt_jqys .lhck160_propertyTable .lhck160_pt_jq{
+    background: url(../Images/feiqin-bg02.png) no-repeat 202px center ;
+}
+.lhck160_pt_jqys .lhck160_propertyTable .lhck160_pt_ys{
+    background: url(../Images/zoushou-bg02.png) no-repeat 150px center ;
+}
+/*------------------------男女走势---------------------------------------------------------------*/
+.lhck160_pt_gender .lhck160_trend_graph_l p{
+    height: 200px;
+}
+.lhck160_pt_gender .lhck160_trend_graph_l .lhck160_tg_manX{
+    padding-top: 72px;
+    background: url(../Images/shenxiao_bg01.png) no-repeat center 24px ;
+}
+.lhck160_pt_gender .lhck160_trend_graph_l .lhck160_tg_womenX{
+    padding-top: 71px;
+    background: url(../Images/shenxiao_bg02.png) no-repeat  center 19px ;
+}
+
+/*表格样式*/
+.lhck160_pt_gender .lhck160_propertyTable .lhck160_pt_manX{
+    background: url(../Images/shengxiao-bg04.png) no-repeat 190px center ;
+}
+.lhck160_pt_gender .lhck160_propertyTable .lhck160_pt_womenX{
+    background: url(../Images/shengxiao-bg03.png) no-repeat 195px center ;
+}
+/*------------------------琴棋书画走势---------------------------------------------------------------*/
+
+.lhck160_pt_qqsh .lhck160_trend_graph_l p{
+    height: 100px;
+}
+.lhck160_pt_qqsh .lhck160_trend_graph_l .lhck160_tg_qin{
+    padding-top: 41px;
+    background: url(../Images/qinqi-bg01_03.png) no-repeat center 5px;
+}
+.lhck160_pt_qqsh .lhck160_trend_graph_l .lhck160_tg_qi{
+    padding-top: 42px;
+    background: url(../Images/qinqi-bg02_03.png) no-repeat center 7px;
+}
+.lhck160_pt_qqsh .lhck160_trend_graph_l .lhck160_tg_shu{
+    padding-top: 43px;
+    background: url(../Images/qinqi-bg03_03.png) no-repeat center 12px;
+}
+.lhck160_pt_qqsh .lhck160_trend_graph_l .lhck160_tg_hua{
+    padding-top: 44px;
+    background: url(../Images/qinqi-bg04_03.png) no-repeat center 9px;
+}
+
+/*表格样式*/
+.lhck160_pt_qqsh .lhck160_propertyTable .lhck160_pt_qin{
+    padding-left: 38px;
+    background: url(../Images/qinqi-bg01_03.png) no-repeat 95px center ;
+}
+.lhck160_pt_qqsh .lhck160_propertyTable .lhck160_pt_qi{
+    padding-left: 35px;
+    background: url(../Images/qinqi-bg02_03.png) no-repeat 87px center ;
+}
+.lhck160_pt_qqsh .lhck160_propertyTable .lhck160_pt_shu{
+    padding-left: 30px;
+    background: url(../Images/qinqi-bg03_03.png) no-repeat 92px center ;
+}
+.lhck160_pt_qqsh .lhck160_propertyTable .lhck160_pt_hua{
+    padding-left: 35px;
+    background: url(../Images/qinqi-bg04_03.png) no-repeat 79px center ;
+}
+
+/*------------------------三色生肖走势---------------------------------------------------------------*/
+
+.lhck160_pt_sssx .lhck160_trend_graph_l p{
+    height: 130px;
+}
+.lhck160_pt_sssx .lhck160_trend_graph_l .lhck160_tg_red{
+    padding-top: 43px;
+    background: url(../Images/sssx_01.png) no-repeat center 12px;
+}
+.lhck160_pt_sssx .lhck160_trend_graph_l .lhck160_tg_blue{
+    padding-top: 43px;
+    background: url(../Images/sssx_02.png) no-repeat center 12px;
+}
+.lhck160_pt_sssx .lhck160_trend_graph_l .lhck160_tg_green{
+    padding-top: 43px;
+    background: url(../Images/sssx_03.png) no-repeat center 6px;
+}
+
+/*表格样式*/
+.lhck160_pt_sssx .lhck160_propertyTable .lhck160_pt_red{
+
+    background: url(../Images/sssx_04.png) no-repeat 120px center ;
+}
+.lhck160_pt_sssx .lhck160_propertyTable .lhck160_pt_blue{
+
+    background: url(../Images/sssx_05.png) no-repeat 100px center ;
+}
+.lhck160_pt_sssx .lhck160_propertyTable .lhck160_pt_green{
+
+    background: url(../Images/sssx_06.png) no-repeat 124px center ;
+}
+
+/*------------------------四季生肖走势---------------------------------------------------------------*/
+.lhck160_pt_sjsx .lhck160_trend_graph_l p{
+    height: 100px;
+}
+.lhck160_pt_sjsx .lhck160_trend_graph_l .lhck160_tg_cx{
+    padding-top: 43px;
+    background: url(../Images/sjsx-bg01.png) no-repeat center 7px;
+}
+.lhck160_pt_sjsx .lhck160_trend_graph_l .lhck160_tg_xx{
+    padding-top: 43px;
+    background: url(../Images/sjsx-bg03.png) no-repeat center 8px;
+}
+.lhck160_pt_sjsx .lhck160_trend_graph_l .lhck160_tg_qx{
+    padding-top: 43px;
+    background: url(../Images/sjsx-bg02.png) no-repeat center 7px;
+}
+.lhck160_pt_sjsx .lhck160_trend_graph_l .lhck160_tg_dx{
+    padding-top: 43px;
+    background: url(../Images/sjsx-bg04.png) no-repeat center 9px;
+}
+
+/*表格样式*/
+.lhck160_pt_sjsx .lhck160_propertyTable .lhck160_pt_cx{
+    padding-left: 30px;
+    background: url(../Images/sjsx-bg05.png) no-repeat 88px center ;
+}
+.lhck160_pt_sjsx .lhck160_propertyTable .lhck160_pt_xx{
+    padding-left: 30px;
+    background: url(../Images/sjsx-bg07.png) no-repeat 89px center ;
+}
+.lhck160_pt_sjsx .lhck160_propertyTable .lhck160_pt_qx{
+    padding-left: 30px;
+    background: url(../Images/sjsx-bg06.png) no-repeat 90px center ;
+}
+.lhck160_pt_sjsx .lhck160_propertyTable .lhck160_pt_dx{
+    padding-left: 30px;
+    background: url(../Images/sjsx-bg08.png) no-repeat 87px center ;
+}
+/*------------------------天地走势---------------------------------------------------------------*/
+.lhck160_pt_world .lhck160_trend_graph_l p{
+    height: 200px;
+}
+.lhck160_pt_world .lhck160_trend_graph_l .lhck160_tg_sky{
+    padding-top: 72px;
+    background: url(../Images/td-bg01.png) no-repeat center 34px ;
+}
+.lhck160_pt_world .lhck160_trend_graph_l .lhck160_tg_land{
+    padding-top: 72px;
+    background: url(../Images/td-bg02.png) no-repeat  center 25px ;
+}
+
+/*表格样式*/
+.lhck160_pt_world .lhck160_propertyTable .lhck160_pt_sky{
+    background: url(../Images/td-bg03.png) no-repeat 172px center ;
+}
+.lhck160_pt_world .lhck160_propertyTable .lhck160_pt_land{
+    background: url(../Images/td-bg04.png) no-repeat 188px center ;
+}

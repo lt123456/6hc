@@ -1,0 +1,123 @@
+﻿@charset "utf-8";
+/* 弹窗 CSS Document */
+
+html,body{width:100%;height:100%;-webkit-font-smoothing:antialiased;}
+.shade_layer{ position:absolute; left:0; top:0; width:100%; height:100%; background:#000;z-index:9999; opacity:0.7;filter:alpha(opacity=70);display:none;}
+
+#f_huodong{
+    _position: absolute;
+     position: fixed;
+    width: 815px;
+    height: 575px;
+    right: 50%;
+    top: 50%;
+    margin-right: -410px;
+    margin-top: -280px;
+    z-index: 99999;
+    display: none;
+}
+#f_huodong .img
+{
+    display:block;
+    width: 815px;
+    height: 575px;
+	background:url(../Images/6h_windowbg.png) no-repeat center center;
+    cursor:default;
+}
+#f_huodong a.close{
+	width:25px;
+	height:25px;
+	background:url(../Images/close.gif) no-repeat;
+	display:block;
+	text-indent:-999999px;
+	position:absolute;
+	top:96px;
+	right:140px;
+	z-index:999999;
+}
+#f_huodong a:hover.close{
+	opacity:0.8;
+	filter:alpha(opacity=80);
+}
+#lucky_entrrance{
+	top:38px;
+	right:34px;
+	float:right;
+	position:absolute;
+}
+#lucky_entrrance img{
+	z-index:110;
+	right:0;
+	position:absolute;
+	top:0;
+	width:70px;
+	height:75px;
+}
+#lucky_entrrance .msg_block{
+	right:0;
+	background:url(../Images/subscribe.png) no-repeat right top;
+	overflow:hidden;
+	width:70px;
+	height:75px;
+	position:absolute;
+	top:0;
+}
+
+.link1 {
+   display: block;
+  width: 305px;
+  height: 44px;
+  position: absolute;
+  bottom: 70px;
+  left: 260px;
+}
+.emergency_window_content {
+  width: 450px;
+  height: 285px;
+  position: absolute;
+  top: 250px;
+  left: 55px;
+}
+
+.emergency_window_span {
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.emergency_window_span .h1 {
+  display: inline;
+  font-size: 38px;
+  font-weight: bold;
+  font-family: Microsoft YaHei;
+  color: #000;
+  font-style: normal;
+  text-align: center;
+}
+.emergency_window_span .cons {
+  width: 100%;
+  font-size: 18px;
+  color: #000;
+  font-family: Microsoft YaHei;
+  display: block;
+  text-align: left;
+  line-height: 32px;
+  padding: 10px 0 10px 0;
+}
+.emergency_window_span .green {
+  color: #046601;
+  font-size: 20px;
+}
+.emergency_window_span .red {
+  color: #b00403;
+}
+
+.emergency_window_span .btns {
+  width: 572px;
+  height: 68px;
+  background: url(../Images/windowbtns.jpg) no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px 0 0 100px;
+}

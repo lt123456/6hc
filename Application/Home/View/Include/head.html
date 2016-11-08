@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[title]</title>
+    <meta name="keywords" content="[keywords]" />
+    <meta name="description" content="[descriptions]" />
+    <link href="{:C('PUBLIC_PC')}/Css/headandfoot.css" rel="stylesheet" />
+    <link href="{:C('PUBLIC_PC')}/Css/style.css" rel="stylesheet" />
+    <link href="{:C('PUBLIC_PC')}/Css/blue.css" rel="stylesheet" />
+    <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jquery.artdialog.min.js"></script>
+    <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/common.js"></script>
+    <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/feedback.js"></script>
+</head>
+<body>
+    <!-- 头部开始-->
+    <div class="hj_public_topNav" style="z-index: 100;">
+        <div class="hj_p_tn_content" style="z-index: 10;">
+            <div class="topSmallNav">
+                <a href="http://www.1396mm.com/" target="_blank">博世界</a>
+                <a href="http://www.1396cp.com/" target="_blank">彩世界</a>
+                <a href="http://www.6hck.com/" class="hover" target="_blank">六合彩库</a>
+                <a href="http://www.1396app.com/" target="_blank">博应用</a>
+                <a href="http://www.1396dh.com/" target="_blank">爱博导航</a>
+                <a href="javascript:void(0);" class="last"><span></span></a>
+            </div>
+            <div class="Announcement">
+                <marquee id="marquee" scrollamount="2" direction="left">
+                    尊敬的彩库用户，请用手机浏览器登陆m.6hck.vip即可体验彩库触屏版。
+                </marquee>
+            </div>
+            <div class="rightLogin" id="unsignin">
+                <span><a href="/sso/login">登录</a></span>
+                <span class="line">|</span>
+                <span><a href="/sso/register">免费注册</a></span>
+                <span class="line">|</span>
+                <span class="res"><a href="javascript:void(0);" class="btnUserFeedback">用户反馈</a></span>
+
+                <span><a href="http://www.royaleu.com/product/index.html" target="_blank" class="bw_downloadBtn">应用下载</a></span>
+            </div>
+            <div class="rightLogin" id="signin" style="display: none;">
+                <span><a href="/uc/index" style="color: red; width: auto;" id="mname"></a></span>
+                <span class="line">|</span>
+                <span><a href="javascript:void()" onclick="LoginOut()">退出</a></span>
+                <span class="line">|</span>
+                <span class="res"><a href="/feedback/index" target="_blank">用户反馈</a></span>
+
+                <span><a href="http://www.royaleu.com/product/index.html" class="bw_downloadBtn" target="_blank">应用下载</a></span>
+            </div>
+
+            <div class="hj_public_clearBoth"></div>
+            <div class="topSmallNav_more">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th colspan="2">网页</th>
+                        <th colspan="3">手机</th>
+                    </tr>
+                    <tr>
+                        <td width="20%"><a href="http://www.1396mm.com/" target="_blank">博世界</a></td>
+                        <td width="20%"><a href="http://www.1396app.com/" target="_blank">博应用<span class="hj_public_hot"></span></a></td>
+                        <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">重庆时时彩</a></td>
+                        <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">时时彩宝典<span class="hj_public_new"></span></a></td>
+                        <td width="20%"><a href="http://soft.royaleu.com/app/" target="_blank">博应用</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.1396cp.com/" target="_blank">彩世界</a></td>
+                        <td><a href="http://www.1396dh.com/" target="_blank">爱博导航</a></td>
+                        <td><a href="http://soft.royaleu.com/xync/" target="_blank">幸运农场</a></td>
+                        <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">广东快乐十分</a></td>
+                        <td><a href="http://soft.royaleu.com/bsj/" target="_blank">博世界</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.1396cp.com/software/" target="_blank">软件中心</a></td>
+
+                        <td><a href="http://soft.royaleu.com/abm/" target="_blank">自动下注软件</a></td>
+                        <td><a href="http://soft.royaleu.com/bjk8/" target="_blank">北京快乐8</a></td>
+                        <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">北京PK10</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="top_ad">
+        <div class="topContent">
+            <div class="top_jiamaoBackground" style="background:url( {:C('PUBLIC_PC')}/Images/jia_mao2.png)">
+                <div class="top_hotPoint">
+                    <div class="topselectBtns" style="left: 588px;"></div>
+                    <div class="fontBlock" style="left: 403px;">www.6hck.co</div>
+                    <div class="hiddenBlock" style="display: none; width: 243px; left: 378px;">
+                        <span class="selectSpan" style="width: 217px;"><a href="http://www.6hto.com" target="_blank">www.6hto.com</a></span>
+                        <span class="selectSpan" style="width: 217px;"><a href="http://www.to6h.com" target="_blank">www.to6h.com</a></span>
+                        <span class="selectSpan" style="width: 217px;"><a href="http://www.6ctu.com" target="_blank">www.6ctu.com</a></span>
+                    </div>
+                    <a class="closeBtns" href="#"></a>
+                    <a class="aLink" href="http://www.6hck.co/discuss/post/399695" style="width: 340px; height: 30px; position: absolute; display: block; left: 640px;" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".topSmallNav .last").mouseover(function () {
+                $(this).addClass("hover");
+                $(".topSmallNav_more").css("display", "block");
+            });
+            $(".topSmallNav_more").mouseleave(function () {
+                $(".topSmallNav .last").removeClass("hover");
+                $(this).css("display", "none");
+            })
+        });
+        function LoginOut() {
+            $.dialog.confirm("提示", "您确定要退出吗?", function () {
+                window.location.href = "/sso/logout";
+            });
+        }
+    </script>
+
+
+    <div id="header" class="w">
+        <h1 id="logo">
+            <a href="/" title="六合彩库"></a>
+        </h1>
+        <a href="http://soft.royaleu.com/6hbd/" target="_blank" class="simulate_bet_ad"></a>
+        <div class="rf">
+            <div class="current_award" id="currentAward">
+                <div class="period">
+                    <div>
+                        最新开奖：<span>2016-10-20&nbsp;121期</span>
+                    </div>
+                   <span >
+                    下期开奖：<span>2016-10-22&nbsp;122期</span>
+                  </span>
+
+                </div>
+
+
+                <table class="numbers">
+                    <tr class="head">
+                        <td>
+                            <span class="ball red">07</span>
+                        </td>
+                        <td>
+                            <span class="ball red">45</span>
+                        </td>
+                        <td>
+                            <span class="ball green">28</span>
+                        </td>
+                        <td>
+                            <span class="ball red">02</span>
+                        </td>
+                        <td>
+                            <span class="ball blue">15</span>
+                        </td>
+                        <td>
+                            <span class="ball blue">04</span>
+                        </td>
+                        <td>
+                            <span class="plus"></span>
+                        </td>
+                        <td>
+                            <span class="ball red">19</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>虎
+                        </td>
+                        <td>鼠
+                        </td>
+                        <td>蛇
+                        </td>
+                        <td>羊
+                        </td>
+                        <td>马
+                        </td>
+                        <td>蛇
+                        </td>
+                        <td>
+                        </td>
+                        <td>虎
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div class="web_iconDownks" style="float: right; margin-top: 8px;">
+
+                    <div class="web_iconPos" style="display:none;z-index:1100;">
+                        <div class="web_iconPos_top"></div>
+                        <div class="web_iconPos_content">
+                            <ul>
+                                <li  style="height: 40px;line-height: 40px;background-color: #fbfbfb">
+                              <span class="web_iconPos_content_left" style="height: 40px;line-height: 40px;background-color: #fbfbfb">
+                                年份/期数
+                              </span>
+
+
+                              <span class="web_iconPos_content_con" style="height: 30px;line-height: 30px;background-color: #fbfbfb">
+                              正码
+                            </span>
+                            <span class="web_iconPos_content_right" style="height: 35px;line-height: 30px;background-color: #fbfbfb">
+                               特码
+                            </span>
+                                </li>
+                                <li>
+                            <span class="web_iconPos_content_left">
+                                2016-120期
+                            </span>
+
+
+                            <span class="web_iconPos_content_con">
+                                    <span class="ball03">
+                                        28
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball03">
+                                        27
+                                    </span>
+                                    <span class="ballName">马</span>
+                                    <span class="ball02">
+                                        30
+                                    </span>
+                                    <span class="ballName">兔</span>
+                                    <span class="ball02">
+                                        08
+                                    </span>
+                                    <span class="ballName">牛</span>
+                                    <span class="ball01">
+                                        41
+                                    </span>
+                                    <span class="ballName">龙</span>
+                                    <span class="ball03">
+                                        38
+                                    </span>
+                                    <span class="ballName">羊</span>
+                            </span>
+                            <span class="web_iconPos_content_right">
+                                <span class="ball02">
+                                    12
+                                </span>
+                                <span class="ballName">鸡</span>
+                            </span>
+                                </li>
+                                <li>
+                            <span class="web_iconPos_content_left">
+                                2016-119期
+                            </span>
+
+
+                            <span class="web_iconPos_content_con">
+                                    <span class="ball02">
+                                        40
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball03">
+                                        28
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball03">
+                                        27
+                                    </span>
+                                    <span class="ballName">马</span>
+                                    <span class="ball02">
+                                        12
+                                    </span>
+                                    <span class="ballName">鸡</span>
+                                    <span class="ball02">
+                                        07
+                                    </span>
+                                    <span class="ballName">虎</span>
+                                    <span class="ball02">
+                                        18
+                                    </span>
+                                    <span class="ballName">兔</span>
+                            </span>
+                            <span class="web_iconPos_content_right">
+                                <span class="ball01">
+                                    10
+                                </span>
+                                <span class="ballName">猪</span>
+                            </span>
+                                </li>
+                                <li>
+                            <span class="web_iconPos_content_left">
+                                2016-118期
+                            </span>
+
+
+                            <span class="web_iconPos_content_con">
+                                    <span class="ball03">
+                                        16
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball02">
+                                        40
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball03">
+                                        27
+                                    </span>
+                                    <span class="ballName">马</span>
+                                    <span class="ball02">
+                                        02
+                                    </span>
+                                    <span class="ballName">羊</span>
+                                    <span class="ball01">
+                                        09
+                                    </span>
+                                    <span class="ballName">鼠</span>
+                                    <span class="ball03">
+                                        32
+                                    </span>
+                                    <span class="ballName">牛</span>
+                            </span>
+                            <span class="web_iconPos_content_right">
+                                <span class="ball02">
+                                    46
+                                </span>
+                                <span class="ballName">猪</span>
+                            </span>
+                                </li>
+                                <li>
+                            <span class="web_iconPos_content_left">
+                                2016-117期
+                            </span>
+
+
+                            <span class="web_iconPos_content_con">
+                                    <span class="ball02">
+                                        19
+                                    </span>
+                                    <span class="ballName">虎</span>
+                                    <span class="ball02">
+                                        24
+                                    </span>
+                                    <span class="ballName">鸡</span>
+                                    <span class="ball01">
+                                        36
+                                    </span>
+                                    <span class="ballName">鸡</span>
+                                    <span class="ball03">
+                                        16
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball03">
+                                        28
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball01">
+                                        42
+                                    </span>
+                                    <span class="ballName">兔</span>
+                            </span>
+                            <span class="web_iconPos_content_right">
+                                <span class="ball02">
+                                    13
+                                </span>
+                                <span class="ballName">猴</span>
+                            </span>
+                                </li>
+                                <li>
+                            <span class="web_iconPos_content_left">
+                                2016-116期
+                            </span>
+
+
+                            <span class="web_iconPos_content_con">
+                                    <span class="ball01">
+                                        36
+                                    </span>
+                                    <span class="ballName">鸡</span>
+                                    <span class="ball02">
+                                        45
+                                    </span>
+                                    <span class="ballName">鼠</span>
+                                    <span class="ball03">
+                                        49
+                                    </span>
+                                    <span class="ballName">猴</span>
+                                    <span class="ball03">
+                                        28
+                                    </span>
+                                    <span class="ballName">蛇</span>
+                                    <span class="ball02">
+                                        12
+                                    </span>
+                                    <span class="ballName">鸡</span>
+                                    <span class="ball01">
+                                        26
+                                    </span>
+                                    <span class="ballName">羊</span>
+                            </span>
+                            <span class="web_iconPos_content_right">
+                                <span class="ball01">
+                                    09
+                                </span>
+                                <span class="ballName">鼠</span>
+                            </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="web_iconPos_bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--头部结束-->
+    <!--导航开始-->
+    <div id="menu">
+        <ul>
+            <li><a href="/" >首页</a> </li>
+            <li><a href="/marksix/history" >开奖记录</a> </li>
+            <li><a href="/paper" >六合图库</a> </li>
+            <li class="zhibo"><a href="/marksix/shipin" >开奖直播</a> </li>
+            <li><a href="/tema/1" >图表统计</a> </li>
+            <li><a href="/discuss/forum" >交流大厅</a>
+            </li>
+            <li><a href="/joke" class=cur >幽默猜测</a> </li>
+            <li class="kaijiang"><a href="/leitai"  >模拟购彩</a></li>
+
+
+
+            <li class="black"><a href="http://www.1396dh.com/?f=6top" target="_blank">爱博导航 </a></li>
+            <li class="black"><a href="http://www.1396x.com/" target="_blank">高频彩</a> </li>
+
+            <li class="noneleft" style="position:relative;">
+
+
+            </li>
+        </ul>
+    </div>
+
+    <!-- 导航结束-->
