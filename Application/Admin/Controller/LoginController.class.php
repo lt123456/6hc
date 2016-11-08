@@ -14,6 +14,8 @@ class LoginController  extends  Controller
      */
     public function  login()
     {
+        ini_set('display_errors','on')
+
         $this->display();
 
     }
