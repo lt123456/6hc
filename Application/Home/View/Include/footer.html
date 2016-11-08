@@ -148,82 +148,82 @@
 <!--底部 end-->
 
 <script type="text/javascript">
-    var adjson = jQuery.parseJSON('[{"AdType":"tiled","labHtml":"div","labID":"lhck_index_banner","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_top","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_paper_top","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"li","labID":"lhck_home_index_text","strStyle":"","strClass":"ggtxt","IsRepeat":false,"IsCount":true,"IsTop":true,"Count":3},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_mngc_botton","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_menu_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_paper_top_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_mngc_botton_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhc_bottom_columns_ad","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhc_bottom_columns_ad_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0}]');
-    function AdList(jsondata) {
-        if (jsondata != null && jsondata.length > 0) {
-            var json = [];
-            for (var i = 0, adlen = adjson.length; i < adlen; i++) {
-                for (var j = 0, len = jsondata.length; j < len; j++) {
-                    if (jsondata[j].code == adjson[i].labID) {
-                        json = jsondata[j];
-                        //console.log(adjson[i]);
-                        switch (adjson[i].AdType) {
-                            case "about": {//左右
-                                for (var k = 0; k < json.data.length; k++) {
-                                    $("#" + json.code).append("<span style='float:" + (k % 2 == 1 ? "right" : "left") + "'>" + json.data[k] + "</span>");
-                                }
-                            }; break;
-                            case "tiled": {//平铺
-                                var labClass = "";
-                                if (adjson[i].strClass != '' && adjson[i].strClass != undefined) {
-                                    labClass = " class='" + adjson[i].strClass + "'";
-                                }
-                                for (var k = 0; k < json.data.length; k++) {
-                                    if (adjson[i].IsCount && adjson[i].Count < k) {//数量
-                                        break;
-                                    }
-                                    if (adjson[i].IsRepeat) {//重复
-                                        var objrow = $("." + json.code);
-                                        if (json.code == "lhc_joke_index") {
-                                            objrow = $("." + json.code).eq(0);
-                                        }
-                                        for (var r = 0; r < objrow.length; r++) {
-                                            if ($(objrow[r]).children().length > 0) {
-                                                $(objrow[r]).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                                //对应移除最后一个
-                                                $(objrow[r]).children().last().remove();
-                                            }
-                                            else {
-                                                $(objrow[r]).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                            }
-                                        }
-                                    }
-                                    else {
-                                        if (adjson[i].IsTop) {
-                                            if (json.code == "lhck_home_index_text") {
-                                                if ($("#" + json.code).children().length > 0) {
-                                                    $("#" + json.code).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                                    //对应移除最后一个
-                                                    $("#" + json.code).children().last().remove();
-                                                }
-                                                else {
-                                                    $("#" + json.code).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                                }
-                                            }
-                                            else {
-                                                $("#" + json.code).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                            }
-                                        }
-                                        else {
-                                            $("#" + json.code).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
-                                        }
-                                    }
-                                }
-                            }; break;
-                            case "aboutclass"://左右相同Class
-                            {
-                                var objrow = $("." + json.code);
-                                for (var r = 0; r < objrow.length; r++) {
-                                    if (json.data.length - 1 >= r) {
-                                        $(objrow[r]).append('<' + adjson[i].labHtml + ' style="' + adjson[i].strStyle + '">' + json.data[r] + '</' + adjson[i].labHtml + '>');
-                                    }
-                                }
-                            }; break;
-                            case "float": { }; break;//浮动
-                        }
-                    }
-                }
-            }
+    // var adjson = jQuery.parseJSON('[{"AdType":"tiled","labHtml":"div","labID":"lhck_index_banner","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_top","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_paper_top","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"li","labID":"lhck_home_index_text","strStyle":"","strClass":"ggtxt","IsRepeat":false,"IsCount":true,"IsTop":true,"Count":3},{"AdType":"tiled","labHtml":"div","labID":"lhck_index_mngc_botton","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_menu_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_paper_top_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhck_index_mngc_botton_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"tiled","labHtml":"div","labID":"lhc_bottom_columns_ad","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0},{"AdType":"about","labHtml":"div","labID":"lhc_bottom_columns_ad_lf","strStyle":"margin-top:6px;","strClass":null,"IsRepeat":false,"IsCount":false,"IsTop":false,"Count":0}]');
+    // function AdList(jsondata) {
+    //     if (jsondata != null && jsondata.length > 0) {
+    //         var json = [];
+    //         for (var i = 0, adlen = adjson.length; i < adlen; i++) {
+    //             for (var j = 0, len = jsondata.length; j < len; j++) {
+    //                 if (jsondata[j].code == adjson[i].labID) {
+    //                     json = jsondata[j];
+    //                     //console.log(adjson[i]);
+    //                     switch (adjson[i].AdType) {
+    //                         case "about": {//左右
+    //                             for (var k = 0; k < json.data.length; k++) {
+    //                                 $("#" + json.code).append("<span style='float:" + (k % 2 == 1 ? "right" : "left") + "'>" + json.data[k] + "</span>");
+    //                             }
+    //                         }; break;
+    //                         case "tiled": {//平铺
+    //                             var labClass = "";
+    //                             if (adjson[i].strClass != '' && adjson[i].strClass != undefined) {
+    //                                 labClass = " class='" + adjson[i].strClass + "'";
+    //                             }
+    //                             for (var k = 0; k < json.data.length; k++) {
+    //                                 if (adjson[i].IsCount && adjson[i].Count < k) {//数量
+    //                                     break;
+    //                                 }
+    //                                 if (adjson[i].IsRepeat) {//重复
+    //                                     var objrow = $("." + json.code);
+    //                                     if (json.code == "lhc_joke_index") {
+    //                                         objrow = $("." + json.code).eq(0);
+    //                                     }
+    //                                     for (var r = 0; r < objrow.length; r++) {
+    //                                         if ($(objrow[r]).children().length > 0) {
+    //                                             $(objrow[r]).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                             //对应移除最后一个
+    //                                             $(objrow[r]).children().last().remove();
+    //                                         }
+    //                                         else {
+    //                                             $(objrow[r]).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                         }
+    //                                     }
+    //                                 }
+    //                                 else {
+    //                                     if (adjson[i].IsTop) {
+    //                                         if (json.code == "lhck_home_index_text") {
+    //                                             if ($("#" + json.code).children().length > 0) {
+    //                                                 $("#" + json.code).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                                 //对应移除最后一个
+    //                                                 $("#" + json.code).children().last().remove();
+    //                                             }
+    //                                             else {
+    //                                                 $("#" + json.code).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                             }
+    //                                         }
+    //                                         else {
+    //                                             $("#" + json.code).children().eq(k).before('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                         }
+    //                                     }
+    //                                     else {
+    //                                         $("#" + json.code).append('<' + adjson[i].labHtml + labClass + ' style="' + adjson[i].strStyle + '">' + json.data[k] + '</' + adjson[i].labHtml + '>');
+    //                                     }
+    //                                 }
+    //                             }
+    //                         }; break;
+    //                         case "aboutclass"://左右相同Class
+    //                         {
+    //                             var objrow = $("." + json.code);
+    //                             for (var r = 0; r < objrow.length; r++) {
+    //                                 if (json.data.length - 1 >= r) {
+    //                                     $(objrow[r]).append('<' + adjson[i].labHtml + ' style="' + adjson[i].strStyle + '">' + json.data[r] + '</' + adjson[i].labHtml + '>');
+    //                                 }
+    //                             }
+    //                         }; break;
+    //                         case "float": { }; break;//浮动
+    //                     }
+    //                 }
+    //             }
+    //         }
 
 
             //广告相关
@@ -242,10 +242,9 @@
                     }
                 }
             }
-        }
-    }
+
 </script>
-<script src="{:C(PUBLIC_PC)}/Scripts/fa5db60ab2f44707b6999551ead31ced.js"></script>
+<!-- <script src="{:C(PUBLIC_PC)}/Scripts/fa5db60ab2f44707b6999551ead31ced.js"></script> -->
 
 <script type="text/javascript" src="{:C(PUBLIC_PC)}/Scripts/home.js"></script>
 
@@ -274,14 +273,14 @@
                     $(".web_iconDownks").click(function (e) {
 
                         if (trueOrFalse) {
-                            $(".web_iconDownks").css({ "background": "url(Images/iocndown.gif) no-repeat" });
+                            $(".web_iconDownks").css({ "background": "url({:C('PUBLIC_PC')}/Images/iocndown.gif) no-repeat" });
                             $(".web_iconPos").css({ "display": "block" });
 
                             trueOrFalse = false;
 
                         } else {
 
-                            $(".web_iconDownks").css({ "background": "url(Images/iocndown2.gif) no-repeat" });
+                            $(".web_iconDownks").css({ "background": "url({:C('PUBLIC_PC')}/Images/iocndown2.gif) no-repeat" });
                             $(".web_iconPos").css({ "display": "none" });
 
                             trueOrFalse = true;
@@ -296,13 +295,13 @@
 
             $(".web_iconDownks").hover(function () {
 
-                $(".web_iconDownks").css({ "background": "url(Images/iocndown.gif) no-repeat" });
+                $(".web_iconDownks").css({ "background": "url({:C('PUBLIC_PC')}/Images/iocndown.gif) no-repeat" });
                 $(".web_iconPos").css({ "display": "block" });
 
             }, function () {
 
                 $(".web_iconPos").css({ "display": "none" });
-                $(".web_iconDownks").css({ "background": "url(Images/iocndown2.gif) no-repeat" });
+                $(".web_iconDownks").css({ "background": "url({:C('PUBLIC_PC')}/Images/iocndown2.gif) no-repeat" });
 
             });
             window.onresize = function () {

@@ -259,7 +259,7 @@
           color: #000;
           line-height: 43px;
           text-align: center;
-           background: url("../Images/hj_deshline.gif") no-repeat center bottom;
+          
       }
         .hj_public_foot .hj_public_foot_d .hj_public_foot_d1 .rightContent1 .rightContent1_info {
           padding: 10px 15px 6px 15px;
@@ -285,7 +285,6 @@
         .hj_public_foot .hj_public_foot_d .hj_public_foot_d1 .rightContent1 .rightContent1_btn2:hover {
           background: url("../Images/hj_public_foot_btn2.png") no-repeat 0 -44px; }
     .hj_public_foot .hj_public_foot_d .hj_public_foot_d2 {
-      background: url("../Images/hj_footbottomline.gif") repeat-x  top;
       padding-top: 25px;
       margin-top: 45px; }
       .hj_public_foot .hj_public_foot_d .hj_public_foot_d2 .leftContent {
