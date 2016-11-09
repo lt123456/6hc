@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+class IndexController extends Controller{
 
 
 	protected  $lotteryRecord;
@@ -12,12 +12,16 @@ class IndexController extends Controller {
 
 	}
 
-    public function index(){  
+    public function index(){
 
-    	$lotteryRecords  = $this->lotteryRecord->limit(5)->select();
+        $currentRecord = S('currentRecord');
 
-        $this->assign('lotteryRecord',$lotteryRecords);
-        $this->display();
+        if(empty($currentRecord)) {
+            $currentRecord = $this->lotteryRecord->order('id desc')->limit(6)->select();
+            S('currentRecord',$currentRecord,C('CACHE_TIME')['smart']);
+        }
+        var_dump($currentRecord);die;
+        $this->assign('currentRecord',$currentRecord);
         $this->display();
 
     }
