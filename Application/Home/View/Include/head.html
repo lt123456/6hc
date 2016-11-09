@@ -128,42 +128,64 @@
         <a href="http://soft.royaleu.com/6hbd/" target="_blank" class="simulate_bet_ad"></a>
         <div class="rf">
             <div class="current_award" id="currentAward">
+
                 <div class="period">
                     <div>
-                        最新开奖：<span>2016-10-20&nbsp;121期</span>
+                        最新开奖：
+                        <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+
+                         <if condition="$key eq 2">
+                             <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
+                         </if>
+
+                        </volist>
                     </div>
                    <span >
-                    下期开奖：<span>2016-10-22&nbsp;122期</span>
+                    下期开奖：
+                        <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+                            <if condition="$key  eq 1 ">
+                                <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
+                            </if>
+                        </volist>
                   </span>
 
                 </div>
 
 
                 <table class="numbers">
+                    <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+                        <if condition="$key  eq 2 ">
+                            <?php
+                            $nature = new Common\Common\Nature();
+                            $year  = date('Y',$record['created_at']);ss
+                        ?>
                     <tr class="head">
+
+
+
                         <td>
-                            <span class="ball red">07</span>
+                            <span class="ball {$nature->getBallcolor($record['just_one'])}">{$record.just_one}</span>
                         </td>
                         <td>
-                            <span class="ball red">45</span>
+                            <span class="ball {$nature->getBallcolor($record['just_two'])}">{$record.just_two}</span>
                         </td>
                         <td>
-                            <span class="ball green">28</span>
+                            <span class="ball {$nature->getBallcolor($record['just_three'])}">{$record.just_three}</span>
                         </td>
                         <td>
-                            <span class="ball red">02</span>
+                            <span class="ball {$nature->getBallcolor($record['just_four'])}">{$record.just_four}</span>
                         </td>
                         <td>
-                            <span class="ball blue">15</span>
+                            <span class="ball {$nature->getBallcolor($record['just_five'])}">{$record.just_five}</span>
                         </td>
                         <td>
-                            <span class="ball blue">04</span>
+                            <span class="ball {$nature->getBallcolor($record['just_six'])}">{$record.just_six}</span>
                         </td>
                         <td>
                             <span class="plus"></span>
                         </td>
                         <td>
-                            <span class="ball red">19</span>
+                            <span class="ball {$nature->getBallcolor($record['special_number'])}">{$record.special_number}</span>
                         </td>
                     </tr>
                     <tr>
@@ -184,6 +206,8 @@
                         <td>虎
                         </td>
                     </tr>
+                        </if>
+                    </volist>
                 </table>
 
 

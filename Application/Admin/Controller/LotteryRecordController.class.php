@@ -159,6 +159,12 @@ class LotteryRecordController extends BaseController {
         $fillable['just_five']  = $animals[4];
         $fillable['just_six']   = $animals[5];
         $fillable['just_string']   = $date['lottery_animals'];
+        foreach($animals as $key=>$val) {
+            $animalsArray[$key] = $this->natureHelper->codeToAnimal(date('Y',time()),$val);
+        }
+        $fillable['animal_string'] = implode(',',$animalsArray);
+        $fillable['special_animal'] =  $this->natureHelper->codeToAnimal(date('Y',time()),$fillable['special_number']);
+
 
         return $fillable;
     }

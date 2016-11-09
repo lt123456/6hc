@@ -70,4 +70,27 @@ class Nature extends Controller
         return $animalList[$remainder];
 
     }
+
+    public function getBallColor($number) {
+
+        $ceil = $number%6;
+        switch($ceil) {
+            case '1':
+            case '2':
+                $color = 'red';
+                break;
+            case '3':
+            case '4':
+                $color = 'blue';
+                break;
+            case '5':
+            case '0':
+                $color = 'green';
+                break;
+            default:
+                $color = 'red';
+        }
+        return $color;
+
+    }
 }
