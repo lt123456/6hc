@@ -4,7 +4,8 @@
  */
 namespace Admin\Controller;
 
-class ZhutieController extends BaseController {
+class ZhutieController extends BaseController
+{
     public function index()
     {
         $this->display();

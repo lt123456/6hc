@@ -4,7 +4,8 @@
  */
 namespace Admin\Controller;
 
-class CommentController extends BaseController {
+class CommentController extends BaseController
+{
     public function index()
     {
         $this->display();

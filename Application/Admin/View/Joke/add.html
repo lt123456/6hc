@@ -11,7 +11,8 @@
             <a href="{:U('Admin/Joke/index')}">幽默猜测</a>
         </li>
         <li class="active">添加</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -24,7 +25,8 @@
                         添加
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -43,25 +45,30 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" role="form" method="post" action="{:U('Joke/doAdd')}" autocomplete="off" data-validator-option="{theme:'simple_right'}" enctype="multipart/form-data">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" role="form"
+                          method="post" action="{:U('Joke/doAdd')}" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">幽默猜测标题 : </label>
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">幽默猜测标题
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input  class="width-100" type="text" name="title"  placeholder="请输入幽默猜测标题">
+                                    <input class="width-100" type="text" name="title" placeholder="请输入幽默猜测标题">
                                 </span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-xs-12 col-sm-3 control-label no-padding-right">期数 : </label>
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right">期数 : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <select id="form-field-select-1" name="periods_id" class="">
                                     <option value="请选择期数" disabled selected>--期数--</option>
                                     <foreach name="periods" item="vo">
-                                        <option value="{$vo.id}" <?php if($vo['id']== $map['periods']) echo 'selected'; ?>><b>{$vo.periods}</b>-期</option>
+                                        <option value="{$vo.id}"
+                                        <?php if($vo['id']== $map['periods']) echo 'selected'; ?>
+                                        ><b>{$vo.periods}</b>-期</option>
                                     </foreach>
                                 </select>
                             </div>
@@ -69,22 +76,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">描述 : </label>
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">描述
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input  class="width-100" type="text" name="description"  placeholder="请输入描述">
+                                    <input class="width-100" type="text" name="description" placeholder="请输入描述">
                                 </span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-2" class="col-xs-12 col-sm-3 control-label no-padding-right">类型 : </label>
+                            <label for="form-field-2" class="col-xs-12 col-sm-3 control-label no-padding-right">类型
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
                                     <select name="type" id="is_type">
-                                        <option value=""  selected disabled>--类型--</option>
+                                        <option value="" selected disabled>--类型--</option>
                                         <option value="pic">图片</option>
                                         <option value="movie">视频</option>
                                     </select>
@@ -93,42 +102,46 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-3" class="col-xs-12 col-sm-3 control-label no-padding-right">图片 : </label>
+                            <label for="form-field-3" class="col-xs-12 col-sm-3 control-label no-padding-right">图片
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input multiple="" type="file" name="pic" id="id-input-file-3" />
+                                    <input multiple="" type="file" name="pic" id="id-input-file-3"/>
                                 </span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-4" class="col-xs-12 col-sm-3 control-label no-padding-right">视频 : </label>
+                            <label for="form-field-4" class="col-xs-12 col-sm-3 control-label no-padding-right">视频
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input  class="width-100" type="text" name="movie"  placeholder="请输入视频链接">
+                                    <input class="width-100" type="text" name="movie" placeholder="请输入视频链接">
                                 </span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-5" class="col-xs-12 col-sm-3 control-label no-padding-right">来源 : </label>
+                            <label for="form-field-5" class="col-xs-12 col-sm-3 control-label no-padding-right">来源
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input  class="width-100" type="text" name="origin"  placeholder="请输入来源" value="官方">
+                                    <input class="width-100" type="text" name="origin" placeholder="请输入来源" value="官方">
                                 </span>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">阅读数量 : </label>
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">阅读数量
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
-                                    <input type="text" class="input-mini" name="read" id="spinner4" />
+                                    <input type="text" class="input-mini" name="read" id="spinner4"/>
                                 </span>
                             </div>
                         </div>
@@ -143,11 +156,12 @@
                                     <span class="lbl">&nbsp;删除</span>
                                 </label>
                             </div>
-                            <div class="help-block col-xs-12 col-sm-reset inline">&nbsp;(此处不点，默认为: 不删除)  </div>
+                            <div class="help-block col-xs-12 col-sm-reset inline">&nbsp;(此处不点，默认为: 不删除)</div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">是否处于投票阶段 : </label>
+                            <label for="form-field-1" class="col-xs-12 col-sm-3 control-label no-padding-right">是否处于投票阶段
+                                : </label>
 
                             <div class="col-xs-12 col-sm-5">
                                 <span class="block input-icon input-icon-right">
@@ -162,7 +176,7 @@
                                 </span>
                             </div>
                         </div>
-                        
+
                         <div class="clearfix form-actions">
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-info" type="submit">
@@ -191,12 +205,12 @@
 
     </div>
 
-        {// main}
+    {// main}
 
 </block>
 
 <block name="js">
-    
+
     <script src="{:C('__STATIC__')}/assets/js/fuelux/fuelux.spinner.min.js"></script>
 
     <script src="{:C('__STATIC__')}/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
@@ -204,25 +218,25 @@
 
     <script type="text/javascript">
         $('#id-input-file-1 , #id-input-file-2').ace_file_input({
-            no_file:'No File ...',
-            btn_choose:'Choose',
-            btn_change:'Change',
-            droppable:false,
-            onchange:null,
-            thumbnail:false //| true | large
+            no_file: 'No File ...',
+            btn_choose: 'Choose',
+            btn_change: 'Change',
+            droppable: false,
+            onchange: null,
+            thumbnail: false //| true | large
             //whitelist:'gif|png|jpg|jpeg'
             //blacklist:'exe|php'
             //onchange:''
             //
         });
         $('#id-input-file-3').ace_file_input({
-            style:'well',
-            btn_choose:'Drop files here or click to choose',
-            btn_change:null,
-            no_icon:'icon-cloud-upload',
-            droppable:true,
-            thumbnail:'small'//large | fit
-            ,icon_remove:null//set null, to hide remove/reset button
+            style: 'well',
+            btn_choose: 'Drop files here or click to choose',
+            btn_change: null,
+            no_icon: 'icon-cloud-upload',
+            droppable: true,
+            thumbnail: 'small'//large | fit
+            , icon_remove: null//set null, to hide remove/reset button
             /**,before_change:function(files, dropped) {
                 //Check an example below
                 //or examples/file-upload.html
@@ -232,7 +246,7 @@
                 return true;
             }*/
             ,
-            preview_error : function(filename, error_code) {
+            preview_error: function (filename, error_code) {
                 //name of the file that failed
                 //error_code values
                 //1 = 'FILE_LOAD_FAILED',
@@ -240,27 +254,63 @@
                 //3 = 'THUMBNAIL_FAILED'
                 //alert(error_code);
             }
-    
-        }).on('change', function(){
+
+        }).on('change', function () {
             //console.log($(this).data('ace_input_files'));
             //console.log($(this).data('ace_input_method'));
         });
-                
 
 
+        $('#spinner3').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 999,
+            step: 1,
+            on_sides: true,
+            icon_up: 'icon-plus smaller-75',
+            icon_down: 'icon-minus smaller-75',
+            btn_up_class: 'btn-success',
+            btn_down_class: 'btn-danger'
+        });
+        $('#spinner4').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 999,
+            step: 1,
+            on_sides: true,
+            icon_up: 'icon-plus smaller-75',
+            icon_down: 'icon-minus smaller-75',
+            btn_up_class: 'btn-success',
+            btn_down_class: 'btn-danger'
+        });
+        $('#spinner5').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 999,
+            step: 1,
+            on_sides: true,
+            icon_up: 'icon-plus smaller-75',
+            icon_down: 'icon-minus smaller-75',
+            btn_up_class: 'btn-success',
+            btn_down_class: 'btn-danger'
+        });
 
-        $('#spinner3').ace_spinner({value:0,min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
-        $('#spinner4').ace_spinner({value:0,min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
-        $('#spinner5').ace_spinner({value:0,min:0,max:999,step:1, on_sides: true, icon_up:'icon-plus smaller-75', icon_down:'icon-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
-
-        $('#spinner2').ace_spinner({value:0,min:0,max:10000,step:10, touch_spinner: true, icon_up:'icon-caret-up', icon_down:'icon-caret-down'});
+        $('#spinner2').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 10000,
+            step: 10,
+            touch_spinner: true,
+            icon_up: 'icon-caret-up',
+            icon_down: 'icon-caret-down'
+        });
 
         $('#signup_form').validator({
             fields: {
                 'title': 'required;',
                 'description': 'required;',
-                'periods_id':'required;',
-                'type':'required'
+                'periods_id': 'required;',
+                'type': 'required'
             }
             // 表单验证通过后，ajax提交
         });

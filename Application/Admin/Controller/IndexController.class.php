@@ -1,13 +1,16 @@
 <?php
 namespace Admin\Controller;
 
-class IndexController extends BaseController {
+class IndexController extends BaseController
+{
 
     public function __construct()
     {
         parent::__construct();
     }
-    public function index(){
+
+    public function index()
+    {
 
         $this->display();
     }

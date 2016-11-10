@@ -11,7 +11,8 @@
             <a href="{:U('Admin/Power/group')}">权限组管理</a>
         </li>
         <li class="active"> 添加</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -24,7 +25,8 @@
                         添加
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -43,12 +45,14 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">组名称</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="title" placeholder="请输入组名成" class="col-xs-10 col-sm-5"  />
+                                <input type="text" id="form-field-1" name="title" placeholder="请输入组名成"
+                                       class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
 
@@ -64,7 +68,7 @@
                                         <span class="lbl" style="margin:5px;">全选</span>
                                     </label>
                                 </div>
-                                <div  class="rule">
+                                <div class="rule">
                                     <foreach name="rules" item="rule">
                                         <label>
                                             <input class="ace" name="rules[]" type="checkbox" value=" {$rule.id} ">
@@ -108,15 +112,14 @@
     {// main}
 
 
-
 </block>
 
 <block name="js">
     <script type="text/javascript">
-        $('#all-check:checkbox').on('click' , function(){
+        $('#all-check:checkbox').on('click', function () {
             var that = this;
             $('input:checkbox')
-                    .each(function(){
+                    .each(function () {
                         this.checked = that.checked;
                         $(this).toggleClass('selected');
                     });
@@ -127,7 +130,7 @@
                 'rule[]': 'checked[2~]'
             },
             // 表单验证通过后，ajax提交
-            valid: function(form){
+            valid: function (form) {
 
                 var me = this;
                 // ajax提交表单之前，先禁用submit
@@ -138,7 +141,7 @@
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
-                    success: function(d){
+                    success: function (d) {
                         $(form).find('btn-info').css('color', '#333').text('提交');
 //                        $('#result')
 //                                .fadeIn(300).delay(2000)
@@ -147,13 +150,13 @@
 //                                    me.holdSubmit(false);
 //                                    alert(11);
 //                                });
-                        if(d.status =='ok'){
+                        if (d.status == 'ok') {
                             layer.msg('添加成功', {icon: 1});
-                            setTimeout(function(){
-                                location.href="/Admin/Power/group";
-                            },2000);
+                            setTimeout(function () {
+                                location.href = "/Admin/Power/group";
+                            }, 2000);
 
-                        }else{
+                        } else {
                             layer.msg(d.message, {icon: 1});
                         }
                     }

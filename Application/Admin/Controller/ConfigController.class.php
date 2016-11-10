@@ -4,7 +4,8 @@
  */
 namespace Admin\Controller;
 
-class ConfigController extends BaseController {
+class ConfigController extends BaseController
+{
     public function index()
     {
         $this->display();

@@ -11,7 +11,8 @@
             <a href="{:U('Admin/Power/rule')}">权限规则管理</a>
         </li>
         <li class="active">添加</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -24,7 +25,8 @@
                         添加
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -43,12 +45,14 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">规则名称</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="titles" placeholder="请输入规则名称" class="col-xs-10 col-sm-5"  />
+                                <input type="text" id="form-field-1" name="titles" placeholder="请输入规则名称"
+                                       class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
 
@@ -58,7 +62,8 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">规则字段</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="name" placeholder="格式:Admin/Index/index" class="col-xs-10 col-sm-5"  />
+                                <input type="text" id="form-field-2" name="name" placeholder="格式:Admin/Index/index"
+                                       class="col-xs-10 col-sm-5"/>
                             </div>
                         </div>
                         <div class="space-4"></div>
@@ -95,7 +100,6 @@
     {// main}
 
 
-
 </block>
 
 <block name="js">
@@ -103,13 +107,13 @@
         $('#signup_form').validator({
             rules: {
                 //自定义一个规则，用来代替remote（注意：要把$.ajax()返回出来）
-                myRemote: function(element){
+                myRemote: function (element) {
                     return $.ajax({
                         url: '{:U("Power/checkName")}',
                         type: 'post',
-                        data: element.name +'='+ element.value,
+                        data: element.name + '=' + element.value,
                         dataType: 'json',
-                        success: function(d){
+                        success: function (d) {
                             window.console && console.log(d);
                         }
                     });
@@ -121,7 +125,7 @@
 
             },
             // 表单验证通过后，ajax提交
-            valid: function(form){
+            valid: function (form) {
 
                 var me = this;
                 // ajax提交表单之前，先禁用submit
@@ -132,7 +136,7 @@
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
-                    success: function(d){
+                    success: function (d) {
                         $(form).find('btn-info').css('color', '#333').text('提交');
 //                        $('#result')
 //                                .fadeIn(300).delay(2000)
@@ -141,13 +145,13 @@
 //                                    me.holdSubmit(false);
 //                                    alert(11);
 //                                });
-                        if(d.status =='ok'){
+                        if (d.status == 'ok') {
                             layer.msg('添加成功', {icon: 1});
-                            setTimeout(function(){
-                                location.href="/Admin/Power/rule";
-                            },2000);
+                            setTimeout(function () {
+                                location.href = "/Admin/Power/rule";
+                            }, 2000);
 
-                        }else{
+                        } else {
                             layer.msg(d.message, {icon: 1});
                         }
                     }

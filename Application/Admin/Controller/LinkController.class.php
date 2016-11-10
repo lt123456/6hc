@@ -4,7 +4,8 @@
  */
 namespace Admin\Controller;
 
-class LinkController extends BaseController {
+class LinkController extends BaseController
+{
     public function index()
     {
         $this->display();

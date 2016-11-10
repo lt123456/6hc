@@ -1,6 +1,9 @@
 <div class="main-container" id="main-container">
     <script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
     </script>
 
     <div class="main-container-inner">
@@ -10,7 +13,10 @@
 
         <div class="sidebar" id="sidebar">
             <script type="text/javascript">
-                try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
             </script>
 
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -41,10 +47,11 @@
 
                     <span class="btn btn-danger"></span>
                 </div>
-            </div><!-- #sidebar-shortcuts -->
+            </div>
+            <!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li >
+                <li>
                     <a href="{:U('Index/index')}">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台[nav] </span>
@@ -78,7 +85,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="{:U('Score/index')}"  class="dropdown-toggle">
+                            <a href="{:U('Score/index')}" class="dropdown-toggle">
                                 <i class="icon-double-angle-right"></i>
                                 用户排名
                             </a>
@@ -185,7 +192,7 @@
                         <li>
                             <a href="{:U('Admin/AnimalRecord/index')}">
                                 <i class="icon-double-angle-right"></i>
-                                 生肖推荐管理
+                                生肖推荐管理
                             </a>
 
                             <a href="{:U('Admin/SpecialRecord/index')}">
@@ -230,10 +237,10 @@
                             </a>
                         </li>
                         <li>
-                           <!--  <a href="{:U('Zhutie/add')}">
-                                <i class="icon-double-angle-right"></i>
-                                帖子发布
-                            </a> -->
+                            <!--  <a href="{:U('Zhutie/add')}">
+                                 <i class="icon-double-angle-right"></i>
+                                 帖子发布
+                             </a> -->
                         </li>
                     </ul>
                 </li>
@@ -359,31 +366,39 @@
                         <li>
                             <a href="{:U('Power/rule')}">
                                 <i class="icon-double-angle-right"></i>
-                                 权限规则
+                                权限规则
                             </a>
                             <a href="{:U('Power/group')}">
                                 <i class="icon-double-angle-right"></i>
-                                 权限组
+                                权限组
                             </a>
                         </li>
 
                     </ul>
                 </li>
-            </ul><!-- /.nav-list -->
+            </ul>
+            <!-- /.nav-list -->
 
             <div class="sidebar-collapse" id="sidebar-collapse">
-                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+                   data-icon2="icon-double-angle-right"></i>
             </div>
 
             <script type="text/javascript">
-                try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {
+                }
             </script>
         </div>
 
         <div class="main-content">
             <div class="breadcrumbs" id="breadcrumbs">
                 <script type="text/javascript">
-                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                    try {
+                        ace.settings.check('breadcrumbs', 'fixed')
+                    } catch (e) {
+                    }
                 </script>
 
                 <block name="right-nav"></block>
@@ -391,14 +406,17 @@
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="text" placeholder="Search ..." class="nav-search-input"
+                                           id="nav-search-input" autocomplete="off"/>
 									<i class="icon-search nav-search-icon"></i>
 								</span>
                     </form>
-                </div><!-- #nav-search -->
+                </div>
+                <!-- #nav-search -->
             </div>
 
-        </div><!-- /.main-content -->
+        </div>
+        <!-- /.main-content -->
 
         <div class="ace-settings-container" id="ace-settings-container">
             <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
@@ -419,35 +437,37 @@
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
                     <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
                     <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
                     <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
                     <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
                     <label class="lbl" for="ace-settings-add-container">
                         Inside
                         <b>.container</b>
                     </label>
                 </div>
             </div>
-        </div><!-- /#ace-settings-container -->
-    </div><!-- /.main-container-inner -->
+        </div>
+        <!-- /#ace-settings-container -->
+    </div>
+    <!-- /.main-container-inner -->
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="icon-double-angle-up icon-only bigger-110"></i>

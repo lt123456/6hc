@@ -4,10 +4,11 @@
  *  auth : liutao
  */
 namespace Admin\Controller;
+
 use Think\Controller;
 use Think\Think;
 
-class BaseController  extends  Controller
+class BaseController extends Controller
 {
     protected $userId = null;
 

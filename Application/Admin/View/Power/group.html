@@ -14,7 +14,8 @@
         <li>
             <a href="{:U('Admin/Power/group')}">权限组管理</a>
         </li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 
 <block name="main">
@@ -28,14 +29,17 @@
                         查看
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="{:U('Power/groupAdd')}">
-                                <button class="btn btn-info" style="margin-bottom:3px;"   type="button"><i class="icon-plus"></i>添加规则</button>
+                                <button class="btn btn-info" style="margin-bottom:3px;" type="button"><i
+                                        class="icon-plus"></i>添加规则
+                                </button>
                             </a>
                         </div>
 
@@ -52,7 +56,7 @@
                             <tr>
                                 <th class="center">
                                     <label>
-                                        <input type="checkbox" class="ace" />
+                                        <input type="checkbox" class="ace"/>
                                         <span class="lbl"></span>
                                     </label>
                                 </th>
@@ -71,7 +75,7 @@
                                 <tr>
                                     <td class="center">
                                         <label>
-                                            <input type="checkbox" class="ace" />
+                                            <input type="checkbox" class="ace"/>
                                             <span class="lbl"></span>
                                         </label>
                                     </td>
@@ -88,11 +92,11 @@
                                            if(is_array($rules)){
                                                 foreach($rules as $key=>$val){
 
-                                           $title= M('think_auth_rule')->field('titles')->find($val);
+                                        $title= M('think_auth_rule')->field('titles')->find($val);
 
-                                            $title = is_array($title) ? $title['titles'] : '';
+                                        $title = is_array($title) ? $title['titles'] : '';
                                         ?>
-                                         <span class="label label-lg  arrowed-in" style="margin:5px;">{$title}</span>
+                                        <span class="label label-lg  arrowed-in" style="margin:5px;">{$title}</span>
                                         <?php
                                                 }
                                             }else {
@@ -109,20 +113,23 @@
                                                 <i class="icon-pencil bigger-130"></i>
                                             </a>
 
-                                            <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$group['id']}">
+                                            <a href="javascript:;" class="red del-confirm" title="Delete"
+                                               data-id="{$group['id']}">
                                                 <i class="icon-trash bigger-130"></i>
                                             </a>
                                         </div>
 
                                         <div class="visible-xs visible-sm hidden-md hidden-lg">
                                             <div class="inline position-relative">
-                                                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                                <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                        data-toggle="dropdown">
                                                     <i class="icon-caret-down icon-only bigger-120"></i>
                                                 </button>
 
                                                 <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                     <li>
-                                                        <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
+                                                        <a href="#" class="tooltip-info a" data-rel="tooltip"
+                                                           title="View">
                                                                                         <span class="blue">
                                                                                             <i class="icon-zoom-in bigger-120"></i>
                                                                                         </span>
@@ -130,7 +137,8 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="{:U('Power/groupEdit',array('id'=>$group['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                        <a href="{:U('Power/groupEdit',array('id'=>$group['id']))}"
+                                                           class="tooltip-success" data-rel="tooltip" title="Edit">
                                                                                         <span class="green">
                                                                                             <i class="icon-edit bigger-120"></i>
                                                                                         </span>
@@ -138,7 +146,8 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$group['id']}">
+                                                        <a href="javascript:;" class="tooltip-error del-confirm"
+                                                           data-rel="tooltip" title="Delete" data-id="{$group['id']}">
                                                                                         <span class="red">
                                                                                             <i class="icon-trash bigger-120"></i>
                                                                                         </span>
@@ -162,14 +171,14 @@
 </block>
 <block name="js">
     <script type="text/javascript">
-        jQuery(function($) {
+        jQuery(function ($) {
             var oTable1 = $('#sample-table-2').dataTable();
 
 
-            $('table th input:checkbox').on('click' , function(){
+            $('table th input:checkbox').on('click', function () {
                 var that = this;
                 $(this).closest('table').find('tr > td:first-child input:checkbox')
-                        .each(function(){
+                        .each(function () {
                             this.checked = that.checked;
                             $(this).closest('tr').toggleClass('selected');
                         });
@@ -187,11 +196,9 @@
                 var off2 = $source.offset();
                 var w2 = $source.width();
 
-                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
                 return 'left';
             }
-
-
 
 
         })
@@ -205,8 +212,8 @@
         //                             btn: ['明白了', '知道了']
         //                         });
         //                     });
-        $('.del-confirm').on('click' , function() {
-            var  id = $(this).attr('data-id');
+        $('.del-confirm').on('click', function () {
+            var id = $(this).attr('data-id');
             _this = $(this);
             layer.confirm('您确认删除该管理规则么?', {
                 btn: ['确定', '取消']
@@ -215,12 +222,12 @@
                     url: '{:U("Power/deleteGroup")}',
                     type: 'post',
                     dataType: '',
-                    data: {'id':id},
-                    success: function(d){
-                        if(d.status == 'ok') {
+                    data: {'id': id},
+                    success: function (d) {
+                        if (d.status == 'ok') {
                             _this.parents('tr').remove();
                             layer.msg('删除成功', {icon: 1});
-                        }else{
+                        } else {
                             layer.msg(d.message, {icon: 3});
                         }
                     }

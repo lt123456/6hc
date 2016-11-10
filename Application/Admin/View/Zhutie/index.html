@@ -15,7 +15,8 @@
         <li>
             <a href="{:U('Admin/Zhutie/index')}">主贴管理</a>
         </li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -28,18 +29,20 @@
                         查看
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="row">
                 <form class="form-search" method="get" action="{:U('Admin/Zhutie/index')}">
                     <div class="col-sm-3">
                         <div class="input-group">
-                        <select id="form-field-select-3" name="type" class="col-sm-5">
-                            <option value="" disabled selected>类型</option>
-                            <option value="title">标题</option>
-                            <option value="user_id">发布人</option>
-                        </select>
-                         <input type="text" name="scontent" placeholder="请输入内容" class="input-small" value="{$map.scontent}" />
+                            <select id="form-field-select-3" name="type" class="col-sm-5">
+                                <option value="" disabled selected>类型</option>
+                                <option value="title">标题</option>
+                                <option value="user_id">发布人</option>
+                            </select>
+                            <input type="text" name="scontent" placeholder="请输入内容" class="input-small"
+                                   value="{$map.scontent}"/>
                         </div>
                     </div>
 
@@ -47,11 +50,13 @@
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1">所属分类 : </label>
                             <select id="form-field-select-1" name="category_id" class="">
-                                <option value=""  selected>--分类名称--</option>
+                                <option value="" selected>--分类名称--</option>
 
-                                <volist  name="discussCategorys" id="vo">
-                                    <option value="{$vo.id}" <?php if($vo['id'] == $map['category_id']) echo 'selected';?>><b>{$vo.name}</b></option>
-                                </volist >
+                                <volist name="discussCategorys" id="vo">
+                                    <option value="{$vo.id}"
+                                    <?php if($vo['id'] == $map['category_id']) echo 'selected';?>
+                                    ><b>{$vo.name}</b></option>
+                                </volist>
                             </select>
                         </div>
                     </div>
@@ -59,9 +64,12 @@
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 是否加精:</label>
                             <select id="form-field-select-2" name="is_add" class="">
-                                <option value=""  disabled selected>--是否加精--</option>
-                                <option value="1" <if condition="$map.is_add eq 1 ">selected</if>>加精</option>
-                                <option value="0" <?php if($map['is_add'] === 0) {echo 'selected';}?>>不加精</option>
+                                <option value="" disabled selected>--是否加精--</option>
+                                <option value="1"
+                                <if condition="$map.is_add eq 1 ">selected</if>
+                                >加精</option>
+                                <option value="0"
+                                <?php if($map['is_add'] === 0) {echo 'selected';}?>>不加精</option>
                             </select>
                         </div>
                     </div>
@@ -70,8 +78,11 @@
                             <label class="control-label no-padding-right" for="form-field-1"> 是否专家: </label>
                             <select id="form-field-select-3" name="is_expert" class="">
                                 <option value="" disabled selected>--是否专家--</option>
-                                <option value="1" <if condition="$map.is_expert eq 1 ">selected</if>>是专家</option>
-                                <option value="0" <?php if($map['is_expert'] ===0) echo 'selected';?>>不是专家</option>
+                                <option value="1"
+                                <if condition="$map.is_expert eq 1 ">selected</if>
+                                >是专家</option>
+                                <option value="0"
+                                <?php if($map['is_expert'] ===0) echo 'selected';?>>不是专家</option>
                             </select>
                         </div>
                     </div>
@@ -81,19 +92,26 @@
                             <label class="control-label no-padding-right" for="form-field-1"> 允许评论: </label>
                             <select id="form-field-select-4" name="is_comment" class="">
                                 <option value="" disabled selected>--允许评论--</option>
-                                <option value="1" <if condition="$map.is_comment eq 1 ">selected</if>>允许</option>
-                                <option value="0" <?php if($map['is_comment'] ===0) echo 'selected';?>>不允许</option>
+                                <option value="1"
+                                <if condition="$map.is_comment eq 1 ">selected</if>
+                                >允许</option>
+                                <option value="0"
+                                <?php if($map['is_comment'] ===0) echo 'selected';?>>不允许</option>
                             </select>
                         </div>
                     </div>
                     <span></span>
+
                     <div class=" col-sm-3">
                         <div class="input-group">
                             <label class="control-label no-padding-right" for="form-field-1"> 是否置顶: </label>
                             <select id="form-field-select-5" name="is_top" class="">
                                 <option value="" disabled selected>--是否置顶--</option>
-                                <option value="1" <if condition="$map.is_top eq 1 ">selected</if>>置顶</option>
-                                <option value="0" <?php if($map['is_top'] ===0) echo 'selected';?>>不置顶</option>
+                                <option value="1"
+                                <if condition="$map.is_top eq 1 ">selected</if>
+                                >置顶</option>
+                                <option value="0"
+                                <?php if($map['is_top'] ===0) echo 'selected';?>>不置顶</option>
                             </select>
                         </div>
                     </div>
@@ -102,13 +120,16 @@
                             <label class="control-label no-padding-right" for="form-field-1"> 前台显示: </label>
                             <select id="form-field-select-6" name="is_display" class="">
                                 <option value="前台显示" disabled selected>--前台显示--</option>
-                                <option value="1" <if condition="$map.is_display eq 1 ">selected</if>>显示</option>
-                                <option value="0" <?php if($map['is_display'] ===0) echo 'selected';?>>不显示</option>
+                                <option value="1"
+                                <if condition="$map.is_display eq 1 ">selected</if>
+                                >显示</option>
+                                <option value="0"
+                                <?php if($map['is_display'] ===0) echo 'selected';?>>不显示</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="col-sm-3" >
+                    <div class="col-sm-3">
                         <div class="input-group">
                             <!-- <input class="form-control search-query" placeholder="请输入搜素内容" type="text" name="lottery_serach"> -->
                             <span class="input-group-btn">
@@ -118,7 +139,7 @@
                                 </button>
                                  <span style="margin-right:10px;"></span>
                                  <a class="btn btn-grey btn-sm" type="reset" href="{:U('Admin/Zhutie/index')}">
-                                    重置
+                                     重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>
                                  </a>
                             </span>
@@ -146,120 +167,155 @@
                             <div class="table-responsive">
                                 <table id="sample-table-1" class="table table-striped table-bordered table-hover">
                                     <thead>
+                                    <tr>
+                                        <th class="center">
+                                            <label>
+                                                <input type="checkbox" class="ace">
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </th>
+                                        <th>帖子标题</th>
+                                        <th>发布人</th>
+                                        <th>所属分类</th>
+                                        <th>加精</th>
+                                        <th>专家发帖</th>
+                                        <th>允许评论</th>
+                                        <th>置顶</th>
+                                        <th>前台显示</th>
+                                        <th>回复总数</th>
+                                        <th><i class="icon-time hidden-480"></i>发表时间</th>
+                                        <th>帖子内容</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <volist name="discussZhuties" id="discussZhutie">
                                         <tr>
-                                            <th class="center">
+                                            <td class="center">
                                                 <label>
                                                     <input type="checkbox" class="ace">
                                                     <span class="lbl"></span>
                                                 </label>
-                                            </th>
-                                            <th>帖子标题</th>
-                                            <th>发布人</th>
-                                            <th>所属分类</th>
-                                            <th>加精</th>
-                                            <th>专家发帖</th>
-                                            <th>允许评论</th>
-                                            <th>置顶</th>
-                                            <th>前台显示</th>
-                                            <th>回复总数</th>
-                                            <th><i class="icon-time hidden-480"></i>发表时间</th>
-                                            <th>帖子内容</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
+                                            </td>
 
-                                    <tbody>
-                                        <volist name="discussZhuties" id="discussZhutie">
-                                            <tr>
-                                                <td class="center">
-                                                    <label>
-                                                        <input type="checkbox" class="ace">
-                                                        <span class="lbl"></span>
-                                                    </label>
-                                                </td>
-
-                                                <td>{$discussZhutie.title}</td>
-                                                <td>{$discussZhutie.username}</td>
-                                                <td>{$discussZhutie.name}</td>
-                                                <td>
-                                                    <switch name="discussZhutie.is_add">
-                                                        <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">普通</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">加精</span></case>
-                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
-                                                    </switch>
-                                                </td>
-                                                <td>
-                                                    <switch name="discussZhutie.is_expert">
-                                                        <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">普通</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">专家</span></case>
-                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
-                                                    </switch>
-                                                </td>
-                                                <td>
-                                                    <switch name="discussZhutie.is_comment">
-                                                        <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不允许</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">允许</span></case>
-                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
-                                                    </switch>
-                                                </td>
-                                                <td>
-                                                    <switch name="discussZhutie.is_top">
-                                                        <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">普通</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">置顶</span></case>
-                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
-                                                    </switch>
-                                                </td>
-                                                <td>
-                                                    <switch name="discussZhutie.is_display">
-                                                        <case value="pending"></case>
-                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不显示</span></case>
-                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">显示</span></case>
-                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
-                                                    </switch>
-                                                </td>
-                                                <td>{$discussZhutie.replay_nums}个回复</td>
-                                                <td>{$discussZhutie.created_at}</td>
-                                                <td class="center discuss_content"><i class="icon-folder-open"></i> <span class="dis_content" style="display:none;">{$discussZhutie.description}</span></td>
-                                                <td>
-                                                    <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                            <td>{$discussZhutie.title}</td>
+                                            <td>{$discussZhutie.username}</td>
+                                            <td>{$discussZhutie.name}</td>
+                                            <td>
+                                                <switch name="discussZhutie.is_add">
+                                                    <case value="pending"></case>
+                                                    <case value="0"><span
+                                                            class="label label-lg label-black arrowed-right">普通</span>
+                                                    </case>
+                                                    <case value="1"><span
+                                                            class="label label-lg label-pink arrowed-right">加精</span>
+                                                    </case>
+                                                    <default/>
+                                                    <span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                </switch>
+                                            </td>
+                                            <td>
+                                                <switch name="discussZhutie.is_expert">
+                                                    <case value="pending"></case>
+                                                    <case value="0"><span
+                                                            class="label label-lg label-black arrowed-right">普通</span>
+                                                    </case>
+                                                    <case value="1"><span
+                                                            class="label label-lg label-pink arrowed-right">专家</span>
+                                                    </case>
+                                                    <default/>
+                                                    <span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                </switch>
+                                            </td>
+                                            <td>
+                                                <switch name="discussZhutie.is_comment">
+                                                    <case value="pending"></case>
+                                                    <case value="0"><span
+                                                            class="label label-lg label-black arrowed-right">不允许</span>
+                                                    </case>
+                                                    <case value="1"><span
+                                                            class="label label-lg label-pink arrowed-right">允许</span>
+                                                    </case>
+                                                    <default/>
+                                                    <span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                </switch>
+                                            </td>
+                                            <td>
+                                                <switch name="discussZhutie.is_top">
+                                                    <case value="pending"></case>
+                                                    <case value="0"><span
+                                                            class="label label-lg label-black arrowed-right">普通</span>
+                                                    </case>
+                                                    <case value="1"><span
+                                                            class="label label-lg label-pink arrowed-right">置顶</span>
+                                                    </case>
+                                                    <default/>
+                                                    <span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                </switch>
+                                            </td>
+                                            <td>
+                                                <switch name="discussZhutie.is_display">
+                                                    <case value="pending"></case>
+                                                    <case value="0"><span
+                                                            class="label label-lg label-black arrowed-right">不显示</span>
+                                                    </case>
+                                                    <case value="1"><span
+                                                            class="label label-lg label-pink arrowed-right">显示</span>
+                                                    </case>
+                                                    <default/>
+                                                    <span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                </switch>
+                                            </td>
+                                            <td>{$discussZhutie.replay_nums}个回复</td>
+                                            <td>{$discussZhutie.created_at}</td>
+                                            <td class="center discuss_content"><i class="icon-folder-open"></i> <span
+                                                    class="dis_content" style="display:none;">{$discussZhutie.description}</span>
+                                            </td>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
                                                     <a class="blue" href="#">
                                                         <i class="icon-zoom-in bigger-130"></i>
                                                     </a>
-                                                    <a class="green" href="{:U('Zhutie/edit/',array('id'=>$discussZhutie['id']))}">
+                                                    <a class="green"
+                                                       href="{:U('Zhutie/edit/',array('id'=>$discussZhutie['id']))}">
                                                         <i class="icon-pencil bigger-130"></i>
                                                     </a>
 
-                                                    <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussZhutie['id']}">
+                                                    <a href="javascript:;" class="red del-confirm" title="Delete"
+                                                       data-id="{$discussZhutie['id']}">
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
 
                                                 <div class="visible-xs visible-sm hidden-md hidden-lg">
                                                     <div class="inline position-relative">
-                                                        <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+                                                        <button class="btn btn-minier btn-yellow dropdown-toggle"
+                                                                data-toggle="dropdown">
                                                             <i class="icon-caret-down icon-only bigger-120"></i>
                                                         </button>
                                                         <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                             <li>
-                                                                <a href="#" class="tooltip-info a" data-rel="tooltip" title="View">
+                                                                <a href="#" class="tooltip-info a" data-rel="tooltip"
+                                                                   title="View">
                                                                     <span class="blue">
                                                                         <i class="icon-zoom-in bigger-120"></i>
                                                                     </span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="{:U('Zhutie/edit/',array('id'=>$discussZhutie['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                <a href="{:U('Zhutie/edit/',array('id'=>$discussZhutie['id']))}"
+                                                                   class="tooltip-success" data-rel="tooltip"
+                                                                   title="Edit">
                                                                     <span class="green">
                                                                         <i class="icon-edit bigger-120"></i>
                                                                     </span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$discussZhutie['id']}">
+                                                                <a href="javascript:;" class="tooltip-error del-confirm"
+                                                                   data-rel="tooltip" title="Delete"
+                                                                   data-id="{$discussZhutie['id']}">
                                                                     <span class="red">
                                                                         <i class="icon-trash bigger-120"></i>
                                                                     </span>
@@ -268,16 +324,18 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                </td>
-                                            </tr>
-                                        </volist>
+                                            </td>
+                                        </tr>
+                                    </volist>
                                     </tbody>
                                 </table>
                                 <div class="row-fluid">
                                     <div class="page">{$page}</div>
-                                 </div>
-                            </div><!-- /.table-responsive -->
-                        </div><!-- /span -->
+                                </div>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /span -->
                     </div>
 
                 </div>
@@ -286,88 +344,86 @@
         </div>
     </div>
 </block>
-    <block name="js">
-        <script type="text/javascript">
-            jQuery(function($) {
-                var oTable1 = $('#sample-table-2').dataTable();
+<block name="js">
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var oTable1 = $('#sample-table-2').dataTable();
 
 
-                $('table th input:checkbox').on('click' , function(){
-                    var that = this;
-                    $(this).closest('table').find('tr > td:first-child input:checkbox')
-                            .each(function(){
-                                this.checked = that.checked;
-                                $(this).closest('tr').toggleClass('selected');
-                            });
-
-                });
-
-
-                $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-                function tooltip_placement(context, source) {
-                    var $source = $(source);
-                    var $parent = $source.closest('table')
-                    var off1 = $parent.offset();
-                    var w1 = $parent.width();
-
-                    var off2 = $source.offset();
-                    var w2 = $source.width();
-
-                    if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-                    return 'left';
-                }
-
-
-
-
-            })
-//                               layer.confirm('您是如何看待前端开发？', {
-//                         btn: ['重要','奇葩'] //按钮
-//                     }, function(){
-//                         layer.msg('的确很重要', {icon: 1});
-//                     }, function(){
-//                         layer.msg('也可以这样', {
-//                             time: 20000, //20s后自动关闭
-//                             btn: ['明白了', '知道了']
-//                         });
-//                     });
-            $('.del-confirm').on('click' , function() {
-                var  id = $(this).attr('data-id');
-                _this = $(this);
-                layer.confirm('您确认删除该帖子么?', {
-                            btn: ['确定', '取消']
-                        }, function () {
-                             $.ajax({
-                                url: '{:U("Zhutie/delete")}',
-                                type: 'post',
-                                dataType: '',
-                                data: {'id':id},
-                                success: function(d){
-                                    if(d.status == 'ok') {
-                                        _this.parents('tr').remove();
-                                        layer.msg('删除成功', {icon: 1});
-                                    }else{
-                                        layer.msg('删除失败', {icon: 3});
-                                    }
-                                }
-                    });
-                        }, function () {
-                            layer.msg('已取消', {icon: 2});
+            $('table th input:checkbox').on('click', function () {
+                var that = this;
+                $(this).closest('table').find('tr > td:first-child input:checkbox')
+                        .each(function () {
+                            this.checked = that.checked;
+                            $(this).closest('tr').toggleClass('selected');
                         });
+
             });
-            $('.discuss_content').click(function(){
-                _this = $(this);
-                var content= _this.find('.dis_content').html();
-               layer.open({
-                  type: 1,
-                  title: '内容',
-                  skin: 'layui-layer-rim', //加上边框
-                  area: ['600px', '350px'], //宽高
-                  content: content
-                }); 
-            })
-            
-         </script>
-    </block>
+
+
+            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+                return 'left';
+            }
+
+
+        })
+        //                               layer.confirm('您是如何看待前端开发？', {
+        //                         btn: ['重要','奇葩'] //按钮
+        //                     }, function(){
+        //                         layer.msg('的确很重要', {icon: 1});
+        //                     }, function(){
+        //                         layer.msg('也可以这样', {
+        //                             time: 20000, //20s后自动关闭
+        //                             btn: ['明白了', '知道了']
+        //                         });
+        //                     });
+        $('.del-confirm').on('click', function () {
+            var id = $(this).attr('data-id');
+            _this = $(this);
+            layer.confirm('您确认删除该帖子么?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.ajax({
+                    url: '{:U("Zhutie/delete")}',
+                    type: 'post',
+                    dataType: '',
+                    data: {'id': id},
+                    success: function (d) {
+                        if (d.status == 'ok') {
+                            _this.parents('tr').remove();
+                            layer.msg('删除成功', {icon: 1});
+                        } else {
+                            layer.msg('删除失败', {icon: 3});
+                        }
+                    }
+                });
+            }, function () {
+                layer.msg('已取消', {icon: 2});
+            });
+        });
+        $('.discuss_content').click(function () {
+            _this = $(this);
+            var content = _this.find('.dis_content').html();
+            layer.open({
+                type: 1,
+                title: '内容',
+                skin: 'layui-layer-rim', //加上边框
+                area: ['600px', '350px'], //宽高
+                content: content
+            });
+        })
+
+    </script>
+</block>
 
 

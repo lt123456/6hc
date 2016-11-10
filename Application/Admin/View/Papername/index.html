@@ -14,7 +14,8 @@
         <li>
             <a href="{:U('Admin/PaperName/index')}">图库管理</a>
         </li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 
 <block name="main">
@@ -28,8 +29,9 @@
                         图库查看
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
-            
+            </div>
+            <!-- /.page-header -->
+
             <h1>
                 <a href="{:U('PaperName/add')}">
                     <button class="btn btn-sm btn-info">
@@ -38,10 +40,8 @@
                     </button>
                 </a>
             </h1>
-                    
-            
-          
-            
+
+
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-header">
@@ -52,83 +52,93 @@
                             <div class="table-responsive">
                                 <table id="sample-table-2" class="table table-striped table-bordered table-hover">
                                     <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>图库名称</th>
-                                            <th>首字母</th>
-                                            <th>期数</th>
-                                            <th class="hidden-480">是否隐藏</th>
-                                            <th>原图</th>
-                                            <th>收藏数</th>
-                                            <th>喜欢数</th>
-                                            <th>阅读量</th>
-                                            <th>发布ID</th>
-                                            <th>发布人</th>
-                                            <th>创建时间</th>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>图库名称</th>
+                                        <th>首字母</th>
+                                        <th>期数</th>
+                                        <th class="hidden-480">是否隐藏</th>
+                                        <th>原图</th>
+                                        <th>收藏数</th>
+                                        <th>喜欢数</th>
+                                        <th>阅读量</th>
+                                        <th>发布ID</th>
+                                        <th>发布人</th>
+                                        <th>创建时间</th>
 
-                                            <th>操作</th>
-                                        </tr>
+                                        <th>操作</th>
+                                    </tr>
                                     </thead>
 
                                     <tbody>
-                                        <volist name="papers" id="paper">
-                                            <tr>
-                                                <td>{$paper.id}</td>
-                                                <td>{$paper.paper_name}</td>
-                                                <td>{$paper.spell}</td>
-                                                <td>{$paper.periods_id}</td>
-                                                <td>{$paper.is_hide}</td>
-                                                <td><a href="<?php echo $paper['origin'];?>" target="_blank"><img width="100" src="<?php echo $paper['cut_pic'];?>" alt=""></a></td>
-                                                <td>{$paper.collects}</td>
-                                                <td>{$paper.likes}</td>
-                                                <td>{$paper.read}</td>
-                                                <td>{$paper.admin_id}</td>
-                                                <td>{$paper.admin_name}</td>
-                                                <td>{$paper.created_at}</td>
+                                    <volist name="papers" id="paper">
+                                        <tr>
+                                            <td>{$paper.id}</td>
+                                            <td>{$paper.paper_name}</td>
+                                            <td>{$paper.spell}</td>
+                                            <td>{$paper.periods_id}</td>
+                                            <td>{$paper.is_hide}</td>
+                                            <td><a href="<?php echo $paper['origin'];?>" target="_blank"><img
+                                                    width="100" src="<?php echo $paper['cut_pic'];?>" alt=""></a></td>
+                                            <td>{$paper.collects}</td>
+                                            <td>{$paper.likes}</td>
+                                            <td>{$paper.read}</td>
+                                            <td>{$paper.admin_id}</td>
+                                            <td>{$paper.admin_name}</td>
+                                            <td>{$paper.created_at}</td>
 
-                                                <td>
-                                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                                        <a class="btn btn-xs btn-warning"  href="{:U('PaperName/edit',array('id'=>$paper['id']))}">
-                                                            <i class="icon-edit bigger-120"></i>
-                                                        </a>
-                                                        
-                                                        <a href="javascript:;" class="btn btn-xs btn-danger" onclick="del_paper({$paper.id})">
-                                                            <i class="icon-trash bigger-120"></i>
-                                                        </a>
-                                                    </div>
+                                            <td>
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                    <a class="btn btn-xs btn-warning"
+                                                       href="{:U('PaperName/edit',array('id'=>$paper['id']))}">
+                                                        <i class="icon-edit bigger-120"></i>
+                                                    </a>
 
-                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                                        <div class="inline position-relative">
-                                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-                                                                <i class="icon-cog icon-only bigger-110"></i>
-                                                            </button>
+                                                    <a href="javascript:;" class="btn btn-xs btn-danger"
+                                                       onclick="del_paper({$paper.id})">
+                                                        <i class="icon-trash bigger-120"></i>
+                                                    </a>
+                                                </div>
 
-                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                                                <li>
-                                                                    <a href="{:U('PaperName/edit',array('id'=>$paper['id']))}" class="tooltip-warning" data-rel="tooltip" title="" data-original-title="Edit">
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="inline position-relative">
+                                                        <button class="btn btn-minier btn-primary dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                            <i class="icon-cog icon-only bigger-110"></i>
+                                                        </button>
+
+                                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                            <li>
+                                                                <a href="{:U('PaperName/edit',array('id'=>$paper['id']))}"
+                                                                   class="tooltip-warning" data-rel="tooltip" title=""
+                                                                   data-original-title="Edit">
                                                                         <span class="green">
                                                                             <i class="icon-edit bigger-120"></i>
                                                                         </span>
-                                                                    </a>
-                                                                </li>
+                                                                </a>
+                                                            </li>
 
-                                                                <li>
-                                                                    <a href='#' onclick="del_paper({$paper.id})" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
+                                                            <li>
+                                                                <a href='#' onclick="del_paper({$paper.id})"
+                                                                   class="tooltip-error" data-rel="tooltip" title=""
+                                                                   data-original-title="Delete">
                                                                         <span class="red">
                                                                             <i class="icon-trash bigger-120"></i>
                                                                         </span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                        </volist>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </volist>
                                     </tbody>
                                 </table>
-                            </div><!-- /.table-responsive -->
-                        </div><!-- /span -->
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /span -->
                     </div>
 
                 </div>
@@ -138,10 +148,10 @@
     </div>
 </block>
 <block name="js">
-    
+
     <script src="{:C('__STATIC__')}/assets/js/bootbox.min.js"></script>
     <script type="text/javascript">
-        jQuery(function($) {
+        jQuery(function ($) {
             var oTable1 = $('#sample-table-2').dataTable();
 
 
@@ -155,25 +165,25 @@
                 var off2 = $source.offset();
                 var w2 = $source.width();
 
-                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+                if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
                 return 'left';
             }
 
         })
 
         //删除
-        function del_paper(id){
-            bootbox.confirm("确认删除?", function(result) {
-                if(result) {
-                     $.ajax({
+        function del_paper(id) {
+            bootbox.confirm("确认删除?", function (result) {
+                if (result) {
+                    $.ajax({
                         url: '{:U("PaperName/delete")}',
                         type: 'post',
-                        data: {id:id},
+                        data: {id: id},
                         dataType: 'json',
-                        success: function(d){
-                            if(d.status =='ok'){
+                        success: function (d) {
+                            if (d.status == 'ok') {
                                 location.href = '{:U("PaperName/index")}';
-                            }else{
+                            } else {
                                 $('.alert').removeClass('hide').addClass('alert-danger');
 
                                 $('.alert').find('span').html('删除图库失败，稍后再试');
@@ -182,7 +192,7 @@
                     });
                 }
             });
-           
+
         }
 
     </script>

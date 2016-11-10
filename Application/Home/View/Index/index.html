@@ -1,16 +1,1944 @@
 <!-- 头部-->
-    <include file="Include:head" title="{:C(Index)['title']}" keywords="{:C(Index)['keywords']}" description="{:C('Index')['description']}"/>
+<include file="Include:head" title="{:C(Index)['title']}" keywords="{:C(Index)['keywords']}"
+         description="{:C('Index')['description']}"/>
 <!-- 头部结束-->
 
 
 <!-- 内容开始 -->
-    <block name="main">
-    	
+<block name="main">
+    <div id="lhck_index_top"></div>
+    <div id="lhck_index_menu_lf" class="ad_small_banner"></div>
+    <div class="clear"></div>
+    <div id="main">
+        <div class="award_content">
+            <div class="current">
+                <div class="period">
+                    <div>
 
-    </block>
+                        最新开奖结果：
+                        <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+
+                            <if condition="$key eq 2">
+                                <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
+                            </if>
+
+                        </volist>
+
+                    </div>
+                    <span style="display: block; float: left; clear: left;">下期开奖时间：
+                          <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+                              <if condition="$key  eq 1 ">
+                                  <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
+                              </if>
+                          </volist>
+                    </span>
+                    <a href="/diaoyong/" class="view" target="_blank" title="开奖调用">开奖调用</a>
+                    <a href="/marksix/shipin" class="view" target="_blank" title="观看直播">观看直播</a>
+                </div>
+
+                <table class="numbers">
+                    <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+                        <if condition="$key  eq 2 ">
+                            <?php
+                                    $justArr   = empty($record['just_string']) ? [] : array_filter(explode(',',$record['just_string']));
+                                    $animalArr = empty($record['animal_string']) ? [] : array_filter(explode(',',$record['animal_string']));
+
+                            ?>
+                    <tr class="head">
+                        <volist name="justArr" id="just" empty="" key="key">
+                            <td>
+                                <span class="ball {$nature->getBallcolor($just)}">{$just}</span>
+                            </td>
+                        </volist>
+
+                        <td>
+                            <span class="plus"></span>
+                        </td>
+
+                        <td>
+                            <span class="ball {$nature->getBallcolor($record['special_number'])}">{$record.special_number}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <volist name="animalArr" id="animal" empty="" key="key">
+                        <td>
+                            {$animal}
+                        </td>
+                        </volist>
+                        <td></td>
+                        <td>
+                            {$record.special_animal}
+                        </td>
+                    </tr>
+                    <tr class="orange">
+                        <?php
+                            $fiveArr =  empty($record['five_string']) ? [] : array_filter(explode(',',$record['five_string']));
+                        ?>
+                        <volist  name = "fiveArr" id="five">
+                            <td>
+                                {$five}
+                            </td>
+                        </volist>
+
+                        <td></td>
+                        <td>
+                            {$record.specia_five}
+                        </td>
+                    </tr>
+                        </if>
+                    </volist>
+                </table>
+
+            </div>
+
+            <div class="hot_discuss">
+                <div class="title">
+                    <span>精选帖子</span>
+                </div>
+                <ul id="lhck_home_index_text">
+                    <volist name="discuzRecomm" id="recomm" >
+                        <li>
+                            <a href="{$recomm.id}" target="_blank">&#183;{$recomm.title}</a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="history">
+                <div class="title">
+                    <span>往期历史</span> <a href="/marksix/history" target="_blank">更多>></a>
+                </div>
+                <table class="table" style="float: left;">
+                    <tr>
+                        <td style="width: 80px;">日期/期数
+                        </td>
+                        <td style="width: 70px;">号码顺序
+                        </td>
+                        <td>一
+                        </td>
+                        <td>二
+                        </td>
+                        <td>三
+                        </td>
+                        <td>四
+                        </td>
+                        <td>五
+                        </td>
+                        <td>六
+                        </td>
+                        <td>特
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" style="line-height: 20px;">
+                            2016-10-18<br />
+                            2016120 期
+                        </td>
+                        <td>开奖号码
+                        </td>
+                        <td>
+                            <span class="ball green">28</span>
+                        </td>
+                        <td>
+                            <span class="ball green">27</span>
+                        </td>
+                        <td>
+                            <span class="ball red">30</span>
+                        </td>
+                        <td>
+                            <span class="ball red">08</span>
+                        </td>
+                        <td>
+                            <span class="ball blue">41</span>
+                        </td>
+                        <td>
+                            <span class="ball green">38</span>
+                        </td>
+                        <td>
+                            <span class="ball red">12</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>生肖
+                        </td>
+                        <td>
+                            蛇
+                        </td>
+                        <td>
+                            马
+                        </td>
+                        <td>
+                            兔
+                        </td>
+                        <td>
+                            牛
+                        </td>
+                        <td>
+                            龙
+                        </td>
+                        <td>
+                            羊
+                        </td>
+                        <td>
+                            鸡
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>五行
+                        </td>
+                        <td>
+                            木
+                        </td>
+                        <td>
+                            土
+                        </td>
+                        <td>
+                            火
+                        </td>
+                        <td>
+                            火
+                        </td>
+                        <td>
+                            土
+                        </td>
+                        <td>
+                            火
+                        </td>
+                        <td>
+                            水
+                        </td>
+                    </tr>
+                </table>
+                <table class="table" style="float: right;">
+                    <tr>
+                        <td style="width: 80px;">日期/期数
+                        </td>
+                        <td style="width: 70px;">号码顺序
+                        </td>
+                        <td>一
+                        </td>
+                        <td>二
+                        </td>
+                        <td>三
+                        </td>
+                        <td>四
+                        </td>
+                        <td>五
+                        </td>
+                        <td>六
+                        </td>
+                        <td>特
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" style="line-height: 20px;">
+                            2016-10-15<br />
+                            2016119 期
+                        </td>
+                        <td>开奖号码
+                        </td>
+                        <td>
+                            <span class="ball red">40</span>
+                        </td>
+                        <td>
+                            <span class="ball green">28</span>
+                        </td>
+                        <td>
+                            <span class="ball green">27</span>
+                        </td>
+                        <td>
+                            <span class="ball red">12</span>
+                        </td>
+                        <td>
+                            <span class="ball red">07</span>
+                        </td>
+                        <td>
+                            <span class="ball red">18</span>
+                        </td>
+                        <td>
+                            <span class="ball blue">10</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>生肖
+                        </td>
+                        <td>
+                            蛇
+                        </td>
+                        <td>
+                            蛇
+                        </td>
+                        <td>
+                            马
+                        </td>
+                        <td>
+                            鸡
+                        </td>
+                        <td>
+                            虎
+                        </td>
+                        <td>
+                            兔
+                        </td>
+                        <td>
+                            猪
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>五行
+                        </td>
+                        <td>
+                            土
+                        </td>
+                        <td>
+                            木
+                        </td>
+                        <td>
+                            土
+                        </td>
+                        <td>
+                            水
+                        </td>
+                        <td>
+                            木
+                        </td>
+                        <td>
+                            土
+                        </td>
+                        <td>
+                            土
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+
+        <div id="lhck_index_paper_top"></div>
+        <div id="lhck_index_paper_top_lf" class="ad_small_banner"></div>
+        <div class="sexHck_newBlock">
+
+            <div class="sexHck_newBlockLeft">
+                <div class="title">
+                    <b>模拟购彩</b>
+                    <a href="/leitai" target="_blank" class="link01_newBlocl">马上参与>></a>
+                </div>
+                <div class="tab">
+                    <a href="#" class="hover" id="pushSx">推特肖</a>
+                    <a href="#" id="pushHm">推特码</a>
+                </div>
+
+                <div id="sxBetData">
+
+
+                    <div class="contentList">
+
+                        <ul style="">
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2343421#m" target="_blank">漂破波上漂破瓢</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=121795#m" target="_blank">广东化州买码专业人士</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2305325#m" target="_blank">fada5418</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1032972#m" target="_blank">五圆和ym</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=230127#m" target="_blank">神算门</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=222080#m" target="_blank">hstmdc</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1207171#m" target="_blank">王者马神</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>2</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1098370#m" target="_blank">Liangxuchun</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>3</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2086626#m" target="_blank">xunuo227</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2360302#m" target="_blank">粉红嘟嘟</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1140494#m" target="_blank">哥哥输死了</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right hover">
+	                                      推<text>1</text>肖
+	                                  </span>
+                            </li>
+                        </ul>
+                        <ul style="">
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2286707#m" target="_blank">liushuishilo</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2465832#m" target="_blank">煌哥123</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=632170#m" target="_blank">见才化水</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2242111#m" target="_blank">纵横嬴政</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2407949#m" target="_blank">绿皮西瓜</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right hover">
+	                                      推<text>1</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2262930#m" target="_blank">wskycc</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=266575#m" target="_blank">ck6h763</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1016214#m" target="_blank">流星蝴蝶剑A</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2445207#m" target="_blank">小乔人家</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>2</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2551225#m" target="_blank">qq353535</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=598798#m" target="_blank">NLBC</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                        </ul>
+                        <ul style="border:none;width: 245px;">
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2509766#m" target="_blank">大亮大哥</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>3</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=833638#m" target="_blank">yao738</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2361408#m" target="_blank">meijian</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right hover">
+	                                      推<text>1</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=1513690#m" target="_blank">a呀ff</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2269029#m" target="_blank">小橙橙兔子</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=310186#m" target="_blank">fkekd</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=428666#m" target="_blank">MJ1988</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2508363#m" target="_blank">sly2016</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2518272#m" target="_blank">财神爷到中中中</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2466219#m" target="_blank">Qiubing</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>肖
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+	                                          <a href="/leitai?memberId=2307573#m" target="_blank">woaini139</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>2</text>肖
+	                                  </span>
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                </div>
+                <div id="hmBetData" style="display: none">
+
+
+                    <div class="contentList">
+
+                        <ul style="">
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2221296#m" target="_blank">太阴险了吧</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2305325#m" target="_blank">fada5418</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=1335828#m" target="_blank">常勝將軍</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=222080#m" target="_blank">hstmdc</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2397261#m" target="_blank">李浩宇534620</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right hover">
+	                                      推<text>1</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=1140494#m" target="_blank">哥哥输死了</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>5</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2286707#m" target="_blank">liushuishilo</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2267084#m" target="_blank">缘来如此喔</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=632170#m" target="_blank">见才化水</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2407949#m" target="_blank">绿皮西瓜</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>5</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=266575#m" target="_blank">ck6h763</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                        </ul>
+                        <ul style="">
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=1016214#m" target="_blank">流星蝴蝶剑A</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2096652#m" target="_blank">XD18D</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=598798#m" target="_blank">NLBC</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=833638#m" target="_blank">yao738</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>3</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2509766#m" target="_blank">大亮大哥</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2481236#m" target="_blank">zjw940910</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=281504#m" target="_blank">无敌助手</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2269029#m" target="_blank">小橙橙兔子</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=721610#m" target="_blank">yaoyue8</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2307573#m" target="_blank">woaini139</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2090647#m" target="_blank">龙在上天</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                        </ul>
+                        <ul style="border:none;width: 245px;">
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=1180334#m" target="_blank">new551217</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2396942#m" target="_blank">吖随便看看</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2144513#m" target="_blank">zhd1993</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2391345#m" target="_blank">别设计那些情节</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right hover">
+	                                      推<text>1</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=495781#m" target="_blank">冷血杀手123</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2530312#m" target="_blank">婺源清华</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>5</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=722695#m" target="_blank">小松鼠哦</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2426133#m" target="_blank">九牧叠浪</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2523526#m" target="_blank">美少女之一肖王</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>2</text>码
+	                                  </span>
+                            </li>
+                            <li class="huise">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=2407197#m" target="_blank">AA隔壁老黄</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>4</text>码
+	                                  </span>
+                            </li>
+                            <li class="">
+	                                  <span class="left">
+                                               <a href="/leitai/tema?memberId=648097#m" target="_blank">hanry18</a>
+	                                  </span>
+	                                  <span class="center">
+121期
+
+	                                  </span>
+	                                  <span class="right">
+	                                      推<text>6</text>码
+	                                  </span>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="sexHck_newBlockRight">
+                <span class="title" id="changeHover">
+                    <a class="hover" id="week">周榜</a>
+                    <a id="total">总榜</a>
+                </span>
+                <span class="sorting">
+                    <span class="title" id="changeHover2">
+                        <a class="hover" id="sx">生肖</a>
+                        <a id="hm">号码</a>
+                        <span id="spanWeek" class="spanRight">2016年第42周</span>
+                        <span id="spanQuarter" class="spanRight" style="display: none;">第4季</span>
+                    </span>
+                    <span class="firstBlock">
+                        <span class="firstBlockLeft">排名</span>
+                        <span class="firstBlockcenter">用户名</span>
+                        <span class="firstBlockRight">成绩</span>
+                    </span>
+
+                    <div id="changeBlock">
+                        <div id="sxWeekRank">
+
+                            <div class="secList">
+                                <ul>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_1">1</span>
+                            <span class="jt jt1_1"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2393127#m" target="_blank">脉动激情
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>3</span>
+                                    </li>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_2">2</span>
+                            <span class="jt jt1_1"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=886890#m" target="_blank">小浪子288
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>2</span>
+                                    </li>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_3">3</span>
+                            <span class="jt jt2_3"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2471341#m" target="_blank">LLBW666
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>2</span>
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">4</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=1156433#m" target="_blank">无心爱无侮
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">5</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2029929#m" target="_blank">开心最重要1986
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">6</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=621003#m" target="_blank">境由心生的
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">7</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=307054#m" target="_blank">华丽风彩
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">8</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=196644#m" target="_blank">骑龟咬美女
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">9</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2502255#m" target="_blank">皇6789
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+                                    <li style="background: none">
+                    <span class="left">
+                        <span class="icons icon1_4">10</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=1532439#m" target="_blank">李家六哥
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>2</span>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="hmWeekRank" style="display: none;">
+
+                            <div class="secList">
+                                <ul>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_1">1</span>
+                            <span class="jt jt1_1"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2271496#m" target="_blank">kiki9595
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>2</span>
+                                    </li>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_2">2</span>
+                            <span class="jt jt1_1"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2090647#m" target="_blank">龙在上天
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>2</span>
+                                    </li>
+                                    <li>
+                    <span class="left">
+                        <span class="icons icon1_3">3</span>
+                            <span class="jt jt1_1"></span>
+                    </span>
+                    <span class="center centerHover">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2494088#m" target="_blank">AC文裕
+                        </a>
+                    </span>
+                                        <span class="right rightHover">3<text>中</text>1</span>
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">4</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=1532439#m" target="_blank">李家六哥
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">5</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2150301#m" target="_blank">陈先生12390
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">6</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2205746#m" target="_blank">巴拉拉小魔仙之魔法
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">7</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=535152#m" target="_blank">dcb888
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">8</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=653734#m" target="_blank">最佳状态
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="">
+                    <span class="left">
+                        <span class="icons icon1_4">9</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2430065#m" target="_blank">zhan520
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+                                    <li style="background: none">
+                    <span class="left">
+                        <span class="icons icon1_4">10</span>
+                            <span class="jt jt1_1"></span>
+
+                    </span>
+                    <span class="center">
+                        <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2174998#m" target="_blank">MC毒圣
+                        </a>
+                    </span>
+                                        <span class="right">3<text>中</text>1</span>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="sxTotalRank" style="display: none;">
+
+                            <div class="secList">
+                                <ul>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_1">1</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai?memberId=2393127#m" target="_blank">脉动激情
+                    </a>
+                </span>
+                                        <span class="right rightHover">6<text>中</text>6</span>
+                                    </li>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_2">2</span>
+                        <span class="jt jt3_2"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai?memberId=2029929#m" target="_blank">开心最重要1986
+                    </a>
+                </span>
+                                        <span class="right rightHover">6<text>中</text>5</span>
+                                    </li>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_3">3</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai?memberId=2471341#m" target="_blank">LLBW666
+                    </a>
+                </span>
+                                        <span class="right rightHover">8<text>中</text>6</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">4</span>
+                        <span class="jt jt3_2"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2296518#m" target="_blank">dcbhfdvhted
+                    </a>
+                </span>
+                                        <span class="right">8<text>中</text>6</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">5</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=1297798#m" target="_blank">信我者就跟
+                    </a>
+                </span>
+                                        <span class="right">7<text>中</text>5</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">6</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2271496#m" target="_blank">kiki9595
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>4</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">7</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2286829#m" target="_blank">九爷杀庄高手
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>4</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">8</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2096652#m" target="_blank">XD18D
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>4</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">9</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2297498#m" target="_blank">Wchat_vns606
+                    </a>
+                </span>
+                                        <span class="right">8<text>中</text>5</span>
+                                    </li>
+                                    <li style="background: none">
+                <span class="left">
+                    <span class="icons icon1_4">10</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai?memberId=2286707#m" target="_blank">liushuishilo
+                    </a>
+                </span>
+                                        <span class="right">7<text>中</text>4</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div id="hmTotalRank" style="display: none;">
+
+                            <div class="secList">
+                                <ul>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_1">1</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2271496#m" target="_blank">kiki9595
+                    </a>
+                </span>
+                                        <span class="right rightHover">6<text>中</text>4</span>
+                                    </li>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_2">2</span>
+                        <span class="jt jt3_2"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=779104#m" target="_blank">最高手在民间
+                    </a>
+                </span>
+                                        <span class="right rightHover">8<text>中</text>4</span>
+                                    </li>
+                                    <li>
+                <span class="left">
+                    <span class="icons icon1_3">3</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center centerHover">
+                    <a style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2090647#m" target="_blank">龙在上天
+                    </a>
+                </span>
+                                        <span class="right rightHover">9<text>中</text>4</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">4</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=9855#m" target="_blank">zhao1953
+                    </a>
+                </span>
+                                        <span class="right">8<text>中</text>3</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">5</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=653734#m" target="_blank">最佳状态
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>2</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">6</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2015263#m" target="_blank">樱花秀才
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>2</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">7</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2408069#m" target="_blank">爱上西雅图
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>2</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">8</span>
+                        <span class="jt jt1_1"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2096652#m" target="_blank">XD18D
+                    </a>
+                </span>
+                                        <span class="right">6<text>中</text>2</span>
+                                    </li>
+                                    <li style="">
+                <span class="left">
+                    <span class="icons icon1_4">9</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=392913#m" target="_blank">ryfjl
+                    </a>
+                </span>
+                                        <span class="right">8<text>中</text>2</span>
+                                    </li>
+                                    <li style="background: none">
+                <span class="left">
+                    <span class="icons icon1_4">10</span>
+                        <span class="jt jt2_3"></span>
+
+                </span>
+                <span class="center">
+                    <a  style="position:relative;text-decoration: none;" href="/leitai/tema?memberId=2298374#m" target="_blank">一一点点点
+                    </a>
+                </span>
+                                        <span class="right">8<text>中</text>2</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </span>
+            </div>
+
+        </div>
+
+
+        <div id="lhck_index_mngc_botton" style="margin-top: 6px;"></div>
+        <div id="lhck_index_mngc_botton_lf" class="ad_small_banner"></div>
+        <div class="clear"></div>
+        <div class="paper_content ">
+            <div class="sexHck_newBlock" style="width: auto; float: left; margin: 0; clear: none;">
+                <div class="sixPhoto">
+                    <span class="title">
+                        <span class="left">六合图库</span>
+                        <span class="center">
+                                <a href="/paper/view/1/2016121" target="_blank" class="link01_newBloc2">跑狗图</a>
+                                <a href="/paper/view/12/2016121" target="_blank" class="link01_newBloc2">东方心经</a>
+                                <a href="/paper/view/75/2016121" target="_blank" class="link01_newBloc2">六合内部透码</a>
+                        </span>
+                        <span class="right"><a href="/paper" target="_blank" class="link01_newBloc1">更多>></a></span>
+                    </span>
+
+                    <span class="photoList">
+                            <a href="/paper/view/117/2016121" target="_blank">
+                                <img src="{:C('PUBLIC_PC')}/Picture/164897253.jpg"></a>
+                            <a href="/paper/view/73/2016121" target="_blank">
+                                <img src="{:C('PUBLIC_PC')}/Picture/172098182.jpg"></a>
+                            <a href="/paper/view/2/2016121" target="_blank">
+                                <img src="{:C('PUBLIC_PC')}/Picture/145053528.jpg"></a>
+                    </span>
+
+                    <span class="fontList">
+                            <a href="/paper/view/74/2016121" target="_blank">第<text>121</text>期<text>苹果日报</text></a>
+                            <a href="/paper/view/119/2016121" target="_blank">第<text>121</text>期<text>正手写</text></a>
+                            <a href="/paper/view/190/2016121" target="_blank">第<text>121</text>期<text>赢家家</text></a>
+                            <a href="/paper/view/367/2016121" target="_blank">第<text>121</text>期<text>识破玄机</text></a>
+                            <a href="/paper/view/368/2016121" target="_blank">第<text>121</text>期<text>省港旗兵</text></a>
+                            <a href="/paper/view/370/2016121" target="_blank">第<text>121</text>期<text>马经心经</text></a>
+                            <a href="/paper/view/369/2016121" target="_blank">第<text>121</text>期<text>马经</text></a>
+                            <a href="/paper/view/366/2016121" target="_blank">第<text>121</text>期<text>大当家</text></a>
+                    </span>
+
+                </div>
+            </div>
+
+
+            <div class="recomend">
+                <div class="title">
+                    <span>专家推荐</span>
+                    <a href="/zhuanjia" class="more" target="_blank">更多>></a>
+                </div>
+                <div class="wrap">
+
+                    <ul class="recomends">
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1720?memberid=47687" target="_blank">
+                                088期猛料平特推荐
+
+                            </a>
+                            <label><a href="/discuss/space/47687" target="_blank">猛料不乱报</a></label>
+                        </li>
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1719?memberid=105268" target="_blank">
+                                088期“寂寞”好料推荐
+                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
+
+                            </a>
+                            <label><a href="/discuss/space/105268" target="_blank">赢得好寂寞</a></label>
+                        </li>
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1718?memberid=42887" target="_blank">
+                                088期haocai心水20码推荐
+
+                            </a>
+                            <label><a href="/discuss/space/42887" target="_blank">haocai</a></label>
+                        </li>
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1717?memberid=43835" target="_blank">
+                                088期先知道人心水推荐!
+
+                            </a>
+                            <label><a href="/discuss/space/43835" target="_blank">先知道人</a></label>
+                        </li>
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1716?memberid=115598" target="_blank">
+                                088期“M记”特肖推荐
+
+                            </a>
+                            <label><a href="/discuss/space/115598" target="_blank">macy</a></label>
+                        </li>
+                        <li>
+                            <span>08-04</span>
+                            <a href="/zhuanjia/info/1715?memberid=100091" target="_blank">
+                                K姐088期五不中和平特肖
+                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
+
+                            </a>
+                            <label><a href="/discuss/space/100091" target="_blank">karida</a></label>
+                        </li>
+                        <li>
+                            <span>07-29</span>
+                            <a href="/zhuanjia/info/1714?memberid=42887" target="_blank">
+                                086期haocai心水20码推荐
+
+                            </a>
+                            <label><a href="/discuss/space/42887" target="_blank">haocai</a></label>
+                        </li>
+                        <li>
+                            <span>07-29</span>
+                            <a href="/zhuanjia/info/1713?memberid=115598" target="_blank">
+                                086期“M记”特肖推荐
+                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
+
+                            </a>
+                            <label><a href="/discuss/space/115598" target="_blank">macy</a></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="illustration">
+                <div class="title">
+                    <span>图解小组</span> <a href="/discuss/forum?tag=7&isexports=0" target="_blank">更多</a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/discuss/post/411059" target="_blank">&#183;第088期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/410802" target="_blank">&#183;第088期香港正挂挂牌</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/407880" target="_blank">&#183;第085期香港正挂挂牌</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/407868" target="_blank">&#183;第085期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/406869" target="_blank">&#183;第084期香港正挂挂牌</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/406863" target="_blank">&#183;第084期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/404946" target="_blank">&#183;第082期香港正挂挂牌</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/404842" target="_blank">&#183;第082期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/403855" target="_blank">&#183;第081期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
+                    </li>
+                    <li>
+                        <a href="/discuss/post/403704" target="_blank">&#183;第081期高清跑狗图</a>
+
+                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+        <div class="trend_content">
+
+            <div class="trend">
+                <div class="title">
+                    <span>图表走势</span>
+                    <p>
+                        <a href="/danma/3" target="_blank">正码走势图</a> <a href="/shengxiao/1" target="_blank">生肖特码热门</a> <a href="/sebo/1"
+                                                                                                                          target="_blank">波色特码热门</a> <a href="/roadmap/1" target="_blank">正码路珠</a>
+                    </p>
+                    <a href="/tema/1" target="_blank" class="more">更多>></a>
+                </div>
+                <div class="chart" id="container" style="width:700px;height: 250px;">
+                    正在加载中...
+                </div>
+            </div>
+            <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/highcharts.js"></script>
+            <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jschart.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    var data = eval('[{"Name":"102","Count":27},{"Name":"103","Count":14},{"Name":"104","Count":22},{"Name":"105","Count":23},{"Name":"106","Count":30},{"Name":"107","Count":26},{"Name":"108","Count":25},{"Name":"109","Count":14},{"Name":"110","Count":42},{"Name":"111","Count":27},{"Name":"112","Count":40},{"Name":"113","Count":6},{"Name":"114","Count":30},{"Name":"115","Count":34},{"Name":"116","Count":9},{"Name":"117","Count":13},{"Name":"118","Count":46},{"Name":"119","Count":10},{"Name":"120","Count":12},{"Name":"121","Count":19}]');
+                    showChartline("特码走势图", data, function () { return this.x + '期:' + this.y }, 1, 49,false);
+                });
+            </script>
+
+
+            <div class="guess">
+                <div class="title">
+                    <span>幽默猜测</span> <a href="/joke" target="_blank">更多</a>
+                </div>
+                <ul>
+
+                    <li><a href="/joke/info/784" class="first"  target="_blank">
+                        <img src="{:C('PUBLIC_PC')}/Picture/092056447.jpg" alt="2016年第121期幽默猜测" />
+                        <div>
+                            [图片猜测] 2016年第121期幽默猜测</div>
+                    </a></li>
+                    <li><a href="/joke/info/783" class="second"  target="_blank">
+                        <img src="{:C('PUBLIC_PC')}/Picture/085477197.jpg" alt="2016年第121期视频猜测" />
+                        <div>
+                            [视频猜测] 2016年第121期视频猜测</div>
+                    </a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear">
+
+    </div>
+
+</block>
 <!-- 内容结束 -->
 
 
 <!-- 尾部开始 -->
-    <include file="Include:footer"/>
+<include file="Include:footer"/>
 <!-- 尾部结束 -->

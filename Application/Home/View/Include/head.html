@@ -3,144 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <title>[title]</title>
-    <meta name="keywords" content="[keywords]" />
-    <meta name="description" content="[descriptions]" />
-    <link href="{:C('PUBLIC_PC')}/Css/headandfoot.css" rel="stylesheet" />
-    <link href="{:C('PUBLIC_PC')}/Css/style.css" rel="stylesheet" />
-    <link href="{:C('PUBLIC_PC')}/Css/blue.css" rel="stylesheet" />
+    <meta name="keywords" content="[keywords]"/>
+    <meta name="description" content="[descriptions]"/>
+    <link href="{:C('PUBLIC_PC')}/Css/headandfoot.css" rel="stylesheet"/>
+    <link href="{:C('PUBLIC_PC')}/Css/style.css" rel="stylesheet"/>
+    <link href="{:C('PUBLIC_PC')}/Css/blue.css" rel="stylesheet"/>
     <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jquery.artdialog.min.js"></script>
     <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/common.js"></script>
     <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/feedback.js"></script>
 </head>
 <body>
-    <!-- 头部开始-->
-    <div class="hj_public_topNav" style="z-index: 100;">
-        <div class="hj_p_tn_content" style="z-index: 10;">
-            <div class="topSmallNav">
-                <a href="http://www.1396mm.com/" target="_blank">博世界</a>
-                <a href="http://www.1396cp.com/" target="_blank">彩世界</a>
-                <a href="http://www.6hck.com/" class="hover" target="_blank">六合彩库</a>
-                <a href="http://www.1396app.com/" target="_blank">博应用</a>
-                <a href="http://www.1396dh.com/" target="_blank">爱博导航</a>
-                <a href="javascript:void(0);" class="last"><span></span></a>
-            </div>
-            <div class="Announcement">
-                <marquee id="marquee" scrollamount="2" direction="left">
-                   {:C('Marquee')}
-                </marquee>
-            </div>
-            <div class="rightLogin" id="unsignin">
-                <span><a href="/sso/login">登录</a></span>
-                <span class="line">|</span>
-                <span><a href="/sso/register">免费注册</a></span>
-                <span class="line">|</span>
-                <span class="res"><a href="javascript:void(0);" class="btnUserFeedback">用户反馈</a></span>
+<!-- 头部开始-->
+<div class="hj_public_topNav" style="z-index: 100;">
+    <div class="hj_p_tn_content" style="z-index: 10;">
+        <div class="topSmallNav">
+            <a href="http://www.1396mm.com/" target="_blank">博世界</a>
+            <a href="http://www.1396cp.com/" target="_blank">彩世界</a>
+            <a href="http://www.6hck.com/" class="hover" target="_blank">六合彩库</a>
+            <a href="http://www.1396app.com/" target="_blank">博应用</a>
+            <a href="http://www.1396dh.com/" target="_blank">爱博导航</a>
+            <a href="javascript:void(0);" class="last"><span></span></a>
+        </div>
+        <div class="Announcement">
+            <marquee id="marquee" scrollamount="2" direction="left">
+                {:C('Marquee')}
+            </marquee>
+        </div>
+        <div class="rightLogin" id="unsignin">
+            <span><a href="/sso/login">登录</a></span>
+            <span class="line">|</span>
+            <span><a href="/sso/register">免费注册</a></span>
+            <span class="line">|</span>
+            <span class="res"><a href="javascript:void(0);" class="btnUserFeedback">用户反馈</a></span>
 
-                <span><a href="http://www.royaleu.com/product/index.html" target="_blank" class="bw_downloadBtn">应用下载</a></span>
-            </div>
-            <div class="rightLogin" id="signin" style="display: none;">
-                <span><a href="/uc/index" style="color: red; width: auto;" id="mname"></a></span>
-                <span class="line">|</span>
-                <span><a href="javascript:void()" onclick="LoginOut()">退出</a></span>
-                <span class="line">|</span>
-                <span class="res"><a href="/feedback/index" target="_blank">用户反馈</a></span>
+            <span><a href="http://www.royaleu.com/product/index.html" target="_blank"
+                     class="bw_downloadBtn">应用下载</a></span>
+        </div>
+        <div class="rightLogin" id="signin" style="display: none;">
+            <span><a href="/uc/index" style="color: red; width: auto;" id="mname"></a></span>
+            <span class="line">|</span>
+            <span><a href="javascript:void()" onclick="LoginOut()">退出</a></span>
+            <span class="line">|</span>
+            <span class="res"><a href="/feedback/index" target="_blank">用户反馈</a></span>
 
-                <span><a href="http://www.royaleu.com/product/index.html" class="bw_downloadBtn" target="_blank">应用下载</a></span>
-            </div>
+            <span><a href="http://www.royaleu.com/product/index.html" class="bw_downloadBtn"
+                     target="_blank">应用下载</a></span>
+        </div>
 
-            <div class="hj_public_clearBoth"></div>
-            <div class="topSmallNav_more">
-                <table>
-                    <tbody>
-                    <tr>
-                        <th colspan="2">网页</th>
-                        <th colspan="3">手机</th>
-                    </tr>
-                    <tr>
-                        <td width="20%"><a href="http://www.1396mm.com/" target="_blank">博世界</a></td>
-                        <td width="20%"><a href="http://www.1396app.com/" target="_blank">博应用<span class="hj_public_hot"></span></a></td>
-                        <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">重庆时时彩</a></td>
-                        <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">时时彩宝典<span class="hj_public_new"></span></a></td>
-                        <td width="20%"><a href="http://soft.royaleu.com/app/" target="_blank">博应用</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.1396cp.com/" target="_blank">彩世界</a></td>
-                        <td><a href="http://www.1396dh.com/" target="_blank">爱博导航</a></td>
-                        <td><a href="http://soft.royaleu.com/xync/" target="_blank">幸运农场</a></td>
-                        <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">广东快乐十分</a></td>
-                        <td><a href="http://soft.royaleu.com/bsj/" target="_blank">博世界</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="http://www.1396cp.com/software/" target="_blank">软件中心</a></td>
+        <div class="hj_public_clearBoth"></div>
+        <div class="topSmallNav_more">
+            <table>
+                <tbody>
+                <tr>
+                    <th colspan="2">网页</th>
+                    <th colspan="3">手机</th>
+                </tr>
+                <tr>
+                    <td width="20%"><a href="http://www.1396mm.com/" target="_blank">博世界</a></td>
+                    <td width="20%"><a href="http://www.1396app.com/" target="_blank">博应用<span
+                            class="hj_public_hot"></span></a></td>
+                    <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">重庆时时彩</a></td>
+                    <td width="20%"><a href="http://soft.royaleu.com/ssbd/" target="_blank">时时彩宝典<span
+                            class="hj_public_new"></span></a></td>
+                    <td width="20%"><a href="http://soft.royaleu.com/app/" target="_blank">博应用</a></td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.1396cp.com/" target="_blank">彩世界</a></td>
+                    <td><a href="http://www.1396dh.com/" target="_blank">爱博导航</a></td>
+                    <td><a href="http://soft.royaleu.com/xync/" target="_blank">幸运农场</a></td>
+                    <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">广东快乐十分</a></td>
+                    <td><a href="http://soft.royaleu.com/bsj/" target="_blank">博世界</a></td>
+                </tr>
+                <tr>
+                    <td><a href="http://www.1396cp.com/software/" target="_blank">软件中心</a></td>
 
-                        <td><a href="http://soft.royaleu.com/abm/" target="_blank">自动下注软件</a></td>
-                        <td><a href="http://soft.royaleu.com/bjk8/" target="_blank">北京快乐8</a></td>
-                        <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">北京PK10</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                    <td><a href="http://soft.royaleu.com/abm/" target="_blank">自动下注软件</a></td>
+                    <td><a href="http://soft.royaleu.com/bjk8/" target="_blank">北京快乐8</a></td>
+                    <td><a href="http://soft.royaleu.com/ssbd/" target="_blank">北京PK10</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
-    <div class="top_ad">
-        <div class="topContent">
-            <div class="top_jiamaoBackground" style="background:url( {:C('PUBLIC_PC')}/Images/jia_mao2.png)">
-                <div class="top_hotPoint">
-                    <div class="topselectBtns" style="left: 588px;"></div>
-                    <div class="fontBlock" style="left: 403px;">永盛大全</div>
-                    <div class="hiddenBlock" style="display: none; width: 243px; left: 378px;">
-                        <span class="selectSpan" style="width: 217px;"><a href="http://www.6hto.com" target="_blank">www.6hto.com</a></span>
-                        <span class="selectSpan" style="width: 217px;"><a href="http://www.to6h.com" target="_blank">www.to6h.com</a></span>
-                        <span class="selectSpan" style="width: 217px;"><a href="http://www.6ctu.com" target="_blank">www.6ctu.com</a></span>
-                    </div>
-                    <a class="closeBtns" href="#"></a>
-                    <a class="aLink" href="http://www.6hck.co/discuss/post/399695" style="width: 340px; height: 30px; position: absolute; display: block; left: 640px;" target="_blank"></a>
+<div class="top_ad">
+    <div class="topContent">
+        <div class="top_jiamaoBackground" style="background:url( {:C('PUBLIC_PC')}/Images/jia_mao2.png)">
+            <div class="top_hotPoint">
+                <div class="topselectBtns" style="left: 588px;"></div>
+                <div class="fontBlock" style="left: 403px;">永盛大全</div>
+                <div class="hiddenBlock" style="display: none; width: 243px; left: 378px;">
+                    <span class="selectSpan" style="width: 217px;"><a href="http://www.6hto.com" target="_blank">www.6hto.com</a></span>
+                    <span class="selectSpan" style="width: 217px;"><a href="http://www.to6h.com" target="_blank">www.to6h.com</a></span>
+                    <span class="selectSpan" style="width: 217px;"><a href="http://www.6ctu.com" target="_blank">www.6ctu.com</a></span>
                 </div>
+                <a class="closeBtns" href="#"></a>
+                <a class="aLink" href="http://www.6hck.co/discuss/post/399695"
+                   style="width: 340px; height: 30px; position: absolute; display: block; left: 640px;"
+                   target="_blank"></a>
             </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        $(function () {
-            $(".topSmallNav .last").mouseover(function () {
-                $(this).addClass("hover");
-                $(".topSmallNav_more").css("display", "block");
-            });
-            $(".topSmallNav_more").mouseleave(function () {
-                $(".topSmallNav .last").removeClass("hover");
-                $(this).css("display", "none");
-            })
+<script type="text/javascript">
+    $(function () {
+        $(".topSmallNav .last").mouseover(function () {
+            $(this).addClass("hover");
+            $(".topSmallNav_more").css("display", "block");
         });
-        function LoginOut() {
-            $.dialog.confirm("提示", "您确定要退出吗?", function () {
-                window.location.href = "/sso/logout";
-            });
-        }
-    </script>
+        $(".topSmallNav_more").mouseleave(function () {
+            $(".topSmallNav .last").removeClass("hover");
+            $(this).css("display", "none");
+        })
+    });
+    function LoginOut() {
+        $.dialog.confirm("提示", "您确定要退出吗?", function () {
+            window.location.href = "/sso/logout";
+        });
+    }
+</script>
 
 
-    <div id="header" class="w">
-        <h1 id="logo">
-            <a href="/" title="六合彩库"></a>
-        </h1>
-        <a href="http://soft.royaleu.com/6hbd/" target="_blank" class="simulate_bet_ad"></a>
-        <div class="rf">
-            <div class="current_award" id="currentAward">
+<div id="header" class="w">
+    <h1 id="logo">
+        <a href="/" title="六合彩库"></a>
+    </h1>
+    <a href="http://soft.royaleu.com/6hbd/" target="_blank" class="simulate_bet_ad"></a>
 
-                <div class="period">
-                    <div>
-                        最新开奖：
-                        <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+    <div class="rf">
+        <div class="current_award" id="currentAward">
 
-                         <if condition="$key eq 2">
-                             <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
-                         </if>
+            <div class="period">
+                <div>
+                    最新开奖：
+                    <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
 
-                        </volist>
-                    </div>
-                   <span >
+                        <if condition="$key eq 2">
+                            <span>{:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期</span>
+                        </if>
+
+                    </volist>
+                </div>
+                   <span>
                     下期开奖：
                         <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
                             <if condition="$key  eq 1 ">
@@ -149,315 +156,159 @@
                         </volist>
                   </span>
 
-                </div>
+            </div>
 
 
-                <table class="numbers">
-                    <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
+            <table class="numbers">
+                <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
                         <if condition="$key  eq 2 ">
-                            <?php
+                        <?php
                             $nature = new Common\Common\Nature();
-                            $year  = date('Y',$record['created_at']);ss
                         ?>
-                    <tr class="head">
+                        <tr class="head">
 
 
-
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_one'])}">{$record.just_one}</span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_two'])}">{$record.just_two}</span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_three'])}">{$record.just_three}</span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_four'])}">{$record.just_four}</span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_five'])}">{$record.just_five}</span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['just_six'])}">{$record.just_six}</span>
-                        </td>
-                        <td>
-                            <span class="plus"></span>
-                        </td>
-                        <td>
-                            <span class="ball {$nature->getBallcolor($record['special_number'])}">{$record.special_number}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>虎
-                        </td>
-                        <td>鼠
-                        </td>
-                        <td>蛇
-                        </td>
-                        <td>羊
-                        </td>
-                        <td>马
-                        </td>
-                        <td>蛇
-                        </td>
-                        <td>
-                        </td>
-                        <td>虎
-                        </td>
-                    </tr>
-                        </if>
-                    </volist>
-                </table>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_one'])}">{$record.just_one}</span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_two'])}">{$record.just_two}</span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_three'])}">{$record.just_three}</span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_four'])}">{$record.just_four}</span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_five'])}">{$record.just_five}</span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['just_six'])}">{$record.just_six}</span>
+                            </td>
+                            <td>
+                                <span class="plus"></span>
+                            </td>
+                            <td>
+                                <span class="ball {$nature->getBallcolor($record['special_number'])}">{$record.special_number}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                                <?php  $justAnimalArray =  array_filter(explode(',',$record['animal_string'])); ?>
+                            <!--普码-->
+                            <volist name="justAnimalArray" id="just" empty="暂时无数据更新" key="key">
+                                <td>
+                                    {$just}
+                                </td>
+                            </volist>
+                            <td>
+                            </td>
+                            <!-- 特码-->
+                            <td>
+                                {$record.special_animal}
+                            </td>
+                        </tr>
+                    </if>
+                </volist>
+            </table>
 
 
-                <div class="web_iconDownks" style="float: right; margin-top: 8px;">
+            <div class="web_iconDownks" style="float: right; margin-top: 8px;">
 
-                    <div class="web_iconPos" style="display:none;z-index:1100;">
-                        <div class="web_iconPos_top"></div>
-                        <div class="web_iconPos_content">
-                            <ul>
-                                <li  style="height: 40px;line-height: 40px;background-color: #fbfbfb">
-                              <span class="web_iconPos_content_left" style="height: 40px;line-height: 40px;background-color: #fbfbfb">
+                <div class="web_iconPos" style="display:none;z-index:1100;">
+                    <div class="web_iconPos_top"></div>
+                    <div class="web_iconPos_content">
+                        <ul>
+                            <li style="height: 40px;line-height: 40px;background-color: #fbfbfb">
+                              <span class="web_iconPos_content_left"
+                                    style="height: 40px;line-height: 40px;background-color: #fbfbfb">
                                 年份/期数
                               </span>
 
 
-                              <span class="web_iconPos_content_con" style="height: 30px;line-height: 30px;background-color: #fbfbfb">
+                              <span class="web_iconPos_content_con"
+                                    style="height: 30px;line-height: 30px;background-color: #fbfbfb">
                               正码
                             </span>
-                            <span class="web_iconPos_content_right" style="height: 35px;line-height: 30px;background-color: #fbfbfb">
+                            <span class="web_iconPos_content_right"
+                                  style="height: 35px;line-height: 30px;background-color: #fbfbfb">
                                特码
                             </span>
-                                </li>
-                                <li>
-                            <span class="web_iconPos_content_left">
-                                2016-120期
-                            </span>
+                            </li>
 
+                            <!--遍历一波 最新 开奖 记录-->
+                            <volist name="currentRecord" id="record" empty="暂时无数据更新" key="key">
 
-                            <span class="web_iconPos_content_con">
-                                    <span class="ball03">
-                                        28
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball03">
-                                        27
-                                    </span>
-                                    <span class="ballName">马</span>
-                                    <span class="ball02">
-                                        30
-                                    </span>
-                                    <span class="ballName">兔</span>
-                                    <span class="ball02">
-                                        08
-                                    </span>
-                                    <span class="ballName">牛</span>
-                                    <span class="ball01">
-                                        41
-                                    </span>
-                                    <span class="ballName">龙</span>
-                                    <span class="ball03">
-                                        38
-                                    </span>
-                                    <span class="ballName">羊</span>
-                            </span>
-                            <span class="web_iconPos_content_right">
-                                <span class="ball02">
-                                    12
-                                </span>
-                                <span class="ballName">鸡</span>
-                            </span>
-                                </li>
-                                <li>
-                            <span class="web_iconPos_content_left">
-                                2016-119期
-                            </span>
+                                <if condition="$key  gt 2 ">
+                                    <li>
+                                        <span class="web_iconPos_content_left">
+                                            {:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}
+                                        </span>
 
+                                        <?php
+                                            $justArr = array_filter(explode(',',$record['just_string']));
+                                            $animalArr = array_filter(explode(',',$record['animal_string']));
+                                        ?>
+                                        <span class="web_iconPos_content_con">
 
-                            <span class="web_iconPos_content_con">
-                                    <span class="ball02">
-                                        40
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball03">
-                                        28
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball03">
-                                        27
-                                    </span>
-                                    <span class="ballName">马</span>
-                                    <span class="ball02">
-                                        12
-                                    </span>
-                                    <span class="ballName">鸡</span>
-                                    <span class="ball02">
-                                        07
-                                    </span>
-                                    <span class="ballName">虎</span>
-                                    <span class="ball02">
-                                        18
-                                    </span>
-                                    <span class="ballName">兔</span>
-                            </span>
-                            <span class="web_iconPos_content_right">
-                                <span class="ball01">
-                                    10
-                                </span>
-                                <span class="ballName">猪</span>
-                            </span>
-                                </li>
-                                <li>
-                            <span class="web_iconPos_content_left">
-                                2016-118期
-                            </span>
+                                            <volist name="justArr" id="just" key="key">
+                                                <?php $ceil = $just % 6 ; ?>
+                                                <switch name="ceil" >
+                                                    <case value="0"><span class="ball03"></case>
+                                                    <case value="1"><span class="ball01"></case>
+                                                    <case value="2"><span class="ball01"></case>
+                                                    <case value="3"><span class="ball02"></case>
+                                                    <case value="4"><span class="ball02"></case>
+                                                    <case value="5"><span class="ball03"></case>
+                                                </switch>
+                                                    {$just}
+                                                </span>
+                                                <span class="ballName">{$animalArr[$key -1]}</span>
+                                            </volist>
+                                        </span>
+                                        <!--<span class="web_iconPos_content_right">-->
 
-
-                            <span class="web_iconPos_content_con">
-                                    <span class="ball03">
-                                        16
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball02">
-                                        40
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball03">
-                                        27
-                                    </span>
-                                    <span class="ballName">马</span>
-                                    <span class="ball02">
-                                        02
-                                    </span>
-                                    <span class="ballName">羊</span>
-                                    <span class="ball01">
-                                        09
-                                    </span>
-                                    <span class="ballName">鼠</span>
-                                    <span class="ball03">
-                                        32
-                                    </span>
-                                    <span class="ballName">牛</span>
-                            </span>
-                            <span class="web_iconPos_content_right">
-                                <span class="ball02">
-                                    46
-                                </span>
-                                <span class="ballName">猪</span>
-                            </span>
-                                </li>
-                                <li>
-                            <span class="web_iconPos_content_left">
-                                2016-117期
-                            </span>
-
-
-                            <span class="web_iconPos_content_con">
-                                    <span class="ball02">
-                                        19
-                                    </span>
-                                    <span class="ballName">虎</span>
-                                    <span class="ball02">
-                                        24
-                                    </span>
-                                    <span class="ballName">鸡</span>
-                                    <span class="ball01">
-                                        36
-                                    </span>
-                                    <span class="ballName">鸡</span>
-                                    <span class="ball03">
-                                        16
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball03">
-                                        28
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball01">
-                                        42
-                                    </span>
-                                    <span class="ballName">兔</span>
-                            </span>
-                            <span class="web_iconPos_content_right">
-                                <span class="ball02">
-                                    13
-                                </span>
-                                <span class="ballName">猴</span>
-                            </span>
-                                </li>
-                                <li>
-                            <span class="web_iconPos_content_left">
-                                2016-116期
-                            </span>
-
-
-                            <span class="web_iconPos_content_con">
-                                    <span class="ball01">
-                                        36
-                                    </span>
-                                    <span class="ballName">鸡</span>
-                                    <span class="ball02">
-                                        45
-                                    </span>
-                                    <span class="ballName">鼠</span>
-                                    <span class="ball03">
-                                        49
-                                    </span>
-                                    <span class="ballName">猴</span>
-                                    <span class="ball03">
-                                        28
-                                    </span>
-                                    <span class="ballName">蛇</span>
-                                    <span class="ball02">
-                                        12
-                                    </span>
-                                    <span class="ballName">鸡</span>
-                                    <span class="ball01">
-                                        26
-                                    </span>
-                                    <span class="ballName">羊</span>
-                            </span>
-                            <span class="web_iconPos_content_right">
-                                <span class="ball01">
-                                    09
-                                </span>
-                                <span class="ballName">鼠</span>
-                            </span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="web_iconPos_bottom"></div>
+                                            <!--<span class="ball02">-->
+                                                <!--{$record.special_number}-->
+                                            <!--</span>-->
+                                            <!--<span class="ballName"> {$record.special_animal}</span>-->
+                                        <!--</span>-->
+                                    </li>
+                                </if>
+                            </volist>
+                            <!--遍历一波 最新 开奖 记录-->
+                        </ul>
                     </div>
+                    <div class="web_iconPos_bottom"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--头部结束-->
-    <!--导航开始-->
-    <div id="menu">
-        <ul>
-            <li><a href="/" >首页</a> </li>
-            <li><a href="/marksix/history" >开奖记录</a> </li>
-            <li><a href="/paper" >六合图库</a> </li>
-            <li class="zhibo"><a href="/marksix/shipin" >开奖直播</a> </li>
-            <li><a href="/tema/1" >图表统计</a> </li>
-            <li><a href="/discuss/forum" >交流大厅</a>
-            </li>
-            <li><a href="/joke" class=cur >幽默猜测</a> </li>
-            <li class="kaijiang"><a href="/leitai"  >模拟购彩</a></li>
-
-
-
-            <li class="black"><a href="http://www.1396dh.com/?f=6top" target="_blank">爱博导航 </a></li>
-            <li class="black"><a href="http://www.1396x.com/" target="_blank">高频彩</a> </li>
-
-            <li class="noneleft" style="position:relative;">
+<!--头部结束-->
+<!--导航开始-->
+<div id="menu">
+    <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/marksix/history">开奖记录</a></li>
+        <li><a href="/paper">六合图库</a></li>
+        <li class="zhibo"><a href="/marksix/shipin">开奖直播</a></li>
+        <li><a href="/tema/1">图表统计</a></li>
+        <li><a href="/discuss/forum">交流大厅</a>
+        </li>
+        <li><a href="/joke" class=cur>幽默猜测</a></li>
+        <li class="kaijiang"><a href="/leitai">模拟购彩</a></li>
 
 
-            </li>
-        </ul>
-    </div>
+        <li class="black"><a href="http://www.1396dh.com/?f=6top" target="_blank">爱博导航 </a></li>
+        <li class="black"><a href="http://www.1396x.com/" target="_blank">高频彩</a></li>
 
-    <!-- 导航结束-->
+        <li class="noneleft" style="position:relative;">
+
+
+        </li>
+    </ul>
+</div>
+
+<!-- 导航结束-->

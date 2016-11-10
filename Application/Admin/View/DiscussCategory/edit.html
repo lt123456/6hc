@@ -11,7 +11,8 @@
             <a href="{:U('Admin/DiscussCategory/index')}">论坛版块管理</a>
         </li>
         <li class="active">编辑</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -24,7 +25,8 @@
                         修改
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -43,13 +45,15 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
-                        	<input type="hidden"  name="id" value="{$obj['id']}"/>
+                            <input type="hidden" name="id" value="{$obj['id']}"/>
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">版块名称</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="name" placeholder="请输入版块名称" class="col-xs-10 col-sm-5"  value='{$obj.name}'/>
+                                <input type="text" id="form-field-1" name="name" placeholder="请输入版块名称"
+                                       class="col-xs-10 col-sm-5" value='{$obj.name}'/>
                             </div>
                         </div>
 
@@ -59,10 +63,11 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">补充说明</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="slug" placeholder="请输入补充说明" class="col-xs-10 col-sm-5"  value="{$obj.slug}" />
+                                <input type="text" id="form-field-2" name="slug" placeholder="请输入补充说明"
+                                       class="col-xs-10 col-sm-5" value="{$obj.slug}"/>
                             </div>
                         </div>
-                        
+
                         <div class="space-4"></div>
 
                         <div class="clearfix form-actions">
@@ -94,8 +99,7 @@
     </div>
 
 
-        {// main}
-
+    {// main}
 
 
 </block>
@@ -109,7 +113,7 @@
 
             },
             // 表单验证通过后，ajax提交
-            valid: function(form){
+            valid: function (form) {
 
                 var me = this;
                 // ajax提交表单之前，先禁用submit
@@ -120,7 +124,7 @@
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
-                    success: function(d){
+                    success: function (d) {
                         $(form).find('btn-info').css('color', '#333').text('提交');
 //                        $('#result')
 //                                .fadeIn(300).delay(2000)
@@ -129,14 +133,14 @@
 //                                    me.holdSubmit(false);
 //                                    alert(11);
 //                                });
-                        if(d.status =='ok'){
+                        if (d.status == 'ok') {
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
                             $('.alert').find('span').html('修改成功');
                             layer.msg('修改成功', {icon: 1});
-                            setTimeout(function(){
+                            setTimeout(function () {
                                 location.href = '{:U("DiscussCategory/index")}';
-                            },2000);
-                        }else{
+                            }, 2000);
+                        } else {
                             $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
 
                             $('.alert').find('span').html('已修改,请不要重复提交');

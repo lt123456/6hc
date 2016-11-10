@@ -1,40 +1,40 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>6hc后台管理</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- basic styles -->
-    <link href="<?php echo C('__STATIC__');?>/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome.min.css" />
+    <link href="<?php echo C('__STATIC__');?>/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome.min.css"/>
 
     <!--[if IE 7]>
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome-ie7.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/font-awesome-ie7.min.css"/>
     <![endif]-->
 
     <!-- page specific plugin styles -->
 
     <!-- fonts -->
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
 
     <!-- ace styles -->
 
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace.min.css" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-rtl.min.css" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-skins.min.css"/>
 
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-ie.min.css" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/jquery-ui-1.10.3.full.min.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/ace-ie.min.css"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/jquery-ui-1.10.3.full.min.css"/>
     <![endif]-->
 
 
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css" />
-    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/datepicker.css" />
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.admin.css"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/lottery/lottery.global.css"/>
+    <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/assets/css/datepicker.css"/>
     <!-- inline styles related to this page -->
     <link rel="stylesheet" href="<?php echo C('__STATIC__');?>/validator/jquery.validator.css">
     <!-- ace settings handler -->
@@ -57,7 +57,10 @@
 <!-- head -->
 <div class="navbar navbar-default" id="navbar">
     <script type="text/javascript">
-        try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
     </script>
 
     <div class="navbar-container" id="navbar-container">
@@ -68,7 +71,8 @@
                     ACE后台管理系统
                 </small>
             </a><!-- /.brand -->
-        </div><!-- /.navbar-header -->
+        </div>
+        <!-- /.navbar-header -->
 
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
@@ -223,7 +227,8 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar.png" class="msg-photo"
+                                     alt="Alex's Avatar"/>
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -240,7 +245,8 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar3.png" class="msg-photo"
+                                     alt="Susan's Avatar"/>
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -257,7 +263,8 @@
 
                         <li>
                             <a href="#">
-                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                <img src="<?php echo C('__STATIC__');?>/assets/avatars/avatar4.png" class="msg-photo"
+                                     alt="Bob's Avatar"/>
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -283,7 +290,8 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="<?php echo C('__STATIC__');?>/assets/avatars/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="<?php echo C('__STATIC__');?>/assets/avatars/user.jpg"
+                             alt="Jason's Photo"/>
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									Jason
@@ -317,9 +325,12 @@
                         </li>
                     </ul>
                 </li>
-            </ul><!-- /.ace-nav -->
-        </div><!-- /.navbar-header -->
-    </div><!-- /.container -->
+            </ul>
+            <!-- /.ace-nav -->
+        </div>
+        <!-- /.navbar-header -->
+    </div>
+    <!-- /.container -->
 </div>
 
 <!-- /head -->
@@ -328,7 +339,10 @@
 <!-- left -->
 <div class="main-container" id="main-container">
     <script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
     </script>
 
     <div class="main-container-inner">
@@ -338,7 +352,10 @@
 
         <div class="sidebar" id="sidebar">
             <script type="text/javascript">
-                try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
             </script>
 
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
@@ -369,10 +386,11 @@
 
                     <span class="btn btn-danger"></span>
                 </div>
-            </div><!-- #sidebar-shortcuts -->
+            </div>
+            <!-- #sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li >
+                <li>
                     <a href="<?php echo U('Index/index');?>">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台[nav] </span>
@@ -406,7 +424,7 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="<?php echo U('Score/index');?>"  class="dropdown-toggle">
+                            <a href="<?php echo U('Score/index');?>" class="dropdown-toggle">
                                 <i class="icon-double-angle-right"></i>
                                 用户排名
                             </a>
@@ -513,7 +531,7 @@
                         <li>
                             <a href="<?php echo U('Admin/AnimalRecord/index');?>">
                                 <i class="icon-double-angle-right"></i>
-                                 生肖推荐管理
+                                生肖推荐管理
                             </a>
 
                             <a href="<?php echo U('Admin/SpecialRecord/index');?>">
@@ -558,10 +576,10 @@
                             </a>
                         </li>
                         <li>
-                           <!--  <a href="<?php echo U('Zhutie/add');?>">
-                                <i class="icon-double-angle-right"></i>
-                                帖子发布
-                            </a> -->
+                            <!--  <a href="<?php echo U('Zhutie/add');?>">
+                                 <i class="icon-double-angle-right"></i>
+                                 帖子发布
+                             </a> -->
                         </li>
                     </ul>
                 </li>
@@ -687,31 +705,39 @@
                         <li>
                             <a href="<?php echo U('Power/rule');?>">
                                 <i class="icon-double-angle-right"></i>
-                                 权限规则
+                                权限规则
                             </a>
                             <a href="<?php echo U('Power/group');?>">
                                 <i class="icon-double-angle-right"></i>
-                                 权限组
+                                权限组
                             </a>
                         </li>
 
                     </ul>
                 </li>
-            </ul><!-- /.nav-list -->
+            </ul>
+            <!-- /.nav-list -->
 
             <div class="sidebar-collapse" id="sidebar-collapse">
-                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+                   data-icon2="icon-double-angle-right"></i>
             </div>
 
             <script type="text/javascript">
-                try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {
+                }
             </script>
         </div>
 
         <div class="main-content">
             <div class="breadcrumbs" id="breadcrumbs">
                 <script type="text/javascript">
-                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                    try {
+                        ace.settings.check('breadcrumbs', 'fixed')
+                    } catch (e) {
+                    }
                 </script>
 
                 
@@ -720,20 +746,24 @@
             <i class="icon-home home-icon"></i>
             <a href="<?php echo U('Admin/Index/index');?>">控制台</a>
         </li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 
 
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
 								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="text" placeholder="Search ..." class="nav-search-input"
+                                           id="nav-search-input" autocomplete="off"/>
 									<i class="icon-search nav-search-icon"></i>
 								</span>
                     </form>
-                </div><!-- #nav-search -->
+                </div>
+                <!-- #nav-search -->
             </div>
 
-        </div><!-- /.main-content -->
+        </div>
+        <!-- /.main-content -->
 
         <div class="ace-settings-container" id="ace-settings-container">
             <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
@@ -754,35 +784,37 @@
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
                     <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
                     <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
                     <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
                     <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
                     <label class="lbl" for="ace-settings-add-container">
                         Inside
                         <b>.container</b>
                     </label>
                 </div>
             </div>
-        </div><!-- /#ace-settings-container -->
-    </div><!-- /.main-container-inner -->
+        </div>
+        <!-- /#ace-settings-container -->
+    </div>
+    <!-- /.main-container-inner -->
 
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="icon-double-angle-up icon-only bigger-110"></i>
@@ -794,7 +826,7 @@
 
 <!-- /left-->
 
- <!--basic scripts -->
+<!--basic scripts -->
 
 <!--[if !IE]> -->
 
@@ -808,7 +840,8 @@
                         查看
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="row">
                 <div class="col-xs-12">
@@ -839,7 +872,8 @@
 <!-- 操作后提示框 -->
 <div id="lg-alert" class="hide" style="margin-bottom:-1.5em;"></div>
 <!--modal表单弹出框-->
-<form id="lg-form" class="modal fade hide form-horizontal" method="post" tabindex="-1" enctype="multipart/form-data" onsubmit="return false;"></form>
+<form id="lg-form" class="modal fade hide form-horizontal" method="post" tabindex="-1" enctype="multipart/form-data"
+      onsubmit="return false;"></form>
 
 <!-- <![endif]-->
 
@@ -850,19 +884,19 @@
 <!--[if !IE]> -->
 
 <!--<script type="text/javascript">-->
-    <!--window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");-->
+<!--window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");-->
 <!--</script>-->
 
 <!-- <![endif]-->
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='<?php echo C('__STATIC__');?>/assets/js/jquery-1.10.2.min.js'>"+"<"+"script>");
+    window.jQuery || document.write("<script src='<?php echo C('__STATIC__');?>/assets/js/jquery-1.10.2.min.js'>" + "<" + "script>");
 </script>
 <![endif]-->
 
 <script type="text/javascript">
-    if("ontouchend" in document) document.write("<script src=<?php echo C('__STATIC__');?>/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+    if ("ontouchend" in document) document.write("<script src=<?php echo C('__STATIC__');?>/assets/js/jquery.mobile.custom.min.js'>" + "<" + "script>");
 </script>
 <script src="<?php echo C('__STATIC__');?>/assets/js/bootstrap.min.js"></script>
 <script src="<?php echo C('__STATIC__');?>/assets/js/typeahead-bs2.min.js"></script>

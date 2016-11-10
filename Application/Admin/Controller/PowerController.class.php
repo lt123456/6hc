@@ -4,10 +4,11 @@
  */
 namespace Admin\Controller;
 
-class PowerController extends BaseController {
+class PowerController extends BaseController
+{
 
-    protected  $ruleModel;
-    protected  $groupModel;
+    protected $ruleModel;
+    protected $groupModel;
 
     public function  __construct()
     {
@@ -15,6 +16,7 @@ class PowerController extends BaseController {
         $this->ruleModel = M('think_auth_rule');
         $this->groupModel = M('think_auth_group');
     }
+
     /**
      * 后台管理列表
      */
@@ -31,9 +33,9 @@ class PowerController extends BaseController {
     {
 
         $rules = $this->ruleModel->order('id desc')->select();
-        $count  = $this->ruleModel->count();
-        $this->assign('rules',$rules);
-        $this->assign('count',$count);
+        $count = $this->ruleModel->count();
+        $this->assign('rules', $rules);
+        $this->assign('count', $count);
         $this->display();
     }
 
@@ -51,18 +53,18 @@ class PowerController extends BaseController {
      */
     public function  doRuleAdd()
     {
-        if(IS_POST){
+        if (IS_POST) {
 
-            $data =  I();
-            $data['created_at'] = date('Y-m-d h:i:s',time());
+            $data = I();
+            $data['created_at'] = date('Y-m-d h:i:s', time());
 
             $this->vaildRuleField($data);
-            $res  =$this->ruleModel->add($data);
+            $res = $this->ruleModel->add($data);
 
-            if($res) {
-                $this->ajaxReturn(array('status'=>'ok'));
-            }else{
-                $this->ajaxReturn(array('status'=>'error','message'=>'发生异常稍后再试'));
+            if ($res) {
+                $this->ajaxReturn(array('status' => 'ok'));
+            } else {
+                $this->ajaxReturn(array('status' => 'error', 'message' => '发生异常稍后再试'));
             }
         }
     }
@@ -72,12 +74,12 @@ class PowerController extends BaseController {
      */
     public function vaildRuleField($data)
     {
-        if(!isset($data['titles'])){
-            $this->ajaxReturn(array('status'=>'error','message'=>'请输入标题'));
+        if (!isset($data['titles'])) {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '请输入标题'));
         }
-        $nameArray =  explode('/',$data['name']);
-        if(count($nameArray) !=3){
-            $this->ajaxReturn(array('status'=>'error','message'=>'请输入正确的规则字段'));
+        $nameArray = explode('/', $data['name']);
+        if (count($nameArray) != 3) {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '请输入正确的规则字段'));
         }
     }
 
@@ -86,13 +88,13 @@ class PowerController extends BaseController {
      */
     public function  ruleEdit()
     {
-        $obj =    $this->ruleModel->find(I('get.id'));
+        $obj = $this->ruleModel->find(I('get.id'));
 
-        if($obj) {
-            $this->assign('obj',$obj);
+        if ($obj) {
+            $this->assign('obj', $obj);
             $this->display();
-        }else{
-            $this->error('权限规则不存在','/Admin/Power/Rule',3);
+        } else {
+            $this->error('权限规则不存在', '/Admin/Power/Rule', 3);
         }
     }
 
@@ -101,25 +103,26 @@ class PowerController extends BaseController {
      */
     public function doRuleEdit()
     {
-        if(IS_POST) {
+        if (IS_POST) {
             $data = I();
             $this->vaildRuleField($data);
             $res = $this->ruleModel->save($data);
-            if($res){
-                $this->ajaxReturn(array('status'=>'ok'));
-            }else{
-                $this->ajaxReturn(array('status'=>'error'));
+            if ($res) {
+                $this->ajaxReturn(array('status' => 'ok'));
+            } else {
+                $this->ajaxReturn(array('status' => 'error'));
             }
         }
     }
+
     public function  deleteRule()
     {
         $data = I();
-        $res = $this->ruleModel->where('id='.$data['id'])->delete();
-        if($res) {
-            $this->ajaxReturn(array('status'=>'ok'));
-        }else{
-            $this->ajaxReturn(array('status'=>'error'));
+        $res = $this->ruleModel->where('id=' . $data['id'])->delete();
+        if ($res) {
+            $this->ajaxReturn(array('status' => 'ok'));
+        } else {
+            $this->ajaxReturn(array('status' => 'error'));
         }
 
 
@@ -131,9 +134,9 @@ class PowerController extends BaseController {
     public function group()
     {
         $groups = $this->groupModel->order('id desc')->select();
-        $count  = $this->groupModel->count();
-        $this->assign('groups',$groups);
-        $this->assign('count',$count);
+        $count = $this->groupModel->count();
+        $this->assign('groups', $groups);
+        $this->assign('count', $count);
         $this->display();
     }
 
@@ -143,7 +146,7 @@ class PowerController extends BaseController {
     public function  groupAdd()
     {
         $rules = $this->ruleModel->field('id,titles')->select();
-        $this->assign('rules',$rules);
+        $this->assign('rules', $rules);
         $this->display();
     }
 
@@ -152,32 +155,33 @@ class PowerController extends BaseController {
      */
     public function vaildGroupField($data)
     {
-        if(!isset($data['title'])){
-            $this->ajaxReturn(array('status'=>'error','message'=>'请输入标题'));
+        if (!isset($data['title'])) {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '请输入标题'));
         }
 
-        if( count($data['rules'])<2){
-            $this->ajaxReturn(array('status'=>'error','message'=>'请输入正确的规则字段'));
+        if (count($data['rules']) < 2) {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '请输入正确的规则字段'));
         }
-        $data['rules'] = implode(',',$data['rules']);
+        $data['rules'] = implode(',', $data['rules']);
 
         return $data;
-     }
+    }
+
     /*
      *添加组管理
      */
     public function doGroupAdd()
     {
-        if(IS_POST){
-            $data =  I();
+        if (IS_POST) {
+            $data = I();
 
             $data = $this->vaildGroupField($data);
-            $res   = $this->groupModel->add($data);
+            $res = $this->groupModel->add($data);
 
-            if($res) {
-                $this->ajaxReturn(array('status'=>'ok'));
-            }else{
-                $this->ajaxReturn(array('status'=>'error','message'=>'发生异常稍后再试'));
+            if ($res) {
+                $this->ajaxReturn(array('status' => 'ok'));
+            } else {
+                $this->ajaxReturn(array('status' => 'error', 'message' => '发生异常稍后再试'));
             }
         }
     }
@@ -187,30 +191,30 @@ class PowerController extends BaseController {
      */
     public function groupEdit()
     {
-        $obj =    $this->groupModel->find(I('get.id'));
+        $obj = $this->groupModel->find(I('get.id'));
 
-        if($obj) {
+        if ($obj) {
 
             $rules = $this->ruleModel->field('id,titles')->select();
-            $this->assign('rules',$rules);
-            $this->assign('obj',$obj);
+            $this->assign('rules', $rules);
+            $this->assign('obj', $obj);
             $this->display();
-        }else{
-            $this->error('该管理组不存在','/Admin/Power/group',3);
+        } else {
+            $this->error('该管理组不存在', '/Admin/Power/group', 3);
         }
     }
 
     public function doGroupEdit()
     {
-        if(IS_POST) {
+        if (IS_POST) {
             $data = I();
             $data = $this->vaildGroupField($data);
             $res = $this->groupModel->save($data);
 
-            if($res){
-                $this->ajaxReturn(array('status'=>'ok'));
-            }else{
-                $this->ajaxReturn(array('status'=>'error'));
+            if ($res) {
+                $this->ajaxReturn(array('status' => 'ok'));
+            } else {
+                $this->ajaxReturn(array('status' => 'error'));
             }
         }
 
@@ -220,17 +224,17 @@ class PowerController extends BaseController {
     {
         $data = I();
 
-        $res = D('admin')->where('role ='.$data['id'])->select();
+        $res = D('admin')->where('role =' . $data['id'])->select();
 
-        if(!empty($res)){
-            $this->ajaxReturn(array('status'=>'error','message'=>'请先更改使用该组的后台用户角色'));
+        if (!empty($res)) {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '请先更改使用该组的后台用户角色'));
         }
-        $res = $this->groupModel->where('id='.$data['id'])->delete();
+        $res = $this->groupModel->where('id=' . $data['id'])->delete();
 
-        if($res) {
-            $this->ajaxReturn(array('status'=>'ok'));
-        }else{
-            $this->ajaxReturn(array('status'=>'error','message'=>'服务器错误请稍后再试'));
+        if ($res) {
+            $this->ajaxReturn(array('status' => 'ok'));
+        } else {
+            $this->ajaxReturn(array('status' => 'error', 'message' => '服务器错误请稍后再试'));
         }
 
 
@@ -239,12 +243,12 @@ class PowerController extends BaseController {
     public function  checkName()
     {
 
-        $info  = $this->ruleModel->where(I())->find();
+        $info = $this->ruleModel->where(I())->find();
 
-        if(empty($info)){
-            $this->ajaxReturn(array('ok'=>'验证通过'));
-        }else{
-            $this->ajaxReturn(array('error'=>'该邮箱已被使用'));
+        if (empty($info)) {
+            $this->ajaxReturn(array('ok' => '验证通过'));
+        } else {
+            $this->ajaxReturn(array('error' => '该邮箱已被使用'));
         }
 
     }

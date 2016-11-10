@@ -12,7 +12,8 @@
         </li>
 
         <li class="active">编辑</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -25,7 +26,8 @@
                         编辑
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -44,20 +46,23 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">id</label>
 
                             <div class="col-sm-9">
-                                <input type="hidden" name="id" class="col-xs-10 col-sm-5"  value="{$obj.id}" />
-                                <input type="text" id="form-field-3" placeholder="请输入规则名称" class="col-xs-10 col-sm-5"  value="{$obj.id}"  disabled/>
+                                <input type="hidden" name="id" class="col-xs-10 col-sm-5" value="{$obj.id}"/>
+                                <input type="text" id="form-field-3" placeholder="请输入规则名称" class="col-xs-10 col-sm-5"
+                                       value="{$obj.id}" disabled/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">规则名称</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="titles" placeholder="请输入规则名称" class="col-xs-10 col-sm-5"  value="{$obj.titles}" />
+                                <input type="text" id="form-field-1" name="titles" placeholder="请输入规则名称"
+                                       class="col-xs-10 col-sm-5" value="{$obj.titles}"/>
                             </div>
                         </div>
 
@@ -67,7 +72,8 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">规则字段</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="name" placeholder="格式:Admin/Index/index" class="col-xs-10 col-sm-5"  value="{$obj.name}" />
+                                <input type="text" id="form-field-2" name="name" placeholder="格式:Admin/Index/index"
+                                       class="col-xs-10 col-sm-5" value="{$obj.name}"/>
                             </div>
                         </div>
                         <div class="space-4"></div>
@@ -104,7 +110,6 @@
     {// main}
 
 
-
 </block>
 
 <block name="js">
@@ -119,7 +124,7 @@
 
             },
             // 表单验证通过后，ajax提交
-            valid: function(form){
+            valid: function (form) {
 
                 var me = this;
                 // ajax提交表单之前，先禁用submit
@@ -130,15 +135,15 @@
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
-                    success: function(d){
+                    success: function (d) {
                         $(form).find('btn-info').css('color', '#333').text('提交');
-                        if(d.status =='ok'){
+                        if (d.status == 'ok') {
                             layer.msg('更新成功', {icon: 1});
-                            setTimeout(function(){
-                                location.href="/Admin/Power/rule";
-                            },2000);
+                            setTimeout(function () {
+                                location.href = "/Admin/Power/rule";
+                            }, 2000);
 
-                        }else{
+                        } else {
                             layer.msg(d.message, {icon: 1});
                         }
                     }

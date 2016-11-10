@@ -11,7 +11,8 @@
             <a href="{:U('Admin/Ip/index')}">ip屏蔽管理</a>
         </li>
         <li class="active">编辑</li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -24,7 +25,8 @@
                         编辑
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
             <div class="alert  hide ">
                 <button type="button" class="close" data-dismiss="alert">
@@ -43,20 +45,23 @@
             <div class="row">
                 <div class="col-xs-12">
 
-                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off"
+                          data-validator-option="{theme:'simple_right'}">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">id</label>
 
                             <div class="col-sm-9">
                                 <input type="hidden" name="id" value="{$obj.id}"/>
-                                <input type="text" id="form-field-1" name="" placeholder="格式:127.0.0.1" class="col-xs-10 col-sm-5"  value="{$obj.id}"  disabled/>
+                                <input type="text" id="form-field-1" name="" placeholder="格式:127.0.0.1"
+                                       class="col-xs-10 col-sm-5" value="{$obj.id}" disabled/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">ip地址</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-1" name="ip" placeholder="格式:127.0.0.1" class="col-xs-10 col-sm-5"  value="{$obj.ip}" />
+                                <input type="text" id="form-field-1" name="ip" placeholder="格式:127.0.0.1"
+                                       class="col-xs-10 col-sm-5" value="{$obj.ip}"/>
                             </div>
                         </div>
 
@@ -66,7 +71,8 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1">补充说明</label>
 
                             <div class="col-sm-9">
-                                <input type="text" id="form-field-2" name="slug" placeholder="填写补充:例如禁用原因" class="col-xs-10 col-sm-5"  value="{$obj.slug}">
+                                <input type="text" id="form-field-2" name="slug" placeholder="填写补充:例如禁用原因"
+                                       class="col-xs-10 col-sm-5" value="{$obj.slug}">
                             </div>
                         </div>
                         <div class="space-4"></div>
@@ -103,7 +109,6 @@
     {// main}
 
 
-
 </block>
 
 <block name="js">
@@ -114,7 +119,7 @@
                 'slug': 'required;'
             },
             // 表单验证通过后，ajax提交
-            valid: function(form){
+            valid: function (form) {
 
                 var me = this;
                 // ajax提交表单之前，先禁用submit
@@ -125,7 +130,7 @@
                     type: 'post',
                     data: $(form).serialize(),
                     dataType: 'json',
-                    success: function(d){
+                    success: function (d) {
                         $(form).find('btn-info').css('color', '#333').text('提交');
 //                        $('#result')
 //                                .fadeIn(300).delay(2000)
@@ -134,13 +139,13 @@
 //                                    me.holdSubmit(false);
 //                                    alert(11);
 //                                });
-                        if(d.status =='ok'){
+                        if (d.status == 'ok') {
                             layer.msg('编辑成功', {icon: 1});
-                            setTimeout(function(){
-                                location.href="{:U('Ip/index')}";
-                            },2000);
+                            setTimeout(function () {
+                                location.href = "{:U('Ip/index')}";
+                            }, 2000);
 
-                        }else{
+                        } else {
                             layer.msg(d.message, {icon: 1});
                         }
                     }

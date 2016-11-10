@@ -16,7 +16,8 @@
         <li>
             <a href="{:U('Admin/ReplayTie/index')}">排名管理</a>
         </li>
-    </ul><!-- .breadcrumb -->
+    </ul>
+    <!-- .breadcrumb -->
 </block>
 <block name="main">
     <div class="main-content">
@@ -29,7 +30,8 @@
                         列表
                     </small>
                 </h1>
-            </div><!-- /.page-header -->
+            </div>
+            <!-- /.page-header -->
 
 
             <!-- 主要内容 -->
@@ -43,10 +45,12 @@
                                     $stand = C('USER_STANDING');
                              ?>
                             <select id="form-field-select-1" name="stand" class="">
-                                 <option value="请选择期数"  disabled selected>段位</option>
+                                <option value="请选择期数" disabled selected>段位</option>
 
                                 <foreach name="stand" item="vo">
-                                    <option value="{$key}" <if condition="$_GET['stand'] eq $key ">selected</if>><b>{$vo}</b></option>
+                                    <option value="{$key}"
+                                    <if condition="$_GET['stand'] eq $key ">selected</if>
+                                    ><b>{$vo}</b></option>
                                 </foreach>
                             </select>
                         </div>
@@ -56,22 +60,29 @@
                             <label class="control-label no-padding-right" for="form-field-1">最多 : </label>
                             <select id="form-field-select-2" name="most" class="">
                                 <option value="3" selected>全部状态</option>
-                                <option value="0" <if condition="$_GET['most'] eq 0 ">selected</if>>参与期数最多</option>
-                                <option value="1" <if condition="$_GET['most'] eq 1 ">selected</if>>中奖次数最多</option>
-                                <option value="2" <if condition="$_GET['most'] eq 2 ">selected</if>>排名最高</option>
+                                <option value="0"
+                                <if condition="$_GET['most'] eq 0 ">selected</if>
+                                >参与期数最多</option>
+                                <option value="1"
+                                <if condition="$_GET['most'] eq 1 ">selected</if>
+                                >中奖次数最多</option>
+                                <option value="2"
+                                <if condition="$_GET['most'] eq 2 ">selected</if>
+                                >排名最高</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username" value="{$_GET['username']}">
+                            <input class="form-control search-query" placeholder="请输入用户名" type="text" name="username"
+                                   value="{$_GET['username']}">
                             <span class="input-group-btn">
                             <button class="btn btn-purple btn-sm" type="submit">
                                 搜索
                                 <i class="icon-search icon-on-right bigger-110"></i>
                             </button>
                                 <span style="margin-left:10px; "></span>
-                                 <a class="btn btn-grey btn-sm"  href="{:U('Admin/Score/index')}">
+                                 <a class="btn btn-grey btn-sm" href="{:U('Admin/Score/index')}">
                                      重置
                                      <i class="icon-remove icon-on-right bigger-110"></i>
                                  </a>
@@ -136,15 +147,19 @@
                                     </td>
                                     <td>
                                         <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                            <a class="btn btn-xs btn-success" href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" title="查看">
+                                            <a class="btn btn-xs btn-success"
+                                               href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}"
+                                               title="查看">
                                                 <i class="icon-ok bigger-120"></i>
                                             </a>
-                                            <a class="btn btn-xs btn-info" href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" title="编辑">
+                                            <a class="btn btn-xs btn-info"
+                                               href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}"
+                                               title="编辑">
                                                 <i class="icon-edit bigger-120"></i>
                                             </a>
 
 
-                                            <button class="btn btn-xs btn-danger del-confirm" data-id= "{$animal['id']}">
+                                            <button class="btn btn-xs btn-danger del-confirm" data-id="{$animal['id']}">
                                                 <i class="icon-trash bigger-120"></i>
                                             </button>
 
@@ -152,13 +167,16 @@
 
                                         <div class="visible-xs visible-sm hidden-md hidden-lg">
                                             <div class="inline position-relative">
-                                                <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                <button class="btn btn-minier btn-primary dropdown-toggle"
+                                                        data-toggle="dropdown">
                                                     <i class="icon-cog icon-only bigger-110"></i>
                                                 </button>
 
                                                 <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
                                                     <li>
-                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
+                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}"
+                                                           class="tooltip-info" data-rel="tooltip" title=""
+                                                           data-original-title="View">
 																				<span class="blue">
 																					<i class="icon-zoom-in bigger-120"></i>
 																				</span>
@@ -166,7 +184,9 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
+                                                        <a href="{:U('Admin/AnimalRecord/edit',array('id'=>$animal['id']))}"
+                                                           class="tooltip-success" data-rel="tooltip" title=""
+                                                           data-original-title="Edit">
 																				<span class="green">
 																					<i class="icon-edit bigger-120"></i>
 																				</span>
@@ -174,7 +194,9 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" class="tooltip-error del-confirm"  data-id="{$animl['id']}"data-rel="tooltip" title="" data-original-title="Delete">
+                                                        <a href="#" class="tooltip-error del-confirm"
+                                                           data-id="{$animl['id']}" data-rel="tooltip" title=""
+                                                           data-original-title="Delete">
 																				<span class="red">
 																					<i class="icon-trash bigger-120"></i>
 																				</span>
@@ -189,25 +211,22 @@
                             </volist>
 
 
-
                             </tbody>
                         </table>
                         <div class="row-fluid">
                             <div class="page">{$page}</div>
                         </div>
-                    </div><!-- /.table-responsive -->
+                    </div>
+                    <!-- /.table-responsive -->
                 </div>
             </div>
-
-
-
 
 
         </div>
     </div>
     <script type="text/javascript">
-        $('.del-confirm').on('click' , function() {
-            var  id = $(this).attr('data-id');
+        $('.del-confirm').on('click', function () {
+            var id = $(this).attr('data-id');
             console.log(id);
             _this = $(this);
             layer.confirm('您确认删除该用户的本期生肖推荐么?', {
@@ -217,12 +236,12 @@
                     url: '{:U("AnimalRecord/delete")}',
                     type: 'post',
                     dataType: '',
-                    data: {'id':id},
-                    success: function(d){
-                        if(d.status == 'ok') {
+                    data: {'id': id},
+                    success: function (d) {
+                        if (d.status == 'ok') {
                             _this.parents('tr').remove();
                             layer.msg('删除成功', {icon: 1});
-                        }else{
+                        } else {
                             layer.msg('删除失败', {icon: 3});
                         }
                     }
