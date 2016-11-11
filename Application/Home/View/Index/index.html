@@ -322,7 +322,7 @@
                                           <a href="/leitai?memberId=2343421#m{$special.id}" target="_blank">{$special.username}</a>
                                   </span>
                                   <span class="center">
- {$animal.periods_id}期
+ {$special.periods_id}期
                                   </span>
                                   <span class="right">
                                       推<text>{$special.recomm_sum}</text>肖
@@ -951,23 +951,23 @@
                     </span>
 
                     <span class="photoList">
-                            <a href="/paper/view/117/2016121" target="_blank">
-                                <img src="{:C('PUBLIC_PC')}/Picture/164897253.jpg"></a>
-                            <a href="/paper/view/73/2016121" target="_blank">
-                                <img src="{:C('PUBLIC_PC')}/Picture/172098182.jpg"></a>
-                            <a href="/paper/view/2/2016121" target="_blank">
-                                <img src="{:C('PUBLIC_PC')}/Picture/145053528.jpg"></a>
+                        <!--<?php  var_dump($paperList);?>-->
+                        <volist name="paperList" id="paper" key="key">
+                            <if condition="$key lt 4">
+                            <a href="/paper/view/{$paper['id']}/{$paper['v_id']}" target="_blank">
+                                <img src="{$paper['cut_pic']}"></a>
+                            </if>
+                        </volist>
                     </span>
 
                     <span class="fontList">
-                            <a href="/paper/view/74/2016121" target="_blank">第<text>121</text>期<text>苹果日报</text></a>
-                            <a href="/paper/view/119/2016121" target="_blank">第<text>121</text>期<text>正手写</text></a>
-                            <a href="/paper/view/190/2016121" target="_blank">第<text>121</text>期<text>赢家家</text></a>
-                            <a href="/paper/view/367/2016121" target="_blank">第<text>121</text>期<text>识破玄机</text></a>
-                            <a href="/paper/view/368/2016121" target="_blank">第<text>121</text>期<text>省港旗兵</text></a>
-                            <a href="/paper/view/370/2016121" target="_blank">第<text>121</text>期<text>马经心经</text></a>
-                            <a href="/paper/view/369/2016121" target="_blank">第<text>121</text>期<text>马经</text></a>
-                            <a href="/paper/view/366/2016121" target="_blank">第<text>121</text>期<text>大当家</text></a>
+                        <?php ksort($paperList);?>
+                         <volist name="paperList" id="paper" key="key">
+
+                             <if condition="$key lt 9">
+                                 <a href="/paper/view/{$paper['id']}/{$paper['v_id']}" target="_blank">第<text>{$paper['periods']}</text>期<text>{$paper['name']}</text></a>
+                             </if>
+                         </volist>
                     </span>
 
                 </div>
@@ -982,73 +982,17 @@
                 <div class="wrap">
 
                     <ul class="recomends">
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1720?memberid=47687" target="_blank">
-                                088期猛料平特推荐
+                        <volist name="expertDiscuss" id="discuzz" key="key">
+                            <li>
+                                <span>{:date('m-d',strtotime($discuzz['created_at']))}</span>
+                                <a href="/zhuanjia/info/1720?memberid=47687{$discuzz['id']}" target="_blank">
+                                    {$discuzz.title}
 
-                            </a>
-                            <label><a href="/discuss/space/47687" target="_blank">猛料不乱报</a></label>
-                        </li>
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1719?memberid=105268" target="_blank">
-                                088期“寂寞”好料推荐
-                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
+                                </a>
+                                <label><a href="/discuss/space/{$discuzz['u_id']}" target="_blank">{$discuzz.username}</a></label>
+                            </li>
+                        </volist>
 
-                            </a>
-                            <label><a href="/discuss/space/105268" target="_blank">赢得好寂寞</a></label>
-                        </li>
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1718?memberid=42887" target="_blank">
-                                088期haocai心水20码推荐
-
-                            </a>
-                            <label><a href="/discuss/space/42887" target="_blank">haocai</a></label>
-                        </li>
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1717?memberid=43835" target="_blank">
-                                088期先知道人心水推荐!
-
-                            </a>
-                            <label><a href="/discuss/space/43835" target="_blank">先知道人</a></label>
-                        </li>
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1716?memberid=115598" target="_blank">
-                                088期“M记”特肖推荐
-
-                            </a>
-                            <label><a href="/discuss/space/115598" target="_blank">macy</a></label>
-                        </li>
-                        <li>
-                            <span>08-04</span>
-                            <a href="/zhuanjia/info/1715?memberid=100091" target="_blank">
-                                K姐088期五不中和平特肖
-                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
-
-                            </a>
-                            <label><a href="/discuss/space/100091" target="_blank">karida</a></label>
-                        </li>
-                        <li>
-                            <span>07-29</span>
-                            <a href="/zhuanjia/info/1714?memberid=42887" target="_blank">
-                                086期haocai心水20码推荐
-
-                            </a>
-                            <label><a href="/discuss/space/42887" target="_blank">haocai</a></label>
-                        </li>
-                        <li>
-                            <span>07-29</span>
-                            <a href="/zhuanjia/info/1713?memberid=115598" target="_blank">
-                                086期“M记”特肖推荐
-                                <span style="float: none; color: red;">中<img src="{:C('PUBLIC_PC')}/Picture/u62.png" /></span>
-
-                            </a>
-                            <label><a href="/discuss/space/115598" target="_blank">macy</a></label>
-                        </li>
                     </ul>
                 </div>
             </div>
