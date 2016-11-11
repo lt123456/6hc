@@ -242,7 +242,7 @@
                                 <if condition="$key  gt 2 ">
                                     <li>
                                         <span class="web_iconPos_content_left">
-                                            {:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}
+                                            {:date('Y-m-d',strtotime($record['lottery_time']))}&nbsp;{$record.periods}期
                                         </span>
 
                                         <?php
@@ -266,13 +266,13 @@
                                                 <span class="ballName">{$animalArr[$key -1]}</span>
                                             </volist>
                                         </span>
-                                        <!--<span class="web_iconPos_content_right">-->
+                                        <span class="web_iconPos_content_right">
 
-                                            <!--<span class="ball02">-->
-                                                <!--{$record.special_number}-->
-                                            <!--</span>-->
-                                            <!--<span class="ballName"> {$record.special_animal}</span>-->
-                                        <!--</span>-->
+                                            <span class="ball02">
+                                                {$record.special_number}
+                                            </span>
+                                            <span class="ballName"> {$record.special_animal}</span>
+                                        </span>
                                     </li>
                                 </if>
                             </volist>

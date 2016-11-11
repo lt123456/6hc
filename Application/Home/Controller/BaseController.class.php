@@ -18,6 +18,7 @@ class BaseController extends Controller
             $currentRecord = $this->lotteryRecord->order('id desc')->limit(6)->select();
             S('currentRecord', $currentRecord, C('CACHE_TIME')['smart']);
         }
+//        var_dump($currentRecord);die;
         $this->assign('currentRecord', $currentRecord);
     }
 
