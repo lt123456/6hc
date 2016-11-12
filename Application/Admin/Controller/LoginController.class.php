@@ -14,7 +14,6 @@ class LoginController  extends  Controller
      */
     public function  login()
     {
-        ini_set('display_errors','on')
 
         $this->display();
 
@@ -29,7 +28,7 @@ class LoginController  extends  Controller
        $data = I();
 
         // 验证码匹配
-//        $this->checkVeify($data['verify']);
+       $this->checkVeify($data['verify']);
 
         // 验证用户名密码
         $this->checkAdmin($data);

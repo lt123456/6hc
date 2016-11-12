@@ -25,13 +25,8 @@ class ZhutieController extends BaseController {
         $discussCategorys = D('discuss_category')->field('name,id')->order('id desc')->limit()->select();
 
         // 获取
-<<<<<<< HEAD
         $count  = D('discuss_zhutie')->join('__USERS__ ON __DISCUSS_ZHUTIE__.user_id = __USERS__.id')->where($this->serach($map))->count();
-        $page = new  \Think\Page($count, 1);
-=======
-        $count  = D('discuss_zhutie')->where($this->serach($map))->count();
         $page = new  \Think\Page($count, C('PAGE'));
->>>>>>> ad28acc7ce1df33526401c58001e761d4987175e
         if($this->serach($map)){
             foreach($this->serach($map) as $key=>$val) {
                 $Page->parameter[$key]   =   urlencode($val);
@@ -143,13 +138,10 @@ class ZhutieController extends BaseController {
             if($map['type'] == 'title' && !empty($map['scontent'])){
                  $where['title'] = array('like','%'.$map['scontent'].'%');
             }
-<<<<<<< HEAD
-            if($map['type'] == 'user_id' && isset($map['scontent'])){
-                $where['6hc_users.username'] = array('like','%'.$map['scontent'].'%');
-=======
+
             if($map['type'] == 'user_id' && !empty($map['scontent'])){
                 $where['username'] = array('like','%'.$map['scontent'].'%');
->>>>>>> ad28acc7ce1df33526401c58001e761d4987175e
+
             }
         }
         return $where;

@@ -1,0 +1,351 @@
+
+<include file="Include:head" title="{:C(Discuss)['discusstitle']}" keywords="{:C(Discuss)['keywords']}" description="{:C('Discuss')['description']}"/>
+
+
+
+<block name="main">
+<link href="{:C('PUBLIC_PC')}/Css/forum.css" rel="stylesheet" type="text/css">
+<link href="/Public/Admin/validator/jquery.validator.css"  rel="stylesheet">
+<script type="text/javascript" src="/Public/Admin/validator/jquery.validator.js"></script>
+<script type="text/javascript" src="/Public/Admin/validator/local/zh-CN.js"></script>
+<div id="exchange">
+    <div id="lhck_discuss_index_top"></div>
+    <div id="lhck_discuss_index_leftright" class="ad_small_banner" style="margin-top: 15px"></div>
+    <div class="clear"></div>
+    <div class="head">
+        <div>
+            交流大厅 >
+        </div>
+
+        <a href="{:U('Discuss/subject')}">发新帖</a>
+
+        <p>
+            原创帖数：<span>{$countnum.zhutie}</span> 回帖数：<span>{$countnum.huifu}</span>
+            用户数：<span>{$countnum.users}</span>
+        </p>
+    </div>
+    <div class="notify">
+        <div style="float: left; width: 10%">
+            交流大厅公告:
+        </div>
+        <div style="float: left; width: 90%">
+            <marquee id="marquee" scrollamount="2" direction="left">
+                <div>{:C(DISCUSS)['announcement']}<br /></div><br />
+            </marquee>
+        </div>
+    </div>
+    <div class="exchange_wrap">
+        <div class="articles" style="margin-bottom: 6px;">
+            <div class="article">
+                <div class="nav">
+                    <p>
+                        <a class="cur" href="{:U('Discuss/index')}">全部</a>
+                        <volist name="discussCategorys" id="discussCategory">
+                            <a class="t" href="/discuss?category_id={$discussCategory.id}&amp;order=<?php echo$_GET['order'];?>&amp;type=<?php echo$_GET['type'];?>&amp;description=<?php echo$_GET[''];?>">{$discussCategory.name}</a>
+                        </volist>
+                    </p>
+                    <form action="/discuss?category_id=<?php echo$_GET['category_id'];?>&amp;order=<?php echo$_GET['order'];?>">
+                        <select class="select" id="search_type" name="type">
+                            <option value="title" selected="selected">搜索标题</option>
+                            <option value="username" >搜索用户</option>
+                        </select>
+                        <input type="text" id="search_text" class="text" value="" name="content" placeholder = "请输入搜索文字..."/>
+                        <input type="hidden" id="authorid" value="0" />
+                        <input type="hidden" name="category_id" value="<?php echo$_GET['category_id'];?>" />
+                        <input type="hidden" name="order" value="<?php echo$_GET['order'];?>"/>
+                        <input type="submit" title="点击搜索" class="search" id="search_btn" value="" />
+                    </form>
+                </div>
+                 <table class="table">
+                    <tr class="head2">
+                        <td class="h_title">
+                            <a class="cur t" href="{:U('Discuss/index')}">默认</a>
+                            <a class="t" href="/discuss/?category_id=<?php echo$_GET['category_id'];?>&amp;order=latest&amp;type=<?php echo$_GET['type'];?>&amp;description=<?php echo$_GET[''];?>">最新</a>
+                            <a class="t" href="/discuss/?category_id=<?php echo$_GET['category_id'];?>&amp;order=rank&amp;type=<?php echo$_GET['type'];?>&amp;description=<?php echo$_GET[''];?>">排行</a>
+                            <a class="t" href="/discuss/?category_id=<?php echo$_GET['category_id'];?>&amp;order=add&amp;type=<?php echo$_GET['type'];?>&amp;description=<?php echo$_GET[''];?>">精华</a>
+                            <a class="t" href="/discuss/?category_id=<?php echo$_GET['category_id'];?>&amp;order=expert&amp;type=<?php echo$_GET['type'];?>&amp;description=<?php echo$_GET[''];?>">专家</a>
+                            
+                        </td>
+                        <td class="td_120">作者
+                        </td>
+                        <td class="time">回复/阅读
+                        </td>
+                        <td class="td_120">
+                                最后发表
+                        </td>
+                    </tr>
+                    <volist name="discussZhutiesTop" id="discussZhutie">
+                        <tr class='odd '>
+                            <td style="font-weight:normal;">
+                                    <img src="{:C('PUBLIC_PC')}/Picture/discuss_up.png" />
+                                <a class="title" href="{:U('Discuss/details',array('id'=>$discussZhutie['id']))}" style="color:#ed008c" title="{$discussZhutie.title}">[{$discussZhutie.name}]{$discussZhutie.title}</a>
+                            </td>
+                            <td>
+
+                                <a href="{:U('Discuss/space',array('id'=>$discussZhutie['user_id']))}" target="_blank" class="name" title="{$discussZhutie.username}" >{$discussZhutie.username}
+                                </a><em>{$discussZhutie.created_at|substr=5,11}</em>
+                            </td>
+                            <td>
+                                <div class="post">{$discussZhutie.replay_nums}</div>
+                                <em>{$discussZhutie.read_nums}</em>
+                            </td>
+                            <td>
+                            <?php $huifu = M('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
+                                                              ->where('zhutie_id='.$discussZhutie['id'])->order('6hc_discuss_huifu.created_at desc')->field('6hc_users.username as name,6hc_discuss_huifu.created_at as time')->find();
+                                    
+                            ?>
+
+                                <div class="name">{: empty($huifu) ? $discussZhutie['username']  : $huifu['name']}</div>
+                                    <em>{: empty($huifu) ? substr($discussZhutie['created_at'],5,11)  : substr($huifu['time'],5,11)}</em>
+                            </td>
+                        </tr>
+                    </volist>
+                    <tr class="subject">
+                        <td colspan="5">
+                            <div style="position: relative;">
+                                <span>版块主题</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <volist name="discussZhuties" id="discussZhutie">
+                        <tr class='odd '>
+                            <td style="font-weight:normal;">
+                                    <img src="{:C('PUBLIC_PC')}/Picture/discuss_folder.png" />
+                                <a class="title" href="{:U('Discuss/details',array('id'=>$discussZhutie['id']))}" title="{$discussZhutie.title}">[{$discussZhutie.name}]  {$discussZhutie.title}</a>
+                            </td>
+                            <td>
+
+                                <a href="/discuss/space/{$discussZhutie.user_id}" target="_blank" class="name" title="{$discussZhutie.username}" >{$discussZhutie.username}
+                                </a><em>{$discussZhutie.created_at|substr=5,11}</em>
+                            </td>
+                            <td>
+                                <div class="post">{$discussZhutie.replay_nums}</div>
+                                <em>{$discussZhutie.read_nums}</em>
+                            </td>
+                            <td>
+                                <?php $huifu = M('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
+                                                                  ->where('zhutie_id='.$discussZhutie['id'])->order('6hc_discuss_huifu.created_at desc')->field('6hc_users.username as name,6hc_discuss_huifu.created_at as time')->find();
+                                        
+                                ?>
+
+                                <div class="name">{: empty($huifu) ? $discussZhutie['username']  : $huifu['name']}</div>
+                                    <em>{: empty($huifu) ? substr($discussZhutie['created_at'],5,11)  : substr($huifu['time'],5,11)}</em>
+                            </td>
+                        </tr>
+                    </volist>
+                     <tr>
+                        <td colspan="5" align="left">
+                        </td>
+                    </tr>
+                    </table>
+                    <div class="fast_nav" style="padding-left: 10px;">
+                                        
+                    <div class="paginator" style="margin-bottom: 10px; margin-top: 20px;">
+                          {$page}
+                    </div>
+                    </div>
+                    <div id="send_wrap" >
+    <input type="hidden" id="hid" value="0" />
+    
+    <div class="clear"></div>
+
+    
+        <form action="/Discuss/addZhutie" method="post" id="signup_form">
+            <select id="topictags" name="category_id">
+                <option value="-1" selected="selected">-请选择主题-</option>
+                <volist name="discussCategorys" id="discussCategory">
+                    <option value="{$discussCategory.id}">{$discussCategory.name}</option>
+                </volist>
+            </select>         
+            <input type="text" class="caption" name="title" placeholder="请填写主题标题" id="topic_caption" maxlength="30"  />
+            <input type="hidden" class="caption" name="user_id" value="2"  />
+            <div class="clear"></div>
+            <?php if($_GET['abc'] != 1){ ?>
+           
+            <div class="un_login">
+                <textarea cols="100" rows="15" id="topic_content" placeholder="请填写主题内容"></textarea>
+                <p id="un_login_txt">
+                    
+                您需要登录后才可以发帖：<a href="javascript:void(0);" id="clientlogin">登录</a>|<a href="/SSO/Register">注册</a></p>
+            </div>
+
+            <?php }else{?>
+            <div class="textarea">
+                 <textarea cols="100" rows="15" name="description" placeholder="请填写主题内容"></textarea>
+            </div>
+            <?php }?>
+            <div class="send">
+                <div class="face_cont"></div>
+                <!-- <a class="face" container="topic_content">添加表情</a> -->
+                <p style="padding-left:10px;margin-top:8px; float:left;" >
+                    <span style="float:left;line-height:24px;">发帖请遵守“<a href="#" target="_blank">六合彩库交流大厅用户协议</a>”不得违反国家法律法规！ </span>        
+                    <input type="text" id="captcha" name="verify" style="width: 80px;height: 20px;float:left;display:block;margin-right:10px;"/>
+                    <img class="img_change" style="cursor: pointer;width:60px;height: 23px;display:block;float:left;" alt="验证码" src="{:U('Discuss/verify',array())}" />
+                </p>
+                <button type="submit" class="button" value='发帖' id="submit" <?php echo ($_GET['abc'] != '1') ? 'disabled="disabled"' : ''; ?>>提交</button>
+            </div>
+        </form>
+        
+    </div>
+    </div>
+    </div>
+    <div class="exchange_right">
+        <div class="discuss_moder">
+            <div class="title">
+                版主：
+            </div>
+            <ul>
+                <volist name="moderators" id="moderator">
+                    <li><a href="/discuss/space/{$moderator.id}" target="_blank">·{$moderator.username}</a> </li>
+                </volist>
+                <li class="apply"><a href="#" title="暂未开放">申请版主</a> </li>
+            </ul>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="hot">
+            <div class="title">
+                热门帖子</div>
+            <ul id="lhck_discuss_index_text"> 
+                <volist name="discussZhutiesHot" id="discussZhutiesHot">
+                    <li>
+                        <a href="/discuss/post/{$discussZhutiesHot.id}">{$discussZhutiesHot.title}</a>
+                    </li>  
+                </volist>
+            </ul>
+        </div> 
+        <div class="specialist_cont">
+            <div class="title">
+                专家小组
+            </div>
+            <ul class="member">
+                <volist name="expert" id="expert">
+                    <li >
+                     <a title="{$expert.username}" target="_blank" href="/discuss/space/{$expert.id}">
+                         <img src="{$expert.avatar}.png"/><div>{$expert.username}</div>
+                    </a>
+                    </li>
+                </volist>
+            </ul>
+            <div class="clear"></div>
+            <a href="#" class="button" title="暂未开放">申请专家</a>
+            
+        </div>
+        <div class="active_user">
+            <div class="title">
+                热门用户
+            </div>
+            <ul>
+                <volist name="godUserHot" id="godUserHot">
+                     <li>
+                        <!-- <span style="color:red;">01</span> -->
+                        <a href="/discuss/space/{$godUserHot.id}" target="_blank">{$godUserHot.username}</a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div id="lhck_discuss_right"></div>
+            <div class="clear"></div>
+            <div style="margin: 12px 0px; height: 250px; clear: both;">
+                <a href="" target="_blank">
+                    <img src="{:C('PUBLIC_PC')}/{:C('DISCUSS')['foot_png']}" alt="">
+                </a>
+            </div>
+        </div>
+        <div id="lhck_discuss_index_foot"></div>
+        <div id="lhck_discuss_index_foot_lf" class="ad_small_banner"></div>
+        <div class="clear"></div>
+ 
+    <script type="text/javascript">
+    //验证码
+    jQuery(function($) {
+
+        $.extend({
+
+            changeVerify : function()
+            {
+                var url = $('.img_change').attr('src');
+                if (url.indexOf('?') > 0) {
+                    url = url.substr(0, url.indexOf('?'));
+                }
+                url = url + '?' + parseInt(Math.random()*10);
+                $('.img_change').attr('src', url);
+            },
+
+            sub : function(obj)
+            {
+                var obj = $(obj);
+
+                $.ajax({
+                    type : 'post',
+                    url : obj.attr('action'),
+                    data : obj.serialize(),
+                    success : function(response)
+                    {
+                        if (response.code > 0) {
+                            window.location.href=response.url;
+                        } else {
+                            alert(response.msg);
+                        }
+
+                        $.changeVerify();
+                    }
+                });
+
+                return false;
+            }
+
+        });
+
+
+        $('.img_change').click(function() {
+            $.changeVerify();
+        })
+    })
+    
+    //发帖
+    $('#signup_form').validator({
+            fields: {
+                'title': 'required; title;',
+
+            },
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+
+                var me = this;
+                // ajax提交表单之前，先禁用submit
+//                me.holdSubmit();
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                $.ajax({
+                    url: '{:U("Discuss/addZhutie")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        var a = '<table class="d-border"><tbody><tr><td class="d-nw"></td><td class="d-n"></td><td class="d-ne"></td></tr><tr><td class="d-w"></td><td class="d-c"><div class="d-inner"><table class="d-dialog"><tbody><tr><td class="d-header"><div class="d-titleBar"><div class="d-title">提示</div><a class="d-close" href="javascript:/*artDialog*/;">×</a></div></td></tr><tr><td class="d-main" style="width: auto; height: auto;"><div class="d-content" style="padding: 5px;">您已经赞过了</div></td></tr><tr><td class="d-footer"><div class="d-buttons"><input type="button" class="d-button d-state-highlight" value="确定"></div></td></tr></tbody></table></div></td><td class="d-e"></td></tr><tr><td class="d-sw"></td><td class="d-s"></td><td class="d-se"></td></tr></tbody></table>'
+                        if(d.status =='ok'){
+                            alert('发帖成功');
+                            setTimeout(function(){
+                                location.href="/Discuss/index";
+                            },2000);
+
+                        }else if(d.status =='false'){
+                            alert('暂时无法发帖');
+                        }else if(d.status =='method'){
+                            alert('提交方式有误');
+                        }else if(d.status =='content'){
+                            alert('没有输入内容');
+                        }else{
+                            alert('刷新页面发帖');
+                        }
+                    }
+                });
+
+            }
+        })
+</script>
+
+
+</block>
+
+<include file="Include:footer"/>
