@@ -1003,56 +1003,13 @@
                     <span>图解小组</span> <a href="/discuss/forum?tag=7&isexports=0" target="_blank">更多</a>
                 </div>
                 <ul>
-                    <li>
-                        <a href="/discuss/post/411059" target="_blank">&#183;第088期高清跑狗图</a>
+                    <volist name="illustration" id="discuss" key="key">
+                        <li>
+                            <a href="/discuss/post/411059{$discuss.id}" target="_blank">&#183;{$discuss.title}</a>
 
-                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/410802" target="_blank">&#183;第088期香港正挂挂牌</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/407880" target="_blank">&#183;第085期香港正挂挂牌</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/407868" target="_blank">&#183;第085期高清跑狗图</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/406869" target="_blank">&#183;第084期香港正挂挂牌</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/406863" target="_blank">&#183;第084期高清跑狗图</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/404946" target="_blank">&#183;第082期香港正挂挂牌</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/404842" target="_blank">&#183;第082期高清跑狗图</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/403855" target="_blank">&#183;第081期高清跑狗图</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/115598" target="_blank" style="float:none;" >macy</a></span>
-                    </li>
-                    <li>
-                        <a href="/discuss/post/403704" target="_blank">&#183;第081期高清跑狗图</a>
-
-                        <span style="float: right; color: #999"><a href="/discuss/space/100091" target="_blank" style="float:none;" >karida</a></span>
-                    </li>
+                            <span style="float: right; color: #999"><a href="/discuss/space/100091{$discuss.u_id}" target="_blank" style="float:none;" >{$discuss.username}</a></span>
+                        </li>
+                    </volist>
                 </ul>
             </div>
 
@@ -1074,11 +1031,15 @@
                     正在加载中...
                 </div>
             </div>
+            <div class="charts-pic" data='{$specialPicJson}'></div>
             <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/highcharts.js"></script>
             <script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/jschart.js"></script>
             <script type="text/javascript">
                 $(function () {
-                    var data = eval('[{"Name":"102","Count":27},{"Name":"103","Count":14},{"Name":"104","Count":22},{"Name":"105","Count":23},{"Name":"106","Count":30},{"Name":"107","Count":26},{"Name":"108","Count":25},{"Name":"109","Count":14},{"Name":"110","Count":42},{"Name":"111","Count":27},{"Name":"112","Count":40},{"Name":"113","Count":6},{"Name":"114","Count":30},{"Name":"115","Count":34},{"Name":"116","Count":9},{"Name":"117","Count":13},{"Name":"118","Count":46},{"Name":"119","Count":10},{"Name":"120","Count":12},{"Name":"121","Count":19}]');
+                   var  $pics = $('.charts-pic').attr('data');
+                    console.log(eval($pics));
+                    var data = eval($pics);
+                    console.log(data);
                     showChartline("特码走势图", data, function () { return this.x + '期:' + this.y }, 1, 49,false);
                 });
             </script>
@@ -1089,17 +1050,22 @@
                     <span>幽默猜测</span> <a href="/joke" target="_blank">更多</a>
                 </div>
                 <ul>
-
-                    <li><a href="/joke/info/784" class="first"  target="_blank">
-                        <img src="{:C('PUBLIC_PC')}/Picture/092056447.jpg" alt="2016年第121期幽默猜测" />
-                        <div>
-                            [图片猜测] 2016年第121期幽默猜测</div>
-                    </a></li>
-                    <li><a href="/joke/info/783" class="second"  target="_blank">
-                        <img src="{:C('PUBLIC_PC')}/Picture/085477197.jpg" alt="2016年第121期视频猜测" />
-                        <div>
-                            [视频猜测] 2016年第121期视频猜测</div>
-                    </a></li>
+                    <volist name="joke" id="res" key="key">
+                        <li><a href="/joke/info/784{$res.id}" class="first"  target="_blank">
+                            <?php
+                                $picArr = json_decode($res['pic']);
+                            ?>
+                            <img src="{$picArr->mini}" alt="{$res.title}" />
+                            <div>
+                                <if condition="$res.type eq 'pic'">
+                                [图片猜测]
+                                <else/>
+                                [视屏猜测]
+                                </if>
+                                {$res.title}
+                            </div>
+                        </a></li>
+                    </volist>
 
                 </ul>
             </div>

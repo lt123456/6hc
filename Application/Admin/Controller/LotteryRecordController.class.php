@@ -150,6 +150,7 @@ class LotteryRecordController extends BaseController
         }
 
         $fillable['periods'] = $date['periods'];
+        $fillable['year'] = date('Y',time());
         $fillable['id'] = $date['id'];
         $fillable['admin_id'] = session('admin_id');
         $fillable['just_collect'] = $animals[0] + $animals[1] + $animals[2] + $animals[3] + $animals[4] + $animals[5];

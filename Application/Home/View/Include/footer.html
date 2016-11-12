@@ -1,3 +1,40 @@
+<div class="web_pagePos">
+    <div class="pageForm">
+        <div class="pageFormList">
+            <ul>
+
+                <li>
+                   <span class="select_span">
+                      <span class="select">请选择意见反馈类型</span>
+                       <span class="option">
+
+                               <a class="optionA" onclick="setFeedbackType(1);">网站优化建议</a>
+                               <a class="optionA" onclick="setFeedbackType(2);">商务合作</a>
+                               <a class="optionA" onclick="setFeedbackType(3);">其他相关问题</a>
+
+
+                       </span>
+
+                   </span>
+                    <input type="hidden"  id="feedbacktype" name="feedbacktype"  value=""/>
+
+                </li>
+                <li>
+                    <textarea name="" id="postContent" class="textarea" maxlength="500">您的反馈内容</textarea>
+                </li>
+                <li><input name="contact" value="您的联系方式(QQ、手机或邮箱)" type="text" class="input"/></li>
+                <li style="padding:0;">
+                    <input name="" value="提交" type="submit"  class="submit"/>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="pagePen"></div>
+    <div class="pageFanY pageFanSmall btnUserFeedback" title="用户反馈"></div>
+    <div class="pageFanBg pageBgSmall" title="用户反馈"></div>
+</div>
+<script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/fbloginframe.js"></script>
 <div id="lhc_bottom_columns_ad"></div>
 <div id="lhc_bottom_columns_ad_lf" class="ad_small_banner"></div>
 <div class="clear"></div>
@@ -5,11 +42,12 @@
     <strong>友情连接：</strong>
 
     <div>
-        <a href="http://www.1396cp.com" target="_blank" style="margin-left: 10px;">彩世界</a>
-        <a href="http://www.1396mm.com" target="_blank" style="margin-left: 10px;">博世界</a>
-        <a href="http://www.1396app.com" target="_blank" style="margin-left: 10px;">博应用</a>
-        <a href="http://www.1396dh.com" target="_blank" style="margin-left: 10px;">爱博导航</a>
-        <a href="http://www.1396klc.com" target="_blank" style="margin-left: 10px;">快乐彩</a>
+        <volist name="friends" id="friend">
+
+            <a href="{$friend.url}" target="_blank" style="margin-left: 10px;">{$friend.title}</a>
+
+        </volist>
+
     </div>
 </div>
 <div style="width: 1000px; margin: 0 auto; text-align: left; font-size: 12px; padding: 10px 0 0 0; color: #666666;">

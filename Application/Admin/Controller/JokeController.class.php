@@ -42,14 +42,15 @@ class JokeController extends BaseController
 
     public function  filterDate($data)
     {
-        if ($data['type'] == 'pic') {
-            if ($_FILES['pic']['error'] != 4) {
-                $data['pic'] = $this->up();
-            } else {
-                $this->error('请上传图片文件', './add', 3);
-            }
+
+        if ($_FILES['pic']['error'] != 4) {
+            $data['pic'] = $this->up();
         } else {
-            if (empty($data['movice'])) {
+            $this->error('请上传图片文件', './add', 3);
+        }
+
+        if ($data['type'] == 'movie') {
+            if (empty($data['movie'])) {
                 $this->error('请上传视屏链接', './add', 3);
             }
         }

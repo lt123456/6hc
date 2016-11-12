@@ -52,4 +52,41 @@ class TestController extends BaseController
             $this->special_record->add($data);
         }
     }
+
+    public function record() {
+        $str = '     <tr>
+                <td>
+                    121期<br />2016-10-20
+                </td>
+                <td class="pl_17 numbre">
+                        <div data-text="虎"  class="data"><span class="red">07</span><b>虎</b></div>
+                        <div data-text="鼠"  class="data"><span class="red">45</span><b>鼠</b></div>
+                        <div data-text="蛇"  class="data"><span class="green">28</span><b>蛇</b></div>
+                        <div data-text="羊"  class="data"><span class="red">02</span><b>羊</b></div>
+                        <div data-text="马"  class="data"><span class="blue">15</span><b>马</b></div>
+                        <div data-text="蛇"  class="data"><span class="blue">04</span><b>蛇</b></div>
+
+                </td>
+                <td class="numbre">
+                    <div data-text="虎"  class="data"><span class="red">19</span><b>虎</b></div>
+                </td>
+                <td>
+                        <p>单</p>
+                </td>
+                <td>
+小                </td>
+                <td>
+                    双
+                    (120)
+                </td>
+                <td>
+小                </td>
+            </tr> ';
+        $res = '/.*<tr>.*<td>(.*)期<br \/>(.*)<\/td>.*/';
+//            $res = '/(.*)/';
+        preg_match_all($res,$str,$matchs);
+
+        print_r($matchs);
+//        echo $str;
+    }
 }

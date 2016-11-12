@@ -12,6 +12,7 @@ class IndexController extends BaseController
     protected  $special_record;
     protected  $paper_list;
     protected  $discuss_zhutie;
+    protected  $joke;
     public function __construct()
     {
         parent::__construct();
@@ -20,6 +21,7 @@ class IndexController extends BaseController
         $this->special_record = D('special_record');
         $this->paper_list  = D('paper_list');
         $this->discuss_zhutie = D('discuss_zhutie');
+        $this->joke = D('joke');
     }
 
     /**
@@ -107,7 +109,38 @@ class IndexController extends BaseController
                                ->order("id desc")
                                 ->limit(8)
                                 ->select();
-//        var_dump($expertDiscuss);die();
+        // 图解小组
+        $illustration  = $this->discuss_zhutie
+                            ->join('__USERS__ ON __DISCUSS_ZHUTIE__.user_id = __USERS__.id')
+                            ->where(array('category_id'=>C('ILLUSTRATION'),'is_display'=>'1'))
+                            ->field('6hc_discuss_zhutie.id,title,username,6hc_users.id as u_id')
+                            ->order("id desc")
+                            ->limit(10)
+                            ->select();
+
+        // 特码走势图
+
+        $specialPic =  $this->lotteryRecord
+                            ->where(array('status'=>'active'))
+                            ->order('id desc')
+                            ->field('periods as num,special_number as count')
+                            ->limit(21)
+                            ->select();
+        sort($specialPic);
+        foreach($specialPic as  $key=>$pics) {
+                $specialPics[$key]['Name'] = $specialPic[$key]['num'];
+                $specialPics[$key]['Count'] = intval($specialPic[$key]['count']);
+        }
+        $specialPicJson = json_encode($specialPics);
+
+        // 幽默猜测
+
+        $joke  = $this->joke
+                    ->join('__LOTTERY_RECORD__ on __JOKE__.periods_id = __LOTTERY_RECORD__.id')
+                    ->order('6hc_joke.id desc')
+                    ->field('periods,title,pic,type,movie,6hc_joke.id')
+                    ->limit(2)
+                    ->select();
 
         $this->assign('discuzRecomm',$discuzRecomm);
         $this->assign('animal_record',$animal_record);
@@ -116,6 +149,9 @@ class IndexController extends BaseController
         $this->assign('weekAnimalsSum',$weekAnimalsSum);
         $this->assign('paperList',$parperList);
         $this->assign('expertDiscuss',$expertDiscuss);
+        $this->assign('illustration',$illustration);
+        $this->assign('specialPicJson',$specialPicJson);
+        $this->assign('joke',$joke);
         $this->display();
 
     }
