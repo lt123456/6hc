@@ -13,6 +13,9 @@ class MarkController extends BaseController
         $this->nuture = new Nature();
     }
 
+    /**
+     *
+     */
     public function  index()
     {
         $data = I();

@@ -28,7 +28,7 @@
             </div>
             <div class="weekList">
             <span class="weekListCenter" style="width: 400px;">
-                    <span class="qishu">第122期</span>
+                    <span class="qishu">第{$nextPeriods.periods}期</span>
 
                 <a href="/leitai/" class="tui_02">推特肖</a>
                 <a href="/leitai/tema" class="tui_01">推特码</a>
@@ -55,8 +55,8 @@
 
         <div id="twl_zodiac" style="float: left; clear: left; width: 998px;">
             <h4>
-                <span class="addFloatLeft">选择生肖<strong>2016 第 122 期</strong></span>
-                <span class="addFloatRight">离下次开奖时间还有：<strong id="leftTime">47:43:22</strong></span>
+                <span class="addFloatLeft">选择生肖<strong>{$nextPeriods.year} 第{$nextPeriods.periods} 期</strong></span>
+                <span class="addFloatRight">离下次开奖时间还有：<strong id="leftTime">{:((strtotime($nextPeriods['lottery_time']) -time())/3600)}</strong></span>
 
             </h4>
 
@@ -137,14 +137,16 @@
                 </li>
             </ul>
 
-            <p style="display: block; padding: 10px 0 20px 0; clear: left;">
-                <span class="js_notice2">您已选择了<b id="selectCount">0</b>/4个生肖</span>
-                <span class="js_notice3" style="display: block; padding: 10px 0 0 0;">
-                    <a href="javascript:;" id="sxSubmit" class="sx_submit hover">提交</a>
-                    <a href="javascript:;" class="reset">重设</a>
-                </span>
+            <if condition="$nextPeriods.status eq wait">
+                <p style="display: block; padding: 10px 0 20px 0; clear: left;">
+                    <span class="js_notice2">您已选择了<b id="selectCount">0</b>/4个生肖</span>
+                    <span class="js_notice3" style="display: block; padding: 10px 0 0 0;">
+                        <a href="javascript:;" id="sxSubmit" class="sx_submit hover">提交</a>
+                        <a href="javascript:;" class="reset">重设</a>
+                    </span>
 
-            </p>
+                </p>
+            </if>
 
             <div id="vote_chart" style="display: none;"></div>
         </div>
@@ -155,128 +157,16 @@
                 <a id="aSelectPeriod" name="aSelectPeriod" href="javascript:;" class="sel_btn">全部期数<i></i></a>
             <span>
                 <a href="javascript:;" value="0">全部期数</a>
-                    <a href="javascript:;" value="122">第122期 (未开奖)</a>
-                    <a href="javascript:;" value="121">第121期 </a>
-                    <a href="javascript:;" value="120">第120期 </a>
-                    <a href="javascript:;" value="119">第119期 </a>
-                    <a href="javascript:;" value="118">第118期 </a>
-                    <a href="javascript:;" value="117">第117期 </a>
-                    <a href="javascript:;" value="116">第116期 </a>
-                    <a href="javascript:;" value="115">第115期 </a>
-                    <a href="javascript:;" value="114">第114期 </a>
-                    <a href="javascript:;" value="113">第113期 </a>
-                    <a href="javascript:;" value="112">第112期 </a>
-                    <a href="javascript:;" value="111">第111期 </a>
-                    <a href="javascript:;" value="110">第110期 </a>
-                    <a href="javascript:;" value="109">第109期 </a>
-                    <a href="javascript:;" value="108">第108期 </a>
-                    <a href="javascript:;" value="107">第107期 </a>
-                    <a href="javascript:;" value="106">第106期 </a>
-                    <a href="javascript:;" value="105">第105期 </a>
-                    <a href="javascript:;" value="104">第104期 </a>
-                    <a href="javascript:;" value="103">第103期 </a>
-                    <a href="javascript:;" value="102">第102期 </a>
-                    <a href="javascript:;" value="101">第101期 </a>
-                    <a href="javascript:;" value="100">第100期 </a>
-                    <a href="javascript:;" value="99">第99期 </a>
-                    <a href="javascript:;" value="98">第98期 </a>
-                    <a href="javascript:;" value="97">第97期 </a>
-                    <a href="javascript:;" value="96">第96期 </a>
-                    <a href="javascript:;" value="95">第95期 </a>
-                    <a href="javascript:;" value="94">第94期 </a>
-                    <a href="javascript:;" value="93">第93期 </a>
-                    <a href="javascript:;" value="92">第92期 </a>
-                    <a href="javascript:;" value="91">第91期 </a>
-                    <a href="javascript:;" value="90">第90期 </a>
-                    <a href="javascript:;" value="89">第89期 </a>
-                    <a href="javascript:;" value="88">第88期 </a>
-                    <a href="javascript:;" value="87">第87期 </a>
-                    <a href="javascript:;" value="86">第86期 </a>
-                    <a href="javascript:;" value="85">第85期 </a>
-                    <a href="javascript:;" value="84">第84期 </a>
-                    <a href="javascript:;" value="83">第83期 </a>
-                    <a href="javascript:;" value="82">第82期 </a>
-                    <a href="javascript:;" value="81">第81期 </a>
-                    <a href="javascript:;" value="80">第80期 </a>
-                    <a href="javascript:;" value="79">第79期 </a>
-                    <a href="javascript:;" value="78">第78期 </a>
-                    <a href="javascript:;" value="77">第77期 </a>
-                    <a href="javascript:;" value="76">第76期 </a>
-                    <a href="javascript:;" value="75">第75期 </a>
-                    <a href="javascript:;" value="74">第74期 </a>
-                    <a href="javascript:;" value="73">第73期 </a>
-                    <a href="javascript:;" value="72">第72期 </a>
-                    <a href="javascript:;" value="71">第71期 </a>
-                    <a href="javascript:;" value="70">第70期 </a>
-                    <a href="javascript:;" value="69">第69期 </a>
-                    <a href="javascript:;" value="68">第68期 </a>
-                    <a href="javascript:;" value="67">第67期 </a>
-                    <a href="javascript:;" value="66">第66期 </a>
-                    <a href="javascript:;" value="65">第65期 </a>
-                    <a href="javascript:;" value="64">第64期 </a>
-                    <a href="javascript:;" value="63">第63期 </a>
-                    <a href="javascript:;" value="62">第62期 </a>
-                    <a href="javascript:;" value="61">第61期 </a>
-                    <a href="javascript:;" value="60">第60期 </a>
-                    <a href="javascript:;" value="59">第59期 </a>
-                    <a href="javascript:;" value="58">第58期 </a>
-                    <a href="javascript:;" value="57">第57期 </a>
-                    <a href="javascript:;" value="56">第56期 </a>
-                    <a href="javascript:;" value="55">第55期 </a>
-                    <a href="javascript:;" value="54">第54期 </a>
-                    <a href="javascript:;" value="53">第53期 </a>
-                    <a href="javascript:;" value="52">第52期 </a>
-                    <a href="javascript:;" value="51">第51期 </a>
-                    <a href="javascript:;" value="50">第50期 </a>
-                    <a href="javascript:;" value="49">第49期 </a>
-                    <a href="javascript:;" value="48">第48期 </a>
-                    <a href="javascript:;" value="47">第47期 </a>
-                    <a href="javascript:;" value="46">第46期 </a>
-                    <a href="javascript:;" value="45">第45期 </a>
-                    <a href="javascript:;" value="44">第44期 </a>
-                    <a href="javascript:;" value="43">第43期 </a>
-                    <a href="javascript:;" value="42">第42期 </a>
-                    <a href="javascript:;" value="41">第41期 </a>
-                    <a href="javascript:;" value="40">第40期 </a>
-                    <a href="javascript:;" value="39">第39期 </a>
-                    <a href="javascript:;" value="38">第38期 </a>
-                    <a href="javascript:;" value="37">第37期 </a>
-                    <a href="javascript:;" value="36">第36期 </a>
-                    <a href="javascript:;" value="35">第35期 </a>
-                    <a href="javascript:;" value="34">第34期 </a>
-                    <a href="javascript:;" value="33">第33期 </a>
-                    <a href="javascript:;" value="32">第32期 </a>
-                    <a href="javascript:;" value="31">第31期 </a>
-                    <a href="javascript:;" value="30">第30期 </a>
-                    <a href="javascript:;" value="29">第29期 </a>
-                    <a href="javascript:;" value="28">第28期 </a>
-                    <a href="javascript:;" value="27">第27期 </a>
-                    <a href="javascript:;" value="26">第26期 </a>
-                    <a href="javascript:;" value="25">第25期 </a>
-                    <a href="javascript:;" value="24">第24期 </a>
-                    <a href="javascript:;" value="23">第23期 </a>
-                    <a href="javascript:;" value="22">第22期 </a>
-                    <a href="javascript:;" value="21">第21期 </a>
-                    <a href="javascript:;" value="20">第20期 </a>
-                    <a href="javascript:;" value="19">第19期 </a>
-                    <a href="javascript:;" value="18">第18期 </a>
-                    <a href="javascript:;" value="17">第17期 </a>
-                    <a href="javascript:;" value="16">第16期 </a>
-                    <a href="javascript:;" value="15">第15期 </a>
-                    <a href="javascript:;" value="14">第14期 </a>
-                    <a href="javascript:;" value="13">第13期 </a>
-                    <a href="javascript:;" value="12">第12期 </a>
-                    <a href="javascript:;" value="11">第11期 </a>
-                    <a href="javascript:;" value="10">第10期 </a>
-                    <a href="javascript:;" value="9">第9期 </a>
-                    <a href="javascript:;" value="8">第8期 </a>
-                    <a href="javascript:;" value="7">第7期 </a>
-                    <a href="javascript:;" value="6">第6期 </a>
-                    <a href="javascript:;" value="5">第5期 </a>
-                    <a href="javascript:;" value="4">第4期 </a>
-                    <a href="javascript:;" value="3">第3期 </a>
-                    <a href="javascript:;" value="2">第2期 </a>
-                    <a href="javascript:;" value="1">第1期 </a>
+                    <volist name="periods" id="period">
+                        <if condition="$key eq 0">
+                            <a href="javascript:;" value="{$period.id}">第{$period.periods}期 (未开奖)</a>
+                        <else/>
+                            <a href="javascript:;" value="{$period.id}">第{$period.periods}期 </a>
+                        </if>
+                    </volist>
+
+
+
             </span>
                 <input type="hidden" id="searchPeriod" value="0" />
             </p>
@@ -323,656 +213,37 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr >
-                        <td><span class="membername" memberid="1064899">mba999mba</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;21:50</time></span></td>
-                        <td><span>第122期</span></td>
+                    <volist name="animals" id="animal" key="key">
+                        <?php $num = $key%2;?>
+                        <if condition="$num eq 0 ">
+                            <tr>
+                        <else/>
+                            <tr class="odd">
+
+                        </if>
+                        <td><span class="membername" memberid="{$animal.MemberId}">{$animal.MemberName}</span></td>
+                        <td><span><time>{$animal.BetDate}&nbsp;&nbsp;{$animal.BetTime}</time></span></td>
+                        <td><span>第{$animal.Period}期</span></td>
                         <td>
-                            <span>猪</span>
+                            <span>{$animal.BetTarget}</span>
                         </td>
-                        <td><span class="result_0">待开奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2343421"><a class="medal" title="总榜参与8期|中1期|现在胜率12.50%|排名135">漂破波上漂破瓢</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;21:03</time></span></td>
-                        <td><span>第121期</span></td>
                         <td>
-                            <span>鼠,虎,龙,马</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>8</span></td>
-                        <td><span>12.50%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="121795"><a class="medal" title="总榜参与6期|中3期|现在胜率50.00%|排名27">广东化州买码专业人士</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;21:00</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,龙,蛇,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>6</span></td>
-                        <td><span>50.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2305325"><a class="medal" title="总榜参与9期|中3期|现在胜率33.33%|排名69">fada5418</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:59</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,马,羊,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>9</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="1032972">五圆和ym</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:59</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,猴,狗</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>1</span></td>
-                        <td><span>100.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="230127">神算门</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:58</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,兔,蛇</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>1</span></td>
-                        <td><span>100.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="222080"><a class="medal" title="总榜参与8期|中2期|现在胜率25.00%|排名98">hstmdc</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:58</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,龙,猴</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>8</span></td>
-                        <td><span>25.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1207171">王者马神</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:55</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>3</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="1098370">Liangxuchun</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:55</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>蛇,马,羊</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>2</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2086626">xunuo227</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:53</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,羊,猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2360302">粉红嘟嘟</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:53</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,马,猴,鸡</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>4</span></td>
-                        <td><span>75.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1140494"><a class="medal" title="总榜参与8期|中1期|现在胜率12.50%|排名134">哥哥输死了</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:50</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>8</span></td>
-                        <td><span>12.50%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2286707"><a class="medal" title="总榜参与7期|中4期|现在胜率57.14%|排名10">liushuishilo</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:50</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,龙,猴</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>4</span></td>
-                        <td><span>7</span></td>
-                        <td><span>57.14%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2465832">煌哥123</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:48</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,猴,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>4</span></td>
-                        <td><span>50.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="632170">见才化水</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:47</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,马,狗</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>3</span></td>
-                        <td><span>66.67%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2242111">纵横嬴政</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:45</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,龙,蛇,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2407949">绿皮西瓜</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:42</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>4</span></td>
-                        <td><span>25.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2262930"><a class="medal" title="总榜参与7期|中1期|现在胜率14.29%|排名126">wskycc</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:41</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,马,羊</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>7</span></td>
-                        <td><span>14.29%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="266575">ck6h763</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:40</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,羊,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>5</span></td>
-                        <td><span>20.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1016214"><a class="medal" title="总榜参与9期|中3期|现在胜率33.33%|排名68">流星蝴蝶剑A</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:39</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>虎,蛇,马,羊</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>9</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2445207">小乔人家</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:36</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>蛇,马</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2551225">qq353535</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:35</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,羊,鸡</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="598798"><a class="medal" title="总榜参与6期|中3期|现在胜率50.00%|排名26">NLBC</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:35</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,羊,鸡,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>6</span></td>
-                        <td><span>50.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2509766">大亮大哥</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:33</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,马,猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="833638">yao738</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:33</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,猴,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>2</span></td>
-                        <td><span>50.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2361408"><a class="medal" title="总榜参与8期|中1期|现在胜率12.50%|排名133">meijian</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:33</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>8</span></td>
-                        <td><span>12.50%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="1513690">a呀ff</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:31</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,羊,猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>5</span></td>
-                        <td><span>40.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2269029">小橙橙兔子</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:31</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,龙,蛇,羊</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>4</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="310186"><a class="medal" title="总榜参与6期|中2期|现在胜率33.33%|排名67">fkekd</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:30</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,蛇,鸡,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>6</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="428666">MJ1988</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:29</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,狗,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>2</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2508363">sly2016</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:27</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,羊,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>5</span></td>
-                        <td><span>20.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2518272">财神爷到中中中</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:25</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>龙,蛇,狗,猪</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>4</span></td>
-                        <td><span>25.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2466219"><a class="medal" title="总榜参与7期|中3期|现在胜率42.86%|排名41">Qiubing</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:24</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>虎,兔,龙,狗</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>7</span></td>
-                        <td><span>42.86%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2307573">woaini139</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:20</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,鸡</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>4</span></td>
-                        <td><span>50.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="721610">yaoyue8</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:20</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,马,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>4</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1036623">yangzs885</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:20</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>马,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>2</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2090647"><a class="medal" title="总榜参与9期|中5期|现在胜率55.56%|排名17">龙在上天</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:20</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,猴,狗</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>5</span></td>
-                        <td><span>9</span></td>
-                        <td><span>55.56%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1052635"><a class="medal" title="总榜参与7期|中3期|现在胜率42.86%|排名40">今晚已中码</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:19</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,兔,蛇</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>7</span></td>
-                        <td><span>42.86%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2306403"><a class="medal" title="总榜参与6期|中2期|现在胜率33.33%|排名66">兽兽医生</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:19</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,虎,猴,鸡</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>6</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1261846">无心嘎嘎</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:18</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>蛇,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>2</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="1297798"><a class="medal" title="总榜参与7期|中5期|现在胜率71.43%|排名5">信我者就跟</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:17</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>牛,龙,猴,鸡</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>5</span></td>
-                        <td><span>7</span></td>
-                        <td><span>71.43%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1180334"><a class="medal" title="总榜参与8期|中2期|现在胜率25.00%|排名97">new551217</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:16</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>兔,蛇,羊,猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>8</span></td>
-                        <td><span>25.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2299385">一滴滴暖暖</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:13</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,兔,猴,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>3</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="9855"><a class="medal" title="总榜参与9期|中3期|现在胜率33.33%|排名65">zhao1953</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:13</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,牛,蛇,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>3</span></td>
-                        <td><span>9</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2186074"><a class="medal" title="总榜参与6期|中2期|现在胜率33.33%|排名64">tao1759</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:11</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>蛇,马,猴,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>6</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="2516665">冯小刚体会</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:07</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>猴</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2140028"><a class="medal" title="总榜参与9期|中2期|现在胜率22.22%|排名107">qinn888</a></span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:04</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,马,猴,狗</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>2</span></td>
-                        <td><span>9</span></td>
-                        <td><span>22.22%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="306910">RLYRLY</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:02</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>0</span></td>
-                        <td><span>1</span></td>
-                        <td><span>0.00%</span></td>
-                    </tr>
-                    <tr >
-                        <td><span class="membername" memberid="2552749">qiujiang2010</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:02</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>虎,龙,羊,猴</span>
-                        </td>
-                        <td><span class="result_1">已中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>1</span></td>
-                        <td><span>100.00%</span></td>
-                    </tr>
-                    <tr class=odd>
-                        <td><span class="membername" memberid="1484528">pangminghua</span></td>
-                        <td><span><time>16-10-20&nbsp;&nbsp;20:01</time></span></td>
-                        <td><span>第121期</span></td>
-                        <td>
-                            <span>鼠,牛,兔,蛇</span>
-                        </td>
-                        <td><span class="result_2">未中奖</span>
-                        </td>
-                        <td><span>1</span></td>
-                        <td><span>3</span></td>
-                        <td><span>33.33%</span></td>
-                    </tr>
+                            <switch name="animal.ResultText" >
+                                <case value="已中奖"><span class="result_1"></case>
+                                <case value="未中奖"><span class="result_2"></case>
+                                <case value="待开奖"><span class="result_0"></case>
+                            </switch>
+                                {$animal.ResultText}
+
+                             </span>
+                        </td>
+                        <td><span>{$animal.QuarterWinCount}</span></td>
+                        <td><span>{$animal.QuarterBetCount}</span></td>
+                        <td><span>{$animal.WinRateOfYear}</span></td>
+                        </tr>
+
+                    </volist>
+
                     </tbody>
                 </table>
 
@@ -980,7 +251,7 @@
                 <div class="holder paginator" style="-moz-user-select: none; float: none;">
                     <script type="text/javascript">
                         $(function(){
-                            $(".paginator").append(rebuildPage(1, 1765));
+                            $(".paginator").append(rebuildPage(1, {$pages}));
                         });
                     </script>
                 </div>
@@ -1163,7 +434,7 @@ liushuishilo                        </span>
 
 
     <script type="text/javascript">
-        var betPeriod=11;
+        var betPeriod={$nextPeriods.id};
         var betType=2;
         var periodBetval="";//记录结果
     </script>
