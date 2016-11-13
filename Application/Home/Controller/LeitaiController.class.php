@@ -43,11 +43,11 @@ class LeitaiController extends BaseController
              $result[$key]['QuarterWinCount'] = $animals[$key]['reword_periods'];
              $result[$key]['WinRateOfYear'] = number_format(($animals[$key]['reword_periods']/ $animals[$key]['part_periods'])*100,2).'%';
         }
-        var_dump($result);
+
         $count = $this->animalRecord->count();
         $pages =  ceil($count / 50);
         $this->assign('periods',$periods);
-        $this->assign('animals',$animals);
+        $this->assign('animals',$result);
         $this->assign('pages',$pages);
         $this->display();
     }
