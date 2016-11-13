@@ -162,6 +162,7 @@ $(function () {
         updateHistory(betType, 1);
     });
     $("#searchMine").parent('.ckb').on("click", 'b,label', function (e) {
+
         if (!member.userLogined) {
             $.dialog.confirm("提示", "请先登录！", function () {
                 window.location.href = "/sso/login";
@@ -260,12 +261,13 @@ $(function () {
 
         //提交号码
         $("#numSubmit").on("click", function () {
-            if (!member.userLogined) {
-                $.dialog.confirm("提示", "请先登录！", function () {
-                    window.location.href = "/sso/login";
-                });
-                return false;
-            }
+
+            //if (!member.userLogined) {
+            //    $.dialog.confirm("提示", "请先登录！", function () {
+            //        window.location.href = "/sso/login";
+            //    });
+            //    return false;
+            //}
             var choose = $('#twl_zodiac ul.t_num .choose');
             if (choose.length > 6) {
                 $.dialog.alert("提示", "每次最多推荐6个号码！");
@@ -280,13 +282,14 @@ $(function () {
 
         //提交生肖
         $("#sxSubmit").on("click", function () {
-            if (!member.userLogined) {
-                $.dialog.confirm("提示", "请先登录！",
-                    function () {
-                        window.location.href = "/sso/login";
-                    });
-                return false;
-            }
+            //if (!member.userLogined) {
+            //    $.dialog.confirm("提示", "请先登录！",
+            //        function () {
+            //            window.location.href = "/sso/login";
+            //        });
+            //    return false;
+            //}
+            console.log(postdata)
             var choose = $("#shengxiao li.hover");
             if (choose.length > 4) {
                 $.dialog.alert("提示", "每次最多推荐4個生肖！");
@@ -296,6 +299,7 @@ $(function () {
             for (var i = 0; i < choose.length; i++) {
                 postdata.target += "," + choose.eq(i).children("span").html();
             }
+
             postData(postdata);
         });
 
@@ -303,6 +307,7 @@ $(function () {
             obj.period = betPeriod;
             $.dialog.loading.show();
             $.post("/leitai/periodbet", obj, function (result) {
+
                 $.dialog.loading.hide();
                 if (result.success) {
                     $.dialog.alert("提示", "推荐成功！");
