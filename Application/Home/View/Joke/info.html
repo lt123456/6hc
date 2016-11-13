@@ -1,0 +1,336 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+
+<link href="__PUBLIC__/Frontend/Web/Css/forum.css" rel="stylesheet" type="text/css">
+<div id="lhck_joke_top"></div>
+<div id="lhck_joke_menu_ad_lf" class="ad_small_banner"></div>
+<div class="clear"></div>
+
+<div id="guess">
+    <div class="guess_view">
+        <div class="articles">
+            <div class="title">
+                <a href="/">首页</a>  >  <a href="/joke/">幽默猜测</a> > 第{$jokes.lottery.periods}期幽默猜测
+            </div>
+            <div class="article">
+                <div class="info">
+                    <h1>
+                        第{$jokes.lottery.periods}期幽默猜测：{$jokes.title}</h1>
+                    <span>作者：{$jokes.admin.username}</span> <span>发布时间：{$jokes.created_at}</span>
+
+                    <span>来源：{$jokes.origin}</span>
+                    <span>阅读：{$jokes.read} 次</span>
+                </div>
+                <div style="border-top: dashed 1px #e1e1e1; margin-top: 15px;"></div>
+                    <div style="margin-bottom: 50px; line-height: 35px;">
+                        <div class="paper_award" style="margin-left: 100px; width: 540px;">
+                            <div class="period" style="width: 150px;">
+                                <div style="color: red">
+                                    第{$jokes.lottery.periods}期开奖结果：
+                                </div>
+                            </div>
+                            <table class="numbers">
+                                <tr class="head">
+                                    <td>
+                                        <span class="ball red">40</span>
+                                        <span class="ml12">蛇</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball green">28</span>
+                                        <span class="ml12">蛇</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball green">27</span>
+                                        <span class="ml12">马</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">12</span>
+                                        <span class="ml12">鸡</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">07</span>
+                                        <span class="ml12">虎</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">18</span>
+                                        <span class="ml12">兔</span>
+                                    </td>
+                                    <td>
+                                        <span class="plus"></span>
+                                    </td>
+                                    <td>
+                                        <span class="ball blue">10</span>
+                                        <span class="ml12">猪</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text_content">
+                        <div class="summary">
+                            {$jokes.description}
+                        </div>
+
+
+                        <div class="detail">
+                            <div class="left_ad">
+                                <div class="lhc_joke_info_ad"></div>
+                            </div>
+                            <div style="width: 550px; float: left;">
+                                <div style="TEXT-ALIGN: left">
+                                    <p style="TEXT-ALIGN: center">
+                                    　　<a href="/joke/info/779" target="_blank" se_prerender_url="complete">
+                                            <span style="color:#ff0000;">
+                                            <strong>小贴士：据说与<if condition="$jokes.type eq 'pic'">视频<else />图片</if>猜测一起看，会有意想不到的结果喔!</strong>
+                                            </span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div style="TEXT-ALIGN: center">
+                                    <img src="{$jokes.image.big}" alt="" /><br />
+                                </div>
+                                <div style="TEXT-ALIGN: center">
+                                    <span style="TEXT-ALIGN: center">
+                                        第{$jokes.lottery.periods}期幽默猜测：<span style="text-align: center;">{$jokes.title}</span>
+                                    </span>
+                                </div>
+                                <div style="TEXT-ALIGN: center">&nbsp;</div>
+                                <div style="TEXT-ALIGN: center"><span style="TEXT-ALIGN: center">
+                                    <strong><span style="color:#006600;">温馨提示：发布广告和QQ信息将会被直接封号，请各位遵守规则。</span></strong>
+                                 </span>
+                                </div>
+                            </div>
+                            <div class="right_ad">
+                                <div class="lhc_joke_info_ad"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="http://www.1396cp.com/zhibo" name="a" target="_blank" style="display: block; padding-left: 20px; margin: 5px 0px; border: solid 1px #ffb4b4; background-color: #fff8e7; height: 25px; line-height: 25px; color: #d6070d;">看高频彩直播就到皇家彩世界，北京赛车PK10开奖直播，重庆时时彩开奖直播，广东快乐十分开奖直播，更有精准数据参考及投注软件下载。
+                    </a>
+
+                    <div>
+                        <ul id="vote_chart">
+                            <volist name="recommend" id="comm">
+                            <li>
+                                <p>{$comm.just_percent}</p>
+                                <p style="position: relative;">
+                                    <font style="position: absolute; left: -14px; top: 0px; width: 55px; text-align: center; display: block;"> {$comm.count}<text>票</text></font>
+
+                                </p>
+                                <div class="percent" onclick="clickSx({$comm.zn})" style="cursor:pointer" title="查看该生肖投票者的评论">
+                                    <div class="percent_top" style="height: {$comm.back_percent}%;">
+                                    </div>
+                                    <div class="percent_bottom" style="height: {$comm.just_percent}%;">
+                                    
+                                    </div>
+                                </div>
+                                <p onclick="clickSx({$comm.zn})" style="cursor:pointer">{$comm.zn}</p>
+                                <if condition="$is_recommend">
+                                    <p id="comm_radio">
+                                        <input name="comm" data="{$comm.en}" value="1" style="cursor:pointer;" title="{$comm.zn}" type="radio">
+                                    </p>
+                                </if>
+                            </li>
+                            </volist>
+                        </ul>
+                    </div>
+                    <if condition="$is_recommend">
+                        <div style="width: 460px; padding-bottom: 30px; margin-top: 50px; clear: left;">
+                            <input id="tuijian" style="float: right;" src="__PUBLIC__/Frontend/Web/Images/tuijian.png" onclick="OnRecommend()" type="image">
+                        </div>
+                    </if>
+
+                    <div class="fast_nav">
+                        上一篇：
+                            <if condition="$adjacent.prev">
+                                <a href="/joke/info/778">第{$adjacent.prev.periods}期幽默猜测</a>
+                            <else/>
+                                无
+                            </if>
+                        <br />
+                        下一篇：
+                            <if condition="empty($adjacent.next)">
+                                <a href="/joke/info/778">第{$adjacent.next.periods}期幽默猜测</a>
+                            <else/>
+                                无
+                            </if>
+                    </div>
+                </div>
+
+                <div class="total_post">
+                    <div class="l" >
+                        <div style="float: left;">网友跟帖：<a class="postcount" href="javascript:void(0);">{$comment_count} </a><span>人跟帖</span></div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="joke_id" value="{$jokeid}">
+                <!-- <div class="total_post">
+                    <div class="l"></div>
+                    <div class="r">
+                        <span id="wordtotal">0</span>/300
+                    </div>
+                </div> -->
+                <div class="clear"></div>
+                <a name="replyAnchor" id="replyAnchor"></a>
+                <div id="send_wrap" style="margin-top: 10px;">
+                    <a name="reply"></a>
+                    <div <if condition="empty($_SESSION['login'])"> class="un_login"</if>>
+                        <textarea cols="90" rows="11" id="post_content" watermark="请填写跟帖内容"></textarea>
+                        <if condition="empty($_SESSION['login'])">
+                            <p id="un_login_txt">
+                            您需要登录后才可以发帖：<a style="cursor:pointer;" class="login">登录</a>|<a style="cursor:pointer;" class="register">注册</a></p>
+                        </if>
+                    </div>
+                    <div class="send">
+                        <div class="face_cont"></div>
+                        <div class="change_div2">
+                           <div class="change_div2_face"><a class="face"  container="post_content">添加表情</a></div>
+                           <div class="change_div2_tie">
+                               发帖请遵守“<a href="/agreement" target="_blank">六合彩库交流大厅用户协议</a>”不得违反国家法律法规！
+                           </div>
+                           <div class="change_div2_submit">
+                               <span class="span2">
+                                   <input type="submit"  class="button" value="回复" id="submit_btn"  onclick="huifu()" />
+                               </span>
+                               <span class="span1">
+                                   <span class="span1_p1"><input type="text" id="captcha" /></span>
+                                   <span class="span1_p2"><img id="imgcaptcha" class="img_change" src="{:U('joke/verify')}" alt="验证码" /></span>
+                               </span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <script type="text/javascript" src="Scripts/promotion.js"></script>
+                <link href="Css/promotion.css" rel="stylesheet" />
+                <div class="shck_mobileGames"></div>
+                <a name="comments"></a>
+                <if condition="empty($comment) eq false">
+                <div class="subject_wrap subject_wrap2">
+                    <volist name="comment" id="comm">
+                    <div id="reply_list">
+                        <div class="owner_title">
+                            <div class="info">
+                                <span class="name">{$comm.user_id}</span> <span>发表于：</span> <span class="time">{$comm.created_at}</span>
+                            </div>
+                            <div class="floor">
+                                {$comment_count-$key}楼
+                            </div>
+                        </div>
+                        <div class="u_content">
+                                <pre>{$comm.description}</pre>
+                        </div>
+                    </div>
+                    </volist>
+                    <div class="fast_nav" style="margin: 30px 20px;">
+                       <div class="page">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+                </if>
+                <div class="clear"></div>
+                <script>
+                jQuery(function($) {
+                    $.extend({
+                        changeVerify : function()
+                        {
+                            var url = $('.img_change').attr('src');
+                            if (url.indexOf('?') > 0) {
+                                url = url.substr(0, url.indexOf('?'));
+                            }
+                            url = url + '?' + parseInt(Math.random()*10000);
+                            $('.img_change').attr('src', url);
+                        }
+
+                        $('.img_change').click(function() {
+                            $.changeVerify();
+                        })
+
+                    });
+                    function huifu(){
+                        var captcha = $('#captcha').val();
+                        var post_content = $('#post_content').val();
+                        var joke_id = $('input[name="joke_id"]').val();
+                       
+                        if(post_content==''){
+                            return '';
+                        }
+                        $.post('/joke/sub_huifu',{post_content:post_content,captcha:captcha,joke_id:joke_id},function(data){
+                            if(data.flag!=1){
+                                alert(data.msg);
+                                return ;
+                            }else{
+                                window.location.href=window.location.href;
+                            }
+                        },'json')
+                    }
+                </script>
+
+                <script type="text/javascript">
+                    var faceUrl = 'http://resck.56hx.com/face';
+                    var type = "1";
+                    var totalpost = parseInt("190");
+
+                    var logined = false;
+
+                    $(function () {
+                        $("#captcha").focusin(function () {
+                            $("#imgcaptcha").attr('src', '/Captcha/CreateCheckCodeImage?a=' + Math.random());
+                            $(this).unbind('focusin');
+                        });
+                        $("#imgcaptcha").click(function () {
+                            $("#imgcaptcha").attr('src', '/Captcha/CreateCheckCodeImage?a=' + Math.random());
+                        });
+                    });
+
+
+
+                </script>
+            </div>
+            <div class="extends">
+            
+        <div class="paper">
+            <div class="title">
+                <span>图纸推荐</span> <a href="/paper" class="more" target="_blank">更多></a>
+            </div>
+            <ul>
+            <volist name="comm_papers" id="paper">
+                <li><a href="/paper/view/id/{$paper.pic_name_id}/period/{$paper.periods_id}" target="_blank">
+                    <img src="{$paper.cut_pic}" />
+                    <div>{$paper.name}</div>
+                    <div><span>第{$paper.periods}期</span></div>
+                </a></li>
+            </volist>
+            </ul>
+        <div class="clear"></div>
+        </div>
+        <div id="lhck_discuss_right"></div>
+            <div style="margin: 12px 0px; height: 80px; clear: both;">
+                <a href="http://www.1396x.com" target="_blank">
+                    <img src="Picture/1396-dis.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<script>
+//提交用户的选择
+function OnRecommend(){
+    var jokeid = '{$jokeid}';
+    var comm=$('input[name="comm"]:checked').attr('data');
+    $.post('/joke/add_animals',{comm:comm,jokeid:jokeid},function(data){
+        if(data==2){
+            alert('已经推荐过了');
+        }
+    })
+}
+
+</script>
+    
+</block>.attr('checked','true')

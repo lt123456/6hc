@@ -1,0 +1,310 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+<div class="clear"></div>
+
+<div id="paper">
+<link rel="stylesheet" href="__PUBLIC__/Frontend/Web/Css/page.css" />
+    <link href="__PUBLIC__/Frontend/Web/Css/forum.css" rel="stylesheet" type="text/css">
+    <a name="a"></a>
+    <div class="paper_view_title">
+        <a href="/">首页</a> > <a href="/paper">图纸列表</a> > {$paper.name}
+    </div>
+    <div class="paper_view">
+        <div class="title">
+            <div class="fl">
+                <h1>第{$record.periods}期 {$paper.name}</h1>
+                <div>更新时间：<if condition="empty($paper.updated_at)">{$paper.updated_at}<else/>{$paper.created_at}</if>  阅读：{$paper.read}</div>
+            </div>
+            <div class="fr">
+                    <div class="paper_award">
+                        <div class="period">
+                            <div>
+                                第{$record.periods}期开奖结果：
+                            </div>
+                        </div>
+                        <table class="numbers">
+                            <tr class="head">
+                                    <td>
+                                        <span class="ball red">07</span>
+                                        <span class="ml12">虎</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">45</span>
+                                        <span class="ml12">鼠</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball green">28</span>
+                                        <span class="ml12">蛇</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">02</span>
+                                        <span class="ml12">羊</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball blue">15</span>
+                                        <span class="ml12">马</span>
+                                    </td>
+                                    <td>
+                                        <span class="ball blue">04</span>
+                                        <span class="ml12">蛇</span>
+                                    </td>
+                                    <td>
+                                        <span class="plus"></span>
+                                    </td>
+                                    <td>
+                                        <span class="ball red">19</span>
+                                        <span class="ml12">虎</span>
+                                    </td>
+                            </tr>
+                        </table>
+                    </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="nav">
+            <a href="/paper/paper_list/id/{$paper.pic_name_id}" class="all" target="_blank">全年期数</a>
+            <p>
+                <volist name="lottery" id="papers">
+                    <a href="/paper/view/id/{$paper.pic_name_id}/period/{$papers.id}" <if condition="$papers['id'] eq $paper['periods_id']"> class="cur" </if>>第{$papers.periods}期</a>
+                </volist>
+            </p>
+            <a href="{$paper.origin}" target="_blank" class="view">查看原图</a>
+        </div>
+
+        <ul class="section" style="border-top: solid 1px #e1e1e1; border-bottom: 0px;">
+            <li>
+                <a href="javascript:void(0);" class=cur>{$paper.name} A</a>
+            </li>
+        </ul>
+        <div class="wrap">
+            <a href="{$paper.origin}" target="__black"><img src="{$paper.origin}" style="width:100%;" alt="{$paper.name}" /></a>
+        </div>
+        <ul class="section">
+            <li>
+                <a href="javascript:void(0);" class=cur>{$paper.name} A</a>
+            </li>
+        </ul>
+        <div class="agree_disagree">
+            <a href="javascript:void(0);" id="agree">32</a>
+            <a href="javascript:void(0);" id="disagree">56</a>
+            <input type="hidden" value="95348" id="paperId" />
+        </div>
+        <div class="clear"></div>
+
+
+        <div class="articles">
+
+                <div class="total_post">
+                    <div class="l" >
+                        <div style="float: left;">网友跟帖：<a class="postcount" href="javascript:void(0);">{$comment_count} </a><span>人跟帖</span></div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="paper_id" value="{$paper.listid}">
+                <!-- <div class="total_post">
+                    <div class="l"></div>
+                    <div class="r">
+                        <span id="wordtotal">0</span>/300
+                    </div>
+                </div> -->
+                <div class="clear"></div>
+                <a name="replyAnchor" id="replyAnchor"></a>
+                <div id="send_wrap" style="margin-top: 10px;">
+                    <a name="reply"></a>
+                    <div <if condition="empty($_SESSION['login'])">class="un_login"</if>>
+                        <textarea cols="116" rows="11" id="post_content" watermark="请填写跟帖内容"></textarea>
+                        <if condition="empty($_SESSION['login'])">
+                            <p id="un_login_txt">
+                            您需要登录后才可以发帖：<a style="cursor:pointer;" class="login">登录</a>|<a style="cursor:pointer;" class="register">注册</a></p>
+                        </if>
+                    </div>
+                    <div class="send">
+                        <div class="face_cont"></div>
+                        <div class="change_div2">
+                           <div class="change_div2_face"><a class="face"  container="post_content">添加表情</a></div>
+                           <div class="change_div2_tie">
+                               发帖请遵守“<a href="/agreement" target="_blank">六合彩库交流大厅用户协议</a>”不得违反国家法律法规！
+                           </div>
+                           <div class="change_div2_submit">
+                               <span class="span2">
+                                   <input type="submit"  class="button" value="回复" id="submit_btn"  onclick="huifu()"/>
+                               </span>
+                               <span class="span1">
+                                   <span class="span1_p1"><input type="text" id="captcha" /></span>
+                                   <span class="span1_p2"><img id="imgcaptcha" src="{:U('paper/verify')}" alt="验证码" /></span>
+                               </span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <script type="text/javascript" src="Scripts/promotion.js"></script>
+                <link href="Css/promotion.css" rel="stylesheet" />
+                <div class="shck_mobileGames"></div>
+                <a name="comments"></a>
+
+                <div class="subject_wrap subject_wrap2">
+                    <volist name="comment" id="comm">
+                    <div id="reply_list">
+                        <div class="owner_title">
+                            <div class="info">
+                                <span class="name">{$comm.user_id}</span> <span>发表于：</span> <span class="time">{$comm.created_at}</span>
+                            </div>
+                            <div class="floor">
+                                {$comment_count-$key}楼
+                            </div>
+                        </div>
+                        <div class="u_content">
+                                <pre>{$comm.description}</pre>
+                        </div>
+                    </div>
+                    </volist>
+                    <div class="fast_nav" style="margin: 30px 20px;">
+                        <div class="page">
+                            {$page}
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+        <script>
+            
+            function huifu(){
+                var captcha = $('#captcha').val();
+                var post_content = $('#post_content').val();
+                var paper_id = $('input[name="paper_id"]').val();
+               
+                if(post_content==''){
+                    return '';
+                }
+                $.post('/paper/sub_huifu',{post_content:post_content,captcha:captcha,paper_id:paper_id},function(data){
+                    if(data.flag!=1){
+                        alert(data.msg);
+                        return ;
+                    }else{
+                        window.location.href=window.location.href;
+                    }
+                },'json')
+            }
+        </script>
+        
+       
+    </div>
+<div class="clear">
+</div>
+        <div class="shck_mobileGames">
+        </div>
+<a name="comments"></a>
+
+<div class="subject_wrap subject_wrap2">
+
+    <div id="reply_list">
+    </div>
+</div>
+<div class="clear">
+</div>
+
+
+<script>
+    jQuery(function($) {
+
+        $.extend({
+
+            changeVerify : function()
+            {
+                var url = $('.img_change').attr('src');
+                if (url.indexOf('?') > 0) {
+                    url = url.substr(0, url.indexOf('?'));
+                }
+                url = url + '?' + parseInt(Math.random()*10000);
+                $('.img_change').attr('src', url);
+            }
+
+        });
+
+
+        $('.img_change').click(function() {
+            $.changeVerify();
+        })
+    })
+</script>
+        <!-- <div class="enjoy">
+            <div class="enjoy_title">
+                您可能喜欢
+            </div>
+            <ul>
+                <volist name="like_papers" id="paper">
+                <li>
+                    <a href="/paper/view/id/{$paper.id}" target="_blank">
+                        <img src="{$paper.cut_pic}" alt="{$paper.name}" title="{$paper.name}">
+                        <div>{$paper.name}</div>
+                    </a>
+                </li>
+                </volist>
+            </ul>
+        </div> -->
+    </div>
+</div>
+<div id="lhc_paper_view_foot"></div>
+<div id="lhc_paper_content_foot_lf" class="ad_small_banner"></div>
+<div class="clear"></div>
+
+<div id="asidebar" style="display: none; position: fixed;"><a id="goComment" href="javascript:scrollto('#replyAnchor');"></a></div>
+<!-- <script type="text/javascript" src="__PUBLIC__/Frontend/Web/Scripts/navshare.min.js" charset="gb2312"></script> -->
+
+    <div class="clear">
+    </div>
+    
+
+    
+    <!--用户反馈-->
+    <div class="web_pagePos">
+       <div class="pageForm">
+          <div class="pageFormList">
+             <ul>
+             
+                <li>
+                   <span class="select_span">
+                      <span class="select">请选择意见反馈类型</span>
+                       <span class="option">
+                           
+                               <a class="optionA" onclick="setFeedbackType(1);">网站优化建议</a>
+                               <a class="optionA" onclick="setFeedbackType(2);">商务合作</a>
+                               <a class="optionA" onclick="setFeedbackType(3);">其他相关问题</a>
+                        
+                         
+                       </span>
+                        
+                   </span>
+                      <input type="hidden"  id="feedbacktype" name="feedbacktype"  value=""/>
+                   
+                </li>
+                <li>
+                    <textarea name="" id="postContent" class="textarea" maxlength="500">您的反馈内容</textarea>
+                </li>
+                <li><input name="contact" value="您的联系方式(QQ、手机或邮箱)" type="text" class="input"/></li>
+                <li style="padding:0;">
+                    <input name="" value="提交" type="submit"  class="submit"/>
+                </li>
+
+             </ul>
+          </div>
+       </div>
+       <div class="pagePen"></div>
+       <div class="pageFanY pageFanSmall btnUserFeedback" title="用户反馈"></div>
+       <div class="pageFanBg pageBgSmall" title="用户反馈"></div>
+   </div>
+<script type="text/javascript" src="__PUBLIC__/Frontend/Web/Scripts/fbloginframe.js"></script>
+<script>
+    $(document).ready(function (e) {
+
+        if (/ckbd/i.test(navigator.userAgent) || /Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            try {
+                $(".web_pagePos").hide();
+            } catch (e) {
+            }
+        }
+    });
+</script>
+
+</block>

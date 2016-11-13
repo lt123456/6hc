@@ -1,0 +1,42 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+<!-- -->
+<div id="lhc_paper_top"></div>
+<div id="lhc_paper_leftright" class="ad_small_banner"></div>
+<div class="clear"></div>
+<div id="paper">
+    <div class="search_content">
+        <form action="/paper/search" method="get">
+            <input type="text" name="keyword" class="text keyword2" value="{$keyword}" placeholder="请输入您要查找的图纸名称..." />
+            <input type="submit" class="button" value="搜索"/>
+        </form>
+        <div class="clear"></div>
+        <div class="hot_search">
+            <span>热门搜索：</span>
+            <foreach name="hot_terms" item="terms" >  
+                <a href="/paper/search?keyword={$key}">{$key}</a>
+            </foreach>
+        </div>
+    </div>
+    <div class="paper_list">
+        <h1 class="title">
+			<a href="/paper">图库列表</a> > {$paper.name}
+        </h1>
+        <div class="clear"></div>
+    </div>
+    <div class="paper_year">
+        <span>2016</span>年
+    </div>
+    <div class="paper_year_list">
+        <volist name="lottery" id="papers">
+        	<a href="/paper/view/id/{$paper.id}/period/{$papers.id}" target="_blank">第 {$papers.periods} 期</a>
+        </volist>
+    </div>
+    <div id="lhc_paper_foot"></div>    
+    <div id="lhc_paper_index_foot_lf" class="ad_small_banner"></div>
+    <div class="clear"></div>
+</div> 
+<div class="clear"></div>
+
+</block>

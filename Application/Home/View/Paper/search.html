@@ -1,0 +1,55 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+<!-- -->
+<div id="lhc_paper_top"></div>
+<div id="lhc_paper_leftright" class="ad_small_banner"></div>
+<div class="clear"></div>
+<div id="paper">
+    <div class="search_content">
+        <form action="/paper/search" method="get">
+            <input type="text" name="keyword" class="text keyword2" value="{$keyword}" placeholder="请输入您要查找的图纸名称..." />
+            <input type="submit" class="button" value="搜索"/>
+        </form>
+        <div class="clear"></div>
+        <div class="hot_search">
+            <span>热门搜索：</span>
+            <foreach name="hot_terms" item="terms" >  
+                <a href="/paper/search?keyword={$key}">{$key}</a>
+            </foreach>
+        </div>
+    </div>
+    <div class="paper_list">
+        <h1 class="title">
+            搜索“<span>{$keyword}</span>”的结果，共找到<span>{$search_count}</span>张图纸。
+        </h1>
+        <div class="clear"></div>
+    </div>
+    <ul class="search_paper_list">
+        <volist name="lottery" id="paper">
+        <li>
+            <div class="ico">
+                <a href="/paper/paper_list/id/{$paper.id}" target="_blank">
+                    <img src="{$paper.cut_pic}">
+                </a>
+            </div>
+            <div class="period">
+                <a href="/paper/paper_list/id/{$paper.id}" target="_blank" class="name">{$paper.span_name}</a>
+                <div>期数：更新至<span>第{$paper.period_count}期</span></div>
+                <div class="list">
+                    <volist name="paper.periods" id="period">
+                        <a href="/paper/view/id/{$paper.id}/period/{$period.id}" target="_blank">第{$period.periods}期</a>
+                    </volist>
+                </div>
+                <a class="more" target="_blank" href="/paper/paper_list/id/{$paper.id}">查看更多期数</a>
+            </div>
+        </li>
+        </volist>
+    </ul>
+    <div id="lhc_paper_foot"></div>    
+    <div id="lhc_paper_index_foot_lf" class="ad_small_banner"></div>
+    <div class="clear"></div>
+</div> 
+<div class="clear"></div>
+
+</block>

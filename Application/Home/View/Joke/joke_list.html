@@ -1,0 +1,34 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+<link rel="stylesheet" href="__PUBLIC__/Frontend/Web/Css/page.css" />
+<div id="lhck_joke_top"></div>
+<div id="lhck_joke_menu_ad_lf" class="ad_small_banner"></div>
+<div class="clear"></div>
+<div id="guess">
+    <h1 class="name2">图片猜测</h1>
+    <div class="guess_content">
+        <ul class="lhc_joke_index">
+         	<volist name="jokes" id="joke">
+            <li>
+            	<a href="/joke/info/jokeid/{$joke.id}" target="_blank">
+	                <img src="{$joke.image.mini}" alt="第{$joke.lottery.periods}期幽默猜测" />
+	                <div>
+	                    第{$joke.lottery.periods}期幽默猜测
+	                </div>
+	            </a>
+            </li>
+            </volist>
+        </ul>
+        <div class="clear">
+        </div>
+        <div class="page">
+            {$page}
+        </div>
+    </div>
+
+</div>
+<div class="clear"></div>
+   
+
+</block>

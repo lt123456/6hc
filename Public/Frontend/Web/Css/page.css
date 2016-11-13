@@ -1,0 +1,35 @@
+.page {
+    display: inline-block;
+    margin: 20px 0;
+    text-align: center;
+    float:right;
+}
+.page a {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    color: black;
+    margin: 0 2.5px;
+    padding: 6px 12px;
+    position: relative;
+    text-decoration: none;
+}
+.page a:hover {
+    background-color: #ea5d39;
+}
+.page span.current {
+    background-color: #ea5d39;
+    border: 1px solid #e1e1e1;
+    color: black;
+    cursor: not-allowed;
+    margin: 0 2.5px;
+    padding: 6px 12px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.page span.pageInfo, .page span.info {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    color: #2283c5;
+    cursor: default;
+    padding: 6px 12px;
+    position: relative;
+}
