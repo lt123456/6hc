@@ -20,6 +20,14 @@ class LeitaiController extends BaseController
 
     public function  index()
     {
+         $data = I();
+         if(array_key_exists('memberId',$data)) {
+
+             $where=array();
+             $where['6hc_users.id'] = array('eq',$data['memberId']);
+             $where =array_filter($where);
+
+         };
         // 周期
         $periods  =  $this->lotteryRecord->field('id,periods')->order('id desc')->select();
 
@@ -28,9 +36,15 @@ class LeitaiController extends BaseController
                         ->join('__USERS__ ON __ANIMAL_RECORD__.user_id = __USERS__.id')
                         ->join('__LOTTERY_RECORD__ ON __ANIMAL_RECORD__.periods_id = __LOTTERY_RECORD__.id')
                         ->join('__SCORE__ ON __USERS__.id = __SCORE__.user_id')
-                        ->field('6hc_animal_record.*,6hc_users.id as user_id,6hc_users.username,6hc_score.part_periods,6hc_score.reword_periods,6hc_score.all_ranking,6hc_lottery_record.periods as periods')
-                        -> order('6hc_animal_record.id desc')->limit(50)->select();
-        $res = $this->formatAnimals($animals,'1');
+                        ->field('6hc_animal_record.*,6hc_users.id as user_id,6hc_users.username,6hc_score.part_periods,6hc_score.reword_periods,6hc_score.all_ranking,6hc_lottery_record.periods as periods');
+
+        if(!empty($where)){
+            $animals = $animals->where($where);
+        };
+
+        $animalsArr =  $animals -> order('6hc_animal_record.id desc')->limit(50)->select();
+
+        $res = $this->formatAnimals($animalsArr,'1');
 
         // 下期开开奖
         $nextPeriods = $this->lotteryRecord->field('id,year,periods,lottery_time,status')->where(' status="wait"')->find();
@@ -39,7 +53,7 @@ class LeitaiController extends BaseController
        // var_dump($res);
 //        var_dump($periods);
 //        die;
-        $count = $this->animalRecord->count();
+        $count = $animals->count();
         $pages =  ceil($count / 50);
         $this->assign('nextPeriods',$nextPeriods);
         $this->assign('periods',$periods);
@@ -52,6 +66,41 @@ class LeitaiController extends BaseController
 
     public function  tema()
     {
+        $data = I();
+        if(array_key_exists('memberId',$data)) {
+
+            $where=array();
+            $where['6hc_users.id'] = array('eq',$data['memberId']);
+            $where =array_filter($where);
+
+        };
+        // 周期
+        $periods  =  $this->lotteryRecord->field('id,periods')->order('id desc')->select();
+
+        //
+        $special  = $this->specialRecord
+            ->join('__USERS__ ON __SPECIAL_RECORD__.user_id = __USERS__.id')
+            ->join('__LOTTERY_RECORD__ ON __SPECIAL_RECORD__.periods_id = __LOTTERY_RECORD__.id')
+            ->join('__SCORE__ ON __USERS__.id = __SCORE__.user_id')
+            ->field('6hc_special_record.*,6hc_users.id as user_id,6hc_users.username,6hc_score.part_periods,6hc_score.reword_periods,6hc_score.all_ranking,6hc_lottery_record.periods as periods');
+
+        if(!empty($where)){
+            $special = $special->where($where);
+        };
+
+        $specialArr =  $special -> order('6hc_special_record.id desc')->limit(50)->select();
+
+        $res = $this->formatAnimals($specialArr,'1');
+
+        // 下期开开奖
+        $nextPeriods = $this->lotteryRecord->field('id,year,periods,lottery_time,status')->where(' status="wait"')->find();
+
+        $count = $special->count();
+        $pages =  ceil($count / 50);
+        $this->assign('nextPeriods',$nextPeriods);
+        $this->assign('periods',$periods);
+        $this->assign('animals',$res);
+        $this->assign('pages',$pages);
         $this->display();
     }
 
@@ -61,7 +110,7 @@ class LeitaiController extends BaseController
 
         if($data['type'] =='1') {
             $res  = $this->specialRecord->join('__USERS__ ON __SPECIAL_RECORD__.user_id = __USERS__.id')
-                ->join('__LOTTERY_RECORD__ ON __SPECIAL_RECORD__.periods_id = __SPECIAL_RECORD__.id')
+                ->join('__LOTTERY_RECORD__ ON __SPECIAL_RECORD__.periods_id = __LOTTERY_RECORD__.id')
                 ->join('__SCORE__ ON __USERS__.id = __SCORE__.user_id')
                 ->field('6hc_special_record.*,6hc_users.id as user_id,6hc_users.username,6hc_score.part_periods,6hc_score.reword_periods,6hc_score.all_ranking,6hc_lottery_record.periods as periods');
         }else {
@@ -95,16 +144,16 @@ class LeitaiController extends BaseController
 //        var_dump($where);
         if($data['isCurPeriod'] =='true') {
              $id = $this->lotteryRecord->order('id desc')->limit(1)->getField('id');
-
-            $res = $res ->where(array('periods_id'=> $id));
-
+             $res = $res ->where(array('periods_id'=> $id));
         }elseif($data['isMind'] =='true'){
             session('user_id',1);
-            $res = $res ->where(array("user_id",session('user_id')));
+            $res = $res ->where(array("user_id" => session('user_id')));
+        }elseif($data['userId']){
+            $res = $res->where(array('6hc_users.id' => $data['userId']));
         }elseif($data['memberName']) {
             $whereList['username'] = array('like', '%' . $data['memberName'] . '%');
             $res = $res->where($whereList);
-        }elseif(!empty(array_filter($where))){
+        }elseif( !empty(array_filter($where))){
             $res = $res->where($where);
         }
 
@@ -113,7 +162,7 @@ class LeitaiController extends BaseController
         $start  = ($page-1)*50;
 
         $resultArr = $res->limit($start,50)->order('id desc')->select();
-
+        //var_dump($res->getLastSql());
         $lists['page'] = intval($page);
         $lists['recordcount'] = $res->count();
 
@@ -124,6 +173,7 @@ class LeitaiController extends BaseController
 
         $this->ajaxReturn($lists);
     }
+
     public function periodbet(){
         $data = I();
         // 特码推荐

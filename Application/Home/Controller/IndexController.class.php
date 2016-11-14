@@ -70,7 +70,20 @@ class IndexController extends BaseController
         }
 
         //周榜
-        $weekAnimals  = S('weekAnimals');
+        $weekAnimals  = '';
+
+        if(empty($weekAnimals)) {
+            $weekAnimals = $this->special_record
+                ->where(['week' => date('W')-1,'6hc_special_record.status'=>'prize'])
+                ->join('__USERS__ ON __SPECIAL_RECORD__.user_id = __USERS__.id')
+                ->group('user_id')
+                ->order('count(user_id) desc')
+                ->field('count(user_id) as sum,6hc_users.id,username')
+                ->select();
+            S('weekAnimals',$weekAnimals,C('CACHE_TIME')['base']);
+        }
+
+        $weekAnimals  = '';
 
         if(empty($weekAnimals)) {
             $weekAnimals = $this->special_record
@@ -84,11 +97,13 @@ class IndexController extends BaseController
         }
 
         // 周榜总数
-        $weekAnimalsSum = S('weekAnimalsSum');
+        $weekAnimalsSum ='';
         if(empty($weekAnimalsSum)) {
-            $weekAnimalsSum = $this->special_record->where(['week' => date('W')-1])->count();
+            $weekAnimalsSum = $this->lotteryRecord->where(['week' => date('W')-1])->count();
+            $weekAnimalsSum = empty($weekAnimalsSum) ? '3' : $weekAnimalsSum;
             S('weekAnimalsSum',$weekAnimalsSum,C('CACHE_TIME')['base']);
         }
+
 
         // 当前 最新的
         $newLotteryRecord = $this->lotteryRecord->order('id desc')->getField('id');
