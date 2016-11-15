@@ -3,7 +3,6 @@
          description="{:C('Index')['description']}"/>
 <!-- 头部结束-->
 
-
 <!-- 内容开始 -->
 <block name="main">
     <div id="lhck_index_top"></div>
@@ -32,7 +31,7 @@
                               </if>
                           </volist>
                     </span>
-                    <a href="/diaoyong/" class="view" target="_blank" title="开奖调用">开奖调用</a>
+                    <a href="{:U('')}" class="view" target="_blank" title="开奖记录">开奖记录</a>
                     <a href="/marksix/shipin" class="view" target="_blank" title="观看直播">观看直播</a>
                 </div>
 
@@ -1037,9 +1036,8 @@
             <script type="text/javascript">
                 $(function () {
                    var  $pics = $('.charts-pic').attr('data');
-                    console.log(eval($pics));
                     var data = eval($pics);
-                    console.log(data);
+
                     showChartline("特码走势图", data, function () { return this.x + '期:' + this.y }, 1, 49,false);
                 });
             </script>
