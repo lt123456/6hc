@@ -19,6 +19,7 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+<<<<<<< HEAD
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
@@ -28,11 +29,24 @@
     <option name="SORT_CHILDREN" value="false" />
     <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
   </component>
+=======
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="6hc" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/View/Score/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.75">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#block#2;n#!!top" expanded="true" />
+              </folding>
+=======
     <leaf>
       <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
@@ -40,15 +54,29 @@
             <state vertical-scroll-proportion="-14.068966" vertical-offset="0" max-vertical-offset="4272">
               <caret line="17" column="30" selection-start-line="15" selection-start-column="4" selection-end-line="17" selection-end-column="30" />
               <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.81322956">
+              <caret line="97" column="53" selection-start-line="92" selection-start-column="38" selection-end-line="97" selection-end-column="53" />
+=======
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="32.275864" vertical-offset="936" max-vertical-offset="26160">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="19" />
+=======
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="144">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
               <folding />
             </state>
           </provider>
@@ -57,17 +85,45 @@
       <file leaf-file-name="head.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Home/View/Include/head.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.6426799" vertical-offset="6754" max-vertical-offset="7560">
               <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#li#10;n#ul#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+=======
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="siderbar.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/View/public/siderbar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.0">
+              <caret line="249" column="28" selection-start-line="249" selection-start-column="28" selection-end-line="249" selection-end-column="28" />
+=======
+            <state vertical-scroll-proportion="-6.62069" vertical-offset="288" max-vertical-offset="1224">
+              <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+              <folding />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="PaperController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/PaperController.class.php">
+=======
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/Include/layout.html">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="4.965517" vertical-offset="144" max-vertical-offset="9504">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -76,18 +132,39 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MovieController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/MovieController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="576">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+=======
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/Index/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="-2.75">
+              <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
+=======
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="288">
+              <caret line="0" column="41" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ChartController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ChartController.class.php">
+=======
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/View/Public/base.html">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="576">
               <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
@@ -136,6 +213,7 @@
           </provider>
         </entry>
       </file>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
     </leaf>
   </component>
   <component name="IdeDocumentHistory">
@@ -195,15 +273,24 @@
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
+    <option name="x" value="21" />
+    <option name="y" value="30" />
+    <option name="width" value="1346" />
+    <option name="height" value="681" />
+=======
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -218,8 +305,8 @@
     <OptionsSetting value="true" id="更新" />
     <OptionsSetting value="true" id="状态" />
     <OptionsSetting value="true" id="编辑" />
-    <ConfirmationsSetting value="0" id="添加" />
-    <ConfirmationsSetting value="0" id="移除" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -232,9 +319,19 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+<<<<<<< HEAD
+      <pane id="Scratches" />
+      <pane id="Scope" />
+=======
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -423,11 +520,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="View" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Movie" />
+=======
+<<<<<<< HEAD
+              <option name="myItemId" value="Power" />
+=======
+              <option name="myItemId" value="Controller" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,6 +554,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="View" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -572,10 +677,14 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../API_M5" />
     <property name="FullScreen" value="false" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
     <property name="LayoutCode.rearrangeEntries" value="false" />
+=======
+    <property name="last_opened_file_path" value="F:/API_M5" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -584,20 +693,26 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
       <BehatRunner />
       <method />
     </configuration>
+<<<<<<< HEAD
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+=======
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -607,10 +722,13 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -646,6 +764,58 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="21" y="30" width="1346" height="681" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17518798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0038845728" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866243" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0037313432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19644839" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+=======
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -694,7 +864,12 @@
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0038845728" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -708,11 +883,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
@@ -720,88 +890,228 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.206897" vertical-offset="524" max-vertical-offset="1320">
           <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/DiscussCategory/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Ip/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Ip/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.551723">
+          <caret line="41" column="103" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="103" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/AnimalRecord/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="936" max-vertical-offset="6288">
+          <caret line="45" column="122" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="122" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Common/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-9.931034">
+          <caret line="42" column="103" selection-start-line="42" selection-start-column="103" selection-end-line="42" selection-end-column="103" />
+=======
+        <state vertical-scroll-proportion="-9.931034" vertical-offset="816" max-vertical-offset="4128">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#27#0#PHP" expanded="false" />
+          </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/add.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4920">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.413794">
+=======
+        <state vertical-scroll-proportion="-11.586206" vertical-offset="0" max-vertical-offset="3960">
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/View/Paperlist/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5520">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="28" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.82758623">
+          <caret line="149" column="23" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
+=======
+        <state vertical-scroll-proportion="-1.6551725" vertical-offset="0" max-vertical-offset="4320">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/View/Public/base.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-38.068966" vertical-offset="0" max-vertical-offset="3480">
           <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-5.793103">
+          <caret line="24" column="88" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="88" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="6096">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Think/Cache/Driver/Redis.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-18.724138" vertical-offset="1713" max-vertical-offset="2520">
           <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-19.48276">
+          <caret line="195" column="11" selection-start-line="136" selection-start-column="4" selection-end-line="195" selection-end-column="11" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2328" max-vertical-offset="6144">
+          <caret line="97" column="53" selection-start-line="92" selection-start-column="38" selection-end-line="97" selection-end-column="53" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/SpecialRecordController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="17.37931" vertical-offset="1896" max-vertical-offset="4152">
           <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-3.7586207">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="6041" max-vertical-offset="11136">
+          <caret line="249" column="28" selection-start-line="249" selection-start-column="28" selection-end-line="249" selection-end-column="28" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ZhutieController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-3.310345" vertical-offset="288" max-vertical-offset="3624">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-10.724138">
+          <caret line="87" column="135" selection-start-line="87" selection-start-column="135" selection-end-line="87" selection-end-column="135" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="5760">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/CommentController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1104">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="2.4827585">
+          <caret line="43" column="144" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="144" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="3360">
+          <caret line="14" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="8" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ConfigController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1104">
           <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="63" column="103" selection-start-line="63" selection-start-column="103" selection-end-line="63" selection-end-column="103" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2424" max-vertical-offset="4632">
+          <caret line="101" column="51" selection-start-line="83" selection-start-column="0" selection-end-line="101" selection-end-column="51" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Conf/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2016" max-vertical-offset="4008">
+          <caret line="84" column="71" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/AnimalRecordController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="3284" max-vertical-offset="4152">
           <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-5.1034484">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="5088" max-vertical-offset="5640">
+          <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
@@ -814,123 +1124,289 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Admin/assets/css/fullcalendar.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.5759717" vertical-offset="13714" max-vertical-offset="14280">
           <caret line="585" column="22" selection-start-line="585" selection-start-column="22" selection-end-line="585" selection-end-column="22" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="-55.448277" vertical-offset="0" max-vertical-offset="2520">
+          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Conf/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="868">
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-5.793103">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/TestController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="1507" max-vertical-offset="2352">
           <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="216" max-vertical-offset="1896">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/View/LotteryRecord/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="8424" max-vertical-offset="11472">
           <caret line="366" column="129" selection-start-line="366" selection-start-column="69" selection-end-line="366" selection-end-column="129" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="81.965515">
+          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3288">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Common/Nature.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="6649" max-vertical-offset="7488">
           <caret line="302" column="14" selection-start-line="302" selection-start-column="14" selection-end-line="302" selection-end-column="14" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.551724">
+          <caret line="168" column="36" selection-start-line="165" selection-start-column="25" selection-end-line="168" selection-end-column="36" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="3355" max-vertical-offset="4080">
+          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Mark/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="13008">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="19" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-16.551723">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="792">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Frontend/Web/Scripts/stat.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="35.2" vertical-offset="1080" max-vertical-offset="2040">
           <caret line="1" column="40" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="40" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-14.034483">
+          <caret line="146" column="34" selection-start-line="146" selection-start-column="10" selection-end-line="146" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1080">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Frontend/Web/Scripts/common.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="185.93333" vertical-offset="5770" max-vertical-offset="6576">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="28" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-1.6551725">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="1915" max-vertical-offset="2640">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Frontend/Web/Scripts/feedback.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="1800" max-vertical-offset="5064">
           <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-24.793104">
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2544" max-vertical-offset="4416">
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+          <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Frontend/Web/Scripts/home.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-118.4" vertical-offset="0" max-vertical-offset="6672">
           <caret line="148" column="18" selection-start-line="148" selection-start-column="18" selection-end-line="148" selection-end-column="18" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-16.551723">
+          <caret line="80" column="107" selection-start-line="80" selection-start-column="107" selection-end-line="80" selection-end-column="107" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3168">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Include/footer.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-59.448277" vertical-offset="8068" max-vertical-offset="10824">
           <caret line="408" column="6" selection-start-line="408" selection-start-column="6" selection-end-line="408" selection-end-column="6" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-1.6551725">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="4248">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/BaseController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="792">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="936">
+          <caret line="32" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/FriendController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-16.551723" vertical-offset="648" max-vertical-offset="2592">
           <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-8.275862">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/JokeController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-43.86207" vertical-offset="0" max-vertical-offset="4320">
           <caret line="55" column="9" selection-start-line="44" selection-start-column="0" selection-end-line="55" selection-end-column="9" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-12.413794">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ReplayTieController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-13.24138" vertical-offset="216" max-vertical-offset="2952">
           <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-9.931034">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+=======
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="144">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/MarkController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="3864">
           <caret line="22" column="0" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="106" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/LotteryRecordController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-19.862068" vertical-offset="312" max-vertical-offset="5448">
           <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-13.655172">
+          <caret line="153" column="36" selection-start-line="150" selection-start-column="25" selection-end-line="153" selection-end-column="36" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2088" max-vertical-offset="14112">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
@@ -947,60 +1423,139 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="806">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <marker date="1429693122499" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+          </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-10.75862" vertical-offset="0" max-vertical-offset="1032">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-7.448276">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2304" max-vertical-offset="4080">
+          <caret line="114" column="25" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="25" />
+          <folding>
+            <marker date="1429693122499" expanded="true" signature="-1:-1" placeholder="SELECT sessi..." />
+            <marker date="1429693122499" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1429693122499" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-14.896552" vertical-offset="192" max-vertical-offset="1176">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-10.724138">
+          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Common/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="836">
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-14.068966">
+          <caret line="17" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6240">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Admin/Conf/config.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="1.9655173" vertical-offset="177" max-vertical-offset="984">
           <caret line="5" column="56" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="56" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-14.896552">
+          <caret line="18" column="8" selection-start-line="6" selection-start-column="0" selection-end-line="18" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1176">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/LeitaiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-6.62069" vertical-offset="3528" max-vertical-offset="7200">
           <caret line="155" column="47" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
           <folding />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-8.275862">
+          <caret line="94" column="103" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="103" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6768">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1428983653253" expanded="true" signature="-1:-1" placeholder="select node...." />
+            <marker date="1428983653253" expanded="true" signature="-1:-1" placeholder="select node...." />
+            <marker date="1428983653253" expanded="true" signature="-1:-1" placeholder="select node...." />
+            <marker date="1428983653253" expanded="true" signature="-1:-1" placeholder="select node...." />
+            <marker date="1428983653253" expanded="true" signature="-1:-1" placeholder="select acces..." />
+          </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Leitai/tema.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-27.898306" vertical-offset="13306" max-vertical-offset="15264">
           <caret line="623" column="41" selection-start-line="623" selection-start-column="41" selection-end-line="623" selection-end-column="41" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-4.965517">
+          <caret line="45" column="122" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="122" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2352" max-vertical-offset="6288">
+          <caret line="106" column="42" selection-start-line="106" selection-start-column="42" selection-end-line="106" selection-end-column="42" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Frontend/Web/Scripts/leitai.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-23.333334" vertical-offset="8636" max-vertical-offset="12216">
           <caret line="389" column="45" selection-start-line="389" selection-start-column="45" selection-end-line="389" selection-end-column="45" />
           <folding>
@@ -1012,98 +1567,290 @@
             <marker date="1479014962232" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1479014962232" expanded="true" signature="-1:-1" placeholder="..." />
             <marker date="1479014962232" expanded="true" signature="-1:-1" placeholder="..." />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-9.931034">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#27#0#PHP" expanded="false" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="4056" max-vertical-offset="4320">
+          <caret line="179" column="28" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="28" />
+          <folding>
+            <marker date="1440643666166" expanded="true" signature="-1:-1" placeholder="SELECT sessi..." />
+            <marker date="1440643666166" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1440643666166" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Leitai/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-9.355932" vertical-offset="1272" max-vertical-offset="9096">
           <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-11.586206">
+          <caret line="14" column="8" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="-14.206897" vertical-offset="524" max-vertical-offset="1320">
+          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#1;n#div#1;n#block#0;n#!!top" expanded="false" />
             <element signature="n#ul#0;n#div#1;n#div#1;n#block#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#block#0;n#!!top" expanded="false" />
           </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Include/layout.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-4.137931" vertical-offset="0" max-vertical-offset="288">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="12" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-1.6551725">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="14" selection-end-column="8" />
+=======
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="360">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-14.068966" vertical-offset="0" max-vertical-offset="4272">
           <caret line="17" column="30" selection-start-line="15" selection-start-column="4" selection-end-line="17" selection-end-column="30" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/PaperController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="4.965517" vertical-offset="144" max-vertical-offset="9504">
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4920">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ThinkPHP/Mode/Lite/Controller.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="119.51724" vertical-offset="4546" max-vertical-offset="6552">
           <caret line="53" column="23" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Score/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.75">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#block#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Friend/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="8" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15075377" vertical-offset="0" max-vertical-offset="984">
+          <caret line="5" column="56" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="56" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Movie/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.586206" vertical-offset="0" max-vertical-offset="480">
           <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="51" selection-start-line="83" selection-start-column="0" selection-end-line="101" selection-end-column="51" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.62069" vertical-offset="288" max-vertical-offset="1224">
+          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/MovieController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="576">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ZhutieController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6785714">
+          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="360">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/BaseController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.3103447" vertical-offset="76" max-vertical-offset="912">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/FriendController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.8093386">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Paperlist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5520">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="28" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/ChartController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="576">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/public/siderbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="249" column="28" selection-start-line="249" selection-start-column="28" selection-end-line="249" selection-end-column="28" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Public/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-38.068966" vertical-offset="0" max-vertical-offset="3480">
+          <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Chart/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-11.586206" vertical-offset="0" max-vertical-offset="480">
           <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.03696498">
+          <caret line="84" column="71" selection-start-line="84" selection-start-column="71" selection-end-line="84" selection-end-column="71" />
           <folding />
+=======
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="10704">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#10;n#ul#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/View/Index/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="-2.75">
+          <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="807">
+          <caret line="0" column="41" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="32.275864" vertical-offset="936" max-vertical-offset="26160">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="19" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Agent/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81322956">
+          <caret line="97" column="53" selection-start-line="92" selection-start-column="38" selection-end-line="97" selection-end-column="53" />
+=======
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Include/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.965517" vertical-offset="0" max-vertical-offset="288">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="12" />
+>>>>>>> 32ac90abc917f64836eb3c99644c987654a24db6
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
           <folding />
         </state>
       </provider>

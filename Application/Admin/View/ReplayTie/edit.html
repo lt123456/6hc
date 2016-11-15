@@ -1,0 +1,167 @@
+<extend name="Public/base"/>
+
+<block name="main">
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    回复管理
+                    <small class="active">
+                        <i class="icon-double-angle-right"></i>
+                        修改
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="alert  hide ">
+                <button type="button" class="close" data-dismiss="alert">
+                    <i class="icon-remove"></i>
+                </button>
+
+                <strong>
+                    <i class="icon-remove"></i>
+
+                </strong>
+                <span>Change a few things up and try submitting again.</span>
+
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <form class="form-horizontal" id="signup_form" role="form" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+
+                        <div class="form-group">
+                            <input type="hidden"  name="id" value="{$obj['id']}"/>
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">是否前台展示</label>
+                            <div class="col-sm-9">
+                                <div class="col-xs-3">
+                                        <label>
+                                            <input class="ace" name="is_display" type="radio" value="0" <if condition="$obj['is_display'] eq  0"> checked
+                                        </if>>
+                                            <span class="lbl"> 不前台展示</span>
+                                        </label>
+                                        <label>
+                                            <input class="ace" name="is_display" type="radio" value="1" <if condition="$obj['is_display'] neq  0"> checked
+                                        </if>>
+                                            <span class="lbl"> 前台展示</span>
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">回复总数</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" name="replay_nums" class="col-xs-10 col-sm-5"  value='{$obj.replay_nums}'/>
+                            </div>
+                        </div>
+                        
+                        <div class="space-4"></div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">回复时间</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" id="form-field-1" name="created_at" class="col-xs-10 col-sm-5"  value='{$obj.created_at}'/>
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1">回复内容</label>
+
+                            <div class="col-sm-9">
+                                <textarea name="content" cols="46" rows="10">{$obj.content}</textarea>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+    
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+        {// main}
+
+
+
+</block>
+
+<block name="js">
+    <script type="text/javascript">
+        $('#signup_form').validator({
+            fields: {
+              'content': 'required; content;',
+              'replay_nums': 'required; replay_nums;',
+              'created_at': 'required; created_at;',
+
+            },
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+
+                var me = this;
+                // ajax提交表单之前，先禁用submit
+//                me.holdSubmit();
+                $(form).find('btn-info').css('color', '#999').text('正在提交..');
+                $.ajax({
+                    url: '{:U("ReplayTie/doEdit")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        $(form).find('btn-info').css('color', '#333').text('提交');
+//                        $('#result')
+//                                .fadeIn(300).delay(2000)
+//                                .fadeOut(500, function(){
+//                                    // 直到动画结束，才可以再次提交
+//                                    me.holdSubmit(false);
+//                                    alert(11);
+//                                });
+                        if(d.status =='ok'){
+                            $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-info');
+
+                            $('.alert').find('span').html('修改成功');
+                        }else{
+                            $('.alert').removeClass('hide').removeClass('alert-danger').addClass('alert-danger');
+
+                            $('.alert').find('span').html('已修改,请不要重复提交');
+                        }
+
+                    }
+                });
+
+            }
+        });
+    </script>
+
+</block>

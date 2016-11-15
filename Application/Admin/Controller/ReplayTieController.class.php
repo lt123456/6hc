@@ -18,9 +18,11 @@ class ReplayTieController extends BaseController
     public function index()
     {
         //获取用户查询信息
-        $map = I();
+
+        $map =I();
+      
         // var_dump(I());die;
-        $count = D('discuss_huifu')->where($this->serach($map))->count();
+        $count  = D('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')->where($this->serach($map))->count();
         $page = new  \Think\Page($count, 2);
         if ($this->serach($map)) {
 
@@ -30,27 +32,30 @@ class ReplayTieController extends BaseController
         }
         // 获取
         $discussReplayTies = D('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
-            ->join('__DISCUSS_ZHUTIE__ ON __DISCUSS_HUIFU__.zhutie_id = __DISCUSS_ZHUTIE__.id')
-            ->field('6hc_discuss_zhutie.title as ztitle,6hc_users.username,6hc_discuss_huifu.*')
-            ->order('id desc')
-            ->where($this->serach($map))
-            ->limit($page->firstRow . ',' . $page->listRows)
-            ->select();
+                                                ->join('__DISCUSS_ZHUTIE__ ON __DISCUSS_HUIFU__.zhutie_id = __DISCUSS_ZHUTIE__.id')
+                                                ->field('6hc_discuss_zhutie.title as ztitle,6hc_users.username,6hc_discuss_huifu.*,concat(path,",",6hc_discuss_huifu.id) as paths')
+                                                ->order('paths')
+                                                ->where($this->serach($map))
+                                                // ->limit($page->firstRow.','.$page->listRows)
+                                                ->select();
         $show = $page->show();
-        foreach ($discussReplayTies as $k => $v) {
+        // var_dump($discussReplayTies);die;
+        foreach($discussReplayTies as $k=>$v){
+            $array  = explode(',',$v['path']);
             //获得当前逗号的个数
-            $len = count(explode(',', $v['path'])) - 1;
-            //生成相应的内容
-            $path = explode(',', $v['path']);
-            foreach ($path as $key => $val) {
-                $key = $key + 1;
-                $paths .= '前' . $key . '个回复为id为' . $val . '的回复<br>';
-            }
-            // var_dump($discussReplayTies[$k]['path']);die;
-            //  |-------
-            $discussReplayTies[$k]['path'] = $paths;
-            unset($paths);
+            $len = count(explode(',', $v['path']))-1;
+
+            if ($len && is_array($array)) {
+
+                foreach($array as $key=>$val){
+                     $content = D('discuss_huifu')->find($val);
+                     // var_dump($content);die;
+                      $discussReplayTies[$k]['reply_text'][$val] = str_repeat('|------', $len).$content['content'];
+                }
+        
+           }
         }
+        // var_dump($discussReplayTies);die;
         //分配
         $this->assign('page', $show);
         $this->assign('discussReplayTies', $discussReplayTies);
@@ -75,16 +80,33 @@ class ReplayTieController extends BaseController
 
     }
 
-    //不允许编辑
-    // public function edit()
-    // {
+    public function edit()
+    {
+        $obj =    $this->discussHuifuModel->find(I('get.id'));
 
-    // }
+          if($obj) {
+              $this->assign('obj',$obj);
+              $this->assign('discussReplayTies',$discussReplayTies);
+              $this->display();
+          }else{
+              $this->error('该回复不存在','/Admin/Zhutie',3);
+          }
+    }
 
-    // public function doEdit()
-    // {
+    public function doEdit()
+    {
+        if(IS_POST) {
+            $data = I();
 
-    // }
+            $res = $this->discussHuifuModel->save($data);
+
+            if($res){
+                $this->ajaxReturn(array('status'=>'ok'));
+            }else{
+                $this->ajaxReturn(array('status'=>'error'));
+            }
+        }
+    }
 
     public function  delete()
     {
@@ -108,13 +130,15 @@ class ReplayTieController extends BaseController
             if ($map['type'] == 'title' && isset($map['scontent'])) {
                 $where['title'] = array('like', '%' . $map['scontent'] . '%');
             }
-            if ($map['type'] == 'user_id' && isset($map['scontent'])) {
-                $where['username'] = array('like', '%' . $map['scontent'] . '%');
+
+            if($map['type'] == 'user_id' && isset($map['scontent'])){
+                $where['6hc_users.username'] = array('like','%'.$map['scontent'].'%');
             }
             if ($map['type'] == 'content' && isset($map['scontent'])) {
                 $where['content'] = array('like', '%' . $map['scontent'] . '%');
             }
         }
+       
         return $where;
     }
 }

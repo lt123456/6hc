@@ -142,6 +142,7 @@
                                                 </switch>
                                             </td>
 
+<<<<<<< HEAD
                                             <td>{$discussReplayTie.replay_nums}个回复</td>
                                             <td>{$discussReplayTie.content|mb_substr=0,8,'utf-8'}</td>
                                             <td>{$discussReplayTie.path}</td>
@@ -158,6 +159,40 @@
 
                                                     <a href="javascript:;" class="red del-confirm" title="Delete"
                                                        data-id="{$discussReplayTie['id']}">
+=======
+                                                <!-- <td>{$discussReplayTie.title}</td> -->
+                                                <td>{$discussReplayTie.id}</td>
+                                                <td>{$discussReplayTie.username}</td>
+                                                <td>{$discussReplayTie.ztitle}</td>
+                                                <td>
+                                                    <switch name="discussReplayTie.is_display">
+                                                        <case value="pending"></case>
+                                                        <case value="1"><span class="label label-lg label-pink arrowed-right">显示</span></case>
+                                                        <case value="0"><span class="label label-lg label-black arrowed-right">不显示</span></case>
+                                                        <default /><span class="label label-lg label-red arrowed-right">错误的属性</span>
+                                                    </switch>
+                                                </td>
+                                               
+                                                <td>{$discussReplayTie.replay_nums}个回复</td>
+                                                <td>{$discussReplayTie.content|mb_substr=0,8,'utf-8'}</td>
+                                                <td>
+                                               
+                                                    <foreach name="discussReplayTie.reply_text" item="text">
+                                                        {$text}
+                                                    </foreach>
+                                            
+                                                <td></td>
+                                                <td class="center discuss_content"><i class="icon-folder-open"></i> <span class="dis_content" style="display:none;">{$discussReplayTie.content}</span></td>
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                    <a class="blue" href="#">
+                                                        <i class="icon-zoom-in bigger-130"></i>
+                                                    </a>
+                                                    <a class="green" href="{:U('ReplayTie/edit/',array('id'=>$discussReplayTie['id']))}">
+                                                        <i class="icon-pencil bigger-130"></i>
+                                                    </a>
+                                                    <a href="javascript:;" class="red del-confirm"  title="Delete" data-id="{$discussReplayTie['id']}">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
                                                         <i class="icon-trash bigger-130"></i>
                                                     </a>
                                                 </div>
@@ -178,9 +213,20 @@
                                                                 </a>
                                                             </li>
                                                             <li>
+<<<<<<< HEAD
                                                                 <a href="javascript:;" class="tooltip-error del-confirm"
                                                                    data-rel="tooltip" title="Delete"
                                                                    data-id="{$discussReplayTie['id']}">
+=======
+                                                                <a href="{:U('ReplayTie/edit/',array('id'=>$discussReplayTie['id']))}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <span class="green">
+                                                                        <i class="icon-edit bigger-120"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;" class="tooltip-error del-confirm" data-rel="tooltip" title="Delete" data-id="{$discussReplayTie['id']}">
+>>>>>>> ce246b35cd1b0f0f1b19e11f4eef127ca94857dd
                                                                     <span class="red">
                                                                         <i class="icon-trash bigger-120"></i>
                                                                     </span>

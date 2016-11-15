@@ -592,11 +592,7 @@ li {
     text-align:center;
 	height:30px;
 }
-.paginator .w_58
-{
-    width:58px;
-}
-a.pagelink {
+.paginator a {
 	display: block;
 	height: 28px;
 	width: 27px;
@@ -609,7 +605,7 @@ a.pagelink {
 	border:solid 1px #e1e1e1;
 }
 
-a.nolink {
+.paginator span.current {
 	display: block;
 	height: 28px;
 	width: 27px;
@@ -623,9 +619,13 @@ a.nolink {
 	border:solid 1px #ea5d39;
 }
 
-a.pagelink:hover {
+.paginator a.num:hover {
 	background-color: #ea5d39;
 	color:#fff;
+}
+a.first,a.end,a.prev,a.next
+{
+    width:58px;
 }
 
 

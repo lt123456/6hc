@@ -16,6 +16,7 @@ class LoginController extends Controller
      */
     public function  login()
     {
+
         $this->display();
 
     }
@@ -29,7 +30,7 @@ class LoginController extends Controller
         $data = I();
 
         // 验证码匹配
-//        $this->checkVeify($data['verify']);
+       $this->checkVeify($data['verify']);
 
         // 验证用户名密码
         $this->checkAdmin($data);
