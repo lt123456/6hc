@@ -1,0 +1,86 @@
+<include file="Include:head" title="{:C(Discuss)['discusstitle']}" keywords="{:C(Discuss)['keywords']}" description="{:C('Discuss')['description']}"/>
+
+
+
+<block name="main">
+<link href="{:C('PUBLIC_PC')}/Css/forum.css" rel="stylesheet" type="text/css">
+<div id="exchange">
+    <div class="exchange_wrap">
+        <div class="articles" style="float: right;">
+            <div class="article">
+                <table class="table">
+                    <tbody>
+                    	<tr class="head2">
+	                        <td class="h_title">
+	                            <a class="cur t" href="{:U('Discuss/space',array('id'=>$_GET['id']))}">默认</a>
+	                             <a class=" t" href="{:U('Discuss/space',array('order'=>'lastest','id'=>$_GET['id']))}">最新</a>
+	                        </td>
+	                        <td class="td_120">
+	                            作者
+	                        </td>
+	                        <td class="time">
+	                            回复/阅读
+	                        </td>
+	                        <td class="td_120">
+	                            最后发表
+	                        </td>
+	                    </tr>
+	                    <?php if(empty($discussZhuties)){?>
+						<tr class="odd last">
+                            <td colspan="5">
+                                暂无交流帖子
+                            </td>
+                        </tr>
+	                    <?php } ?>
+	                    <volist name="discussZhuties" id="discussZhutie">
+	                    <tr class='odd '>
+	                            <td style="font-weight:normal;">
+	                                    <img src="{:C('PUBLIC_PC')}/Picture/discuss_up.png" />
+	                                <a class="title" href="{:U('Discuss/details',array('id'=>$discussZhutie['id']))}" style="color:#000000" title="{$discussZhutie.title}">[{$discussZhutie.name}]{$discussZhutie.title}</a>
+	                            </td>
+	                            <td>
+	                                {$discussZhutie.username}<em>{$discussZhutie.created_at|substr=5,11}</em>
+	                            </td>
+	                            <td>
+	                                <div class="post">{$discussZhutie.replay_nums}</div>
+	                                <em>{$discussZhutie.read_nums}</em>
+	                            </td>
+	                            <td>
+	                            <?php $huifu = M('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
+	                                                              ->where('zhutie_id='.$discussZhutie['id'])->order('6hc_discuss_huifu.created_at desc')->field('6hc_users.username as name,6hc_discuss_huifu.created_at as time')->find();
+	                                    
+	                            ?>
+
+	                                <div class="name">{: empty($huifu) ? $discussZhutie['username']  : $huifu['name']}</div>
+	                                    <em>{: empty($huifu) ? substr($discussZhutie['created_at'],5,11)  : substr($huifu['time'],5,11)}</em>
+	                            </td>
+	                        </tr>
+	                        </volist>
+                        </tr>
+                	</tbody>
+                </table>
+                <div class="fast_nav" style="padding-left: 10px;">
+                <?php if(empty($discussZhuties)){?>
+                        <div class="paginator" style="margin-bottom: 10px; margin-top: 20px;"><div>  <span class="current">1</span></div></div>
+	            <?php } ?>
+                	<div class="paginator" style="margin-bottom: 10px; margin-top: 20px;">{$page}</div>
+                </div>
+            </div>
+        </div>
+          <div class="exchange_space">
+            <div class="member_head">
+                <img src="http://resck.56hx.com/themes/default/images/member_head.png" alt="">
+            </div>
+            <div class="member_name">{$userdetail.username}</div>
+             <div class="member_time">(最后登录时间：{$userdetail.last_login_time})</div>
+            <ul class="member_menu">
+                <li>
+                    <a href="{:U('Discuss/space',array('id'=>$_GET['id']))}" class="cur">他的主题</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</block>
+<include file="Include:footer"/>

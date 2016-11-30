@@ -286,7 +286,7 @@
         var verify = $('input[name="rverify"]').val();
         if(doverify(name, pass, verify)) {
             if (pass != rpass) {
-                $.dialog.alert("提示",'两次密码输入不一致!');
+                $.dialog.alert('两次密码输入不一致!');
                 return false;
             };
             $.post('/login/signup', {name: name, pass: pass, verify: verify}, function (data) {
@@ -303,15 +303,15 @@
     function doverify(name,pass,verify){
          var reg = /^[0-9a-zA-Z\u4e00-\u9fa5]{5,12}$/;
         if( !reg.test(name)){
-            $.dialog.alert("提示","用户名最短5位，最长12位，请使用英文字母、数字和'_ee'或者汉字");
+            $.dialog.alert("用户名最短5位，最长12位，请使用英文字母、数字和'_ee'或者汉字");
             return false;
         }
         if(pass==''){
-            $.dialog.alert("提示",'请输入密码');
+            $.dialog.alert('请输入密码');
             return false;
         }
         if(verify==''){
-        $.dialog.alert("提示",'请输入验证码');
+        $.dialog.alert('请输入验证码');
         return false;
         }
         return true;
@@ -520,8 +520,10 @@
     $(function () {
         var urlstr = location.href;
         var   urlstatus = false;
-        $('.nav-open').click(function(){
-               $(this).attr('class','cuk');
+       $('.nav-open').click(function(){
+
+           alert('111');
+
        });
 
     });

@@ -34,7 +34,7 @@
         <div class="rightLogin" id="unsignin">
 
             <?php if($_SESSION['login']['uid']) { ?>
-              <span><a style="cursor:pointer;font-weight:bold;color:green; " href="{:U('Member/index')}">{$Think.session.login.username}</a></span>
+              <span><a style="cursor:pointer;font-weight:bold;color:green; " class="name">{$Think.session.login.username}</a></span>
               <span class="line">|</span>
             <span><a style="cursor:pointer;" class="logout">退出</a></span>
             <span class="line">|</span>

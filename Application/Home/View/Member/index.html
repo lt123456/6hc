@@ -1,0 +1,107 @@
+<!-- 头部-->
+<include file="Include:head" title="{:C(Index)['title']}" keywords="{:C(Index)['keywords']}"
+         description="{:C('Index')['description']}"/>
+<!-- 头部结束-->
+<link href="{:C('PUBLIC_PC')}/Css/usercenter.css" rel="stylesheet">
+
+
+<!-- 内容开始 -->
+<block name="main">
+    <div class="body-content">
+        <div id="member-info">
+            <div class="base-info">
+                <a href="http://www.6hck.co/uc/index" class="member-head">
+                    <img src="{:C('PUBLIC_PC')}/Images/head.jpg" alt="">
+                    <b></b>
+                </a>
+            </div>
+
+            <p class="update-info">
+                <a href="javascript:UpdateInfo(&#39;info&#39;);">更改资料</a>|<a href="javascript:UpdateInfo(&#39;password&#39;);">修改密码</a>
+            </p>
+            <p class="update-info" style="margin-bottom: 10px; border-top: 0px;">
+                <a href="javascript:UpdateInfo(&#39;bindmail&#39;);">绑定邮箱</a>|<a href="javascript:UpdateInfo(&#39;bindphone&#39;);">手机激活
+            </a>
+            </p>
+
+
+            <ul id="nav">
+                <li>
+                    <a href="javascript:void(0);" class="my-extend">我的</a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Member/post')}">我的主题</a>
+                        </li>
+                        <li>
+                            <a href="{:U('Member/feedback')}">我的反馈</a>
+
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="member-active">
+
+            <div class="use-operate">
+                <h4>常用操作</h4>
+                <div class="info" style="height:100px;">
+                    <dl class="dl1" data="dl1">
+                        <dt>
+                            <a href="javascript:UpdateInfo(&#39;info&#39;);">修改个人资料</a>
+                        </dt>
+                        <dd>
+                            资料越详细越能丰富我们的数据库，让我们更了解您的需求。
+                        </dd>
+                    </dl>
+                    <dl class="dl2" data="dl2">
+                        <dt>
+                            <a href="javascript:UpdateInfo(&#39;password&#39;);">修改密码</a>
+                        </dt>
+                        <dd>
+                            密码是您在本站操作的唯一凭证。<br>
+                            <a href="javascript:UpdateInfo(&#39;password&#39;);">修改登录密码</a>
+                        </dd>
+                    </dl>
+                    <dl class="dl3" data="dl3">
+                        <dt>
+                            <a href="javascript:UpdateInfo(&#39;bindmail&#39;);">邮箱绑定</a>
+                        </dt>
+                        <dd>
+                            绑定邮箱，可以获得更多服务哦！当您忘记密码，也可通过绑定的邮箱找回。
+                        </dd>
+                    </dl>
+                    <dl class="dl4" data="dl4">
+                        <dt>
+                            <a href="javascript:UpdateInfo(&#39;bindphone&#39;);">手机激活</a>
+                        </dt>
+                        <dd>
+                            激活您的手机，您将可以在交流大厅和志同道合的朋友畅所欲言。
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</block>
+
+<script type="text/javascript" src="{:C('PUBLIC_PC')}/Scripts/member.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        document.documentElement.style.webkitTouchCallout = 'none';
+    };
+    var isActivate = "True";
+    $(function () {
+        if (isActivate == "False" && "1" == 2) {
+            UpdateInfo('bindphone');
+        }
+
+    });
+
+</script>
+
+<include file="Include:footer"/>
+<!-- 头部结束-->

@@ -1,0 +1,54 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+
+<div id="lhck_joke_top"></div>
+<div id="lhck_joke_menu_ad_lf" class="ad_small_banner"></div>
+<div class="clear"></div>
+<div id="guess">
+    <h1 class="name2">图片猜测</h1>
+    <a href="/joke/joke_list/type/pic" style="margin-top: -25px; float: right;" target="_blank">更多>></a>
+    <div class="guess_content">
+        <ul class="lhc_joke_index">
+         	<volist name="jokePic" id="pic">
+            <li>
+            	<a href="/joke/info/jokeid/{$pic.id}" target="_blank">
+	                <img src="{$pic.image.mini}" alt="第{$pic.lottery.periods}期幽默猜测" />
+	                <div>
+	                    第{$pic.lottery.periods}期幽默猜测
+	                </div>
+	            </a>
+            </li>
+            </volist>
+        </ul>
+        <div class="clear">
+        </div>
+
+    </div>
+
+    <div>
+        <h1 class="name2">视频猜测</h1>
+        <a href="/joke/joke_list/type/movie" style="margin-top: -25px; float: right;" target="_blank">更多>></a>
+    </div>
+
+    <div class="guess_content">
+        <ul class="lhc_joke_index">
+         	<volist name="jokeMovie" id="movie">
+            <li>
+	            <a href="/joke/info/jokeid/{$movie.id}" target="_blank">
+	                <img src="{$movie.image.mini}" alt="第{$movie.lottery.periods}期视频猜测" />
+	                <div>
+	                    第{$movie.lottery.periods}期视频猜测
+	                </div>
+	            </a>
+            </li>
+            </volist>
+        </ul>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+   
+
+</block>

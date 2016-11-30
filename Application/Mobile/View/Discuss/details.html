@@ -1,0 +1,381 @@
+
+<include file="Include:head" title="{:C(Discuss)['subjecttitle']}" keywords="{:C(Discuss)['keywords']}" description="{:C('Discuss')['description']}"/>
+
+
+<block name="main">
+<link href="{:C('PUBLIC_PC')}/Css/forum.css" rel="stylesheet" type="text/css">
+<link href="{:C('PUBLIC_PC')}/Css/promotion.css" rel="stylesheet" type="text/css">
+<link href="/Public/Admin/validator/jquery.validator.css"  rel="stylesheet">
+<script type="text/javascript" src="/Public/Admin/validator/jquery.validator.js"></script>
+<script type="text/javascript" src="/Public/Admin/validator/local/zh-CN.js"></script>
+
+<div id="exchange">
+	<div id="lhck_discuss_post_top"></div> 
+    <div id="lhck_discuss_post_leftright" class="ad_small_banner" style="margin-top:-15px;"></div> 
+    <div class="clear"></div> 
+
+	<div class="head2">
+
+	    <div class="nav">
+	        <a href="/">首页</a> > <a href="/discuss">交流大厅</a>  > {$discussZhutie.title}
+	    </div>
+	    <a href="#reply" class="a2">回复</a>
+	    <a href="/discuss/subject" class="a1" onclick="javascript:return (!member.userLogined||(member.userLogined&&checkPhoneActivate()));">发新帖</a>
+	    <p>
+	        [ 查看：<span>{$discussZhutie.read_nums}</span> | 回复：<span>{$discussZhutie.replay_nums}</span>
+	        ]
+	    </p>
+	</div>
+
+
+
+	<div class="subject_wrap">
+		<div class="nav">
+            <span><a href="{:U('Discuss/index')}"><< 返回列表</a>
+            </span>
+            <?php $id = $_GET['id']; $next = M('discuss_zhutie')->field('id')->where("id >".$id)->find();?>
+                <a href="{: empty($next) ? '#'  : '/Discuss/details/?id='.$next['id']}" class="next">{: empty($next) ? '无主题'  : '下一篇'}</a>
+            <div class="split">
+                |
+            </div>
+               <?php $id = $_GET['id']; $prev = M('discuss_zhutie')->field('id')->where("id <".$id)->order('id desc')->limit('1')->find();?>
+                <a href="{: empty($prev) ? '#'  : '/Discuss/details/?id='.$prev['id']}" class="pre">{: empty($prev) ? '无主题'  : '上一篇'}</a>
+        </div>
+
+	
+		<div class="clear">
+	    </div>
+
+	    <div>
+	        <h1>[{$discussZhutie.name}] {$discussZhutie.title}
+	        </h1>
+	        <div class="owner">
+	            <input type="checkbox"  id="select_owner_post"/>只看楼主
+	        </div>
+		</div>
+
+
+		<div class="clear">
+        </div>
+
+        <div class="owner_title">
+            <div class="info">
+                <span class="name" id="creator"><a href="#" target="_blank">{$discussZhutie.username}</a></span> <span class="owner" title="楼主">&nbsp;</span>
+                                    <span>发表于：</span> <span class="time">{$discussZhutie.created_at}</span>
+
+            </div>
+            <div class="floor">
+            原帖
+            </div>
+        </div>
+
+
+        <div class="owner_content">{$discussZhutie.description}</div>
+
+        <div class="agree_disagree">
+            <a href="javascript:void(0)" id="agree" style="margin-left: 220px;" discuzz-id ="{$discussZhutie.z_id}"  >{$discussZhutie.agree_nums}</a>
+            <div id="duide">(对错勿怪，请多鼓励)</div>
+            <div id="divLhhzLink">
+                <span style="float: left;">
+                    <img src="{:C('PUBLIC_PC')}/Picture/zan2.png" /></span>
+                <span style="float: left; padding-left: 10px;">
+                    <a style="display: none" target="_blank" href="#">天阿！你难道发现了我？这一定是命运的安排阿。</a>
+                    <a style="display: none" target="_blank" href="#">曾道人天天都用我参透玄机，你还等什么？</a>
+                    <a style="display: none" target="_blank" href="#">拥有我之后，再也不怕登不上六合彩库了。</a>
+                    <a style="display: none" target="_blank" href="#">你知道什么是错过吗？就像你看到我却不点一下我。</a>
+                    <a style="display: none" target="_blank" href="#">究竟是何方神物让白小姐兴奋不已？</a>
+                    <a style="display: none" target="_blank" href="#">拥有我之后，再也不会错过每一次搅珠直播了。</a>
+                    <a style="display: none" target="_blank" href="#">听说，很多彩友下载我之后运气都旺起来了。</a>
+                    <a style="display: none" target="_blank" href="#">拥有我之后，即可用最快的速度访问六合彩库。</a>
+                    <a style="display: none" target="_blank" href="#">兄台，相见是缘，进来吧，尚且赠你一物造化。</a>
+                    <a style="display: none" target="_blank" href="#">自从下载了它，腰不疼腿不酸，特码也开始中了。</a>
+                </span>
+            </div>
+            <script>
+                $(function () {
+                    if ($("#divLhhzLink a").length > 0) {
+                        $("#divLhhzLink a").eq(Math.floor(Math.random() * $("#divLhhzLink a").length)).show();
+                    }
+                });
+            </script>
+        </div>
+
+
+        <div class="clear"></div>
+
+        <div class="fast_send">
+	        <form action="" id="kshuifu">
+	            <input type="text" class="text" id="quick_reply_txt" name="content"/>
+	            <input type="text" id="captcha" name="verify" style="width: 50px; height: 28px; float: left; margin-left: 10px; line-height: 28px;" />
+	            <img class="img_change" style="cursor: pointer;width:60px;height: 23px;display:block;float:left;" alt="验证码" src="{:U('Discuss/verify',array())}" />
+	            <button class="ksbutton">快速回复楼主</button>
+	       	</form>
+        </div>
+
+
+        <div class="clear">
+        </div>
+
+        <ul class="news" id="lhck_discuss_post_text">
+        	<volist name="sixs" id="six">
+                <li class="l"><a href="{:U('Discuss/details',array('id'=>$six['id']))}" target="_blank">{$six.title}</a> </li>
+            </volist>
+        </ul>
+        <div class="clear">
+            </div>
+
+        <div class="shck_mobileGames"></div>
+
+
+        <div id="reply_list">
+        <?php empty($_GET['p']) ? $p = 0 :$p = $_GET['p']-1;$floornums = '1' + $p * '6';?>
+        	<volist name="discussHuifus" id="discussHuifu">
+			<div class="owner_title">
+                <div class="info">
+                    <span class="name"><a href="#" target="_blank">{$discussHuifu.username}</a></span>
+                    <span>发表于：</span> <span class="time">{$discussHuifu.created_at}</span>
+                </div>
+                <div class="floor">
+
+                    <?php echo $floornums++;?>楼
+                </div>
+                    <a class="del replay_owner loginbtn" data="{$discussHuifu.id}">{$discussHuifu.id}回复</a>
+            </div>
+
+            <div class="u_content">
+                <pre id="pre_p_15040071">{$discussHuifu.content}</pre>
+
+                <?php   $where = array('path' => array('like',$discussHuifu['id'].'%'));
+                	    $huifu = M('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
+                                                   ->where($where)
+                                                   ->group('path')
+                                                   ->order('6hc_discuss_huifu.created_at')
+                                                   ->field('6hc_users.username as name,6hc_discuss_huifu.created_at as time,pid,content')
+                                                   ->select();
+						if($huifu){
+                ?>
+                <div class="replay_cont replay_15040071" style="">
+                    <h2>用户回复</h2>
+                    <div class="clear">
+                    </div>
+                    <ul>
+                    <?php foreach($huifu as $v){?>
+                        <li>
+                            <div class="c">
+                                <a class="n"><?= $v['name']?> </a> 
+								<?php if($discussHuifu['id'] != $v['pid']){
+								$thuifu = M('discuss_huifu')->join('__USERS__ ON __DISCUSS_HUIFU__.user_id = __USERS__.id')
+								                            ->where('6hc_discuss_huifu.id='.$v['pid'])
+								                            ->field('username')
+								                            ->find(); ?>
+                                <pre id="reply_pre_p_813756"><span>回复</span><a><?= $thuifu['username'];?></a>: <?= $v['content']?></pre>
+                                <?php } ?>
+                            </div>
+                            <div class="t">
+                                <span>2<?= $v['time']?></span><a class="replay_button loginbtn">回复</a>
+                            </div>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <?php }?>
+			</div>
+			</volist>
+			<div class="fast_nav" style="padding-left: 10px;">
+	            <div class="paginator" style="margin-bottom: 10px; margin-top: 20px;">
+	                  {$page}
+	            </div>
+            </div>
+			<div id="send_wrap">
+				<form action="/Discuss/addZhutie" method="post">
+			            <select id="topictags" name="category_id">
+			                <option value="-1" selected="selected">-请选择主题-</option>
+			                <volist name="discussCategorys" id="discussCategory">
+			                    <option value="{$discussCategory.id}">{$discussCategory.name}</option>
+			                </volist>
+			            </select>         
+			            <input type="text" class="caption" name="title" placeholder="请填写主题标题" id="topic_caption" maxlength="30"  />
+			            <input type="hidden" class="caption" name="user_id" value="2"  />
+			            <div class="clear"></div>
+			            <?php if($_GET['abc'] != 1){ ?>
+			           
+			            <div class="un_login">
+			                <textarea cols="90" rows="15" id="topic_content" placeholder="请填写主题内容"></textarea>
+			                <p id="un_login_txt">
+			                    
+			                您需要登录后才可以发帖：<a href="javascript:void(0);" id="clientlogin">登录</a>|<a href="/SSO/Register">注册</a></p>
+			            </div>
+
+			            <?php }else{?>
+			            <div class="textarea">
+			                 <textarea cols="100" rows="15" name="description" placeholder="请填写主题内容"></textarea>
+			            </div>
+			            <?php }?>
+			            <div class="send">
+			                <div class="face_cont"></div>
+			                <!-- <a class="face" container="topic_content">添加表情</a> -->
+			                <p style="padding-left:10px;margin-top:8px; float:left;" >
+			                    <span style="float:left;line-height:24px;">发帖请遵守“<a href="#" target="_blank">六合彩库交流大厅用户协议</a>”不得违反国家法律法规！ </span>        
+			                    <input type="text" id="captcha" name="verify" style="width: 80px;height: 20px;float:left;display:block;margin-right:10px;"/>
+			                    <img id="imgcaptcha" class="img_change" style="cursor: pointer;width:60px;height: 23px;display:block;float:left;" alt="验证码" src="{:U('Discuss/verify')}"   />
+			                </p>
+			                <button type="submit" class="button" value='发帖' id="submit" <?php echo ($_GET['abc'] != '1') ? 'disabled="disabled"' : ''; ?>>提交</button>
+			            </div>
+	        	</form>
+        	</div>
+        </div>
+    </div>
+</div>
+ <script type="text/javascript">
+    jQuery(function($) {
+        $.extend({
+            changeVerify : function()
+            {
+                var url = $('.img_change').attr('src');
+                if (url.indexOf('?') > 0) {
+                    url = url.substr(0, url.indexOf('?'));
+                }
+                url = url + '?' + parseInt(Math.random()*10);
+                $('.img_change').attr('src', url);
+            },
+
+            sub : function(obj)
+            {
+                var obj = $(obj);
+
+                $.ajax({
+                    type : 'post',
+                    url : obj.attr('action'),
+                    data : obj.serialize(),
+                    success : function(response)
+                    {
+                        if (response.code > 0) {
+                            window.location.href=response.url;
+                        } else {
+                            alert(response.msg);
+                        }
+
+                        $.changeVerify();
+                    }
+                });
+
+                return false;
+            }
+
+        });
+
+
+        $('.img_change').click(function() {
+            $.changeVerify();
+        })
+    })
+
+    //只看楼主
+	// $("#select_owner_post").bind("click", function () {
+	//             var url = location.href.replace(/[?|&]isowner=\d/, "");
+	//             if ($(this).attr("checked")) {
+	//                 if (url.indexOf("?") > 0) {
+	//                     url += "&";
+	//                 } else {
+	//                     url += "?";
+	//                 }
+	//                 location.href = url + "isowner=1";
+	//             } else {
+	//                 location.href = url.replace(/[?|&]isowner=\d/, "");
+	//             }
+	//         });
+
+	//发帖
+    $('#signup_form').validator({
+
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+
+                var me = this;
+
+                $.ajax({
+                    url: '{:U("Discuss/addZhutie")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        if(d.status =='ok'){
+                            alert('发帖成功');
+                        }else if(d.status =='false'){
+                            alert('暂时无法发帖');
+                        }else if(d.status =='method'){
+                            alert('提交方式有误');
+                        }else if(d.status =='description'){
+                            alert('没有输入内容');
+                        }else if(d.status =='yzm'){
+                            alert('验证码错误')
+                        }else{
+                            alert('刷新页面发帖');
+                        }
+                    }
+                });
+
+            }
+        })
+
+	//点赞
+	$('#agree').click(function() {
+  
+
+            	var id = $(this).attr('discuzz-id');
+               $.ajax({
+                    url: '{:U("Discuss/addAgree")}',
+                    type: 'post',
+                    data: {"id":id},
+                    dataType: 'json',
+                    success: function(d){
+                        if(d.status =='ok'){
+                        	alert('点赞成功');
+                        	var agree = $('#agree').html();
+                        	agree = parseInt(agree) + 1;
+                        	// alert(agree);
+                        	$('#agree').text(agree);
+                        }else{
+                        	alert('点赞失败')
+                        }
+                    }
+        		})
+           });
+
+	//快速回复
+	$('.ksbutton').click(function(){
+		var a = $('#quick_reply_txt').val();
+		if(a == ""){
+			alert('请输入回复内容');
+			return false;
+		}
+		$('#kshuifu').validator({
+
+            // 表单验证通过后，ajax提交
+            valid: function(form){
+                var me = this;
+                $.ajax({
+                    url: '{:U("Discuss/addHuifu")}',
+                    type: 'post',
+                    data: $(form).serialize(),
+                    dataType: 'json',
+                    success: function(d){
+                        if(d.status =='ok'){
+                            alert('回复成功');
+                        }else if(d.status =='yzm'){
+                            alert('验证码错误')
+                        }else if(d.status =='cs'){
+                            alert('测试位置')
+                        }else{
+                            alert('回复失败');
+                        }
+                    }
+                });
+
+            }
+        })
+		
+	})
+</script>
+</block>
+<include file="Include:footer"/>

@@ -1,0 +1,55 @@
+<extend  name="Member:include"  title="我的资料" />
+
+<block name="content">
+    <div class="page-position">
+        <a href="{:U('Member/info')}" class="infomation-cur"></a>
+        <a href="{:U('Member/password')}" class="safetycenter"></a>
+        <a href="{:U('Member/email')}" class="mailcenter"></a>
+        <a href="{:U('Member/phone')}" class="phonecenter"></a>
+    </div>
+    <div class="clear"></div>
+    <form action="{:U('Member/updateinfo')}" class="updateform" id="updateform" method="post" onsubmit="return false;">
+        <ul class="member-box">
+            <li>
+                <label>姓名：</label>
+                <input class="ui_input" name="member.realname" type="text" id="realname" maxlength="12" value="">
+            </li>
+            <li>
+                <label>性别：</label>
+                <input type="radio" style="margin-left:25px;" name="member.gender" value="男">男
+                <input type="radio" name="member.gender" value="女">女
+            </li>
+            <li>
+                <label>手机：</label>
+                <label>18203414626</label>
+                <!--  <input class="ui_input" name="member.mobilephone" type="text" id="mobilephone" value="18203414626"   readonly="true"/>-->
+            </li>
+            <!-- <li>
+                 <label>邮箱：</label>
+                 <input class="ui_input" name="member.email" type="text" id="email" value="31231231@qq.com"/>
+             </li>-->
+            <li style="display:none;">
+                <label>生日：</label>
+                <input class="ui_input date" name="member.birthdate" type="text" id="birthdate" value="">
+            </li>
+        </ul>
+        <button type="submit" class="button" id="btnUpdate" style="width:200px; height:30px; margin-left:100px;">确认修改</button>
+        <input type="hidden" name="ajaxhandler" value="save">
+    </form>
+    <script language="JavaScript" type="text/javascript">
+        jQuery('form').jValidate({
+            blurvalidate: true,
+            isbubble: true,
+            oncompleted: function (form) {
+                jQuery(form).ajaxPost(function (result) {
+                    if (result.success) {
+                        alert("修改成功。");
+                    } else {
+                        alert(result.message);
+                    }
+                });
+                return false;
+            }
+        });
+    </script>
+</block>

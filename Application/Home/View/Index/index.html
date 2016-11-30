@@ -31,8 +31,8 @@
                               </if>
                           </volist>
                     </span>
-                    <a href="{:U('')}" class="view" target="_blank" title="开奖记录">开奖记录</a>
-                    <a href="/marksix/shipin" class="view" target="_blank" title="观看直播">观看直播</a>
+                    <a href="{:U('mark/index')}" class="view" target="_blank" title="开奖记录">开奖记录</a>
+                    <a href="{:U('Movie/index')}" class="view" target="_blank" title="观看直播">观看直播</a>
                 </div>
 
                 <table class="numbers">
@@ -97,14 +97,14 @@
                 <ul id="lhck_home_index_text">
                     <volist name="discuzRecomm" id="recomm" >
                         <li>
-                            <a href="{$recomm.id}" target="_blank">&#183;{$recomm.title}</a>
+                            <a href="{:U('/Discuss/details',array('id'=>$recomm['id']))}" target="_blank">&#183;{$recomm.title}</a>
                         </li>
                     </volist>
                 </ul>
             </div>
             <div class="history">
                 <div class="title">
-                    <span>往期历史</span> <a href="/marksix/history" target="_blank">更多>></a>
+                    <span>往期历史</span> <a href="{:U('Mark/index')}" target="_blank">更多>></a>
                 </div>
                 <table class="table" style="float: left;">
                     <tr>
@@ -318,7 +318,7 @@
                                      <li class="huise">
                                 </if>
                                       <span class="left">
-                                          <a href="/leitai?memberId=2343421#m{$special.id}" target="_blank">{$special.username}</a>
+                                          <a href="{:U('Leitai/index',array('memberId'=>$special['id']))}" target="_blank">{$special.username}</a>
                                   </span>
                                   <span class="center">
  {$special.periods_id}期
@@ -360,7 +360,7 @@
                                 <li class="huise">
                             </if>
                                       <span class="left">
-                                          <a href="/leitai?memberId=2343421#m" target="_blank">{$animal.username}</a>
+                                          <a href="{:U('Leitai/tema',array('memberId'=>$special['id']))}" target="_blank">{$animal.username}</a>
                                   </span>
                                   <span class="center">
  {$animal.periods_id}期
@@ -976,7 +976,7 @@
             <div class="recomend">
                 <div class="title">
                     <span>专家推荐</span>
-                    <a href="/zhuanjia" class="more" target="_blank">更多>></a>
+                    <a href="{:U('Discuss/index',array('order'=>'expert'))}" class="more" target="_blank">更多>></a>
                 </div>
                 <div class="wrap">
 
@@ -984,11 +984,11 @@
                         <volist name="expertDiscuss" id="discuzz" key="key">
                             <li>
                                 <span>{:date('m-d',strtotime($discuzz['created_at']))}</span>
-                                <a href="/zhuanjia/info/1720?memberid=47687{$discuzz['id']}" target="_blank">
+                                <a href="{:U('Discuss/details',array('id'=>$discuzz['id']))}" target="_blank">
                                     {$discuzz.title}
 
                                 </a>
-                                <label><a href="/discuss/space/{$discuzz['u_id']}" target="_blank">{$discuzz.username}</a></label>
+                                <label><a href="{:U('Discuss/space',array('id'=>$discuzz['u_id']))}" target="_blank">{$discuzz.username}</a></label>
                             </li>
                         </volist>
 

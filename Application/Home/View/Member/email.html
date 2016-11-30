@@ -1,0 +1,130 @@
+<extend  name="Member:include"  title="我的资料" />
+
+<block name="content">
+    <div class="page-position">
+        <a href="{:U('Member/info')}" class="infomation"></a>
+        <a href="{:U('Member/password')}" class="safetycenter"></a>
+        <a href="{:U('Member/email')}" class="mailcenter-cur"></a>
+        <a href="{:U('Member/phone')}" class="phonecenter"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="web_bodyContent">
+        <div class="web_tipsCons">
+            <div class="web_tipsBlock">
+
+                <div class="web_phoneTips">註冊手機:
+                       <span>
+                           <label>18203414626</label>
+                             <span class="active">已激活</span>
+                       </span>
+                </div>
+
+            </div>
+
+            <div class="web_submitBlock"></div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("#btn-edit").on("click", function () {
+            $("#phoneinput").show();
+            $("#phonelabel").hide();
+        });
+        $("#btn-submit").on("click", function () {
+            var phone = $("#text-phone").val();
+            if (phone == "") {
+                $("#msg").text("請填寫真实手機號碼。");
+                $rMobilePhone.focus();
+                return false;
+            }
+            else if (phone.length != 11) {
+                $("#msg").text("手機號碼格式錯誤。");
+                $rMobilePhone.focus();
+                return false;
+            }
+            $("#msg").text("").show();
+            $.post("?", { "ajaxhandler": 'save', 'phone': phone }, function (data) {
+                if (data && data.success == true) {
+                    $("#lbl-phone").text(phone);
+                    $("#phoneinput").hide();
+                    $("#phonelabel").show();
+                    $("#msg").text("修改成功").fadeOut(3000);
+                } else {
+                    if (data.message) {
+                        $("#msg").text(data.message);
+                    } else {
+                        $("#msg").text("請填寫真实手機號碼！");
+                    }
+                }
+            }, 'json');
+            return false;
+        });
+
+        //var timer = null;
+        //function checkState() {
+        //    if ($("#text-phone").val() == "") {
+        //        $("#msg").text("請填寫真实手機號碼。");
+        //        return;
+        //    }
+        //    $("#tiptxt").show();
+        //    $.post("?", { "ajaxhandler": 'check','id':2449190 }, function (data) {
+        //        if (data && data.success == true) {
+        //            //$(".unactive").text("已激活").removeClass("unactive").addClass("active");
+        //            //$(this).unbind("click").css({ 'background': '#ccc' });
+        //            //if (timer) clearTimeout(timer);
+        //            self.location.reload(false);
+        //        }
+        //    }, 'json');
+        //    $(this).unbind("click").css({ 'background': '#ccc' });
+        //    timer = setTimeout(function () { $("#btn-check").bind("click", checkState).css({ 'background': '#ff0000' });   $("#tiptxt").hide();}, 30000);
+        //}
+
+        var smsSendInterval = 0;
+        var smsSendTimer = null;
+        function smsCountDown() {
+            if (smsSendInterval <= 0) {
+                if (smsSendTimer != null) clearInterval(smsSendTimer);
+                $("#btn_sendcode").removeClass("sc_again").val("重新發送");
+                return;
+            }
+            smsSendInterval = smsSendInterval - 1;
+            $("#btn_sendcode").addClass("sc_again").val(smsSendInterval + "秒後重發");
+        }
+
+        $("#btn_sendcode").bind("click", function () {
+            if ($(this).attr("class").indexOf("sc_again") > 0) return;
+            if (smsSendInterval > 0) {
+                return;
+            }
+            if (smsSendTimer != null) clearInterval(smsSendTimer);
+            smsSendInterval = 120;
+            smsSendTimer = setInterval(smsCountDown, 1000);
+            $.post("?", { "ajaxhandler": "sendcode" }, function (result) {
+                if (result.success) {
+                } else {
+                    smsSendInterval = 0;
+                    alert(result.message);
+                }
+            }, 'json');
+        });
+
+        $("#btn_active").bind("click", function () {
+            var code = $("#validCode").val();
+            if (code == "" || code.length < 6) {
+                alert("請輸入6位數字驗證碼");
+                return;
+            }
+            $.post('?', {
+                "ajaxhandler": 'active',
+                "code": code,
+            }, function (result) {
+                if (result.success) {
+                    alert("激活成功");
+                    self.location.reload(true);
+                } else {
+                    alert(result.message);
+                }
+            }, 'json');
+        });
+    </script>
+</block>

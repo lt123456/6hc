@@ -1,0 +1,495 @@
+﻿@import "base.css";
+@import "headandfoot.css";
+body{
+	text-align:center;
+	font-size:12px;
+    background-color:#F4F4F4;
+	color:#1d1d1d;
+}
+.body-content
+{
+    margin:0 auto;
+    text-align:left;
+    background-color:#F4F4F4;
+}
+/*会员资料*/
+#member-info
+{
+    float:left;
+    width:198px;
+    background-color:#fff;
+    border:solid 1px #D3D2D2;
+    text-align:left;
+}
+#member-info .base-info
+{
+    height:155px;
+    padding:20px 25px;
+}
+#member-info .base-info .member-head
+{
+    padding-left:2px;
+}    
+#member-info .base-info .member-head b
+{
+    margin-top:10px;
+    display:block;
+    text-align:center;
+}
+#member-info .base-info img
+{
+    border:solid 1px #D3D2D2; 
+    width:140px;
+    height:140px;
+}
+#member-info .coin-info
+{
+    margin-bottom:10px;
+    padding-left:20px;
+}
+#member-info .coin-info span
+{
+    margin-right:5px;
+}
+#member-info .coin-info .yellow
+{
+    color:#e64d25;
+}
+#member-info .update-info
+{
+    margin-bottom:10px;
+    padding-left:20px;
+    width:165px;
+    height:40px;
+}
+#member-info .update-info .info,
+#member-info .update-info .password
+{
+    background:url(../Images/home-button.png) no-repeat;
+}
+#member-info .update-info .info,#member-info .update-info .password
+{
+    width:68px;
+    text-align:center;
+    color:#474747;
+    height:22px;
+    display:block; 
+    float:left;   
+    line-height:22px;
+}
+#member-info .update-info .password
+{
+    float:right;
+}
+#member-info ul
+{
+    height:400px;
+}
+#member-info ul li
+{
+    width:100%;
+    height:40px;
+    border-top:dashed 1px #D3D2D2; 
+}
+#member-info ul li a
+{
+    display:block;
+    margin-left:15px;
+    padding-left:35px;
+    line-height:44px;
+}
+#member-info ul li a:hover
+{
+    color:#e64d25;
+    font-weight:bold;
+}
+#member-info ul li .my-csj
+{
+    background:url(../images/home-home.png) 7px 11px no-repeat;
+}
+#member-info ul li .my-info
+{
+    background:url(../images/home-info.png) 7px 11px no-repeat;
+}
+#member-info ul li .my-extend
+{
+    background:url(../images/home-my.png) 7px 11px no-repeat;
+}
+#member-info ul li .task
+{
+    background:url(../images/home-task.png) 7px 11px no-repeat;
+}
+#member-info ul li .system-message
+{
+    background:url(../images/home-message2.png) 7px 13px no-repeat;
+}
+#member-info ul li ul
+{
+    height:150px; 
+    margin-top:-10px; 
+}
+#member-info ul li ul li
+{
+    height:30px;
+    border-top:0px;     
+}
+/*右侧*/
+#member-active
+{
+    float:right;
+    width:790px;
+}
+#member-active .ad-cont
+{
+    width:790px;
+    height:255px;
+}
+#member-active .ad-cont img
+{
+    width:790px;
+    height:255px;
+}
+/*常用操作*/
+.use-operate
+{
+    margin:20px 0px;
+}
+.use-operate h4,.recommend-browse h4
+{
+    display:block;
+    height:20px;
+    font-size:14px;
+    color:#2a292a;
+    border-bottom:solid 1px #2a292a;
+    text-align:left;
+}
+.use-operate .info {
+    height: 200px;
+}
+.use-operate .info dl
+{
+    width: 200px;
+    height: 75px;
+    padding-left: 85px;
+    float: left;
+    margin-top:30px; 
+}
+.use-operate .info .dl1 
+{
+    margin-left: 60px;
+    background: url(../images/home-update-info.png) no-repeat;
+}
+.use-operate .info .dl1-cur
+{
+    background: url(../images/home-update-info-cur.png) no-repeat;
+}
+.use-operate .info .dl2 {    
+    margin-left: 60px;
+    background: url(../images/home-update-password.png) no-repeat;
+}
+.use-operate .info .dl2-cur
+{
+    background: url(../images/home-update-password-cur.png) no-repeat;
+}
+.use-operate .info .dl3 {
+    margin-left: 60px;
+    background: url(../images/home-fund.png) no-repeat;
+}
+.use-operate .info .dl3-cur
+{
+    background: url(../images/home-fund-cur.png) no-repeat;
+}
+.use-operate .info .dl4 {
+    margin-left: 60px;
+    background: url(../images/home-task2.png) no-repeat;
+}
+.use-operate .info .dl4-cur 
+{
+    background: url(../images/home-task-cur.png) no-repeat;
+}
+.use-operate .info dt a{
+    font-size: 14px;
+    font-weight:bold;
+    display:block;
+    color: #2a292a;
+    margin-bottom:9px;
+}
+.use-operate .info dt a:hover
+{
+    color:#b30000;    
+}
+.use-operate .info dd{
+    line-height: 23px;
+    color:#292929;
+    width:200px;
+}
+.use-operate .info dd a
+{
+    color:#e64d25;
+}
+.use-operate .info dd a:hover
+{
+    text-decoration:underline;
+}
+/*推荐浏览*/
+.recommend-browse
+{
+    margin-top:20px;
+}
+.recommend-browse ul
+{
+    margin-top:30px;
+}
+.recommend-browse ul li
+{
+    float:left;
+    margin-left:60px;
+    margin-right:22px;
+}
+.recommend-browse ul li a
+{
+    display:block;
+}
+.recommend-browse ul li b
+{
+    display:block;
+    margin-top:10px;
+    text-align:center;
+}
+/*我的网址*/
+.home-position
+{
+    border-bottom:solid 1px #cccccc;
+    line-height:30px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+.add-category
+{
+    display:block;
+    margin-bottom:20px;
+    background:url(../images/bookmark-addsite.png) #F3F3F3 15px 10px no-repeat;
+    padding-left:30px;
+    line-height:32px;
+    width:70px;
+    height:30px;
+    font-weight:bold;
+    border:solid 1px #cccccc;
+    color:#666666;
+}
+.add-category:hover
+{
+    border:solid 1px #2AA224;
+    background-color:#2AA224;
+    color:#fff;
+}
+.bookmark-content {
+    width: 100%;
+}
+.bookmark-content li {
+    border: solid 1px #cccccc;
+    margin-bottom: 20px;
+}
+.bookmark-content li .head {
+    height: 32px;
+    line-height: 30px;
+    width: 100%;
+    background-color:#F3F3F3;
+    border-bottom: solid 1px #cccccc;
+}
+.bookmark-content li .head .link
+{
+    float:left;
+    line-height:32px;
+}
+.bookmark-content li .name {
+    background: url(../images/bookmark-title.png) 8px 7px no-repeat;
+    height: 32px;
+    line-height:32px;
+    width: 100px;
+    margin-left: 7px;
+    padding-left: 27px;
+    float: left;
+    font-weight:bold;
+    color:#666666;
+}
+.bookmark-content li .add {
+    background: url(../images/bookmark-addsite.png) 10px 10px no-repeat;
+    height: 32px;
+    margin-left: 512px;
+    _margin-left: 500px;
+    line-height:32px;
+    padding-left: 25px;
+    float: left;
+}
+.bookmark-content li .cont {
+    padding: 30px;
+    background-color: #fff;
+}
+.bookmark-content li .modify {
+    background: url(../images/bookmark-edit.png) 10px 9px no-repeat;
+    height: 32px;
+    margin-left: 5px;
+    padding-left: 27px;
+    line-height: 32px;
+    float: left;
+}
+.bookmark-content li .delete {
+    background: url(../images/bookmark-delete.png) 10px 8px no-repeat;
+    height: 32px;
+    margin-left: 5px;
+    padding-left: 30px;
+    line-height: 32px;
+    float: left;
+}
+.bookmark-content li .cont a {
+    padding: 5px;
+    background: url(../images/ie-logo.png) 7px no-repeat;
+    float: left;
+    width: 197px;
+    height: 35px;
+    padding-left: 38px;
+    display: block;
+    border: solid 1px #fff;    
+    margin-bottom:10px;
+    text-align: left;
+}
+.bookmark-content li .cont a:hover {
+    border: solid 1px #cccccc;
+    color: #2aa224;
+    background: url(../images/ie-logo-cur.png) #F3F3F3 7px no-repeat;
+}
+.bookmark-content li .modify_url {
+    background: url(../images/bookmark-edit-site.png) no-repeat;
+    height: 10px;
+    width: 10px;
+    float: right;
+    display: none;
+}
+.bookmark-content li .delete_url {
+    margin-left: 10px;
+    margin-top:2px;
+    background: url(../images/bookmark-delete-site.png) no-repeat;
+    height: 9px;
+    width: 10px;
+    float: right;
+    display: none;
+}
+/*个人资料、安全中心*/
+.page-position
+{
+    margin-bottom:20px;
+    padding-left:30px;
+    margin-top:15px;
+    height:115px;
+    border-bottom:solid 1px #2A2A2A;
+}
+.page-position .infomation
+{
+    background: url(../images/home-infomation.png) no-repeat;
+    width: 80px;
+    height: 102px;
+    float: left;
+    display:block;
+}
+.page-position .infomation-cur
+{
+    background: url(../images/home-infomation-cur.png) no-repeat;
+    width: 80px;
+    height: 102px;
+    float: left;
+    display:block;
+}
+.page-position .safetycenter
+{
+    margin-left:30px;
+    background: url(../images/home-safetycenter.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+.page-position .safetycenter-cur
+{
+    margin-left:30px;
+    background: url(../images/home-safetycenter-cur.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+.page-position .mailcenter
+{
+    margin-left:30px;
+    background: url(../images/home-mailcenter.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+.page-position .mailcenter-cur
+{
+    margin-left:30px;
+    background: url(../images/home-mailcenter-cur.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+.page-position .phonecenter
+{
+    margin-left:30px;
+    background: url(../images/home-phonecenter.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+.page-position .phonecenter-cur
+{
+    margin-left:30px;
+    background: url(../images/home-phonecenter-cur.png) no-repeat;
+    width:79px;
+    height: 104px;
+    float: left;
+    display:block;
+}
+
+.member-box
+{
+    margin-left:30px;
+}
+.member-box li
+{
+    margin-bottom:25px;
+}
+/*table*/
+.lot-table
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom:15px;
+}
+.lot-table caption
+{
+}
+.lot-table .head
+{    
+    height: 40px;
+    background-color: #ECECEC;
+}
+.lot-table td {
+    border: solid 1px #CCCCCC;
+    height: 37px;    
+}
+.lot-table .head td
+{
+}
+.lot-table .odd {
+    background-color: #fff;
+    font-size:13px;
+}
+.lot-table .even {
+    background-color: #F9F9F9;
+    font-size:13px;
+}

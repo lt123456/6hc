@@ -1,0 +1,133 @@
+<extend name="Include/layout"  title="6hc"/>
+
+<block name="main">
+<!-- -->
+<div id="lhc_paper_top"></div>
+<div id="lhc_paper_leftright" class="ad_small_banner"></div>
+<div class="clear"></div>
+<div id="paper">
+    <div class="search_content">
+        <form action="/paper/search" method="get">
+            <input type="text" name="keyword" class="text keyword2" placeholder="请输入您要查找的图纸名称..." />
+            <input type="submit" class="button" value="搜索"/>
+        </form>
+        <div class="clear"></div>
+        <div class="hot_search">
+            <span>热门搜索：</span>
+            <foreach name="hot_terms" item="terms" >  
+                <a href="/paper/search?keyword={$key}">{$key}</a>
+            </foreach>
+        </div>
+    </div>
+	<div class="enjoy" style="margin-bottom: 30px; float: left; clear: left; width:100%;">
+        <div class="enjoy_title">
+            热门图纸
+        </div>
+        <ul style="margin-top: 10px;">
+         	<volist name="hot_papers" id="hot">
+	            <li>
+	                <a href="/paper/view/id/{$hot.id}" target="_blank">
+	                    <img src="{$hot.cut_pic}" alt="{$hot.name}" title="{$hot.name}">
+	                    <div>{$hot.name}</div>
+	                </a>
+	            </li>
+			</volist>
+			<div class="clear"></div>
+        </ul>
+        <div style="height: 141px; overflow: hidden;">
+            <a style="margin-left:14px;" href="http://soft.1396z.com/ckbd/?f=low" target="_blank"><span id="_xhe_cursor"></span><img src="__PUBLIC__/Frontend/Web/Images/6hc_paper_list.jpg" alt="" /><span id="_xhe_cursor"></span></a>
+        </div>
+    </div>
+    <div class="paper_list">
+        <h1>六合彩图纸列表</h1>
+        <span class="warn">注意：最新一期未更新的图纸名称颜色为<span style="color: #999;"> 灰色</span>！</span>
+        <div class="clear"></div>
+    </div>
+    <div class="letters">
+        <a data="all" onclick="choice('ALL')" class="cur">所有</a>
+		<volist name="spells" id="spell">
+        	<a data="{$spell}" onclick="choice('{$spell}')">{$spell}</a>
+		</volist>
+    </div>
+    <div style="padding-left: 20px; margin: 5px 0px; border: solid 1px #FED22F; background-color: #FFF0A5; height: 25px; line-height: 25px; color: #0089FF;">
+        温馨提醒：点击图纸第一个字的拼音首字母，即可快速查找图纸，如：跑狗图，点击上方字母 P ,香港正挂挂牌，点击字母 X
+    </div>
+    <table class="paper_table">
+	<volist name="spells" id="spell">
+    	<tr data="{$spell}" id="{$spell}">
+            <td class="name">
+               {$spell}
+            </td>
+            <td class="paper">
+    		<volist name="papers" id="paper">
+                <if condition="$paper.spell eq $spell">
+            		<a href="/paper/view/id/{$paper.id}" <if condition="$paper.is_newest eq 0">class="old"</if> target="_blank" >{$paper.name}</a>
+                </if>
+			</volist>
+            </td>
+        </tr>
+    </volist>
+    </table>
+    <div id="lhc_paper_foot"></div>    
+    <div id="lhc_paper_index_foot_lf" class="ad_small_banner"></div>
+    <div class="clear"></div>
+</div> 
+<div class="clear"></div>
+
+<!--用户反馈-->
+<div class="web_pagePos">
+   <div class="pageForm">
+      <div class="pageFormList">
+         <ul>
+            <li>
+                <span class="select_span">
+                <span class="select">请选择意见反馈类型</span>
+	                <span class="option">
+	                   <a class="optionA" onclick="setFeedbackType(1);">网站优化建议</a>
+	                   <a class="optionA" onclick="setFeedbackType(2);">商务合作</a>
+	                   <a class="optionA" onclick="setFeedbackType(3);">其他相关问题</a>
+	                </span>
+                </span>
+              	<input type="hidden"  id="feedbacktype" name="feedbacktype"  value=""/>
+            </li>
+            <li>
+                <textarea name="" id="postContent" class="textarea" maxlength="500">您的反馈内容</textarea>
+            </li>
+            <li><input name="contact" value="您的联系方式(QQ、手机或邮箱)" type="text" class="input"/></li>
+            <li style="padding:0;">
+                <input name="" value="提交" type="submit"  class="submit"/>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="pagePen"></div>
+   <div class="pageFanY pageFanSmall btnUserFeedback" title="用户反馈"></div>
+   <div class="pageFanBg pageBgSmall" title="用户反馈"></div>
+</div>
+<script type="text/javascript" src="Scripts/fbloginframe.js"></script>
+<script>
+    $(document).ready(function (e) {
+
+        if (/ckbd/i.test(navigator.userAgent) || /Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+            try {
+                $(".web_pagePos").hide();
+            } catch (e) {
+            }
+        }
+    });
+
+    //点击A-Z 下面的变换
+    function choice(type){
+    	if(type=='ALL'){
+    		$('#A').show();
+    		$('#A').siblings().show();
+    	}else{
+    		$('#'+type).show();
+    		$('#'+type).siblings().hide();
+    	}
+    }
+
+</script>
+   
+
+</block>

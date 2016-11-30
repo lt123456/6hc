@@ -1,0 +1,631 @@
+<!-- 头部-->
+<include file="Include:head" title="{:C(Index)['title']}" keywords="{:C(Index)['keywords']}"
+         description="{:C('Index')['description']}"/>
+
+<block name="main">
+
+    <link href="{:C(PUBLIC_PC)}/Css/leitai.css" rel="stylesheet" type="text/css"></link>
+    <link href="{:C(PUBLIC_PC)}/Css/animate.min.css" rel="stylesheet" type="text/css">
+    <div style="margin-top: 6px;">
+        <a href="http://soft.1396z.com/ckbd/" target="_blank">
+            <img src="{:C(PUBLIC_PC)}/Picture/adtaoliao.png" /></a>
+    </div>
+    <!--主體部分:包括主題,控件,十二生肖,主要數據(用戶排名,我的數據)-->
+    <div id="main">
+        <div class="control_bar">
+            <div id="m" name="m"></div>
+            <div class="user_control">
+                <ul>
+                    <li>
+                        <a class="active" href="javascript:;" style="color: #fff;">擂台</a>
+                    </li>
+                    <li>
+                        <a href="/leitai/sxzb/">生肖榜</a>
+                    </li>
+                    <li>
+                        <a href="/leitai/hmzb/">号码榜</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="weekList">
+            <span class="weekListCenter" style="width: 400px;">
+                    <span class="qishu">第{$nextPeriods.periods}期</span>
+
+                <a href="/leitai" class="tui_01">推特肖</a>
+                <a href="/leitai/tema/" class="tui_02">推特码</a>
+            </span>
+            </div>
+            <div class="drawlist" style="position: relative;">
+                <a id="aSelectPeriod" name="aSelectPeriod" href="javascript:;" class="gameExplanation">游戏说明</a>
+                <div class="draw_content">
+                    <ol>
+                        <li>一、基本規则：<br />
+                            1、只有本站注册用户才能参加本站模拟购彩；<br />
+                            2、用户通过在该板块推荐特肖、特码，在开出結果后，系统判断用户所推荐之号码是否正确，如果正确则获胜，累计胜率最高者进入排行榜。</li>
+                        <li>二、玩法規则：<br />
+                            1、推特肖，用户每次选择推荐最多4个生肖，生肖中出现当期特肖开奖结果的为中奖；<br />
+                            2、推特码，用户每次可以选择最多6個号码，号码中出现当期特码开奖结果的为中奖；<br />
+                            3、每次活动的封盘時间為开奖前30分钟；<br />
+                            4、封盘后无法推荐，待上期开奖結果出来后，可重新进行推荐；<br />
+                            5、本活动胜率计算公式为：中奖期数/参与期数=最终胜率。</li>
+                        <li>* 排行榜规则详情请进入排行榜中查看</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="twl_zodiac" style="float: left; clear: left; width: 998px;">
+            <h4>
+                <span class="addFloatLeft">选择号码<strong>{$nextPeriods.year} 第{$nextPeriods.periods} 期</strong></span>
+                <span class="addFloatRight">离下次开奖时间还有：<strong id="leftTime">{:((strtotime($nextPeriods['lottery_time']) -time())/3600)}</strong></span>
+
+            </h4>
+
+            <!--推號碼-->
+            <ul class="t_num" style="float: left; clear: left;">
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">01</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">02</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">03</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">04</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">05</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="green_ball">06</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">07</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">08</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">09</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">10</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">11</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">12</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">13</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">14</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">15</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">16</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">17</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">18</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">19</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">20</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">21</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">22</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">23</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">24</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">25</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">26</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">27</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">28</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">29</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">30</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">31</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">32</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">33</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">34</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">35</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">36</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">37</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">38</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">39</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">40</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">41</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">42</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">43</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">44</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">45</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="blue_ball">46</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">47</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="green_ball">48</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:;">
+                        <span class="red_ball">49</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <p style="display: block; padding: 10px 0 20px 0; clear: left;">
+                <span class="js_notice2">您已选择了<b id="selectCount">0</b>/6个号码</span>
+                <span class="js_notice3" style="display: block; padding: 10px 0 0 0;">
+                    <a href="javascript:;" id="numSubmit" class="sx_submit hover">提交</a>
+                    <a href="javascript:;" class="reset">重设</a>
+                </span>
+
+            </p>
+        </div>
+        <div id="contrs" style="clear: left;">
+            <p class="sel selectPeriod" style="padding-left: 0px">
+                <a href="javascript:;" class="sel_btn">全部期数<i></i></a>
+            <span>
+                <a href="javascript:;" value="0">全部期数</a>
+               <volist name="periods" id="period">
+                   <if condition="$key eq 0">
+                       <a href="javascript:;" value="{$period.id}">第{$period.periods}期 (未开奖)</a>
+                       <else/>
+                       <a href="javascript:;" value="{$period.id}">第{$period.periods}期 </a>
+                   </if>
+               </volist>
+            </span>
+                <input type="hidden" id="searchPeriod" value="0" />
+            </p>
+            <p class="sel selectResult">
+                <a href="javascript:;" class="sel_btn">全部状态<i></i></a>
+            <span>
+                <a href="javascript:;" value="-1">全部状态</a>
+                <a href="javascript:;" value="0">未开奖</a>
+                <a href="javascript:;" value="2">未中奖</a>
+                <a href="javascript:;" value="1">已中奖</a>
+            </span>
+                <input type="hidden" id="searchResult" value="-1" />
+            </p>
+            <p>
+                <input class="enteryourname" type="text" placeholder="请输入用戶名" id="searchUser" />
+                <input type="hidden" id="searchUserId" value="0" />
+            </p>
+            <p>
+                <input type="hidden" id="searchYear" value="2016" />
+                <a class="sbm" href="javascript:;" id="searchBtn">确定</a>
+            </p>
+            <p class="ckb">
+                <b class="checkbox" id="searchCurrent"></b>
+                <label>只看本期</label>
+            </p>
+            <p class="ckb">
+                <b class="checkbox" id="searchMine"></b>
+                <label>只看我的</label>
+            </p>
+        </div>
+        <div id="main_data">
+            <div class="order_f" id="lt_tbl_wrap">
+                <table id="historyTable">
+                    <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td style="width: 110px;">时间</td>
+                        <td style="width: 76px;">期数</td>
+                        <td style="width: 160px;">推荐号码</td>
+                        <td style="width: 106px;">状态</td>
+                        <td style="width: 76px;">中奖期数</td>
+                        <td style="width: 76px;">参与期数</td>
+                        <td style="width: 70px;">胜率</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="animals" id="animal" key="key">
+                        <?php $num = $key%2;?>
+                        <if condition="$num eq 0 ">
+                            <tr>
+                                <else/>
+                            <tr class="odd">
+
+                        </if>
+                        <td><span class="membername" memberid="{$animal.MemberId}">{$animal.MemberName}</span></td>
+                        <td><span><time>{$animal.BetDate}&nbsp;&nbsp;{$animal.BetTime}</time></span></td>
+                        <td><span>第{$animal.Period}期</span></td>
+                        <td>
+                            <span>{$animal.BetTarget}</span>
+                        </td>
+                        <td>
+                            <switch name="animal.ResultText" >
+                                <case value="已中奖"><span class="result_1"></case>
+                                <case value="未中奖"><span class="result_2"></case>
+                                <case value="待开奖"><span class="result_0"></case>
+                            </switch>
+                            {$animal.ResultText}
+
+                            </span>
+                        </td>
+                        <td><span>{$animal.QuarterWinCount}</span></td>
+                        <td><span>{$animal.QuarterBetCount}</span></td>
+                        <td><span>{$animal.WinRateOfYear}</span></td>
+                        </tr>
+
+                    </volist>
+                    </tbody>
+                </table>
+
+                <!--分頁-->
+                <div class="holder paginator" style="-moz-user-select: none; float: none;">
+                    <script type="text/javascript">
+                        $(function(){
+                            $(".paginator").append(rebuildPage(1, {$pages}));
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="mydata">
+                <div class="rightBorder">
+
+                    <table class="tbl_review">
+                        <thead>
+                        <tr>
+                            <td colspan="2">
+                                <span><b class="bigFont">我的数据</b><strong>(推号码)</strong></span>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="first_child bottomLine">
+                            <td class="lt">号码胜率：</td>
+                            <td class="rt"><span class="tr_num blackFont">--</span></td>
+                        </tr>
+                        <tr class="bottomLine">
+                            <td class="lt">中奖期数：</td>
+                            <td class="rt"><span class="tr_num blackFont">--</span></td>
+                        </tr>
+                        <tr class="bottomLine">
+                            <td class="lt">参与期数：</td>
+                            <td class="rt"><span class="tr_num blackFont">--</span></td>
+                        </tr>
+                        <tr class="bottomLine">
+                            <td class="lt">总 排 名：</td>
+                            <td class="rt"><span class="tr_num blackFont">--</span></td>
+                        </tr>
+                        <tr class="bottomLine">
+                            <td class="lt">本周排名：</td>
+                            <td class="rt">--</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="rightBorder">
+                    <h5 class="powerRankings">号码实力榜</h5>
+                    <table class="tbl_zl tbl_zl2">
+                        <thead>
+                        <tr>
+                            <td style="width: 100px;">ID</td>
+                            <td style="width: 40px;">胜率</td>
+                            <td style="width: 30px; line-height: 22px;">参与期数</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2271496">
+
+
+kiki9595                        </span>
+                                <span class="arrow redTop" style="margin:10px 0 0 5px;"></span></td>
+                            <td>66.67%</td>
+                            <td><span>6</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="779104">
+
+
+最高手在民间                        </span>
+                                <span class="arrow blackRight" style="margin:10px 0 0 5px;"></span></td>
+                            <td>50.00%</td>
+                            <td><span>8</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2090647">
+
+
+龙在上天                        </span>
+                                <span class="arrow greenBottom" style="margin:10px 0 0 5px;"></span></td>
+                            <td>44.44%</td>
+                            <td><span>9</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="9855">
+
+
+zhao1953                        </span>
+                                <span class="arrow greenBottom" style="margin:10px 0 0 5px;"></span></td>
+                            <td>37.50%</td>
+                            <td><span>8</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="653734">
+
+
+最佳状态                        </span>
+                                <span class="arrow redTop" style="margin:10px 0 0 5px;"></span></td>
+                            <td>33.33%</td>
+                            <td><span>6</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2015263">
+
+
+樱花秀才                        </span>
+                                <span class="arrow redTop" style="margin:10px 0 0 5px;"></span></td>
+                            <td>33.33%</td>
+                            <td><span>6</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2408069">
+
+
+爱上西雅图                        </span>
+                                <span class="arrow redTop" style="margin:10px 0 0 5px;"></span></td>
+                            <td>33.33%</td>
+                            <td><span>6</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2096652">
+
+
+XD18D                        </span>
+                                <span class="arrow redTop" style="margin:10px 0 0 5px;"></span></td>
+                            <td>33.33%</td>
+                            <td><span>6</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="392913">
+
+
+ryfjl                        </span>
+                                <span class="arrow greenBottom" style="margin:10px 0 0 5px;"></span></td>
+                            <td>25.00%</td>
+                            <td><span>8</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <span class="tr_num blackFont membername" style="cursor: pointer; width: 72px;overflow:hidden;white-space:nowrap;padding:0 0 0 2px;" memberid="2298374">
+
+
+一一点点点                        </span>
+                                <span class="arrow greenBottom" style="margin:10px 0 0 5px;"></span></td>
+                            <td>25.00%</td>
+                            <td><span>8</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="rightBorder" style="margin: 20px 0 10px 0;">
+                    <h5>热门工具推荐：</h5>
+                    <table class="tbl_tools">
+                        <tbody>
+                        <tr>
+                            <td align="left"><a href="/tema/8#chart">特码走势</a></td>
+                            <td align="right"><a href="/tema/2#chart">特码遗漏</a></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><a href="/danma/1#chart">单码热门</a></td>
+                            <td align="right"><a href="/stat/shengxiao#chart">生肖对照表</a></td>
+                        </tr>
+                        <tr>
+                            <td align="left"><a href="/stat/shengxiaodistribut#chart">生肖遗漏</a></td>
+                            <td align="right"><a href="/stat/historyperiod#chart">历史同期开奖</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="/tema/1" class="more">更多>></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var betPeriod= {$nextPeriods.id};
+        var betType=1;
+        var periodBetval="";//记录结果
+    </script>
+    <script src="{:C('PUBLIC_PC')}/Scripts/stat.js" language="JavaScript"></script>
+    <script src="{:C('PUBLIC_PC')}/Scripts/leitai.js" type="text/javascript"></script>
+</block>
+<include file="Include:footer"/>
