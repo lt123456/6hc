@@ -152,7 +152,7 @@
                             </if>
                         <br />
                         下一篇：
-                            <if condition="empty($adjacent.next)">
+                            <if condition="$adjacent.next">
                                 <a href="/joke/info/778">第{$adjacent.next.periods}期幽默猜测</a>
                             <else/>
                                 无
